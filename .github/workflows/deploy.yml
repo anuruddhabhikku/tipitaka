@@ -10,29 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Prepare html folder structure
-        run: |
-          # Move everything into an html folder
-          mkdir -p html
-          # Move all files and folders into html, except .git and .github
-          shopt -s extglob
-          mv !(.git|.github) html/ 2>/dev/null || true
-          mv .nojekyll html/ 2>/dev/null || true
-          
-      - name: Create root redirect index.html
-        run: |
-          cat > index.html << 'EOF'
-          <!DOCTYPE html>
-          <html>
-          <head>
-              <meta http-equiv="refresh" content="0; url=./html/" />
-          </head>
-          <body>
-              <p>Redirecting to <a href="./html/">Tipitaka</a></p>
-          </body>
-          </html>
-          EOF
-          
+         
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
