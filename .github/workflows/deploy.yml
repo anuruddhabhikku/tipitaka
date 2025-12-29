@@ -10,10 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-         
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          branch: gh-pages
-          folder: ./
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # This is the crucial change
+          publish_dir: ./html
+          # This ensures old files are removed
+          keep_files: false
