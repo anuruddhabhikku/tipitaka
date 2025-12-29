@@ -10,17 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Create html folder structure
-        run: |
-          # Create a temporary directory with html folder
-          mkdir -p deploy/html
-          # Copy all files to html folder
-          cp -r * deploy/html/ || true
-          cp -r .* deploy/html/ || true
-          
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy with html folder
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          branch: gh-pages
-          folder: deploy
-          clean: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          destination_dir: html  # This creates html folder in gh-pages
