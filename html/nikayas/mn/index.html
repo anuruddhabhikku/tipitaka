@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majjhima Nikāya - Tipiṭaka</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="nikaya-header">
+            <a href="../index.html" class="back-link">← Back to Main</a>
+            <h1>Majjhima Nikāya</h1>
+        </header>
+
+        <div class="vagga-list">
+
+            <div class="vagga-item">
+                <div class="vagga-header-clickable" onclick="toggleVagga('mn-1')">
+                    <h3>Mūlapariyāyavagga (Vagga 1)</h3>
+                    <span class="expand-icon" id="icon-mn-1">▶</span>
+                </div>
+                <div class="sutta-list" id="mn-1-suttas" style="display: none;">
+
+                    <a href="../suttas/mn1_mūlapariyāyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Mūlapariyāyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_sabbāsavasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Sabbāsavasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_dhammadāyādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Dhammadāyādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_bhayabheravasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Bhayabheravasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_anaṅgaṇasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Anaṅgaṇasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_ākaṅkheyyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Ākaṅkheyyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_vatthasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Vatthasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_sallekhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Sallekhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_sammādiṭṭhisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Sammādiṭṭhisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_mahāsatipaṭṭhānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Mahāsatipaṭṭhānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_cūḷasīhanādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Cūḷasīhanādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_mahāsīhanādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Mahāsīhanādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_mahādukkhakkhandhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Mahādukkhakkhandhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_cūḷadukkhakkhandhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Cūḷadukkhakkhandhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_anumānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Anumānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_cetokhilasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Cetokhilasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_vanapatthasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Vanapatthasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_madhupiṇḍikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Madhupiṇḍikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_dvedhāvitakkasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Dvedhāvitakkasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_vitakkasaṇṭhānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Vitakkasaṇṭhānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_kakacūpamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Kakacūpamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_alagaddūpamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Alagaddūpamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_vammikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Vammikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_rathavinītasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Rathavinītasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_nivāpasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Nivāpasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_pāsarāsisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Pāsarāsisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_cūḷahatthipadopamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Cūḷahatthipadopamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_mahāhatthipadopamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Mahāhatthipadopamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_mahāsāropamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Mahāsāropamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_cūḷasāropamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Cūḷasāropamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_cūḷagosiṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Cūḷagosiṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_mahāgosiṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Mahāgosiṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_mahāgopālakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Mahāgopālakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_cūḷagopālakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Cūḷagopālakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_cūḷasaccakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Cūḷasaccakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_mahāsaccakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Mahāsaccakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_cūḷataṇhāsaṅkhayasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Cūḷataṇhāsaṅkhayasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_mahātaṇhāsaṅkhayasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Mahātaṇhāsaṅkhayasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_mahāassapurasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Mahāassapurasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_cūḷaassapurasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Cūḷaassapurasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_sāleyyakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Sāleyyakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_verañjakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Verañjakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_mahāvedallasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Mahāvedallasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_cūḷavedallasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Cūḷavedallasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_cūḷadhammasamādānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Cūḷadhammasamādānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_mahādhammasamādānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Mahādhammasamādānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_vīmaṃsakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Vīmaṃsakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_kosambiyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Kosambiyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_brahmanimantanikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Brahmanimantanikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_māratajjanīyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Māratajjanīyasuttaṃ</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="vagga-item">
+                <div class="vagga-header-clickable" onclick="toggleVagga('mn-2')">
+                    <h3>Sīhanādavagga (Vagga 2)</h3>
+                    <span class="expand-icon" id="icon-mn-2">▶</span>
+                </div>
+                <div class="sutta-list" id="mn-2-suttas" style="display: none;">
+
+                    <a href="../suttas/mn1_kandarakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Kandarakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_aṭṭhakanāgarasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Aṭṭhakanāgarasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_sekhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Sekhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_potaliyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Potaliyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_jīvakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Jīvakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_upālisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Upālisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_kukkuravatikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Kukkuravatikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_abhayarājakumārasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Abhayarājakumārasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_bahuvedanīyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Bahuvedanīyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_apaṇṇakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Apaṇṇakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_ambalaṭṭhikarāhulovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Ambalaṭṭhikarāhulovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_mahārāhulovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Mahārāhulovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_cūḷamālukyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Cūḷamālukyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_mahāmālukyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Mahāmālukyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_bhaddālisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Bhaddālisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_laṭukikopamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Laṭukikopamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_cātumasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Cātumasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_naḷakapānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Naḷakapānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_goliyānisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Goliyānisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_kīṭāgirisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Kīṭāgirisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_tevijjavacchasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Tevijjavacchasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_aggivacchasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Aggivacchasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_mahāvacchasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Mahāvacchasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_dīghanakhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Dīghanakhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_māgaṇḍiyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Māgaṇḍiyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_sandakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Sandakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_mahāsakuludāyisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Mahāsakuludāyisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_samaṇamuṇḍikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Samaṇamuṇḍikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_cūḷasakuludāyisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Cūḷasakuludāyisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_vekhanasasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Vekhanasasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_ghaṭikārasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Ghaṭikārasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_raṭṭhapālasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Raṭṭhapālasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_maghadevasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Maghadevasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_madhurasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Madhurasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_bodhirājakumārasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Bodhirājakumārasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_aṅgulimālasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Aṅgulimālasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_piyajātikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Piyajātikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_bāhitikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Bāhitikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_dhammacetiyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Dhammacetiyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_kaṇṇakatthalasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Kaṇṇakatthalasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_brahmāyusuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Brahmāyusuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_selasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Selasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_assalāyanasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Assalāyanasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_ghoṭamukhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Ghoṭamukhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_caṅkīsuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Caṅkīsuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_esukārīsuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Esukārīsuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_dhanañjānisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Dhanañjānisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_vāseṭṭhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Vāseṭṭhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_subhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Subhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_saṅgāravasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Saṅgāravasuttaṃ</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="vagga-item">
+                <div class="vagga-header-clickable" onclick="toggleVagga('mn-3')">
+                    <h3>Tatiyavagga (Vagga 3)</h3>
+                    <span class="expand-icon" id="icon-mn-3">▶</span>
+                </div>
+                <div class="sutta-list" id="mn-3-suttas" style="display: none;">
+
+                    <a href="../suttas/mn1_devadahasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Devadahasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_pañcattayasuttaṃ_.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Pañcattayasuttaṃ </span>
+                    </a>
+
+                    <a href="../suttas/mn3_kintisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Kintisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_sāmagāmasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Sāmagāmasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_sunakkhattasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Sunakkhattasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_āneñjasappāyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Āneñjasappāyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_gaṇakamoggallānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Gaṇakamoggallānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_gopakamoggallānasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Gopakamoggallānasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_mahāpuṇṇamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Mahāpuṇṇamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_cūḷapuṇṇamasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Cūḷapuṇṇamasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_anupadasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Anupadasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_chabbisodhanasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Chabbisodhanasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_sappurisasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Sappurisasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_sevitabbāsevitabbasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Sevitabbāsevitabbasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_bahudhātukasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Bahudhātukasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_isigilisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Isigilisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_mahācattārīsakasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Mahācattārīsakasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_ānāpānassatisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Ānāpānassatisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_kāyagatāsatisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Kāyagatāsatisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_saṅkhārupapattisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Saṅkhārupapattisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_cūḷasuññatasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Cūḷasuññatasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_mahāsuññatasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Mahāsuññatasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_acchariyaabbhutasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Acchariyaabbhutasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_bākulasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Bākulasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_dantabhūmisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Dantabhūmisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_bhūmijasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Bhūmijasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_anuruddhasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Anuruddhasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_upakkilesasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Upakkilesasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_bālapaṇḍitasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Bālapaṇḍitasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_devadūtasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Devadūtasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_bhaddekarattasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Bhaddekarattasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_ānandabhaddekarattasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Ānandabhaddekarattasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_mahākaccānabhaddekarattasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Mahākaccānabhaddekarattasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_lomasakaṅgiyabhaddekarattasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Lomasakaṅgiyabhaddekarattasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_cūḷakammavibhaṅgasuttaṃ_.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Cūḷakammavibhaṅgasuttaṃ </span>
+                    </a>
+
+                    <a href="../suttas/mn6_mahākammavibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Mahākammavibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_saḷāyatanavibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Saḷāyatanavibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_uddesavibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Uddesavibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_araṇavibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Araṇavibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_dhātuvibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Dhātuvibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn11_saccavibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">11</span>
+                        <span class="sutta-name">Saccavibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn12_dakkhiṇāvibhaṅgasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">12</span>
+                        <span class="sutta-name">Dakkhiṇāvibhaṅgasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn1_anāthapiṇḍikovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">1</span>
+                        <span class="sutta-name">Anāthapiṇḍikovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn2_channovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">2</span>
+                        <span class="sutta-name">Channovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn3_puṇṇovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">3</span>
+                        <span class="sutta-name">Puṇṇovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn4_nandakovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">4</span>
+                        <span class="sutta-name">Nandakovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn5_cūḷarāhulovādasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">5</span>
+                        <span class="sutta-name">Cūḷarāhulovādasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn6_chachakkasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">6</span>
+                        <span class="sutta-name">Chachakkasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn7_mahāsaḷāyatanikasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">7</span>
+                        <span class="sutta-name">Mahāsaḷāyatanikasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn8_nagaravindeyyasuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">8</span>
+                        <span class="sutta-name">Nagaravindeyyasuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn9_piṇḍapātapārisuddhisuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">9</span>
+                        <span class="sutta-name">Piṇḍapātapārisuddhisuttaṃ</span>
+                    </a>
+
+                    <a href="../suttas/mn10_indriyabhāvanāsuttaṃ.html" class="sutta-link">
+                        <span class="sutta-number">10</span>
+                        <span class="sutta-name">Indriyabhāvanāsuttaṃ</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

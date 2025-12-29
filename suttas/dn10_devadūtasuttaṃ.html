@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Devadūtasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Devadūtasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 10</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_cūḷapuṇṇamasuttaṃ.html" class="nav-btn">← Previous: Cūḷapuṇṇamasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_dhātuvibhaṅgasuttaṃ.html" class="nav-btn">Next: Dhātuvibhaṅgasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">261</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;261&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;261&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0334&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0217&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhikkhave, dve agārā sadvārā &lt;note&gt;sandhidvārā (ka.)&lt;/note&gt;, tattha cakkhumā puriso majjhe ṭhito passeyya manusse gehaṃ pavisantepi nikkhamantepi anucaṅkamantepi anuvicarantepi; evameva kho ahaṃ, bhikkhave, dibbena cakkhunā visuddhena atikkantamānusakena satte passāmi cavamāne upapajjamāne hīne paṇīte suvaṇṇe dubbaṇṇe, sugate duggate yathākammūpage satte pajānāmi – ‘ime vata bhonto sattā kāyasucaritena samannāgatā vacīsucaritena samannāgatā manosucaritena samannāgatā ariyānaṃ anupavādakā &lt;pb ed=&quot;M&quot; n=&quot;3.0217&quot;/&gt; sammādiṭṭhikā sammādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapannā. Ime vā pana bhonto sattā kāyasucaritena samannāgatā vacīsucaritena samannāgatā manosucaritena samannāgatā ariyānaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0179&quot;/&gt; anupavādakā sammādiṭṭhikā sammādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā manussesu upapannā. Ime vata bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā &lt;pb ed=&quot;T&quot; n=&quot;3.0335&quot;/&gt;; te kāyassa bhedā paraṃ maraṇā pettivisayaṃ upapannā. Ime vā pana bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā tiracchānayoniṃ upapannā. Ime vā pana bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannā’’’ti.</p> &lt;note&gt;sandhidvārā (ka.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0217&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0179&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0335&quot;/&gt;">&lt;p n=&quot;261&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;261&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0334&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0217&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhikkhave, dve agārā sadvārā &lt;note&gt;sandhidvārā (ka.)&lt;/note&gt;, tattha cakkhumā puriso majjhe ṭhito passeyya manusse gehaṃ pavisantepi nikkhamantepi anucaṅkamantepi anuvicarantepi; evameva kho ahaṃ, bhikkhave, dibbena cakkhunā visuddhena atikkantamānusakena satte passāmi cavamāne upapajjamāne hīne paṇīte suvaṇṇe dubbaṇṇe, sugate duggate yathākammūpage satte pajānāmi – ‘ime vata bhonto sattā kāyasucaritena samannāgatā vacīsucaritena samannāgatā manosucaritena samannāgatā ariyānaṃ anupavādakā &lt;pb ed=&quot;M&quot; n=&quot;3.0217&quot;/&gt; sammādiṭṭhikā sammādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapannā. Ime vā pana bhonto sattā kāyasucaritena samannāgatā vacīsucaritena samannāgatā manosucaritena samannāgatā ariyānaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0179&quot;/&gt; anupavādakā sammādiṭṭhikā sammādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā manussesu upapannā. Ime vata bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā &lt;pb ed=&quot;T&quot; n=&quot;3.0335&quot;/&gt;; te kāyassa bhedā paraṃ maraṇā pettivisayaṃ upapannā. Ime vā pana bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā tiracchānayoniṃ upapannā. Ime vā pana bhonto sattā kāyaduccaritena samannāgatā vacīduccaritena samannāgatā manoduccaritena samannāgatā ariyānaṃ upavādakā micchādiṭṭhikā micchādiṭṭhikammasamādānā; te kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannā’’’ti.</p> &lt;note&gt;sandhidvārā (ka.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0217&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0179&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0335&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was dwelling at Anāthapiṇḍika’s monastery, in the Jeta Grove, near Sāvatthi.<br><br>There the Fortunate One addressed the monks, saying: “Bhikkhus.”<br><br>“Venerable sir,” those bhikkhus replied.<br><br>The Blessed One said this:<br><br>“Bhikkhus, suppose there were two houses with doors, and a man with good sight standing in the middle could see people entering, leaving, walking back and forth, and moving about in the houses. In the same way, with the divine eye ( <i>dibbaṃ cakkhuṃ</i>), which is purified and surpasses the human, I see beings passing away and being reborn, inferior and superior, beautiful and ugly, fortunate and unfortunate. I understand how beings pass on according to their actions thus: ‘These worthy beings were endowed with good conduct of body ( <i>kāyasucarita</i>), speech ( <i>vacīsucarita</i>), and mind ( <i>manosucarita</i>), were not revilers of the noble ones ( <i>ariyānaṃ anupavādakā</i>), held right view ( <i>sammādiṭṭhi</i>), and undertook actions governed by right view ( <i>sammādiṭṭhikammasamādānā</i>). At the breakup of the body, after death, they have reappeared in a good destination, a heavenly world ( <i>sugatiṃ saggaṃ lokaṃ upapannā</i>). Or these worthy beings were endowed with good conduct of body, speech, and mind, were not revilers of the noble ones, held right view, and undertook actions governed by right view. At the breakup of the body, after death, they have reappeared among human beings ( <i>manussesu upapannā</i>). But these worthy beings were endowed with bad conduct of body ( <i>kāyaduccarita</i>), speech ( <i>vacīduccarita</i>), and mind ( <i>manoduccarita</i>), were revilers of the noble ones ( <i>ariyānaṃ upavādakā</i>), held wrong view ( <i>micchādiṭṭhi</i>), and undertook actions governed by wrong view ( <i>micchādiṭṭhikammasamādānā</i>). At the breakup of the body, after death, they have reappeared in the realm of ghosts ( <i>pettivisayaṃ upapannā</i>). Or these worthy beings were endowed with bad conduct of body, speech, and mind, were revilers of the noble ones, held wrong view, and undertook actions governed by wrong view. At the breakup of the body, after death, they have reappeared in the animal world ( <i>tiracchānayoniṃ upapannā</i>). Or these worthy beings were endowed with bad conduct of body, speech, and mind, were revilers of the noble ones, held wrong view, and undertook actions governed by wrong view. At the breakup of the body, after death, they have reappeared in a state of deprivation, in an unhappy destination, in perdition, even in hell ( <i>apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannā</i>).’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">262</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;262&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;262&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, nirayapālā nānābāhāsu gahetvā yamassa rañño dassenti – ‘ayaṃ, deva, puriso amatteyyo apetteyyo asāmañño abrāhmañño, na kule jeṭṭhāpacāyī. Imassa &lt;pb ed=&quot;V&quot; n=&quot;3.0218&quot;/&gt; devo daṇḍaṃ paṇetū’ti. Tamenaṃ, bhikkhave, yamo rājā paṭhamaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu paṭhamaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu daharaṃ kumāraṃ mandaṃ uttānaseyyakaṃ sake muttakarīse palipannaṃ semāna’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa &lt;pb ed=&quot;T&quot; n=&quot;3.0336&quot;/&gt; na etadahosi – ahampi khomhi jātidhammo, jātiṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0336&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0218&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; neva mātarā kataṃ na pitarā kataṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0180&quot;/&gt; na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0218&quot;/&gt; &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0180&quot;/&gt; &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt;">&lt;p n=&quot;262&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;262&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, nirayapālā nānābāhāsu gahetvā yamassa rañño dassenti – ‘ayaṃ, deva, puriso amatteyyo apetteyyo asāmañño abrāhmañño, na kule jeṭṭhāpacāyī. Imassa &lt;pb ed=&quot;V&quot; n=&quot;3.0218&quot;/&gt; devo daṇḍaṃ paṇetū’ti. Tamenaṃ, bhikkhave, yamo rājā paṭhamaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu paṭhamaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu daharaṃ kumāraṃ mandaṃ uttānaseyyakaṃ sake muttakarīse palipannaṃ semāna’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa &lt;pb ed=&quot;T&quot; n=&quot;3.0336&quot;/&gt; na etadahosi – ahampi khomhi jātidhammo, jātiṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0336&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0218&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; neva mātarā kataṃ na pitarā kataṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0180&quot;/&gt; na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0218&quot;/&gt; &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0180&quot;/&gt; &lt;note&gt;pāpaṃ kammaṃ (sī. pī.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">262. “Then, monks, the hell-wardens, seizing him by the arms, present him to Yama, the king, [saying]: ‘Sire, this man has not treated his mother well (amatteyyo), has not treated his father well (apetteyyo), has not treated ascetics well (asāmañño), has not treated Brahmins well (abrāhmañño), and had no respect for the elders in his family (kule jeṭṭhāpacāyī).<br><br>Let the king order his punishment (imassa devo daṇḍaṃ paṇetū’ti).’<br><br>Then, monks, Yama, the king, questions him about the first divine messenger (devadūta), interrogating and cross-examining him: ‘Good man (ambho purisa), did you never see the first divine messenger (paṭhamaṃ devadūtaṃ pātubhūta) appearing among humans (manussesu)’? He replies, ‘I did not see, sir (nāddasaṃ, bhante).’<br><br>“Then, monks, Yama, the king, says this to him: ‘Good man (ambho purisa), did you never see among humans a tender (daharaṃ) young boy (kumāraṃ), a weak (mandaṃ) infant (uttānaseyyakaṃ), lying (semānaṃ) soiled (palipannaṃ) in his own urine and excrement (sake muttakarīse)’?” He replies: “I saw, sir (addasaṃ, bhante).”<br><br>“Then, monks, Yama, the king, says this to him: ‘Good man (ambho purisa), did it never occur to you – an intelligent (viññussa), mindful (sato), mature (mahallakassa) man – “I, too, am subject to the nature of birth (jātidhammo), I am not exempt from birth (jātiṃ anatīto).<br>I should do good deeds (kalyāṇaṃ karomi) with body (kāyena), speech (vācāya), and mind (manasā)?”’ He replies, ‘I was not able, sir (nāsakkhissaṃ, bhante), I was negligent, sir (pamādassaṃ, bhante).’”<br><br>“Then, monks, Yama, the king, says this to him: ‘Good man (ambho purisa), through negligence (pamādavatāya) you did not do good (na kalyāṇamakāsi) with body (kāyena), speech (vācāya), and mind (manasā).<br>Indeed (taggha), good man (ambho purisa), they will do to you according to your negligence (yathā taṃ pamattaṃ).<br><br>That evil deed (pāpakammaṃ) of yours, was not done by your mother (mātarā kataṃ), nor by your father (pitarā kataṃ), nor by your brother (bhātarā kataṃ), nor by your sister (bhaginiyā kataṃ), nor by your friends and companions (mittāmaccehi kataṃ), nor by your relatives (ñātisālohitehi kataṃ), nor by ascetics and Brahmins (samaṇabrāhmaṇehi kataṃ), nor by the gods (devatāhi kataṃ); but this evil deed (pāpakammaṃ) was done by you alone (tayāva etaṃ kataṃ), and you alone (tvaññeva) will experience its result (vipākaṃ paṭisaṃvedissasi).’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">263</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;263&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;263&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā paṭhamaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā dutiyaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu dutiyaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ( ) &lt;note&gt;(āsītikaṃ vā nāvutikaṃ vā vassasatikaṃ vā jātiyā) (ka. sī. syā. kaṃ. pī.) tikaṅguttarepi&lt;/note&gt; jiṇṇaṃ gopānasivaṅkaṃ bhoggaṃ daṇḍaparāyanaṃ pavedhamānaṃ gacchantaṃ āturaṃ gatayobbanaṃ khaṇḍadantaṃ palitakesaṃ vilūnaṃ khalitasiraṃ &lt;note&gt;khalitaṃsiro (sī.), khalitaṃsiraṃ (syā. kaṃ. pī.)&lt;/note&gt; valinaṃ tilakāhatagatta’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;note&gt;(āsītikaṃ vā nāvutikaṃ vā vassasatikaṃ vā jātiyā) (ka. sī. syā. kaṃ. pī.) tikaṅguttarepi&lt;/note&gt; &lt;note&gt;khalitaṃsiro (sī.), khalitaṃsiraṃ (syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0219&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato &lt;pb ed=&quot;T&quot; n=&quot;3.0337&quot;/&gt; mahallakassa na etadahosi – ahampi khomhi jarādhammo, jaraṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0219&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0337&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na &lt;pb ed=&quot;M&quot; n=&quot;3.0219&quot;/&gt; samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0219&quot;/&gt;">&lt;p n=&quot;263&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;263&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā paṭhamaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā dutiyaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu dutiyaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ( ) &lt;note&gt;(āsītikaṃ vā nāvutikaṃ vā vassasatikaṃ vā jātiyā) (ka. sī. syā. kaṃ. pī.) tikaṅguttarepi&lt;/note&gt; jiṇṇaṃ gopānasivaṅkaṃ bhoggaṃ daṇḍaparāyanaṃ pavedhamānaṃ gacchantaṃ āturaṃ gatayobbanaṃ khaṇḍadantaṃ palitakesaṃ vilūnaṃ khalitasiraṃ &lt;note&gt;khalitaṃsiro (sī.), khalitaṃsiraṃ (syā. kaṃ. pī.)&lt;/note&gt; valinaṃ tilakāhatagatta’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;note&gt;(āsītikaṃ vā nāvutikaṃ vā vassasatikaṃ vā jātiyā) (ka. sī. syā. kaṃ. pī.) tikaṅguttarepi&lt;/note&gt; &lt;note&gt;khalitaṃsiro (sī.), khalitaṃsiraṃ (syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0219&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato &lt;pb ed=&quot;T&quot; n=&quot;3.0337&quot;/&gt; mahallakassa na etadahosi – ahampi khomhi jarādhammo, jaraṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0219&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0337&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na &lt;pb ed=&quot;M&quot; n=&quot;3.0219&quot;/&gt; samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0219&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">263. “Then, monks, King Yama, having questioned, examined, and addressed him concerning the first divine messenger, questions, examines, and addresses him about the second divine messenger, saying: ‘Good man, did you not see among humans the second divine messenger appearing?’ He replies, ‘I did not see, venerable sir.’”<br><br>“Then, monks, King Yama says to him: ‘Good man, didn&#039;t you ever see among humans a woman or a man ( ) (eighty, ninety, or a hundred years old by birth) also in the Tikaṅguttara, frail, bent like a roof bracket, crooked, leaning on a stick, shakily going along, ailing, youth and vigor gone, with broken teeth, with gray hair, scanty hair or bald, wrinkled, with blotched limbs?’ He replies, ‘I did see, venerable sir.’”<br><br>“Then, monks, King Yama says: ‘Good man, did it never occur to you – an intelligent and mature man – “I too am subject to aging (jarādharma), I am not exempt from aging (jaraṃ anatīto). Come now, let me do good with body (kāyena), speech (vācāya), and mind (manasā)?&quot;’ He replies, ‘I was not able, venerable sir, I was negligent, venerable sir.’”<br><br>“Then, monks, King Yama says: ‘Good man, through negligence (pamādavatāya) you have failed to do good by body, speech, and mind. Indeed, good man, they will treat you according to your negligence. That evil action of yours was not done by mother, not done by father, not done by brother, not done by sister, not done by friends or companions, not done by relatives, not done by ascetics or Brahmins (samaṇabrāhmaṇehi), not done by gods (devatāhi); but you alone have done that evil action (pāpakammaṃ), and you alone will experience its result (vipākaṃ paṭisaṃvedissasī).’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">264</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;264&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;264&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā dutiyaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā tatiyaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho &lt;pb ed=&quot;P&quot; n=&quot;3.0181&quot;/&gt; purisa, na tvaṃ addasa manussesu tatiyaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ābādhikaṃ dukkhitaṃ bāḷhagilānaṃ sake muttakarīse palipannaṃ semānaṃ aññehi vuṭṭhāpiyamānaṃ aññehi saṃvesiyamāna’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ahampi khomhi byādhidhammo &lt;pb ed=&quot;T&quot; n=&quot;3.0338&quot;/&gt;, byādhiṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0338&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0220&quot;/&gt; na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0220&quot;/&gt;">&lt;p n=&quot;264&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;264&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā dutiyaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā tatiyaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho &lt;pb ed=&quot;P&quot; n=&quot;3.0181&quot;/&gt; purisa, na tvaṃ addasa manussesu tatiyaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ābādhikaṃ dukkhitaṃ bāḷhagilānaṃ sake muttakarīse palipannaṃ semānaṃ aññehi vuṭṭhāpiyamānaṃ aññehi saṃvesiyamāna’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ahampi khomhi byādhidhammo &lt;pb ed=&quot;T&quot; n=&quot;3.0338&quot;/&gt;, byādhiṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0338&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0220&quot;/&gt; na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0220&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">264.<br>Then, monks, King Yama, after questioning, interrogating, and rebuking him about the second heavenly messenger, questions, interrogates, and rebukes him about the third heavenly messenger: ‘Good man, have you not seen the third heavenly messenger appear among humans?’ He says: ‘I have not, sir.’<br><br>Then, monks, King Yama says: ‘Good man, have you not seen among humans a woman or a man who is afflicted, suffering, gravely ill, lying in their own urine and excrement, laid down and helped up by others?’ He says: ‘I have, sir.’<br><br>Then, monks, King Yama says: ‘Good man, did it not occur to you, an intelligent and mature person, that I too am subject to illness, not exempt from illness, [so] I should do good by body, speech, and mind?’ He says: ‘I was not able to, sir; I was negligent, sir.’<br><br>Then, monks, King Yama says: ‘Good man, through negligence, you did not do good deeds with body, speech, and mind. Indeed, good man, they will do to you as befits your negligence. That evil action was not done by your mother, nor done by your father, nor done by your brother, nor done by your sister, nor done by friends and companions, nor done by relatives and blood relations, nor done by ascetics and <i>brāhmaṇas</i>, nor done by the deities; this evil action was done by you alone, and you alone will experience its result.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">265</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;265&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;265&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā tatiyaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā catutthaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu catutthaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu rājāno coraṃ āgucāriṃ gahetvā vividhā kammakāraṇā kārente – kasāhipi tāḷente vettehipi tāḷente addhadaṇḍakehipi tāḷente hatthampi chindante pādampi chindante hatthapādampi chindante kaṇṇampi chindante &lt;pb ed=&quot;M&quot; n=&quot;3.0220&quot;/&gt; nāsampi chindante kaṇṇanāsampi chindante bilaṅgathālikampi karonte saṅkhamuṇḍikampi karonte rāhumukhampi karonte jotimālikampi karonte hatthapajjotikampi karonte &lt;pb ed=&quot;T&quot; n=&quot;3.0339&quot;/&gt; erakavattikampi karonte cīrakavāsikampi karonte eṇeyyakampi karonte baḷisamaṃsikampi karonte kahāpaṇikampi karonte khārāpatacchikampi karonte palighaparivattikampi karonte palālapīṭhakampi karonte tattenapi telena osiñcante sunakhehipi khādāpente jīvantampi sūle uttāsente asināpi sīsaṃ chindante’ti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0220&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0339&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ye kira, bho, pāpakāni kammāni karonti te diṭṭheva dhamme evarūpā vividhā kammakāraṇā karīyanti, kimaṅgaṃ &lt;note&gt;kimaṅga (sī. pī.)&lt;/note&gt; pana parattha &lt;pb ed=&quot;P&quot; n=&quot;3.0182&quot;/&gt;! Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;note&gt;kimaṅga (sī. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0182&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0221&quot;/&gt; na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0221&quot;/&gt;">&lt;p n=&quot;265&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;265&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā tatiyaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā catutthaṃ devadūtaṃ samanuyuñjati samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu catutthaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu rājāno coraṃ āgucāriṃ gahetvā vividhā kammakāraṇā kārente – kasāhipi tāḷente vettehipi tāḷente addhadaṇḍakehipi tāḷente hatthampi chindante pādampi chindante hatthapādampi chindante kaṇṇampi chindante &lt;pb ed=&quot;M&quot; n=&quot;3.0220&quot;/&gt; nāsampi chindante kaṇṇanāsampi chindante bilaṅgathālikampi karonte saṅkhamuṇḍikampi karonte rāhumukhampi karonte jotimālikampi karonte hatthapajjotikampi karonte &lt;pb ed=&quot;T&quot; n=&quot;3.0339&quot;/&gt; erakavattikampi karonte cīrakavāsikampi karonte eṇeyyakampi karonte baḷisamaṃsikampi karonte kahāpaṇikampi karonte khārāpatacchikampi karonte palighaparivattikampi karonte palālapīṭhakampi karonte tattenapi telena osiñcante sunakhehipi khādāpente jīvantampi sūle uttāsente asināpi sīsaṃ chindante’ti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0220&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0339&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ye kira, bho, pāpakāni kammāni karonti te diṭṭheva dhamme evarūpā vividhā kammakāraṇā karīyanti, kimaṅgaṃ &lt;note&gt;kimaṅga (sī. pī.)&lt;/note&gt; pana parattha &lt;pb ed=&quot;P&quot; n=&quot;3.0182&quot;/&gt;! Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;note&gt;kimaṅga (sī. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0182&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0221&quot;/&gt; na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0221&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Then, monks, King Yama, after questioning, examining, and cross-examining him about the third divine messenger, questions, examines, and cross-examines him about the fourth divine messenger: ‘Good man, did you not see the fourth divine messenger appear in the world?’ He replies, ‘I did not, venerable sir.’”<br><br>“Then, monks, King Yama says to him: ‘Good man, did you not see in the world kings taking a criminal, a wrongdoer, and having various tortures inflicted on him—having him flogged with whips, having him beaten with canes, having him beaten with half-sticks, even having his hand cut off, even having his foot cut off, even having both hand and foot cut off, even having his ear cut off, having his nose cut off, having both ear and nose cut off, making him into a <i>bilaṅgathālika</i>, making him into a <i>saṅkhamuṇḍika</i>, making him into a <i>rāhumukha</i>, making him into a <i>jotimālika</i>, making him into a <i>hatthapajjotika</i>, making him into an <i>erakavattika</i>, making him into a <i>cīrakavāsika</i>, making him into an <i>eṇeyyaka</i>, making him into a <i>baḷisamaṃsika</i>, making him into a <i>kahāpaṇika</i>, making him into a <i>khārāpatacchika</i>, making him into a <i>palighaparivattika</i>, making him into a <i>palālapīṭhaka</i>, even pouring hot oil over him, even having him eaten by dogs, even impaling him alive on a stake, even cutting off his head with a sword?’ He replies, ‘I did see it, venerable sir.’”<br><br>“Then, monks, King Yama says to him: ‘Good man, did it never occur to you—an intelligent and mature man—&quot;Those who do evil actions have such tortures of various kinds inflicted on them here and now; so what to say of in the hereafter!&quot;? Surely I had better do good by body, speech, and mind’?” He replies, “‘I was not able to, venerable sir; I was negligent, venerable sir.’”<br><br>“Then, monks, King Yama says to him: ‘Good man, through negligence you have failed to do good by body, speech, and mind. Certainly they will deal with you according to your negligence. That evil action of yours was not done by your mother, nor by your father, nor by your brother, nor by your sister, nor by your friends and companions, nor by your kinsmen and relatives, nor by ascetics and <i>brāhmaṇa</i>s, nor by deities; but this evil action was done by you yourself, and you yourself will experience its result.’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">266</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;266&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;266&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā catutthaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā pañcamaṃ devadūtaṃ samanuyuñjati &lt;pb ed=&quot;T&quot; n=&quot;3.0340&quot;/&gt; samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu pañcamaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ekāhamataṃ vā dvīhamataṃ vā tīhamataṃ vā uddhumātakaṃ vinīlakaṃ vipubbakajāta’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0221&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ahampi khomhi maraṇadhammo, maraṇaṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0221&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p>">&lt;p n=&quot;266&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;266&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā catutthaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā pañcamaṃ devadūtaṃ samanuyuñjati &lt;pb ed=&quot;T&quot; n=&quot;3.0340&quot;/&gt; samanugāhati samanubhāsati – ‘ambho purisa, na tvaṃ addasa manussesu pañcamaṃ devadūtaṃ pātubhūta’nti? So evamāha – ‘nāddasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, na tvaṃ addasa manussesu itthiṃ vā purisaṃ vā ekāhamataṃ vā dvīhamataṃ vā tīhamataṃ vā uddhumātakaṃ vinīlakaṃ vipubbakajāta’nti? So evamāha – ‘addasaṃ, bhante’’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0221&quot;/&gt;, bhikkhave, yamo rājā evamāha – ‘ambho purisa, tassa te viññussa sato mahallakassa na etadahosi – ahampi khomhi maraṇadhammo, maraṇaṃ anatīto. Handāhaṃ kalyāṇaṃ karomi kāyena vācāya manasā’ti? So evamāha – ‘nāsakkhissaṃ, bhante, pamādassaṃ, bhante’’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0221&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ, bhikkhave, yamo rājā evamāha – ‘ambho purisa, pamādavatāya na kalyāṇamakāsi kāyena vācāya manasā. Taggha tvaṃ, ambho purisa, tathā karissanti yathā taṃ pamattaṃ. Taṃ kho pana te etaṃ pāpakammaṃ neva mātarā kataṃ na pitarā kataṃ na bhātarā kataṃ na bhaginiyā kataṃ na mittāmaccehi kataṃ na ñātisālohitehi kataṃ na samaṇabrāhmaṇehi kataṃ na devatāhi kataṃ, tayāvetaṃ pāpakammaṃ kataṃ, tvaññevetassa vipākaṃ paṭisaṃvedissasī’’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">266.<br>“Then, after pressing and questioning and cross-questioning him about the fourth divine messenger, King Yama presses and questions and cross-questions him about the fifth divine messenger: ‘Good man, did you not see the fifth divine messenger appear in the world?’ He says: ‘I did not, sir.’”<br><br>“Then King Yama says to him: ‘Good man, have you never seen in the world a man or a woman one-day dead, two-days dead, three-days dead, bloated, livid, and festering?’ He says: ‘I have, sir.’”<br><br>“Then, King Yama says: ‘Good man, did it never occur to you – an intelligent and mature man – “I too am subject to death, I am not exempt from death.<br>Let me now do noble deeds by body (<i>kāyena</i>), speech (<i>vācāya</i>), and mind (<i>manasā</i>)”?’ He says: ‘I was not able, sir, I was negligent, sir.’”<br><br>“Then King Yama says: ‘Good man, through negligence you have failed to do good by body, speech, and mind.<br>Well, you will be treated as befits your negligence.<br>But this evil action of yours was not done by your mother or your father, or by your brother or your sister, or by your friends and companions, or by your kinsmen and relatives, or by recluses and <i>brāhmaṇas</i>, or by gods: this evil action was done by you yourself, and you yourself will experience its result.’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">267</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;267&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;267&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā pañcamaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā tuṇhī hoti. Tamenaṃ, bhikkhave, nirayapālā pañcavidhabandhanaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0183&quot;/&gt; nāma kammakāraṇaṃ karonti – tattaṃ ayokhilaṃ hatthe gamenti, tattaṃ ayokhilaṃ dutiye &lt;pb ed=&quot;T&quot; n=&quot;3.0341&quot;/&gt; hatthe gamenti, tattaṃ ayokhilaṃ pāde gamenti, tattaṃ ayokhilaṃ dutiye pāde gamenti, tattaṃ ayokhilaṃ majjheurasmiṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0222&quot;/&gt; gamenti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṃ karoti yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā saṃvesetvā kuṭhārīhi tacchanti…pe… tamenaṃ, bhikkhave, nirayapālā uddhaṃpādaṃ adhosiraṃ gahetvā vāsīhi tacchanti…pe… tamenaṃ, bhikkhave, nirayapālā rathe yojetvā ādittāya pathaviyā sampajjalitāya sajotibhūtāya sārentipi, paccāsārentipi…pe… tamenaṃ, bhikkhave, nirayapālā mahantaṃ aṅgārapabbataṃ ādittaṃ sampajjalitaṃ sajotibhūtaṃ āropentipi oropentipi…pe… tamenaṃ, bhikkhave, nirayapālā uddhaṃpādaṃ adhosiraṃ gahetvā tattāya lohakumbhiyā pakkhipanti ādittāya sampajjalitāya sajotibhūtāya. So tattha pheṇuddehakaṃ paccati. So tattha pheṇuddehakaṃ paccamāno sakimpi uddhaṃ gacchati, sakimpi adho gacchati, sakimpi tiriyaṃ gacchati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā mahāniraye pakkhipanti. So kho pana, bhikkhave, mahānirayo –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Catukkaṇṇo &lt;pb ed=&quot;M&quot; n=&quot;3.0222&quot;/&gt; catudvāro, vibhatto bhāgaso mito;</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0222&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Ayopākārapariyanto, ayasā paṭikujjito.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Tassa ayomayā bhūmi, jalitā tejasāyutā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Samantā yojanasataṃ, pharitvā tiṭṭhati sabbadā’’ &lt;pb ed=&quot;T&quot; n=&quot;3.0342&quot;/&gt;.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0342&quot;/&gt;">&lt;p n=&quot;267&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;267&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, yamo rājā pañcamaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā tuṇhī hoti. Tamenaṃ, bhikkhave, nirayapālā pañcavidhabandhanaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0183&quot;/&gt; nāma kammakāraṇaṃ karonti – tattaṃ ayokhilaṃ hatthe gamenti, tattaṃ ayokhilaṃ dutiye &lt;pb ed=&quot;T&quot; n=&quot;3.0341&quot;/&gt; hatthe gamenti, tattaṃ ayokhilaṃ pāde gamenti, tattaṃ ayokhilaṃ dutiye pāde gamenti, tattaṃ ayokhilaṃ majjheurasmiṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0222&quot;/&gt; gamenti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṃ karoti yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā saṃvesetvā kuṭhārīhi tacchanti…pe… tamenaṃ, bhikkhave, nirayapālā uddhaṃpādaṃ adhosiraṃ gahetvā vāsīhi tacchanti…pe… tamenaṃ, bhikkhave, nirayapālā rathe yojetvā ādittāya pathaviyā sampajjalitāya sajotibhūtāya sārentipi, paccāsārentipi…pe… tamenaṃ, bhikkhave, nirayapālā mahantaṃ aṅgārapabbataṃ ādittaṃ sampajjalitaṃ sajotibhūtaṃ āropentipi oropentipi…pe… tamenaṃ, bhikkhave, nirayapālā uddhaṃpādaṃ adhosiraṃ gahetvā tattāya lohakumbhiyā pakkhipanti ādittāya sampajjalitāya sajotibhūtāya. So tattha pheṇuddehakaṃ paccati. So tattha pheṇuddehakaṃ paccamāno sakimpi uddhaṃ gacchati, sakimpi adho gacchati, sakimpi tiriyaṃ gacchati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā mahāniraye pakkhipanti. So kho pana, bhikkhave, mahānirayo –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Catukkaṇṇo &lt;pb ed=&quot;M&quot; n=&quot;3.0222&quot;/&gt; catudvāro, vibhatto bhāgaso mito;</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0222&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Ayopākārapariyanto, ayasā paṭikujjito.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Tassa ayomayā bhūmi, jalitā tejasāyutā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Samantā yojanasataṃ, pharitvā tiṭṭhati sabbadā’’ &lt;pb ed=&quot;T&quot; n=&quot;3.0342&quot;/&gt;.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0342&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">267. “Then, after pressing and questioning and cross-questioning him about the fifth divine messenger, King Yama is silent. (‘‘tamenaṃ, bhikkhave, yamo rājā pañcamaṃ devadūtaṃ samanuyuñjitvā samanugāhitvā samanubhāsitvā tuṇhī hoti.)<br>Then, after the wardens of hell inflict fivefold torments, namely, they drive a hot iron stake into his hand, they drive a hot iron stake into his other hand, they drive a hot iron stake into his foot, they drive a hot iron stake into his other foot, they drive a hot iron stake into his chest.<br><br>There he feels painful, racking, piercing feelings. Yet he does not die so long as that evil action has not exhausted its result.<br><br>Next the wardens of hell throw him down and pare him with axes… Next the wardens of hell set him with his feet up and his head down and pare him with adzes… Next the wardens of hell harness him to a chariot and drive him back and forth across ground that is burning, blazing, and glowing… Next the wardens of hell make him climb up and down a great mound of coals that are burning, blazing,and glowing… Next the wardens of hell turn him upside down and plunge him into a red-hot copper cauldron that is burning, blazing, and glowing.<br><br>He is cooked there in a swirl of froth.<br><br>And as he is being cooked there in a swirl of froth, he is swept now up, now down, and now across.<br><br>There he feels painful, racking, piercing feelings. Yet he does not die so long as that evil action has not exhausted its result.<br><br>Next the wardens of hell throw him into the Great Hell (mahāniraye).<br><br>Now, bhikkhus, the Great Hell—<br><br>“It has four corners, four gates, and is divided into equal parts, well-measured;<br><br>It is surrounded by an iron wall, and roofed over with iron.<br><br>Its ground is made of iron, ablaze and radiant with heat;<br><br>On every side for a hundred <i>yojana</i>s it ever stands, pervading all.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">268</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;268&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;268&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa kho pana, bhikkhave, mahānirayassa puratthimāya bhittiyā acci uṭṭhahitvā pacchimāya bhittiyā paṭihaññati, pacchimāya bhittiyā acci uṭṭhahitvā puratthimāya bhittiyā &lt;pb ed=&quot;P&quot; n=&quot;3.0184&quot;/&gt; paṭihaññati, uttarāya bhittiyā acci uṭṭhahitvā dakkhiṇāya bhittiyā paṭihaññati, dakkhiṇāya bhittiyā acci uṭṭhahitvā uttarāya bhittiyā paṭihaññati, heṭṭhā acci uṭṭhahitvā upari paṭihaññati, uparito acci uṭṭhahitvā heṭṭhā paṭihaññati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti &lt;pb ed=&quot;V&quot; n=&quot;3.0223&quot;/&gt; kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa puratthimaṃ dvāraṃ apāpurīyati &lt;note&gt;avāpurīyati (sī.)&lt;/note&gt;. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. Yato ca kho so, bhikkhave, bahusampatto hoti, atha taṃ dvāraṃ pidhīyati &lt;note&gt;pithīyati (sī. syā. kaṃ. pī.)&lt;/note&gt;. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0223&quot;/&gt; &lt;note&gt;avāpurīyati (sī.)&lt;/note&gt; &lt;note&gt;pithīyati (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa pacchimaṃ dvāraṃ apāpurīyati…pe… uttaraṃ dvāraṃ apāpurīyati…pe… dakkhiṇaṃ dvāraṃ apāpurīyati &lt;pb ed=&quot;T&quot; n=&quot;3.0343&quot;/&gt;. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. Yato ca kho so, bhikkhave, bahusampatto hoti, atha taṃ dvāraṃ pidhīyati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0343&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti &lt;pb ed=&quot;M&quot; n=&quot;3.0223&quot;/&gt; kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa puratthimaṃ dvāraṃ apāpurīyati. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. So tena dvārena nikkhamati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0223&quot;/&gt;">&lt;p n=&quot;268&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;268&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa kho pana, bhikkhave, mahānirayassa puratthimāya bhittiyā acci uṭṭhahitvā pacchimāya bhittiyā paṭihaññati, pacchimāya bhittiyā acci uṭṭhahitvā puratthimāya bhittiyā &lt;pb ed=&quot;P&quot; n=&quot;3.0184&quot;/&gt; paṭihaññati, uttarāya bhittiyā acci uṭṭhahitvā dakkhiṇāya bhittiyā paṭihaññati, dakkhiṇāya bhittiyā acci uṭṭhahitvā uttarāya bhittiyā paṭihaññati, heṭṭhā acci uṭṭhahitvā upari paṭihaññati, uparito acci uṭṭhahitvā heṭṭhā paṭihaññati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti &lt;pb ed=&quot;V&quot; n=&quot;3.0223&quot;/&gt; kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa puratthimaṃ dvāraṃ apāpurīyati &lt;note&gt;avāpurīyati (sī.)&lt;/note&gt;. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. Yato ca kho so, bhikkhave, bahusampatto hoti, atha taṃ dvāraṃ pidhīyati &lt;note&gt;pithīyati (sī. syā. kaṃ. pī.)&lt;/note&gt;. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0223&quot;/&gt; &lt;note&gt;avāpurīyati (sī.)&lt;/note&gt; &lt;note&gt;pithīyati (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa pacchimaṃ dvāraṃ apāpurīyati…pe… uttaraṃ dvāraṃ apāpurīyati…pe… dakkhiṇaṃ dvāraṃ apāpurīyati &lt;pb ed=&quot;T&quot; n=&quot;3.0343&quot;/&gt;. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. Yato ca kho so, bhikkhave, bahusampatto hoti, atha taṃ dvāraṃ pidhīyati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0343&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Hoti &lt;pb ed=&quot;M&quot; n=&quot;3.0223&quot;/&gt; kho so, bhikkhave, samayo yaṃ kadāci karahaci dīghassa addhuno accayena tassa mahānirayassa puratthimaṃ dvāraṃ apāpurīyati. So tattha sīghena javena dhāvati. Tassa sīghena javena dhāvato chavimpi ḍayhati, cammampi ḍayhati, maṃsampi ḍayhati, nhārumpi ḍayhati, aṭṭhīnipi sampadhūpāyanti, ubbhataṃ tādisameva hoti. So tena dvārena nikkhamati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0223&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Now, bhikkhus, the flames that rise up from the eastern wall of the Great Hell (mahāniraya) strike the western wall, the flames that rise up from the western wall strike the eastern wall, the flames that rise up from the northern wall strike the southern wall, the flames that rise up from the southern wall strike the northern wall, the flames that rise up from below strike above, and the flames that rise up from above strike below. There he feels painful, racking, piercing feelings, yet he does not die so long as that evil action has not exhausted its result.<br><br>“Some time or other, bhikkhus, at the end of a long period, there comes an occasion when the eastern door of the Great Hell is opened. He runs towards it with speed and urgency. As he runs with speed and urgency, his outer skin burns, his inner skin burns, his flesh burns, his sinews burn, his bones turn to smoke; and his foot is uplifted in just the same way. When at long last he reaches the door, then it is shut. There he feels painful, racking, piercing feelings, yet he does not die so long as that evil action has not exhausted its result.<br><br>“Some time or other, bhikkhus, at the end of a long period, there comes an occasion when the western door of the Great Hell is opened… when its northern door is opened…when its southern door is opened. He runs towards it with speed and urgency. As he runs with speed and urgency, his outer skin burns, his inner skin burns, his flesh burns, his sinews burn, his bones turn to smoke; and his foot is uplifted in just the same way. When at long last he reaches the door, then it is shut. There he feels painful, racking, piercing feelings, yet he does not die so long as that evil action has not exhausted its result.<br><br>“Some time or other, bhikkhus, at the end of a long period, there comes an occasion when the eastern door of the Great Hell is opened. He runs towards it with speed and urgency. As he runs with speed and urgency, his outer skin burns, his inner skin burns, his flesh burns, his sinews burn, his bones turn to smoke; and his foot is uplifted in just the same way. He comes out by that door.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">269</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;269&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;269&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa kho pana, bhikkhave, mahānirayassa samanantarā &lt;pb ed=&quot;P&quot; n=&quot;3.0185&quot;/&gt; sahitameva mahanto gūthanirayo. So tattha patati. Tasmiṃ kho pana, bhikkhave, gūthaniraye sūcimukhā pāṇā chaviṃ chindanti, chaviṃ chetvā cammaṃ chindanti, cammaṃ chetvā maṃsaṃ chindanti, maṃsaṃ chetvā nhāruṃ chindanti, nhāruṃ chetvā aṭṭhiṃ chindanti, aṭṭhiṃ chetvā aṭṭhimiñjaṃ khādanti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa &lt;pb ed=&quot;V&quot; n=&quot;3.0224&quot;/&gt; kho pana, bhikkhave, gūthanirayassa samanantarā sahitameva mahanto &lt;pb ed=&quot;T&quot; n=&quot;3.0344&quot;/&gt; kukkulanirayo. So tattha patati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0224&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0344&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, kukkulanirayassa samanantarā sahitameva mahantaṃ simbalivanaṃ uddhaṃ &lt;note&gt;uccaṃ (syā. kaṃ.), ubbhato (ka.)&lt;/note&gt; yojanamuggataṃ soḷasaṅgulakaṇṭakaṃ &lt;note&gt;soḷasaṅgulakaṇḍakaṃ (sī.)&lt;/note&gt; ādittaṃ sampajjalitaṃ sajotibhūtaṃ. Tattha āropentipi oropentipi. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;note&gt;uccaṃ (syā. kaṃ.), ubbhato (ka.)&lt;/note&gt; &lt;note&gt;soḷasaṅgulakaṇḍakaṃ (sī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, simbalivanassa samanantarā sahitameva mahantaṃ asipattavanaṃ. So tattha pavisati. Tassa vāteritāni pattāni patitāni hatthampi chindanti, pādampi chindanti, hatthapādampi chindanti, kaṇṇampi chindanti, nāsampi chindanti, kaṇṇanāsampi chindanti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, asipattavanassa samanantarā sahitameva mahatī khārodakā nadī &lt;note&gt;khārodikā nadī (sī.)&lt;/note&gt;. So tattha patati. So tattha anusotampi vuyhati &lt;pb ed=&quot;M&quot; n=&quot;3.0224&quot;/&gt;, paṭisotampi vuyhati, anusotapaṭisotampi vuyhati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;note&gt;khārodikā nadī (sī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0224&quot;/&gt;">&lt;p n=&quot;269&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;269&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa kho pana, bhikkhave, mahānirayassa samanantarā &lt;pb ed=&quot;P&quot; n=&quot;3.0185&quot;/&gt; sahitameva mahanto gūthanirayo. So tattha patati. Tasmiṃ kho pana, bhikkhave, gūthaniraye sūcimukhā pāṇā chaviṃ chindanti, chaviṃ chetvā cammaṃ chindanti, cammaṃ chetvā maṃsaṃ chindanti, maṃsaṃ chetvā nhāruṃ chindanti, nhāruṃ chetvā aṭṭhiṃ chindanti, aṭṭhiṃ chetvā aṭṭhimiñjaṃ khādanti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa &lt;pb ed=&quot;V&quot; n=&quot;3.0224&quot;/&gt; kho pana, bhikkhave, gūthanirayassa samanantarā sahitameva mahanto &lt;pb ed=&quot;T&quot; n=&quot;3.0344&quot;/&gt; kukkulanirayo. So tattha patati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0224&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0344&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, kukkulanirayassa samanantarā sahitameva mahantaṃ simbalivanaṃ uddhaṃ &lt;note&gt;uccaṃ (syā. kaṃ.), ubbhato (ka.)&lt;/note&gt; yojanamuggataṃ soḷasaṅgulakaṇṭakaṃ &lt;note&gt;soḷasaṅgulakaṇḍakaṃ (sī.)&lt;/note&gt; ādittaṃ sampajjalitaṃ sajotibhūtaṃ. Tattha āropentipi oropentipi. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;note&gt;uccaṃ (syā. kaṃ.), ubbhato (ka.)&lt;/note&gt; &lt;note&gt;soḷasaṅgulakaṇḍakaṃ (sī.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, simbalivanassa samanantarā sahitameva mahantaṃ asipattavanaṃ. So tattha pavisati. Tassa vāteritāni pattāni patitāni hatthampi chindanti, pādampi chindanti, hatthapādampi chindanti, kaṇṇampi chindanti, nāsampi chindanti, kaṇṇanāsampi chindanti. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa kho pana, bhikkhave, asipattavanassa samanantarā sahitameva mahatī khārodakā nadī &lt;note&gt;khārodikā nadī (sī.)&lt;/note&gt;. So tattha patati. So tattha anusotampi vuyhati &lt;pb ed=&quot;M&quot; n=&quot;3.0224&quot;/&gt;, paṭisotampi vuyhati, anusotapaṭisotampi vuyhati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;note&gt;khārodikā nadī (sī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0224&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">269. “Immediately next to the Great Hell, monks, is the vast Hell of Excrement (gūthanirayo). He falls into that (so tattha patati). In that Hell of Excrement, monks, needle-mouthed creatures bore through his outer skin (chaviṃ), bore through his inner skin (cammaṃ), bore through his flesh (maṃsaṃ), bore through his sinews (nhāruṃ), bore through his bones (aṭṭhiṃ) and devour his marrow (aṭṭhimiñjaṃ khādanti). There he feels painful (dukkhā), racking (tibbā), piercing (kharā), bitter (kaṭukā) feelings (vedanā), yet he does not die so long as that bad kamma (pāpakammaṃ) is not exhausted (byantīhoti).<br><br>“Immediately next to the Hell of Excrement, monks, is the vast Hell of Embers (kukkulanirayo). He falls into that (so tattha patati). There he feels painful (dukkhā), racking (tibbā), piercing (kharā), bitter (kaṭukā) feelings (vedanā), yet he does not die so long as that bad kamma (pāpakammaṃ) is not exhausted (byantīhoti).<br><br>“Immediately next to the Hell of Embers, monks, is a vast Wood of Simbali Trees (simbalivanaṃ) that rises up a league (yojanamuggataṃ), with sixteen-finger-long thorns (soḷasaṅgulakaṇṭakaṃ), burning, flaming and blazing (ādittaṃ sampajjalitaṃ sajotibhūtaṃ). They make him climb up and down those trees (tattha āropentipi oropentipi). There he feels painful (dukkhā), racking (tibbā), piercing (kharā), bitter (kaṭukā) feelings (vedanā), yet he does not die so long as that bad kamma (pāpakammaṃ) is not exhausted (byantīhoti).<br><br>“Immediately next to the Wood of Simbali Trees (simbalivanassa), monks, is a vast Wood of Sword-leaf Trees (asipattavanaṃ). He goes into that (so tattha pavisati). The leaves (pattāni), stirred by the wind (vāteritāni), cut off his hands (hatthampi chindanti), cut off his feet (pādampi chindanti), cut off his hands and feet (hatthapādampi chindanti), cut off his ears (kaṇṇampi chindanti), cut off his nose (nāsampi chindanti), cut off his ears and nose (kaṇṇanāsampi chindanti). There he feels painful (dukkhā), racking (tibbā), piercing (kharā), bitter (kaṭukā) feelings (vedanā), yet he does not die so long as that bad kamma (pāpakammaṃ) is not exhausted (byantīhoti).<br><br>“Immediately next to the Wood of Sword-leaf Trees (asipattavanassa), monks, is a great River of Salt Water (khārodakā nadī). He falls into that (so tattha patati). There he is swept downstream (anusotampi vuyhati) and he is swept upstream (paṭisotampi vuyhati) and he is swept upstream and downstream (anusotapaṭisotampi vuyhati). There he feels painful (dukkhā), racking (tibbā), piercing (kharā), bitter (kaṭukā) feelings (vedanā), yet he does not die so long as that bad kamma (pāpakammaṃ) is not exhausted (byantīhoti).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">270</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;270&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;270&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, nirayapālā balisena uddharitvā &lt;pb ed=&quot;P&quot; n=&quot;3.0186&quot;/&gt; thale patiṭṭhāpetvā &lt;pb ed=&quot;T&quot; n=&quot;3.0345&quot;/&gt; evamāhaṃsu – ‘ambho purisa, kiṃ icchasī’ti? So evamāha – ‘jighacchitosmi, bhante’ti. Tamenaṃ, bhikkhave, nirayapālā tattena ayosaṅkunā mukhaṃ vivaritvā ādittena sampajjalitena sajotibhūtena tattaṃ lohaguḷaṃ mukhe pakkhipanti ādittaṃ sampajjalitaṃ sajotibhūtaṃ. So tassa &lt;note&gt;taṃ tassa (ka.), tassa (sī. pī.)&lt;/note&gt; oṭṭhampi dahati &lt;note&gt;ḍayhati (sī. syā. kaṃ. pī.)&lt;/note&gt;, mukhampi dahati, kaṇṭhampi dahati, urampi &lt;note&gt;udarampi (sī. syā. kaṃ.)&lt;/note&gt; dahati, antampi antaguṇampi ādāya adhobhāgā nikkhamati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0225&quot;/&gt;, bhikkhave, nirayapālā evamāhaṃsu – ‘ambho purisa, kiṃ icchasī’ti? So evamāha – ‘pipāsitosmi, bhante’ti. Tamenaṃ, bhikkhave, nirayapālā tattena ayosaṅkunā mukhaṃ vivaritvā ādittena sampajjalitena sajotibhūtena tattaṃ tambalohaṃ mukhe āsiñcanti ādittaṃ sampajjalitaṃ sajotibhūtaṃ. Taṃ tassa &lt;note&gt;ettha pana pāṭhabhedo natthi&lt;/note&gt; oṭṭhampi dahati, mukhampi dahati, kaṇṭhampi dahati, urampi dahati, antampi antaguṇampi ādāya adhobhāgā nikkhamati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti, yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā puna mahāniraye pakkhipanti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0225&quot;/&gt; &lt;note&gt;ettha pana pāṭhabhedo natthi&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Bhūtapubbaṃ, bhikkhave, yamassa rañño etadahosi – ‘ye kira &lt;pb ed=&quot;T&quot; n=&quot;3.0346&quot;/&gt;, bho, loke pāpakāni akusalāni kammāni karonti te evarūpā vividhā kammakāraṇā karīyanti. Aho vatāhaṃ manussattaṃ labheyyaṃ. Tathāgato ca loke uppajjeyya arahaṃ sammāsambuddho. Tañcāhaṃ bhagavantaṃ payirupāseyyaṃ. So ca me bhagavā dhammaṃ deseyya. Tassa cāhaṃ bhagavato dhammaṃ ājāneyya’nti. Taṃ kho panāhaṃ, bhikkhave, nāññassa samaṇassa vā brāhmaṇassa vā sutvā vadāmi, api ca yadeva sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadevāhaṃ vadāmī’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0346&quot;/&gt;">&lt;p n=&quot;270&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;270&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tamenaṃ, bhikkhave, nirayapālā balisena uddharitvā &lt;pb ed=&quot;P&quot; n=&quot;3.0186&quot;/&gt; thale patiṭṭhāpetvā &lt;pb ed=&quot;T&quot; n=&quot;3.0345&quot;/&gt; evamāhaṃsu – ‘ambho purisa, kiṃ icchasī’ti? So evamāha – ‘jighacchitosmi, bhante’ti. Tamenaṃ, bhikkhave, nirayapālā tattena ayosaṅkunā mukhaṃ vivaritvā ādittena sampajjalitena sajotibhūtena tattaṃ lohaguḷaṃ mukhe pakkhipanti ādittaṃ sampajjalitaṃ sajotibhūtaṃ. So tassa &lt;note&gt;taṃ tassa (ka.), tassa (sī. pī.)&lt;/note&gt; oṭṭhampi dahati &lt;note&gt;ḍayhati (sī. syā. kaṃ. pī.)&lt;/note&gt;, mukhampi dahati, kaṇṭhampi dahati, urampi &lt;note&gt;udarampi (sī. syā. kaṃ.)&lt;/note&gt; dahati, antampi antaguṇampi ādāya adhobhāgā nikkhamati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti yāva na taṃ pāpakammaṃ byantīhoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tamenaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0225&quot;/&gt;, bhikkhave, nirayapālā evamāhaṃsu – ‘ambho purisa, kiṃ icchasī’ti? So evamāha – ‘pipāsitosmi, bhante’ti. Tamenaṃ, bhikkhave, nirayapālā tattena ayosaṅkunā mukhaṃ vivaritvā ādittena sampajjalitena sajotibhūtena tattaṃ tambalohaṃ mukhe āsiñcanti ādittaṃ sampajjalitaṃ sajotibhūtaṃ. Taṃ tassa &lt;note&gt;ettha pana pāṭhabhedo natthi&lt;/note&gt; oṭṭhampi dahati, mukhampi dahati, kaṇṭhampi dahati, urampi dahati, antampi antaguṇampi ādāya adhobhāgā nikkhamati. So tattha dukkhā tibbā kharā kaṭukā vedanā vedeti, na ca tāva kālaṅkaroti, yāva na taṃ pāpakammaṃ byantīhoti. Tamenaṃ, bhikkhave, nirayapālā puna mahāniraye pakkhipanti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0225&quot;/&gt; &lt;note&gt;ettha pana pāṭhabhedo natthi&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Bhūtapubbaṃ, bhikkhave, yamassa rañño etadahosi – ‘ye kira &lt;pb ed=&quot;T&quot; n=&quot;3.0346&quot;/&gt;, bho, loke pāpakāni akusalāni kammāni karonti te evarūpā vividhā kammakāraṇā karīyanti. Aho vatāhaṃ manussattaṃ labheyyaṃ. Tathāgato ca loke uppajjeyya arahaṃ sammāsambuddho. Tañcāhaṃ bhagavantaṃ payirupāseyyaṃ. So ca me bhagavā dhammaṃ deseyya. Tassa cāhaṃ bhagavato dhammaṃ ājāneyya’nti. Taṃ kho panāhaṃ, bhikkhave, nāññassa samaṇassa vā brāhmaṇassa vā sutvā vadāmi, api ca yadeva sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadevāhaṃ vadāmī’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0346&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">270. “Then, monks, the wardens of hell, having lifted him up with a hook and placed him on the ground, say to him: ‘Good man, what do you want?’ He says: ‘I am hungry, venerable sirs.’<br>Then, monks, the wardens of hell prise open his mouth with red-hot iron tongs, burning, blazing, and glowing, and they throw into his mouth a red-hot metal ball, burning, blazing, and glowing.<br>It burns his lips, it burns his mouth, it burns his throat, it burns his chest, and it passes out below carrying with it his intestines and the small intestines.<br>There he feels painful, racking, piercing feelings, yet he does not die so long as that evil action is not exhausted.<br><br>“Then, monks, the wardens of hell say to him: ‘Good man, what do you want?’ He says: ‘I am thirsty, venerable sirs.’<br>Then, monks, the wardens of hell prise open his mouth with red-hot iron tongs, burning, blazing, and glowing, and they pour into his mouth molten copper, burning, blazing, and glowing.<br>It burns his lips, it burns his mouth, it burns his throat, it burns his chest, and it passes out below carrying with it his intestines and the small intestines.<br>There he feels painful, racking, piercing feelings, yet he does not die so long as that evil action is not exhausted.<br>Then, monks, the wardens of hell throw him back again into the Great Hell.<br><br>“Once, monks, King Yama thought: ‘Those in the world who do evil, unwholesome actions are punished with such diverse tortures.<br>Oh, that I might attain the human state!<br>That a <i>Tathāgata</i>, worthy and perfectly enlightened, might appear in the world!<br>That I might attend upon that Blessed One!<br>That the Blessed One might teach me the <i>dharma</i>!<br>And that I might understand the Blessed One’s <i>dharma</i>!’<br>Bhikkhus, I tell you this not as something I heard from another <i>śramaṇa</i> or <i>brāhmaṇa</i>. I tell you this as something that I have actually known, seen, and discovered by myself.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">271</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;271&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;271&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Idamavoca &lt;pb ed=&quot;M&quot; n=&quot;3.0225&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0187&quot;/&gt; bhagavā. Idaṃ vatvāna &lt;note&gt;idaṃ vatvā (sī. pī.) evamīdisesu ṭhānesu&lt;/note&gt; sugato athāparaṃ etadavoca satthā –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Coditā devadūtehi, ye pamajjanti māṇavā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Te dīgharattaṃ socanti, hīnakāyūpagā narā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ye ca kho devadūtehi, santo sappurisā idha;</p> &lt;p rend=&quot;gathalast&quot;&gt;Coditā nappamajjanti, ariyadhamme kudācanaṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Upādāne bhayaṃ disvā, jātimaraṇasambhave;</p> &lt;p rend=&quot;gathalast&quot;&gt;Anupādā vimuccanti, jātimaraṇasaṅkhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Te &lt;pb ed=&quot;V&quot; n=&quot;3.0226&quot;/&gt; khemappattā sukhino, diṭṭhadhammābhinibbutā;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0226&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Sabbaverabhayātītā, sabbadukkhaṃ &lt;note&gt;sabbadukkhā (ka.)&lt;/note&gt; upaccagu’’nti.</p> &lt;note&gt;sabbadukkhā (ka.)&lt;/note&gt; &lt;p rend=&quot;centre&quot;&gt;Devadūtasuttaṃ niṭṭhitaṃ dasamaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Suññatavaggo niṭṭhito tatiyo.</p> &lt;p rend=&quot;gatha1&quot;&gt;Tassuddānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0347&quot;/&gt; –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0347&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;Dvidhāva suññatā hoti, abbhutadhammabākulaṃ;</p> &lt;p rend=&quot;gatha2&quot;&gt;Aciravatabhūmijanāmo, anuruddhupakkilesaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Bālapaṇḍito devadūtañca te dasāti.</p>">&lt;p n=&quot;271&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;271&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Idamavoca &lt;pb ed=&quot;M&quot; n=&quot;3.0225&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0187&quot;/&gt; bhagavā. Idaṃ vatvāna &lt;note&gt;idaṃ vatvā (sī. pī.) evamīdisesu ṭhānesu&lt;/note&gt; sugato athāparaṃ etadavoca satthā –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Coditā devadūtehi, ye pamajjanti māṇavā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Te dīgharattaṃ socanti, hīnakāyūpagā narā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ye ca kho devadūtehi, santo sappurisā idha;</p> &lt;p rend=&quot;gathalast&quot;&gt;Coditā nappamajjanti, ariyadhamme kudācanaṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Upādāne bhayaṃ disvā, jātimaraṇasambhave;</p> &lt;p rend=&quot;gathalast&quot;&gt;Anupādā vimuccanti, jātimaraṇasaṅkhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Te &lt;pb ed=&quot;V&quot; n=&quot;3.0226&quot;/&gt; khemappattā sukhino, diṭṭhadhammābhinibbutā;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0226&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Sabbaverabhayātītā, sabbadukkhaṃ &lt;note&gt;sabbadukkhā (ka.)&lt;/note&gt; upaccagu’’nti.</p> &lt;note&gt;sabbadukkhā (ka.)&lt;/note&gt; &lt;p rend=&quot;centre&quot;&gt;Devadūtasuttaṃ niṭṭhitaṃ dasamaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Suññatavaggo niṭṭhito tatiyo.</p> &lt;p rend=&quot;gatha1&quot;&gt;Tassuddānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0347&quot;/&gt; –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0347&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;Dvidhāva suññatā hoti, abbhutadhammabākulaṃ;</p> &lt;p rend=&quot;gatha2&quot;&gt;Aciravatabhūmijanāmo, anuruddhupakkilesaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Bālapaṇḍito devadūtañca te dasāti.</p></div>
+                
+                <div class="translation-text mula-english-section">271. The Blessed One said this. Having said this, the Well-Gone One, the Teacher, then said something further:<br><br>“Admonished by divine messengers, those youths who are negligent,<br>Those beings who go to a lower existence grieve for a long time.<br><br>“But those noble persons here who are mindful, admonished by divine messengers,<br>Never are they negligent in the Noble Dharma.<br><br>“Seeing fear in clinging, in the arising of birth and death,<br>Without clinging, they are liberated, at the ending of birth and death.<br><br>“They have attained safety, they are happy, they are cooled, having seen the Dharma,<br>They have gone beyond all fear of hostility, they have gone beyond all suffering.”<br><br>The Devadūta Sūtra, the tenth, is finished.<br><br>The Suññatā Chapter, the third, is finished.<br><br>The summary of it:<br><br>Emptiness is twofold, filled with wondrous Dharma;<br>Aciravata, Bhūmijanāma, Anuruddhupakkilesaṃ;<br>The fool and the wise, and the divine messengers, these are the ten.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_cūḷapuṇṇamasuttaṃ.html" class="nav-btn">← Previous: Cūḷapuṇṇamasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_dhātuvibhaṅgasuttaṃ.html" class="nav-btn">Next: Dhātuvibhaṅgasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

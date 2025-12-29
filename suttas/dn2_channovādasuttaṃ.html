@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Channovādasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Channovādasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 2</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn2_chabbisodhanasuttaṃ.html" class="nav-btn">← Previous: Chabbisodhanasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn2_mahāsuññatasuttaṃ.html" class="nav-btn">Next: Mahāsuññatasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">389</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;389&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;389&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0474&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0316&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Tena kho pana samayena āyasmā ca sāriputto āyasmā ca mahācundo āyasmā ca channo gijjhakūṭe pabbate viharanti. Tena kho pana samayena āyasmā channo ābādhiko hoti dukkhito bāḷhagilāno. Atha kho āyasmā sāriputto sāyanhasamayaṃ paṭisallānā vuṭṭhito yenāyasmā mahācundo tenupasaṅkami; upasaṅkamitvā āyasmantaṃ mahācundaṃ etadavoca – ‘‘āyāmāvuso cunda, yenāyasmā channo tenupasaṅkamissāma gilānapucchakā’’ti. ‘‘Evamāvuso’’ti kho āyasmā mahācundo āyasmato sāriputtassa paccassosi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā ca sāriputto āyasmā ca mahācundo yenāyasmā channo tenupasaṅkamiṃsu; upasaṅkamitvā āyasmatā channena saddhiṃ sammodiṃsu. Sammodanīyaṃ kathaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0264&quot;/&gt; sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinno kho āyasmā sāriputto āyasmantaṃ channaṃ etadavoca – ‘‘kacci te, āvuso channa, khamanīyaṃ, kacci yāpanīyaṃ? Kacci te dukkhā vedanā paṭikkamanti, no abhikkamanti; paṭikkamosānaṃ paññāyati, no abhikkamo’’ti?</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0264&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi &lt;pb ed=&quot;T&quot; n=&quot;3.0475&quot;/&gt;, āvuso sāriputta, balavā puriso &lt;pb ed=&quot;M&quot; n=&quot;3.0308&quot;/&gt; tiṇhena sikharena muddhani abhimattheyya; evameva kho me, āvuso sāriputta, adhimattā vātā muddhani ūhananti. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati no paṭikkamo. Seyyathāpi, āvuso sāriputta, balavā puriso daḷhena varattakkhaṇḍena sīse sīsaveṭhaṃ dadeyya; evameva kho me, āvuso sāriputta, adhimattā sīse sīsavedanā. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi, āvuso &lt;pb ed=&quot;V&quot; n=&quot;3.0317&quot;/&gt; sāriputta, dakkho goghātako vā goghātakantevāsī vā tiṇhena govikantanena kucchiṃ parikanteyya; evameva kho me, āvuso sāriputta, adhimattā vātā kucchiṃ parikantanti. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi, āvuso sāriputta, dve balavanto purisā dubbalataraṃ purisaṃ nānābāhāsu gahetvā aṅgārakāsuyā santāpeyyuṃ samparitāpeyyuṃ; evameva kho me, āvuso sāriputta, adhimatto &lt;pb ed=&quot;T&quot; n=&quot;3.0476&quot;/&gt; kāyasmiṃ ḍāho. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Satthaṃ, āvuso sāriputta, āharissāmi, nāvakaṅkhāmi jīvita’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0475&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0308&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0317&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0476&quot;/&gt;">&lt;p n=&quot;389&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;389&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0474&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0316&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Tena kho pana samayena āyasmā ca sāriputto āyasmā ca mahācundo āyasmā ca channo gijjhakūṭe pabbate viharanti. Tena kho pana samayena āyasmā channo ābādhiko hoti dukkhito bāḷhagilāno. Atha kho āyasmā sāriputto sāyanhasamayaṃ paṭisallānā vuṭṭhito yenāyasmā mahācundo tenupasaṅkami; upasaṅkamitvā āyasmantaṃ mahācundaṃ etadavoca – ‘‘āyāmāvuso cunda, yenāyasmā channo tenupasaṅkamissāma gilānapucchakā’’ti. ‘‘Evamāvuso’’ti kho āyasmā mahācundo āyasmato sāriputtassa paccassosi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā ca sāriputto āyasmā ca mahācundo yenāyasmā channo tenupasaṅkamiṃsu; upasaṅkamitvā āyasmatā channena saddhiṃ sammodiṃsu. Sammodanīyaṃ kathaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0264&quot;/&gt; sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinno kho āyasmā sāriputto āyasmantaṃ channaṃ etadavoca – ‘‘kacci te, āvuso channa, khamanīyaṃ, kacci yāpanīyaṃ? Kacci te dukkhā vedanā paṭikkamanti, no abhikkamanti; paṭikkamosānaṃ paññāyati, no abhikkamo’’ti?</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0264&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi &lt;pb ed=&quot;T&quot; n=&quot;3.0475&quot;/&gt;, āvuso sāriputta, balavā puriso &lt;pb ed=&quot;M&quot; n=&quot;3.0308&quot;/&gt; tiṇhena sikharena muddhani abhimattheyya; evameva kho me, āvuso sāriputta, adhimattā vātā muddhani ūhananti. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati no paṭikkamo. Seyyathāpi, āvuso sāriputta, balavā puriso daḷhena varattakkhaṇḍena sīse sīsaveṭhaṃ dadeyya; evameva kho me, āvuso sāriputta, adhimattā sīse sīsavedanā. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi, āvuso &lt;pb ed=&quot;V&quot; n=&quot;3.0317&quot;/&gt; sāriputta, dakkho goghātako vā goghātakantevāsī vā tiṇhena govikantanena kucchiṃ parikanteyya; evameva kho me, āvuso sāriputta, adhimattā vātā kucchiṃ parikantanti. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Seyyathāpi, āvuso sāriputta, dve balavanto purisā dubbalataraṃ purisaṃ nānābāhāsu gahetvā aṅgārakāsuyā santāpeyyuṃ samparitāpeyyuṃ; evameva kho me, āvuso sāriputta, adhimatto &lt;pb ed=&quot;T&quot; n=&quot;3.0476&quot;/&gt; kāyasmiṃ ḍāho. Na me, āvuso sāriputta, khamanīyaṃ na yāpanīyaṃ. Bāḷhā me dukkhā vedanā abhikkamanti, no paṭikkamanti; abhikkamosānaṃ paññāyati, no paṭikkamo. Satthaṃ, āvuso sāriputta, āharissāmi, nāvakaṅkhāmi jīvita’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0475&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0308&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0317&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0476&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was living at Rājagaha in the Bamboo Grove, the Squirrels’ Sanctuary.<br><br>Now on that occasion, the venerable Sāriputta, the venerable Mahācunda, and the venerable Channa were living on the mountain Vulture Peak.<br><br>And on that occasion, the venerable Channa was afflicted, suffering, and gravely ill.<br><br>Then, when it was evening, the venerable Sāriputta rose from meditation, went to the venerable Mahācunda, and said to him: “Friend Cunda, let us go to the venerable Channa and ask about his illness.”<br><br>“Yes, friend,” the venerable Mahācunda replied to the venerable Sāriputta.<br><br>Then the venerable Sāriputta and the venerable Mahācunda went to the venerable Channa and exchanged greetings with him. When they had concluded their greetings and cordial talk, they sat down to one side.<br><br>Seated to one side, the venerable Sāriputta said to the venerable Channa: “I trust, friend Channa, that things are bearable for you, I trust that things are comfortable for you? I trust that your painful feelings are subsiding, and not increasing; that there are signs of their subsiding, and not of their increasing?”<br><br>“Friend Sāriputta, I am not getting well, I am not comfortable. My severe pains are increasing, not lessening. There are signs of their increasing, and not of their lessening. Just as if, friend Sāriputta, a strong man were crushing my head with the tip of a sharp sword, so too, violent winds cut through my head. I am not getting well, friend Sāriputta, I am not comfortable. My severe pains are increasing, not lessening. There are signs of their increasing, and not of their lessening. Just as if, friend Sāriputta, a strong man were tightening a tough leather strap around my head as a headband, so too, there are violent pains in my head. I am not getting well, friend Sāriputta, I am not comfortable. My severe pains are increasing, not lessening. There are signs of their increasing, and not of their lessening. Just as if, friend Sāriputta, a skilled butcher or his apprentice were to carve up an ox’s belly with a sharp butcher’s knife, so too, violent winds are carving up my belly. I am not getting well, friend Sāriputta, I am not comfortable. My severe pains are increasing, not lessening. There are signs of their increasing, and not of their lessening. Just as if, friend Sāriputta, two strong men were holding a weaker man by both arms and warming him, roasting him, over a charcoal pit, so too, there is a violent burning in my body. I am not getting well, friend Sāriputta, I am not comfortable. My severe pains are increasing, not lessening. There are signs of their increasing, and not of their lessening. I shall use the knife, friend Sāriputta; I have no desire to live.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">390</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;390&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;390&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Māyasmā channo satthaṃ āharesi. Yāpetāyasmā channo. Yāpentaṃ mayaṃ āyasmantaṃ channaṃ icchāma. Sace āyasmato channassa natthi sappāyāni bhojanāni, ahaṃ āyasmato channassa sappāyāni bhojanāni pariyesissāmi. Sace āyasmato channassa natthi sappāyāni bhesajjāni, ahaṃ āyasmato channassa sappāyāni bhesajjāni pariyesissāmi. Sace āyasmato channassa natthi patirūpā upaṭṭhākā, ahaṃ āyasmantaṃ channaṃ upaṭṭhahissāmi. Māyasmā channo satthaṃ āharesi. Yāpetāyasmā channo. Yāpentaṃ mayaṃ āyasmantaṃ channaṃ icchāmā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Napi me, āvuso sāriputta, natthi sappāyāni bhojanāni; napi me natthi sappāyāni bhesajjāni; napi me natthi patirūpā upaṭṭhākā; api cāvuso sāriputta &lt;pb ed=&quot;M&quot; n=&quot;3.0309&quot;/&gt;, pariciṇṇo me satthā dīgharattaṃ manāpeneva no amanāpena. Etañhi, āvuso sāriputta, sāvakassa patirūpaṃ yaṃ satthāraṃ paricareyya manāpeneva no amanāpena. ‘Anupavajjaṃ channo bhikkhu satthaṃ āharissatī’ti evametaṃ &lt;note&gt;evameva kho tvaṃ (ka.)&lt;/note&gt;, āvuso sāriputta, dhārehī’’ti. ‘‘Puccheyyāma mayaṃ āyasmantaṃ channaṃ kañcideva desaṃ, sace āyasmā &lt;pb ed=&quot;T&quot; n=&quot;3.0477&quot;/&gt; channo okāsaṃ karoti pañhassa veyyākaraṇāyā’’ti. ‘‘Pucchāvuso sāriputta, sutvā vedissāmī’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0309&quot;/&gt; &lt;note&gt;evameva kho tvaṃ (ka.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0477&quot;/&gt;">&lt;p n=&quot;390&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;390&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Māyasmā channo satthaṃ āharesi. Yāpetāyasmā channo. Yāpentaṃ mayaṃ āyasmantaṃ channaṃ icchāma. Sace āyasmato channassa natthi sappāyāni bhojanāni, ahaṃ āyasmato channassa sappāyāni bhojanāni pariyesissāmi. Sace āyasmato channassa natthi sappāyāni bhesajjāni, ahaṃ āyasmato channassa sappāyāni bhesajjāni pariyesissāmi. Sace āyasmato channassa natthi patirūpā upaṭṭhākā, ahaṃ āyasmantaṃ channaṃ upaṭṭhahissāmi. Māyasmā channo satthaṃ āharesi. Yāpetāyasmā channo. Yāpentaṃ mayaṃ āyasmantaṃ channaṃ icchāmā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Napi me, āvuso sāriputta, natthi sappāyāni bhojanāni; napi me natthi sappāyāni bhesajjāni; napi me natthi patirūpā upaṭṭhākā; api cāvuso sāriputta &lt;pb ed=&quot;M&quot; n=&quot;3.0309&quot;/&gt;, pariciṇṇo me satthā dīgharattaṃ manāpeneva no amanāpena. Etañhi, āvuso sāriputta, sāvakassa patirūpaṃ yaṃ satthāraṃ paricareyya manāpeneva no amanāpena. ‘Anupavajjaṃ channo bhikkhu satthaṃ āharissatī’ti evametaṃ &lt;note&gt;evameva kho tvaṃ (ka.)&lt;/note&gt;, āvuso sāriputta, dhārehī’’ti. ‘‘Puccheyyāma mayaṃ āyasmantaṃ channaṃ kañcideva desaṃ, sace āyasmā &lt;pb ed=&quot;T&quot; n=&quot;3.0477&quot;/&gt; channo okāsaṃ karoti pañhassa veyyākaraṇāyā’’ti. ‘‘Pucchāvuso sāriputta, sutvā vedissāmī’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0309&quot;/&gt; &lt;note&gt;evameva kho tvaṃ (ka.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0477&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">390. Let the venerable Channa not use the knife.<br>Let the venerable Channa live.<br>We want the venerable Channa to live.<br>If the venerable Channa lacks suitable food, I will go in search of suitable food for him.<br>If the venerable Channa lacks suitable medicine, I will go in search of suitable medicine for him.<br>If he lacks a proper attendant, I will attend on the venerable Channa.<br>Let the venerable Channa not use the knife.<br>Let the venerable Channa live.<br>We want the venerable Channa to live.<br><br>Furthermore, friend Śāriputra, it is not that I have no suitable food; nor is it that I have no suitable medicine; nor is it that I have no proper attendant; but rather, friend Śāriputra, the Teacher has long been worshipped by me with love, not without love.<br>But rather, friend Śāriputra, it is proper for the disciple to worship the Teacher with love, not without love.<br>&#039;The blameless monk Channa will use the knife,&#039; thus, friend Śāriputra, remember this.<br>“We might ask the venerable Channa some question if the venerable Channa makes an opportunity for an explanation of the question.”<br>“Ask, friend Śāriputra, when I have heard, I shall know.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">391</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;391&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;391&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhuṃ, āvuso channa, cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘etaṃ mama, esohamasmi, eso &lt;pb ed=&quot;P&quot; n=&quot;3.0265&quot;/&gt; me attā’ti samanupassasi? Sotaṃ, āvuso channa, sotaviññāṇaṃ…pe… ghānaṃ, āvuso channa, ghānaviññāṇaṃ… jivhaṃ, āvuso channa, jivhāviññāṇaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0318&quot;/&gt;… kāyaṃ, āvuso channa, kāyaviññāṇaṃ… manaṃ, āvuso channa, manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘etaṃ mama, esohamasmi, eso me attā’ti samanupassasī’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cakkhuṃ, āvuso sāriputta, cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmi. Sotaṃ, āvuso sāriputta…pe… ghānaṃ, āvuso sāriputta… jivhaṃ, āvuso sāriputta… kāyaṃ, āvuso sāriputta… manaṃ, āvuso sāriputta, manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmī’’ti.</p>">&lt;p n=&quot;391&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;391&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhuṃ, āvuso channa, cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘etaṃ mama, esohamasmi, eso &lt;pb ed=&quot;P&quot; n=&quot;3.0265&quot;/&gt; me attā’ti samanupassasi? Sotaṃ, āvuso channa, sotaviññāṇaṃ…pe… ghānaṃ, āvuso channa, ghānaviññāṇaṃ… jivhaṃ, āvuso channa, jivhāviññāṇaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0318&quot;/&gt;… kāyaṃ, āvuso channa, kāyaviññāṇaṃ… manaṃ, āvuso channa, manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘etaṃ mama, esohamasmi, eso me attā’ti samanupassasī’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cakkhuṃ, āvuso sāriputta, cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmi. Sotaṃ, āvuso sāriputta…pe… ghānaṃ, āvuso sāriputta… jivhaṃ, āvuso sāriputta… kāyaṃ, āvuso sāriputta… manaṃ, āvuso sāriputta, manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmī’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">&quot;Friend Channa, do you regard the eye, eye-consciousness, and things cognizable by eye-consciousness thus: &#039;This is mine, this I am, this is my self&#039;? Friend Channa, the ear, ear-consciousness… the nose, nose-consciousness… the tongue, tongue-consciousness… the body, body-consciousness… the mind, mind-consciousness, and things cognizable by the mind through mind-consciousness… do you regard them thus: &#039;This is mine, this I am, this is my self&#039;?&quot;<br><br>&quot;Friend Sāriputta, I regard the eye, eye-consciousness, and things cognizable by eye-consciousness thus: &#039;This is not mine, this I am not, this is not my self.&#039; Friend Sāriputta, the ear… the nose… the tongue… the body… the mind, mind-consciousness, and things cognizable by the mind through mind-consciousness… I regard them thus: &#039;This is not mine, this I am not, this is not my self.&#039;&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">392</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;392&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;392&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhusmiṃ, āvuso channa, cakkhuviññāṇe cakkhuviññāṇaviññātabbesu dhammesu kiṃ disvā kiṃ abhiññāya cakkhuṃ cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassasi? Sotasmiṃ, āvuso channa, sotaviññāṇe &lt;pb ed=&quot;T&quot; n=&quot;3.0478&quot;/&gt;… ghānasmiṃ, āvuso channa, ghānaviññāṇe… jivhāya, āvuso channa, jivhāviññāṇe… kāyasmiṃ, āvuso channa, kāyaviññāṇe… manasmiṃ, āvuso channa, manoviññāṇe manoviññāṇaviññātabbesu dhammesu kiṃ disvā kiṃ abhiññāya manaṃ manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassasī’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cakkhusmiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0310&quot;/&gt;, āvuso sāriputta, cakkhuviññāṇe cakkhuviññāṇaviññātabbesu dhammesu nirodhaṃ disvā nirodhaṃ abhiññāya cakkhuṃ cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmi. Sotasmiṃ, āvuso sāriputta, sotaviññāṇe… ghānasmiṃ, āvuso sāriputta, ghānaviññāṇe… jivhāya, āvuso sāriputta, jivhāviññāṇe… kāyasmiṃ, āvuso sāriputta, kāyaviññāṇe… manasmiṃ, āvuso sāriputta, manoviññāṇe manoviññāṇaviññātabbesu &lt;pb ed=&quot;V&quot; n=&quot;3.0319&quot;/&gt; dhammesu nirodhaṃ disvā nirodhaṃ abhiññā manaṃ manoviññāṇaṃ manoviññāṇaviññātabbe &lt;pb ed=&quot;P&quot; n=&quot;3.0266&quot;/&gt; dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmī’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0310&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0319&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0266&quot;/&gt;">&lt;p n=&quot;392&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;392&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhusmiṃ, āvuso channa, cakkhuviññāṇe cakkhuviññāṇaviññātabbesu dhammesu kiṃ disvā kiṃ abhiññāya cakkhuṃ cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassasi? Sotasmiṃ, āvuso channa, sotaviññāṇe &lt;pb ed=&quot;T&quot; n=&quot;3.0478&quot;/&gt;… ghānasmiṃ, āvuso channa, ghānaviññāṇe… jivhāya, āvuso channa, jivhāviññāṇe… kāyasmiṃ, āvuso channa, kāyaviññāṇe… manasmiṃ, āvuso channa, manoviññāṇe manoviññāṇaviññātabbesu dhammesu kiṃ disvā kiṃ abhiññāya manaṃ manoviññāṇaṃ manoviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassasī’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cakkhusmiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0310&quot;/&gt;, āvuso sāriputta, cakkhuviññāṇe cakkhuviññāṇaviññātabbesu dhammesu nirodhaṃ disvā nirodhaṃ abhiññāya cakkhuṃ cakkhuviññāṇaṃ cakkhuviññāṇaviññātabbe dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmi. Sotasmiṃ, āvuso sāriputta, sotaviññāṇe… ghānasmiṃ, āvuso sāriputta, ghānaviññāṇe… jivhāya, āvuso sāriputta, jivhāviññāṇe… kāyasmiṃ, āvuso sāriputta, kāyaviññāṇe… manasmiṃ, āvuso sāriputta, manoviññāṇe manoviññāṇaviññātabbesu &lt;pb ed=&quot;V&quot; n=&quot;3.0319&quot;/&gt; dhammesu nirodhaṃ disvā nirodhaṃ abhiññā manaṃ manoviññāṇaṃ manoviññāṇaviññātabbe &lt;pb ed=&quot;P&quot; n=&quot;3.0266&quot;/&gt; dhamme ‘netaṃ mama, nesohamasmi, na meso attā’ti samanupassāmī’’ti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0310&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0319&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0266&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Friend Channa, what have you seen, what have you directly known in the eye, in eye-consciousness, and in things cognizable by the mind through eye-consciousness, that you regard them thus: ‘This is not mine, this I am not, this is not my self’? In the ear…in the nose…in the tongue…in the body…in the mind, in mind-consciousness, and in things cognizable by the mind through mind-consciousness, what have you seen, what have you directly known in the mind, in mind-consciousness, and in things cognizable by the mind through mind-consciousness, that you regard them thus: ‘This is not mine, this I am not, this is not my self’?”<br><br>“Friend Sāriputta, it is through seeing cessation, through directly knowing cessation in the eye, in eye-consciousness, and in things cognizable by the mind through eye-consciousness, that I regard them thus: ‘This is not mine, this I am not, this is not my self.’ It is through seeing cessation, through directly knowing cessation in the ear…in the nose…in the tongue…in the body…in the mind, in mind-consciousness, and in things cognizable by the mind through mind-consciousness, that I regard them thus: ‘This is not mine, this I am not, this is not my self.’“</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">393</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;393&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;393&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ vutte, āyasmā mahācundo āyasmantaṃ channaṃ etadavoca – ‘‘tasmātiha, āvuso channa, idampi tassa bhagavato sāsanaṃ &lt;note&gt;vacanaṃ (sī.)&lt;/note&gt;, niccakappaṃ manasi kātabbaṃ – ‘nissitassa calitaṃ, anissitassa calitaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0479&quot;/&gt; natthi. Calite asati passaddhi, passaddhiyā sati nati na hoti. Natiyā asati āgatigati na hoti. Āgatigatiyā asati cutūpapāto na hoti. Cutūpapāte asati nevidha na huraṃ na ubhayamantarena. Esevanto dukkhassā’’’ti. Atha kho āyasmā ca sāriputto āyasmā ca mahācundo āyasmantaṃ channaṃ iminā ovādena ovaditvā uṭṭhāyāsanā pakkamiṃsu.</p>">&lt;p n=&quot;393&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;393&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ vutte, āyasmā mahācundo āyasmantaṃ channaṃ etadavoca – ‘‘tasmātiha, āvuso channa, idampi tassa bhagavato sāsanaṃ &lt;note&gt;vacanaṃ (sī.)&lt;/note&gt;, niccakappaṃ manasi kātabbaṃ – ‘nissitassa calitaṃ, anissitassa calitaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0479&quot;/&gt; natthi. Calite asati passaddhi, passaddhiyā sati nati na hoti. Natiyā asati āgatigati na hoti. Āgatigatiyā asati cutūpapāto na hoti. Cutūpapāte asati nevidha na huraṃ na ubhayamantarena. Esevanto dukkhassā’’’ti. Atha kho āyasmā ca sāriputto āyasmā ca mahācundo āyasmantaṃ channaṃ iminā ovādena ovaditvā uṭṭhāyāsanā pakkamiṃsu.</p></div>
+                
+                <div class="translation-text mula-english-section">When this was said, the venerable Mahācunda said to the venerable Channa: “Therefore, friend Channa, this instruction (śāsana) of the Blessed One’s is to be constantly given attention: ‘There is wavering (calitaṃ) in one who is dependent (nissitassa), there is no wavering (calitaṃ) in one who is independent (anissitassa); there is no wavering (calite). When there is no wavering, there is calm (passaddhi). There being calm, there is no yearning (nati). There being no yearning (nati), there is no coming or going (āgatigati). There being no coming or going (āgatigati), there is no passing away or arising (cutūpapāto). There being no passing away or arising (cutūpapāte), there is neither a here (nevidha) nor a there (huraṃ) nor a between-the-two (ubhayamantarena). This is the end of suffering (dukkhassā’&#039;)’&quot;.<br><br>Then Ven. Sāriputta and Ven. Mahācunda, having given this instruction (ovādena) to the venerable Channa, got up from their seats and left.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">394</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;394&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;394&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā channo acirapakkante āyasmante ca sāriputte āyasmante ca mahācunde satthaṃ āharesi. Atha kho āyasmā sāriputto yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘āyasmatā, bhante, channena satthaṃ āharitaṃ. Tassa kā gati, ko abhisamparāyo’’ti? ‘‘Nanu te, sāriputta, channena bhikkhunā sammukhāyeva anupavajjatā byākatā’’ti? ‘‘Atthi, bhante, pubbajiraṃ &lt;note&gt;pappajitañhitaṃ (ka.), upavajjitaṃ (ka.), pubbavijjanaṃ, pubbavijjhanaṃ, pubbaviciraṃ (saṃyuttake)&lt;/note&gt; nāma vajjigāmo. Tatthāyasmato channassa mittakulāni suhajjakulāni upavajjakulānī’’ti. ‘‘Honti &lt;note&gt;posanti (ka.)&lt;/note&gt; hete, sāriputta, channassa bhikkhuno mittakulāni suhajjakulāni upavajjakulāni. Nāhaṃ, sāriputta, ettāvatā &lt;pb ed=&quot;M&quot; n=&quot;3.0311&quot;/&gt; ‘saupavajjo’ti vadāmi. Yo kho, sāriputta, imañca kāyaṃ nikkhipati aññañca kāyaṃ upādiyati tamahaṃ ‘saupavajjo’ti vadāmi. Taṃ channassa bhikkhuno natthi. ‘Anupavajjo channo bhikkhu satthaṃ āharesī’ti evametaṃ, sāriputta, dhārehī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;T&quot; n=&quot;3.0480&quot;/&gt; bhagavā. Attamano āyasmā sāriputto bhagavato bhāsitaṃ abhinandīti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0480&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Channovādasuttaṃ niṭṭhitaṃ dutiyaṃ.</p>">&lt;p n=&quot;394&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;394&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā channo acirapakkante āyasmante ca sāriputte āyasmante ca mahācunde satthaṃ āharesi. Atha kho āyasmā sāriputto yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘āyasmatā, bhante, channena satthaṃ āharitaṃ. Tassa kā gati, ko abhisamparāyo’’ti? ‘‘Nanu te, sāriputta, channena bhikkhunā sammukhāyeva anupavajjatā byākatā’’ti? ‘‘Atthi, bhante, pubbajiraṃ &lt;note&gt;pappajitañhitaṃ (ka.), upavajjitaṃ (ka.), pubbavijjanaṃ, pubbavijjhanaṃ, pubbaviciraṃ (saṃyuttake)&lt;/note&gt; nāma vajjigāmo. Tatthāyasmato channassa mittakulāni suhajjakulāni upavajjakulānī’’ti. ‘‘Honti &lt;note&gt;posanti (ka.)&lt;/note&gt; hete, sāriputta, channassa bhikkhuno mittakulāni suhajjakulāni upavajjakulāni. Nāhaṃ, sāriputta, ettāvatā &lt;pb ed=&quot;M&quot; n=&quot;3.0311&quot;/&gt; ‘saupavajjo’ti vadāmi. Yo kho, sāriputta, imañca kāyaṃ nikkhipati aññañca kāyaṃ upādiyati tamahaṃ ‘saupavajjo’ti vadāmi. Taṃ channassa bhikkhuno natthi. ‘Anupavajjo channo bhikkhu satthaṃ āharesī’ti evametaṃ, sāriputta, dhārehī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;T&quot; n=&quot;3.0480&quot;/&gt; bhagavā. Attamano āyasmā sāriputto bhagavato bhāsitaṃ abhinandīti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0480&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Channovādasuttaṃ niṭṭhitaṃ dutiyaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">Then, venerable Channa, soon after venerable Sāriputta and venerable Mahācunda had departed, used the knife ( <i>satthaṃ āharesi</i>).<br><br>Then, venerable Sāriputta went to the Blessed One; having approached, paid homage to the Blessed One and sat down to one side.<br><br>Seated to one side, venerable Sāriputta said this to the Blessed One: &quot;Venerable sir, Channa has used the knife.<br><br>What is his destiny? What is his future state?&quot;<br><br>&quot;Sāriputta, was not non-blameworthiness declared by the monk Channa in your very presence?&quot;<br><br>&quot;Venerable sir, there is a Vajjian village named Pubbajira.<br><br>There, the venerable Channa had families that were friends, families that were intimates, families that were blameworthy.&quot;<br><br>&quot;There are, Sāriputta, for the monk Channa, families that were friends, families that were intimates, families that were blameworthy.<br><br>But I do not, Sāriputta, on that account say he is &#039;blameworthy&#039; (<i>saupavajjo</i>).<br><br>Sāriputta, whoever lays down this body and takes up another body, <i>him</i> I call &#039;blameworthy&#039; (<i>saupavajjo</i>).<br><br>That is not present in the monk Channa.<br><br>&#039;The monk Channa used the knife blamelessly (<i>anupavajjo channo bhikkhu satthaṃ āharesī</i>)&#039;, so, Sāriputta, you should remember this.&quot;<br><br>This is what the Blessed One said.<br><br>Venerable Sāriputta was pleased and rejoiced in the Blessed One&#039;s words.<br><br>The Channovāda Sutta, the second, is concluded.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn2_chabbisodhanasuttaṃ.html" class="nav-btn">← Previous: Chabbisodhanasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn2_mahāsuññatasuttaṃ.html" class="nav-btn">Next: Mahāsuññatasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

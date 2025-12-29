@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Mahākammavibhaṅgasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Mahākammavibhaṅgasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 6</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn6_isigilisuttaṃ.html" class="nav-btn">← Previous: Isigilisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_āneñjasappāyasuttaṃ.html" class="nav-btn">Next: Āneñjasappāyasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">298</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;298&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;298&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0386&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0256&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0207&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Tena kho pana samayena āyasmā samiddhi araññakuṭikāyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0250&quot;/&gt; viharati. Atha kho potaliputto paribbājako jaṅghāvihāraṃ anucaṅkamamāno anuvicaramāno yenāyasmā samiddhi tenupasaṅkami; upasaṅkamitvā āyasmatā samiddhinā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho potaliputto paribbājako āyasmantaṃ samiddhiṃ etadavoca – ‘‘sammukhā metaṃ, āvuso samiddhi, samaṇassa gotamassa sutaṃ, sammukhā paṭiggahitaṃ – ‘moghaṃ kāyakammaṃ moghaṃ vacīkammaṃ, manokammameva sacca’nti. Atthi ca sā &lt;note&gt;atthi cesā (sī. ka.)&lt;/note&gt; samāpatti yaṃ samāpattiṃ samāpanno na kiñci vediyatī’’ti? ‘‘Mā hevaṃ, āvuso potaliputta, avaca; (mā hevaṃ, āvuso potaliputta, avaca;) &lt;note&gt;( ) syā. kaṃ. potthakesu natthi&lt;/note&gt; mā bhagavantaṃ abbhācikkhi. Na hi sādhu bhagavato abbhakkhānaṃ. Na hi bhagavā evaṃ vadeyya – ‘moghaṃ kāyakammaṃ moghaṃ vacīkammaṃ, manokammameva sacca’nti. Atthi ca kho &lt;note&gt;atthi ceva kho (sī. ka.)&lt;/note&gt; sā, āvuso, samāpatti yaṃ samāpattiṃ samāpanno na kiñci vediyatī’’ti. ‘‘Kīvaciraṃ pabbajitosi, āvuso samiddhī’’ti? ‘‘Na ciraṃ, āvuso! Tīṇi vassānī’’ti. ‘‘Ettha dāni mayaṃ there bhikkhū kiṃ vakkhāma, yatra hi nāma evaṃnavo bhikkhu &lt;note&gt;navakena bhikkhunā (ka.)&lt;/note&gt; satthāraṃ parirakkhitabbaṃ maññissati. Sañcetanikaṃ, āvuso samiddhi, kammaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0387&quot;/&gt; katvā kāyena vācāya manasā kiṃ so vediyatī’’ti? ‘‘Sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā dukkhaṃ so vediyatī’’ti. Atha kho potaliputto paribbājako āyasmato samiddhissa bhāsitaṃ neva abhinandi nappaṭikkosi; anabhinanditvā appaṭikkositvā uṭṭhāyāsanā pakkāmi.</p>">&lt;p n=&quot;298&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;298&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0386&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0256&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0207&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Tena kho pana samayena āyasmā samiddhi araññakuṭikāyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0250&quot;/&gt; viharati. Atha kho potaliputto paribbājako jaṅghāvihāraṃ anucaṅkamamāno anuvicaramāno yenāyasmā samiddhi tenupasaṅkami; upasaṅkamitvā āyasmatā samiddhinā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho potaliputto paribbājako āyasmantaṃ samiddhiṃ etadavoca – ‘‘sammukhā metaṃ, āvuso samiddhi, samaṇassa gotamassa sutaṃ, sammukhā paṭiggahitaṃ – ‘moghaṃ kāyakammaṃ moghaṃ vacīkammaṃ, manokammameva sacca’nti. Atthi ca sā &lt;note&gt;atthi cesā (sī. ka.)&lt;/note&gt; samāpatti yaṃ samāpattiṃ samāpanno na kiñci vediyatī’’ti? ‘‘Mā hevaṃ, āvuso potaliputta, avaca; (mā hevaṃ, āvuso potaliputta, avaca;) &lt;note&gt;( ) syā. kaṃ. potthakesu natthi&lt;/note&gt; mā bhagavantaṃ abbhācikkhi. Na hi sādhu bhagavato abbhakkhānaṃ. Na hi bhagavā evaṃ vadeyya – ‘moghaṃ kāyakammaṃ moghaṃ vacīkammaṃ, manokammameva sacca’nti. Atthi ca kho &lt;note&gt;atthi ceva kho (sī. ka.)&lt;/note&gt; sā, āvuso, samāpatti yaṃ samāpattiṃ samāpanno na kiñci vediyatī’’ti. ‘‘Kīvaciraṃ pabbajitosi, āvuso samiddhī’’ti? ‘‘Na ciraṃ, āvuso! Tīṇi vassānī’’ti. ‘‘Ettha dāni mayaṃ there bhikkhū kiṃ vakkhāma, yatra hi nāma evaṃnavo bhikkhu &lt;note&gt;navakena bhikkhunā (ka.)&lt;/note&gt; satthāraṃ parirakkhitabbaṃ maññissati. Sañcetanikaṃ, āvuso samiddhi, kammaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0387&quot;/&gt; katvā kāyena vācāya manasā kiṃ so vediyatī’’ti? ‘‘Sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā dukkhaṃ so vediyatī’’ti. Atha kho potaliputto paribbājako āyasmato samiddhissa bhāsitaṃ neva abhinandi nappaṭikkosi; anabhinanditvā appaṭikkositvā uṭṭhāyāsanā pakkāmi.</p></div>
+                
+                <div class="translation-text mula-english-section">298. Thus have I heard. On one occasion the Blessed One was living at Rājagṛha in the Bamboo Grove, the Squirrels&#039; Sanctuary.<br><br>At that time, the venerable Samiddhi was staying in a forest hut.<br><br>Then the wanderer Potaliputta, while wandering and walking for exercise, went to the venerable Samiddhi, and exchanged greetings with him.<br><br>Having exchanged courteous greetings and amiable talk, he sat down at one side.<br><br>Seated to one side, the wanderer Potaliputta said to the venerable Samiddhi: “Friend Samiddhi, I have heard and learned this directly from the mouth of the Śramaṇa Gautama: ‘Bodily action (<i>kāyakarma</i>) is vain, verbal action (<i>vacīkarma</i>) is vain, only mental action (<i>manokarma</i>) is real.’<br><br>But there is that attainment (<i>samāpatti</i>) on entering which one does not feel anything at all?”<br><br>“No, friend Potaliputta, do not speak like that; (do not speak like that, friend Potaliputta;) do not misrepresent the Blessed One.<br><br>It is not good to misrepresent the Blessed One.<br><br>The Blessed One would never say this: ‘Bodily action (<i>kāyakarma</i>) is vain, verbal action (<i>vacīkarma</i>) is vain, only mental action (<i>manokarma</i>) is real.’<br><br>But there is, friend, that attainment (<i>samāpatti</i>) on entering which one does not feel anything at all.”<br><br>“How long have you been ordained, friend Samiddhi?”<br><br>“Not long, friend! Three years.”<br><br>“Now, what should we say to the elder monks, when such a new monk thinks the Teacher should be defended?<br><br>Having done an intentional action (<i>karma</i>), friend Samiddhi, through body, speech, or mind, what does one feel?”<br><br>“Having done an intentional action (<i>karma</i>), friend Potaliputta, through body, speech, or mind, one feels suffering (<i>duḥkha</i>).”<br><br>Then, neither approving nor disapproving of the venerable Samiddhi’s words, the wanderer Potaliputta rose from his seat and departed.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">299</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;299&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;299&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā samiddhi acirapakkante potaliputte paribbājake yenāyasmā ānando tenupasaṅkami; upasaṅkamitvā &lt;pb ed=&quot;P&quot; n=&quot;3.0208&quot;/&gt; āyasmatā ānandena saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā samiddhi yāvatako ahosi potaliputtena paribbājakena saddhiṃ kathāsallāpo taṃ sabbaṃ āyasmato ānandassa ārocesi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0257&quot;/&gt; vutte, āyasmā ānando āyasmantaṃ samiddhiṃ etadavoca – ‘‘atthi kho idaṃ, āvuso samiddhi, kathāpābhataṃ bhagavantaṃ dassanāya. Āyāmāvuso &lt;pb ed=&quot;M&quot; n=&quot;3.0251&quot;/&gt; samiddhi, yena bhagavā tenupasaṅkamissāma; upasaṅkamitvā etamatthaṃ bhagavato ārocessāma. Yathā no bhagavā byākarissati tathā naṃ dhāressāmā’’ti. ‘‘Evamāvuso’’ti kho āyasmā samiddhi āyasmato ānandassa paccassosi.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0257&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0251&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā ca ānando āyasmā ca samiddhi yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinno kho āyasmā ānando yāvatako ahosi āyasmato samiddhissa potaliputtena &lt;pb ed=&quot;T&quot; n=&quot;3.0388&quot;/&gt; paribbājakena saddhiṃ kathāsallāpo taṃ sabbaṃ bhagavato ārocesi. Evaṃ vutte, bhagavā āyasmantaṃ ānandaṃ etadavoca – ‘‘dassanampi kho ahaṃ, ānanda, potaliputtassa paribbājakassa nābhijānāmi, kuto panevarūpaṃ kathāsallāpaṃ? Iminā ca, ānanda, samiddhinā moghapurisena potaliputtassa paribbājakassa vibhajjabyākaraṇīyo pañho ekaṃsena byākato’’ti. Evaṃ vutte, āyasmā udāyī bhagavantaṃ etadavoca – ‘‘sace pana &lt;note&gt;kiṃ pana (ka.)&lt;/note&gt;, bhante, āyasmatā samiddhinā idaṃ sandhāya bhāsitaṃ – yaṃ kiñci vedayitaṃ taṃ dukkhasmi’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0388&quot;/&gt; &lt;note&gt;kiṃ pana (ka.)&lt;/note&gt;">&lt;p n=&quot;299&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;299&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā samiddhi acirapakkante potaliputte paribbājake yenāyasmā ānando tenupasaṅkami; upasaṅkamitvā &lt;pb ed=&quot;P&quot; n=&quot;3.0208&quot;/&gt; āyasmatā ānandena saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā samiddhi yāvatako ahosi potaliputtena paribbājakena saddhiṃ kathāsallāpo taṃ sabbaṃ āyasmato ānandassa ārocesi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0257&quot;/&gt; vutte, āyasmā ānando āyasmantaṃ samiddhiṃ etadavoca – ‘‘atthi kho idaṃ, āvuso samiddhi, kathāpābhataṃ bhagavantaṃ dassanāya. Āyāmāvuso &lt;pb ed=&quot;M&quot; n=&quot;3.0251&quot;/&gt; samiddhi, yena bhagavā tenupasaṅkamissāma; upasaṅkamitvā etamatthaṃ bhagavato ārocessāma. Yathā no bhagavā byākarissati tathā naṃ dhāressāmā’’ti. ‘‘Evamāvuso’’ti kho āyasmā samiddhi āyasmato ānandassa paccassosi.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0257&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0251&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā ca ānando āyasmā ca samiddhi yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinno kho āyasmā ānando yāvatako ahosi āyasmato samiddhissa potaliputtena &lt;pb ed=&quot;T&quot; n=&quot;3.0388&quot;/&gt; paribbājakena saddhiṃ kathāsallāpo taṃ sabbaṃ bhagavato ārocesi. Evaṃ vutte, bhagavā āyasmantaṃ ānandaṃ etadavoca – ‘‘dassanampi kho ahaṃ, ānanda, potaliputtassa paribbājakassa nābhijānāmi, kuto panevarūpaṃ kathāsallāpaṃ? Iminā ca, ānanda, samiddhinā moghapurisena potaliputtassa paribbājakassa vibhajjabyākaraṇīyo pañho ekaṃsena byākato’’ti. Evaṃ vutte, āyasmā udāyī bhagavantaṃ etadavoca – ‘‘sace pana &lt;note&gt;kiṃ pana (ka.)&lt;/note&gt;, bhante, āyasmatā samiddhinā idaṃ sandhāya bhāsitaṃ – yaṃ kiñci vedayitaṃ taṃ dukkhasmi’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0388&quot;/&gt; &lt;note&gt;kiṃ pana (ka.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">299. Then, after the wanderer Potaliputta had recently departed, the Venerable Samiddhi approached the Venerable Ānanda; having approached, he exchanged greetings with the Venerable Ānanda. When this courteous and amiable talk was finished, he sat down at one side. Seated to one side, the Venerable Samiddhi reported to the Venerable Ānanda his entire conversation with the wanderer Potaliputta.<br><br>When this was said, the Venerable Ānanda said to the Venerable Samiddhi: “Friend Samiddhi, this conversation warrants being shown to the Blessed One. Come, friend Samiddhi, let us approach the Blessed One; having approached, we will report this matter to the Blessed One. As the Blessed One explains it to us, so we shall bear it in mind.” “Yes, friend,” the Venerable Samiddhi replied to the Venerable Ānanda.<br><br>Then the Venerable Ānanda and the Venerable Samiddhi approached the Blessed One; having approached, they paid homage to the Blessed One and sat down to one side. Seated to one side, the Venerable Ānanda reported to the Blessed One his entire conversation with the Venerable Samiddhi and the wanderer Potaliputta.<br><br>When this was said, the Blessed One said to the Venerable Ānanda: “Ānanda, I do not even recognize the sight of the wanderer Potaliputta, how much less a conversation with him? And, Ānanda, this foolish man Samiddhi has explained a question that should be answered with a detailed analysis to the wanderer Potaliputta with a one-sided answer.”<br><br>When this was said, the Venerable Udāyī said to the Blessed One: “Venerable sir, perhaps the Venerable Samiddhi spoke thus referring to the principle: ‘Whatever is felt is suffering.’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">300</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;300&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;300&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho &lt;note&gt;evaṃ vutte (syā. kaṃ.)&lt;/note&gt; bhagavā āyasmantaṃ ānandaṃ āmantesi – ‘‘passasi no tvaṃ, ānanda, imassa udāyissa moghapurisassa ummaṅgaṃ &lt;note&gt;ummaggaṃ (sī. syā. kaṃ. pī.), umaṅgaṃ (ka.)&lt;/note&gt;? Aññāsiṃ kho ahaṃ, ānanda – ‘idānevāyaṃ udāyī moghapuriso ummujjamāno ayoniso ummujjissatī’ti. Ādiṃyeva &lt;note&gt;ādisova (sī. pī.), ādiyeva (ka.)&lt;/note&gt;, ānanda, potaliputtena paribbājakena tisso vedanā pucchitā. Sacāyaṃ, ānanda, samiddhi moghapuriso potaliputtassa &lt;pb ed=&quot;P&quot; n=&quot;3.0209&quot;/&gt; paribbājakassa evaṃ puṭṭho evaṃ byākareyya – ‘sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā sukhavedanīyaṃ sukhaṃ so vedayati; sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā dukkhavedanīyaṃ dukkhaṃ so vedayati; sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā adukkhamasukhavedanīyaṃ adukkhamasukhaṃ so vedayatī’ti. Evaṃ byākaramāno &lt;pb ed=&quot;T&quot; n=&quot;3.0389&quot;/&gt; kho, ānanda, samiddhi moghapuriso potaliputtassa paribbājakassa sammā (byākaramāno) &lt;note&gt;( ) natthi (sī. syā. kaṃ. pī.)&lt;/note&gt; byākareyya. Api &lt;pb ed=&quot;M&quot; n=&quot;3.0252&quot;/&gt; ca, ānanda, ke ca &lt;note&gt;keci (ka.)&lt;/note&gt; aññatitthiyā paribbājakā bālā abyattā ke ca tathāgatassa mahākammavibhaṅgaṃ jānissanti? Sace tumhe, ānanda, suṇeyyātha tathāgatassa mahākammavibhaṅgaṃ vibhajantassā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Etassa, bhagavā, kālo, etassa, sugata, kālo yaṃ bhagavā mahākammavibhaṅgaṃ vibhajeyya &lt;pb ed=&quot;V&quot; n=&quot;3.0258&quot;/&gt;. Bhagavato sutvā bhikkhū dhāressantī’’ti. ‘‘Tena hānanda, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā ānando bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0258&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cattārome, ānanda, puggalā santo saṃvijjamānā lokasmiṃ. Katame cattāro? Idhānanda, ekacco puggalo idha pāṇātipātī hoti, adinnādāyī hoti, kāmesumicchācārī hoti, musāvādī hoti, pisuṇavāco hoti, pharusavāco hoti, samphappalāpī hoti, abhijjhālu hoti, byāpannacitto hoti, micchādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco puggalo idha pāṇātipātī hoti, adinnādāyī hoti, kāmesumicchācārī hoti, musāvādī hoti, pisuṇavāco hoti, pharusavāco hoti, samphappalāpī hoti, abhijjhālu hoti, byāpannacitto hoti, micchādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idhānanda, ekacco &lt;pb ed=&quot;T&quot; n=&quot;3.0390&quot;/&gt; puggalo idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti, kāmesumicchācārā paṭivirato hoti, musāvādā paṭivirato hoti, pisuṇāya vācāya paṭivirato hoti, pharusāya vācāya &lt;pb ed=&quot;P&quot; n=&quot;3.0210&quot;/&gt; paṭivirato hoti, samphappalāpā paṭivirato hoti, anabhijjhālu hoti, abyāpannacitto hoti, sammādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0390&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0210&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco puggalo idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti, kāmesumicchācārā paṭivirato hoti, musāvādā paṭivirato hoti, pisuṇāya vācāya &lt;pb ed=&quot;M&quot; n=&quot;3.0253&quot;/&gt; paṭivirato hoti, pharusāya vācāya paṭivirato hoti, samphappalāpā paṭivirato hoti, anabhijjhālu hoti, abyāpannacitto hoti, sammādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0253&quot;/&gt;">&lt;p n=&quot;300&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;300&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho &lt;note&gt;evaṃ vutte (syā. kaṃ.)&lt;/note&gt; bhagavā āyasmantaṃ ānandaṃ āmantesi – ‘‘passasi no tvaṃ, ānanda, imassa udāyissa moghapurisassa ummaṅgaṃ &lt;note&gt;ummaggaṃ (sī. syā. kaṃ. pī.), umaṅgaṃ (ka.)&lt;/note&gt;? Aññāsiṃ kho ahaṃ, ānanda – ‘idānevāyaṃ udāyī moghapuriso ummujjamāno ayoniso ummujjissatī’ti. Ādiṃyeva &lt;note&gt;ādisova (sī. pī.), ādiyeva (ka.)&lt;/note&gt;, ānanda, potaliputtena paribbājakena tisso vedanā pucchitā. Sacāyaṃ, ānanda, samiddhi moghapuriso potaliputtassa &lt;pb ed=&quot;P&quot; n=&quot;3.0209&quot;/&gt; paribbājakassa evaṃ puṭṭho evaṃ byākareyya – ‘sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā sukhavedanīyaṃ sukhaṃ so vedayati; sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā dukkhavedanīyaṃ dukkhaṃ so vedayati; sañcetanikaṃ, āvuso potaliputta, kammaṃ katvā kāyena vācāya manasā adukkhamasukhavedanīyaṃ adukkhamasukhaṃ so vedayatī’ti. Evaṃ byākaramāno &lt;pb ed=&quot;T&quot; n=&quot;3.0389&quot;/&gt; kho, ānanda, samiddhi moghapuriso potaliputtassa paribbājakassa sammā (byākaramāno) &lt;note&gt;( ) natthi (sī. syā. kaṃ. pī.)&lt;/note&gt; byākareyya. Api &lt;pb ed=&quot;M&quot; n=&quot;3.0252&quot;/&gt; ca, ānanda, ke ca &lt;note&gt;keci (ka.)&lt;/note&gt; aññatitthiyā paribbājakā bālā abyattā ke ca tathāgatassa mahākammavibhaṅgaṃ jānissanti? Sace tumhe, ānanda, suṇeyyātha tathāgatassa mahākammavibhaṅgaṃ vibhajantassā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Etassa, bhagavā, kālo, etassa, sugata, kālo yaṃ bhagavā mahākammavibhaṅgaṃ vibhajeyya &lt;pb ed=&quot;V&quot; n=&quot;3.0258&quot;/&gt;. Bhagavato sutvā bhikkhū dhāressantī’’ti. ‘‘Tena hānanda, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā ānando bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0258&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Cattārome, ānanda, puggalā santo saṃvijjamānā lokasmiṃ. Katame cattāro? Idhānanda, ekacco puggalo idha pāṇātipātī hoti, adinnādāyī hoti, kāmesumicchācārī hoti, musāvādī hoti, pisuṇavāco hoti, pharusavāco hoti, samphappalāpī hoti, abhijjhālu hoti, byāpannacitto hoti, micchādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco puggalo idha pāṇātipātī hoti, adinnādāyī hoti, kāmesumicchācārī hoti, musāvādī hoti, pisuṇavāco hoti, pharusavāco hoti, samphappalāpī hoti, abhijjhālu hoti, byāpannacitto hoti, micchādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idhānanda, ekacco &lt;pb ed=&quot;T&quot; n=&quot;3.0390&quot;/&gt; puggalo idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti, kāmesumicchācārā paṭivirato hoti, musāvādā paṭivirato hoti, pisuṇāya vācāya paṭivirato hoti, pharusāya vācāya &lt;pb ed=&quot;P&quot; n=&quot;3.0210&quot;/&gt; paṭivirato hoti, samphappalāpā paṭivirato hoti, anabhijjhālu hoti, abyāpannacitto hoti, sammādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0390&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0210&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco puggalo idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti, kāmesumicchācārā paṭivirato hoti, musāvādā paṭivirato hoti, pisuṇāya vācāya &lt;pb ed=&quot;M&quot; n=&quot;3.0253&quot;/&gt; paṭivirato hoti, pharusāya vācāya paṭivirato hoti, samphappalāpā paṭivirato hoti, anabhijjhālu hoti, abyāpannacitto hoti, sammādiṭṭhi hoti. So kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0253&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">300.<br>Then the Blessed One addressed the venerable Ānanda: “See, Ānanda, how this misguided man Udāyin interferes? I knew, Ānanda, that this misguided man Udāyin would unduly interfere right now.”<br><br>From the start the wanderer Potaliputta had asked about the three kinds of feeling.<br><br>This misguided man Samiddhi would have answered the wanderer Potaliputta rightly if, when asked thus, he would have explained: ‘Friend Potaliputta, having done an intentional action by way of body, speech, or mind whose result is to be felt as pleasant, one feels pleasure. Having done an intentional action by way of body, speech, or mind whose result is to be felt as painful, one feels pain. Having done an intentional action by way of body, speech, or mind whose result is to be felt as neither painful nor pleasant, one feels neither pain nor pleasure.’<br><br>But who are these foolish, thoughtless wanderers of other sects, that they could understand the Tathāgata’s great exposition of action? If you, Ānanda, were to hear the Tathāgata expounding the great exposition of action!”<br><br>“This is the time, Blessed One, this is the time, Sublime One, for the Blessed One to expound the great exposition of action. Having heard it from the Blessed One, the <i>bhikkhus</i> will remember it.”<br><br>“Then listen, Ānanda, and attend closely to what I shall say.”<br><br>“So be it, O Lord.”<br><br>The Blessed One said this:<br><br>“There are these four kinds of individuals who are found existing in the world, Ānanda. Which four? Here, Ānanda, some person kills living beings (prāṇātipātī), takes what is not given (adinnādāyī), misconducts himself in sensual pleasures (kāmesumicchācārī), speaks falsehood (musāvādī), speaks maliciously (pisuṇavāco), speaks harshly (pharusavāco), gossips (samphappalāpī); he is covetous (abhijjhālu), has a mind of ill will (byāpannacitto), and holds wrong view (micchādiṭṭhi). On the dissolution of the body, after death, he reappears in a state of deprivation, in an unhappy destination, perdition, even in hell (apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati).”<br><br>“But here, Ānanda, some person kills living beings (prāṇātipātī), takes what is not given (adinnādāyī), misconducts himself in sensual pleasures (kāmesumicchācārī), speaks falsehood (musāvādī), speaks maliciously (pisuṇavāco), speaks harshly (pharusavāco), gossips (samphappalāpī); he is covetous (abhijjhālu), has a mind of ill will (byāpannacitto), and holds wrong view (micchādiṭṭhi). On the dissolution of the body, after death, he reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ upapajjati).”<br><br>“Here, Ānanda, some person abstains from killing living beings (pāṇātipātā paṭivirato), from taking what is not given (adinnādānā paṭivirato), from misconduct in sensual pleasures (kāmesumicchācārā paṭivirato), from false speech (musāvādā paṭivirato), from malicious speech (pisuṇāya vācāya paṭivirato), from harsh speech (pharusāya vācāya paṭivirato), from gossip (samphappalāpā paṭivirato); he is not covetous (anabhijjhālu), his mind is without ill will (abyāpannacitto), and he holds right view (sammādiṭṭhi). On the dissolution of the body, after death, he reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ upapajjati).”<br>Here:<br><br>&quot;Here, Ānanda, some person abstains from killing living beings (<i>prāṇātipātā paṭivirato hoti</i>), abstains from taking what is not given (<i>adinnādānā paṭivirato hoti</i>), abstains from misconduct in sensual pleasures (<i>kāmesumicchācārā paṭivirato hoti</i>), abstains from false speech (<i>musāvādā paṭivirato hoti</i>), abstains from malicious speech (<i>pisuṇāya vācāya</i>), abstains from harsh speech (<i>pharusāya vācāya paṭivirato hoti</i>), abstains from gossip (<i>samphappalāpā paṭivirato hoti</i>), is not covetous (<i>anabhijjhālu hoti</i>), his mind is without ill will (<i>abyāpannacitto hoti</i>), and he holds right view (<i>sammādiṭṭhi hoti</i>).<br><br>On the dissolution of the body (<i>kāyassa bhedā</i>), after death (<i>paraṃ maraṇā</i>), he reappears in a state of deprivation (<i>apāyaṃ</i>), in an unhappy destination (<i>duggatiṃ</i>), in perdition (<i>vinipātaṃ</i>), even in hell (<i>nirayaṃ upapajjati</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">301</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;301&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;301&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Idhānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya &lt;pb ed=&quot;V&quot; n=&quot;3.0259&quot;/&gt; appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha pāṇātipātiṃ adinnādāyiṃ kāmesumicchācāriṃ musāvādiṃ pisuṇavācaṃ pharusavācaṃ samphappalāpiṃ abhijjhāluṃ byāpannacittaṃ micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passati apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannaṃ. So evamāha – ‘atthi kira, bho, pāpakāni kammāni, atthi &lt;pb ed=&quot;T&quot; n=&quot;3.0391&quot;/&gt; duccaritassa vipāko. Amāhaṃ &lt;note&gt;apāhaṃ (sī. pī. ka.) amuṃ + ahaṃ = amāhaṃ-iti padavibhāgo&lt;/note&gt; puggalaṃ addasaṃ idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Ye evaṃ jānanti, te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti &lt;note&gt;micchā te sañjānanti (ka.)&lt;/note&gt;. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā &lt;note&gt;parāmassa (sī. pī.)&lt;/note&gt; abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya &lt;pb ed=&quot;P&quot; n=&quot;3.0211&quot;/&gt; padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati sugatiṃ saggaṃ lokaṃ upapannaṃ. So evamāha – ‘natthi kira, bho, pāpakāni kammāni, natthi duccaritassa vipāko. Amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0392&quot;/&gt; lokaṃ upapanna’nti. So evamāha – ‘yo &lt;pb ed=&quot;M&quot; n=&quot;3.0254&quot;/&gt; kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0211&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0392&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0254&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idhānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha &lt;pb ed=&quot;V&quot; n=&quot;3.0260&quot;/&gt; pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ kāmesumicchācārā paṭivirataṃ musāvādā paṭivirataṃ pisuṇāya vācāya paṭivirataṃ pharusāya vācāya paṭivirataṃ samphappalāpā paṭivirataṃ anabhijjhāluṃ abyāpannacittaṃ sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati sugatiṃ saggaṃ lokaṃ upapannaṃ. So evamāha – ‘atthi kira, bho, kalyāṇāni kammāni, atthi sucaritassa vipāko. Amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato &lt;pb ed=&quot;T&quot; n=&quot;3.0393&quot;/&gt; adinnādānā paṭivirato…pe… sammādiṭṭhi sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0260&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0393&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0212&quot;/&gt; passati – idha pāṇātipātā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannaṃ. So evamāha – ‘natthi kira, bho kalyāṇāni kammāni, natthi sucaritassa vipāko. Amāhaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0255&quot;/&gt; puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā &lt;pb ed=&quot;T&quot; n=&quot;3.0394&quot;/&gt; tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0212&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0255&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0394&quot;/&gt;">&lt;p n=&quot;301&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;301&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Idhānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya &lt;pb ed=&quot;V&quot; n=&quot;3.0259&quot;/&gt; appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha pāṇātipātiṃ adinnādāyiṃ kāmesumicchācāriṃ musāvādiṃ pisuṇavācaṃ pharusavācaṃ samphappalāpiṃ abhijjhāluṃ byāpannacittaṃ micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passati apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannaṃ. So evamāha – ‘atthi kira, bho, pāpakāni kammāni, atthi &lt;pb ed=&quot;T&quot; n=&quot;3.0391&quot;/&gt; duccaritassa vipāko. Amāhaṃ &lt;note&gt;apāhaṃ (sī. pī. ka.) amuṃ + ahaṃ = amāhaṃ-iti padavibhāgo&lt;/note&gt; puggalaṃ addasaṃ idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Ye evaṃ jānanti, te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti &lt;note&gt;micchā te sañjānanti (ka.)&lt;/note&gt;. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā &lt;note&gt;parāmassa (sī. pī.)&lt;/note&gt; abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya &lt;pb ed=&quot;P&quot; n=&quot;3.0211&quot;/&gt; padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati sugatiṃ saggaṃ lokaṃ upapannaṃ. So evamāha – ‘natthi kira, bho, pāpakāni kammāni, natthi duccaritassa vipāko. Amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0392&quot;/&gt; lokaṃ upapanna’nti. So evamāha – ‘yo &lt;pb ed=&quot;M&quot; n=&quot;3.0254&quot;/&gt; kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0211&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0392&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0254&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idhānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ passati – idha &lt;pb ed=&quot;V&quot; n=&quot;3.0260&quot;/&gt; pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ kāmesumicchācārā paṭivirataṃ musāvādā paṭivirataṃ pisuṇāya vācāya paṭivirataṃ pharusāya vācāya paṭivirataṃ samphappalāpā paṭivirataṃ anabhijjhāluṃ abyāpannacittaṃ sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati sugatiṃ saggaṃ lokaṃ upapannaṃ. So evamāha – ‘atthi kira, bho, kalyāṇāni kammāni, atthi sucaritassa vipāko. Amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato &lt;pb ed=&quot;T&quot; n=&quot;3.0393&quot;/&gt; adinnādānā paṭivirato…pe… sammādiṭṭhi sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0260&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0393&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Idha panānanda, ekacco samaṇo vā brāhmaṇo vā ātappamanvāya padhānamanvāya anuyogamanvāya appamādamanvāya sammāmanasikāramanvāya tathārūpaṃ cetosamādhiṃ phusati yathāsamāhite citte dibbena cakkhunā visuddhena atikkantamānusakena amuṃ puggalaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0212&quot;/&gt; passati – idha pāṇātipātā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passati apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapannaṃ. So evamāha – ‘natthi kira, bho kalyāṇāni kammāni, natthi sucaritassa vipāko. Amāhaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0255&quot;/&gt; puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti. So evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā &lt;pb ed=&quot;T&quot; n=&quot;3.0394&quot;/&gt; tesaṃ ñāṇa’nti. Iti so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0212&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0255&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0394&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Here, Ānanda, by means of ardour, endeavour, devotion, diligence, and right attention, some recluse or <i>brāhmaṇa</i> attains such concentration of mind (<i>ceto-samādhi</i>) that, when his mind is concentrated, with the divine eye (<i>dibyena cakkhunā</i>), which is purified and surpasses the human, he sees that person here who kills living beings, takes what is not given, engages in sexual misconduct, lies, speaks maliciously, speaks harshly, gossips, is covetous, has ill will, [and] holds wrong view (<i>mithyā-dṛṣṭi</i>), and he sees that on the dissolution of the body, after death, he has reappeared in a state of deprivation (<i>apāya</i>), in an unhappy destination (<i>durgati</i>), in perdition (<i>vinipāta</i>), even in hell (<i>niraya</i>).<br><br>He says thus: ‘Indeed, there are evil actions (<i>pāpakāni karmāṇi</i>), there is result of misconduct (<i>duccaritassa vipāko</i>).<br><br>I saw a person who killed living beings, took what is not given…and held wrong view, and I see that on the dissolution of the body, after death, he has reappeared in a state of deprivation, in an unhappy destination, in perdition, even in hell.’<br><br>He says thus: ‘On the dissolution of the body, after death, everyone who kills living beings, takes what is not given…and holds wrong view reappears in a state of deprivation, in an unhappy destination, in perdition, even in hell.<br><br>Those who know thus know rightly; those who think otherwise are mistaken.’<br><br>Thus he obstinately adheres to what he himself has known, seen, and discovered, insisting: ‘Only this is true, anything else is wrong.’<br><br>“But here, Ānanda, by means of ardour…some recluse or <i>brāhmaṇa</i> attains such a concentration of mind that, when his mind is concentrated, with the divine eye, which is purified and surpasses the human, he sees that person here who kills living beings, takes what is not given…and holds wrong view, and he sees that on the dissolution of the body, after death, he has reappeared in a happy destination (<i>sugati</i>), even in the heavenly world (<i>svarga</i>).<br><br>He says thus: ‘Indeed, there are no evil actions (<i>pāpakāni karmāṇi</i>), there is no result of misconduct (<i>duccaritassa vipāko</i>).<br><br>I saw a person who killed living beings, took what is not given…and held wrong view, and I see that on the dissolution of the body, after death, he has reappeared in a happy destination, even in the heavenly world.’<br><br>He says thus: ‘On the dissolution of the body, after death, everyone who kills living beings, takes what is not given…and holds wrong view reappears in a happy destination, even in the heavenly world.<br><br>Those who know thus know rightly; those who think otherwise are mistaken.’<br><br>Thus he obstinately adheres to what he himself has known, seen, and discovered, insisting: ‘Only this is true, anything else is wrong.’<br><br>“Here, Ānanda, by means of ardour…some recluse or <i>brāhmaṇa</i> attains such a concentration of mind that, when his mind is concentrated, with the divine eye, which is purified and surpasses the human, he sees that person here who abstains from killing living beings, abstains from taking what is not given, abstains from sexual misconduct, abstains from lying, abstains from malicious speech, abstains from harsh speech, abstains from gossip, is not covetous, has no ill will, [and] holds right view (<i>samyag-dṛṣṭi</i>), and he sees that on the dissolution of the body, after death, he has reappeared in a happy destination, even in the heavenly world.<br><br>He says thus: ‘Indeed, there are good actions (<i>kalyāṇāni karmāṇi</i>), there is result of good conduct (<i>sucaritassa vipāko</i>).<br><br>I saw a person who abstained from killing living beings, abstained from taking what is not given…and held right view, and I see that on the dissolution of the body, after death, he has reappeared in a happy destination, even in the heavenly world.’<br><br>He says thus: ‘On the dissolution of the body, after death, everyone who abstains from killing living beings, abstains from taking what is not given…and holds right view reappears in a happy destination, even in the heavenly world.<br><br>Those who know thus know rightly; those who think otherwise are mistaken.’<br><br>Thus he obstinately adheres to what he himself has known, seen, and discovered, insisting: ‘Only this is true, anything else is wrong.’<br><br>“But here, Ānanda, by means of ardour…some recluse or <i>brāhmaṇa</i> attains such a concentration of mind that, when his mind is concentrated, with the divine eye, which is purified and surpasses the human, he sees that person here who abstains from killing living beings…and holds right view, and he sees that on the dissolution of the body, after death, he has reappeared in a state of deprivation, in an unhappy destination, in perdition, even in hell.<br>I saw a person here who abstained from killing living beings, abstained from taking what is not given…and had right view, and I see that on the dissolution of the body, after death, he has reappeared in a state of deprivation…even in hell.’<br><br>He says thus: ‘On the dissolution of the body, after death, everyone who abstains from killing living beings…and holds right view reappears in a state of deprivation…even in hell.<br><br>Those who know thus know rightly; those who think otherwise are mistaken.’ (ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti)<br><br>Thus he obstinately adheres to what he himself has known (ñātaṃ), seen (diṭṭhaṃ), and discovered (viditaṃ), insisting: ‘Only this is true (saccaṃ), anything else is wrong.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">302</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;302&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;302&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘atthi kira, bho, pāpakāni kammāni, atthi duccaritassa vipāko’ti idamassa anujānāmi; yampi so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa &lt;pb ed=&quot;V&quot; n=&quot;3.0261&quot;/&gt; bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti idampissa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjatī’ti idamassa nānujānāmi; yampi so evamāha – ‘ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘natthi kira, bho, pāpakāni kammāni, natthi duccaritassa vipāko’ti idamassa &lt;pb ed=&quot;T&quot; n=&quot;3.0395&quot;/&gt; nānujānāmi; yañca kho so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti idamassa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjatī’ti idamassa &lt;pb ed=&quot;P&quot; n=&quot;3.0213&quot;/&gt; nānujānāmi; yampi so evamāha – ‘ye evaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0256&quot;/&gt; jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0395&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0213&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0256&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘atthi kira, bho, kalyāṇāni kammāni, atthi sucaritassa vipāko’ti idamassa anujānāmi; yampi so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti idampissa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0396&quot;/&gt; saggaṃ lokaṃ upapajjatī’ti idamassa nānujānāmi; yampi so evamāha – ‘ye evaṃ jānanti te &lt;pb ed=&quot;V&quot; n=&quot;3.0262&quot;/&gt; sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0396&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0262&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘natthi kira, bho, kalyāṇāni kammāni, natthi sucaritassa vipāko’ti idamassa nānujānāmi; yañca kho so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti idamassa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjatī’ti idamassa nānujānāmi; yañca kho so evamāha – ‘ye &lt;pb ed=&quot;P&quot; n=&quot;3.0214&quot;/&gt; evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0257&quot;/&gt; sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva &lt;pb ed=&quot;T&quot; n=&quot;3.0397&quot;/&gt; saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0214&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0257&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0397&quot;/&gt;">&lt;p n=&quot;302&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;302&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘atthi kira, bho, pāpakāni kammāni, atthi duccaritassa vipāko’ti idamassa anujānāmi; yampi so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ, kāyassa &lt;pb ed=&quot;V&quot; n=&quot;3.0261&quot;/&gt; bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti idampissa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjatī’ti idamassa nānujānāmi; yampi so evamāha – ‘ye evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘natthi kira, bho, pāpakāni kammāni, natthi duccaritassa vipāko’ti idamassa &lt;pb ed=&quot;T&quot; n=&quot;3.0395&quot;/&gt; nānujānāmi; yañca kho so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātiṃ adinnādāyiṃ…pe… micchādiṭṭhiṃ kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti idamassa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjatī’ti idamassa &lt;pb ed=&quot;P&quot; n=&quot;3.0213&quot;/&gt; nānujānāmi; yampi so evamāha – ‘ye evaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0256&quot;/&gt; jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0395&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0213&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0256&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘atthi kira, bho, kalyāṇāni kammāni, atthi sucaritassa vipāko’ti idamassa anujānāmi; yampi so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi sugatiṃ saggaṃ lokaṃ upapanna’nti idampissa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā sugatiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0396&quot;/&gt; saggaṃ lokaṃ upapajjatī’ti idamassa nānujānāmi; yampi so evamāha – ‘ye evaṃ jānanti te &lt;pb ed=&quot;V&quot; n=&quot;3.0262&quot;/&gt; sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0396&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0262&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ samaṇo vā brāhmaṇo vā evamāha – ‘natthi kira, bho, kalyāṇāni kammāni, natthi sucaritassa vipāko’ti idamassa nānujānāmi; yañca kho so evamāha – ‘amāhaṃ puggalaṃ addasaṃ – idha pāṇātipātā paṭivirataṃ adinnādānā paṭivirataṃ…pe… sammādiṭṭhiṃ, kāyassa bhedā paraṃ maraṇā passāmi apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapanna’nti idamassa anujānāmi; yañca kho so evamāha – ‘yo kira, bho, pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, sabbo so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjatī’ti idamassa nānujānāmi; yañca kho so evamāha – ‘ye &lt;pb ed=&quot;P&quot; n=&quot;3.0214&quot;/&gt; evaṃ jānanti te sammā jānanti; ye aññathā jānanti, micchā tesaṃ ñāṇa’nti idampissa nānujānāmi; yampi so yadeva tassa sāmaṃ ñātaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0257&quot;/&gt; sāmaṃ diṭṭhaṃ sāmaṃ viditaṃ tadeva tattha thāmasā parāmāsā abhinivissa voharati – ‘idameva &lt;pb ed=&quot;T&quot; n=&quot;3.0397&quot;/&gt; saccaṃ, moghamañña’nti idampissa nānujānāmi. Taṃ kissa hetu? Aññathā hi, ānanda, tathāgatassa mahākammavibhaṅge ñāṇaṃ hoti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0214&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0257&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0397&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Therein, Ānanda, if a <i>śramaṇa</i> or a <i>brāhmaṇa</i> should speak thus: ‘Indeed, venerable sir, there are evil actions (<i>pāpakāni kammāni</i>), there is a result of bad conduct (<i>duccaritassa vipāko</i>)’, I approve of that for him. And if he should speak thus: ‘I have seen a person here who destroys life (<i>pāṇātipātiṃ</i>), takes what is not given (<i>adinnādāyiṃ</i>)…pe…holds wrong views (<i>micchādiṭṭhiṃ</i>), and with the breakup of the body, after death, has reappeared in the states of loss (<i>apāyaṃ</i>), bad destination (<i>duggatiṃ</i>), the downfall (<i>vinipātaṃ</i>), hell (<i>nirayaṃ</i>)’, I approve of that for him. But when he speaks thus: ‘Indeed, venerable sir, everyone who destroys life (<i>pāṇātipātī</i>), takes what is not given (<i>adinnādāyī</i>)…pe…holds wrong views (<i>micchādiṭṭhi</i>), all of them, with the breakup of the body, after death, reappear in the states of loss (<i>apāyaṃ</i>), bad destination (<i>duggatiṃ</i>), the downfall (<i>vinipātaṃ</i>), hell (<i>nirayaṃ</i>)’, that I do not approve of for him. And if he should speak thus: ‘Those who know thus, know rightly; those who know otherwise, their knowledge (<i>ñāṇa</i>) is wrong’, that too I do not approve of for him. And if he should insist, adhering and persevering through obstinacy to only that which is known, seen, and understood by himself: ‘Only this is true, other things are vain’, that too I do not approve of for him. Why is that? Because, Ānanda, the Tathāgata&#039;s knowledge (<i>ñāṇaṃ</i>) regarding the great classification of actions (<i>mahākammavibhaṅge</i>) is different.<br><br>“Therein, Ānanda, if a <i>śramaṇa</i> or a <i>brāhmaṇa</i> should speak thus: ‘Indeed, venerable sir, there are no evil actions (<i>pāpakāni kammāni</i>), there is no result of bad conduct (<i>duccaritassa vipāko</i>)’, that I do not approve of for him. And if he should speak thus: ‘I have seen a person here who destroys life (<i>pāṇātipātiṃ</i>), takes what is not given (<i>adinnādāyiṃ</i>)…pe…holds wrong views (<i>micchādiṭṭhiṃ</i>), and with the breakup of the body, after death, has reappeared in a good destination (<i>sugatiṃ</i>), the heavenly world (<i>saggaṃ lokaṃ</i>)’, that I approve of for him. But when he speaks thus: ‘Indeed, venerable sir, everyone who destroys life (<i>pāṇātipātī</i>), takes what is not given (<i>adinnādāyī</i>)…pe…holds wrong views (<i>micchādiṭṭhi</i>), all of them, with the breakup of the body, after death, reappear in a good destination (<i>sugatiṃ</i>), the heavenly world (<i>saggaṃ lokaṃ</i>)’, that I do not approve of for him. And if he should speak thus: ‘Those who know thus, know rightly; those who know otherwise, their knowledge (<i>ñāṇa</i>) is wrong’, that too I do not approve of for him. And if he should insist, adhering and persevering through obstinacy to only that which is known, seen, and understood by himself: ‘Only this is true, other things are vain’, that too I do not approve of for him. Why is that? Because, Ānanda, the Tathāgata&#039;s knowledge (<i>ñāṇaṃ</i>) regarding the great classification of actions (<i>mahākammavibhaṅge</i>) is different.<br><br>“Therein, Ānanda, if a <i>śramaṇa</i> or a <i>brāhmaṇa</i> should speak thus: ‘Indeed, venerable sir, there are good actions (<i>kalyāṇāni kammāni</i>), there is a result of good conduct (<i>sucaritassa vipāko</i>)’, that I approve of for him. And if he should speak thus: ‘I have seen a person here who abstains from destroying life (<i>pāṇātipātā paṭivirataṃ</i>), abstains from taking what is not given (<i>adinnādānā paṭivirataṃ</i>)…pe… holds right views (<i>sammādiṭṭhiṃ</i>), and with the breakup of the body, after death, has reappeared in a good destination (<i>sugatiṃ</i>), the heavenly world (<i>saggaṃ lokaṃ</i>)’, that I approve of for him. But when he speaks thus: ‘Indeed, venerable sir, everyone who abstains from destroying life (<i>pāṇātipātā paṭivirato</i>), abstains from taking what is not given (<i>adinnādānā paṭivirato</i>)…pe… holds right views (<i>sammādiṭṭhi</i>), all of them, with the breakup of the body, after death, reappear in a good destination (<i>sugatiṃ</i>), the heavenly world (<i>saggaṃ lokaṃ</i>)’, that I do not approve of for him. And if he should speak thus: ‘Those who know thus, know rightly;<br><br>“Therein, Ānanda, if a <i>śramaṇa</i> or a <i>brāhmaṇa</i> should speak thus: ‘Indeed, venerable sir, there are no good actions (<i>kalyāṇāni kammāni</i>), there is no result of good conduct (<i>sucaritassa vipāko</i>)’, that I do not approve of for him. And if he should speak thus: ‘I have seen a person here who abstains from destroying life (<i>pāṇātipātā paṭivirataṃ</i>), abstains from taking what is not given (<i>adinnādānā paṭivirataṃ</i>)…pe… holds right views (<i>sammādiṭṭhiṃ</i>), and with the breakup of the body, after death, has reappeared in the states of loss (<i>apāyaṃ</i>), bad destination (<i>duggatiṃ</i>), the downfall (<i>vinipātaṃ</i>), hell (<i>nirayaṃ</i>)’, that I approve of for him. But when he speaks thus: ‘Indeed, venerable sir, everyone who abstains from destroying life (<i>pāṇātipātā paṭivirato</i>), abstains from taking what is not given (<i>adinnādānā paṭivirato</i>)…pe… holds right views (<i>sammādiṭṭhi</i>), all of them, with the breakup of the body, after death, reappear in the states of loss (<i>apāyaṃ</i>), bad destination (<i>duggatiṃ</i>), the downfall (<i>vinipātaṃ</i>), hell (<i>nirayaṃ</i>)’, that I do not approve of for him. And if he should speak thus: ‘Those who know thus,</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">303</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;303&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;303&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatrānanda, yvāyaṃ puggalo idha pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, maraṇakāle vāssa hoti micchādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Yañca kho so idha pāṇātipātī hoti adinnādāyī hoti…pe… micchādiṭṭhi hoti tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā &lt;note&gt;upapajjaṃ vā (sī. pī.), upapajja vā (syā. kaṃ. ka.) upapajjitvāti saṃvaṇṇanāya saṃsandetabbā&lt;/note&gt; apare vā pariyāye.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ puggalo idha pāṇātipātī adinnādāyī…pe… micchādiṭṭhi kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, maraṇakāle vāssa hoti sammādiṭṭhi &lt;pb ed=&quot;V&quot; n=&quot;3.0263&quot;/&gt; samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Yañca kho so idha pāṇātipātī hoti adinnādāyī hoti…pe… micchādiṭṭhi hoti tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0263&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda &lt;pb ed=&quot;T&quot; n=&quot;3.0398&quot;/&gt;, yvāyaṃ puggalo idha pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, maraṇakāle vāssa hoti sammādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Yañca kho so idha pāṇātipātā paṭivirato hoti &lt;pb ed=&quot;P&quot; n=&quot;3.0215&quot;/&gt; adinnādānā paṭivirato hoti…pe… sammādiṭṭhi hoti, tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0398&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0215&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda &lt;pb ed=&quot;M&quot; n=&quot;3.0258&quot;/&gt;, yvāyaṃ puggalo idha pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, maraṇakāle vāssa hoti micchādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Yañca kho so idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti…pe… sammādiṭṭhi hoti, tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0258&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Iti &lt;pb ed=&quot;T&quot; n=&quot;3.0399&quot;/&gt; kho, ānanda, atthi kammaṃ abhabbaṃ abhabbābhāsaṃ, atthi kammaṃ abhabbaṃ bhabbābhāsaṃ, atthi kammaṃ bhabbañceva bhabbābhāsañca, atthi kammaṃ bhabbaṃ abhabbābhāsa’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0399&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Mahākammavibhaṅgasuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p>">&lt;p n=&quot;303&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;303&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatrānanda, yvāyaṃ puggalo idha pāṇātipātī adinnādāyī…pe… micchādiṭṭhi, kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, maraṇakāle vāssa hoti micchādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Yañca kho so idha pāṇātipātī hoti adinnādāyī hoti…pe… micchādiṭṭhi hoti tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā &lt;note&gt;upapajjaṃ vā (sī. pī.), upapajja vā (syā. kaṃ. ka.) upapajjitvāti saṃvaṇṇanāya saṃsandetabbā&lt;/note&gt; apare vā pariyāye.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda, yvāyaṃ puggalo idha pāṇātipātī adinnādāyī…pe… micchādiṭṭhi kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, maraṇakāle vāssa hoti sammādiṭṭhi &lt;pb ed=&quot;V&quot; n=&quot;3.0263&quot;/&gt; samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Yañca kho so idha pāṇātipātī hoti adinnādāyī hoti…pe… micchādiṭṭhi hoti tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0263&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda &lt;pb ed=&quot;T&quot; n=&quot;3.0398&quot;/&gt;, yvāyaṃ puggalo idha pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti kalyāṇakammaṃ sukhavedanīyaṃ, maraṇakāle vāssa hoti sammādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā sugatiṃ saggaṃ lokaṃ upapajjati. Yañca kho so idha pāṇātipātā paṭivirato hoti &lt;pb ed=&quot;P&quot; n=&quot;3.0215&quot;/&gt; adinnādānā paṭivirato hoti…pe… sammādiṭṭhi hoti, tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0398&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0215&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tatrānanda &lt;pb ed=&quot;M&quot; n=&quot;3.0258&quot;/&gt;, yvāyaṃ puggalo idha pāṇātipātā paṭivirato adinnādānā paṭivirato…pe… sammādiṭṭhi, kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati, pubbe vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, pacchā vāssa taṃ kataṃ hoti pāpakammaṃ dukkhavedanīyaṃ, maraṇakāle vāssa hoti micchādiṭṭhi samattā samādinnā. Tena so kāyassa bhedā paraṃ maraṇā apāyaṃ duggatiṃ vinipātaṃ nirayaṃ upapajjati. Yañca kho so idha pāṇātipātā paṭivirato hoti, adinnādānā paṭivirato hoti…pe… sammādiṭṭhi hoti, tassa diṭṭheva dhamme vipākaṃ paṭisaṃvedeti upapajja vā apare vā pariyāye.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0258&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Iti &lt;pb ed=&quot;T&quot; n=&quot;3.0399&quot;/&gt; kho, ānanda, atthi kammaṃ abhabbaṃ abhabbābhāsaṃ, atthi kammaṃ abhabbaṃ bhabbābhāsaṃ, atthi kammaṃ bhabbañceva bhabbābhāsañca, atthi kammaṃ bhabbaṃ abhabbābhāsa’’nti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0399&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Mahākammavibhaṅgasuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">303. “Therein, Ānanda, as to the person here who kills living beings, takes what is not given… and holds wrong view (mithyādṛṣṭi), on the dissolution of the body, after death, reappears in a state of deprivation, in an unhappy destination, in the downfall, even in hell; either earlier he did an evil action to be felt as painful, or later he did an evil action to be felt as painful, or at the time of death he acquired and undertook wrong view (mithyādṛṣṭi). Because of that, on the dissolution of the body, after death, he reappears in a state of deprivation, in an unhappy destination, in the downfall, even in hell. But since he has here killed living beings, taken what is not given…and held wrong view (mithyādṛṣṭi), he will experience the result of that either here and now, or in his next rebirth, or in some subsequent existence.<br><br>“Therein, Ānanda, as to the person here who kills living beings, takes what is not given… and holds wrong view (mithyādṛṣṭi), on the dissolution of the body, after death, reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ); either earlier he did a good action to be felt as pleasant, or later he did a good action to be felt as pleasant, or at the time of death he acquired and undertook right view (sammādiṭṭhi). Because of that, on the dissolution of the body, after death, he reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ). But since he has here killed living beings, taken what is not given…and held wrong view (mithyādṛṣṭi), he will experience the result of that either here and now, or in his next rebirth, or in some subsequent existence.<br><br>“Therein, Ānanda, as to the person here who abstains from killing living beings, abstains from taking what is not given…and holds right view (sammādiṭṭhi), on the dissolution of the body, after death, reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ); either earlier he did a good action to be felt as pleasant, or later he did a good action to be felt as pleasant, or at the time of death he acquired and undertook right view (sammādiṭṭhi). Because of that, on the dissolution of the body, after death, he reappears in a happy destination, even in the heavenly world (sugatiṃ saggaṃ lokaṃ). But since he has here abstained from killing living beings, abstains from taking what is not given…and held right view (sammādiṭṭhi), he will experience the result of that either here and now, or in his next rebirth, or in some subsequent existence.<br><br>“Therein, Ānanda, as to the person here who abstains from killing living beings, abstains from taking what is not given…and holds right view (sammādiṭṭhi), on the dissolution of the body, after death, reappears in a state of deprivation, in an unhappy destination, in the downfall, even in hell; either earlier he did an evil action to be felt as painful, or later he did an evil action to be felt as painful, or at the time of death he acquired and undertook wrong view (mithyādṛṣṭhi). Because of that, on the dissolution of the body, after death, he reappears in a state of deprivation, in an unhappy destination, in the downfall, even in hell. But since he has here abstained from killing living beings, abstains from taking what is not given…and held right view (sammādiṭṭhi), he will experience the result of that either here and now, or in his next rebirth, or in some subsequent existence.<br><br>“Thus, Ānanda, there is action that is incapable of good result and appears incapable; there is action that is incapable of good result and appears capable; there is action that is capable of good result and appears capable; and there is action that is capable of good result and appears incapable.”<br><br>Thus spoke the Lord. The venerable Ānanda was satisfied and delighted in the Blessed One’s words.<br><br>The Great Analysis of Action Discourse, the Sixth, is finished.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn6_isigilisuttaṃ.html" class="nav-btn">← Previous: Isigilisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_āneñjasappāyasuttaṃ.html" class="nav-btn">Next: Āneñjasappāyasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

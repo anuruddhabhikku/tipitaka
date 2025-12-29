@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Dhātuvibhaṅgasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Dhātuvibhaṅgasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 10</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_devadūtasuttaṃ.html" class="nav-btn">← Previous: Devadūtasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_indriyabhāvanāsuttaṃ.html" class="nav-btn">Next: Indriyabhāvanāsuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">342</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;342&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;342&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0434&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0281&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0287&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā magadhesu cārikaṃ caramāno yena rājagahaṃ tadavasari; yena bhaggavo kumbhakāro tenupasaṅkami; upasaṅkamitvā bhaggavaṃ kumbhakāraṃ etadavoca – ‘‘sace te, bhaggava, agaru viharemu āvesane &lt;note&gt;viharāmāvesane (sī. pī.), viharāma nivesane (syā. kaṃ.), viharemu nivesane (ka.)&lt;/note&gt; ekaratta’’nti. ‘‘Na kho me, bhante, garu. Atthi cettha pabbajito paṭhamaṃ vāsūpagato. Sace so anujānāti, viharatha &lt;note&gt;vihara (sī. pī.)&lt;/note&gt;, bhante, yathāsukha’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tena &lt;pb ed=&quot;P&quot; n=&quot;3.0238&quot;/&gt; kho pana samayena pukkusāti nāma kulaputto bhagavantaṃ uddissa saddhāya agārasmā anagāriyaṃ pabbajito. So tasmiṃ kumbhakārāvesane &lt;note&gt;kumbhakāranivesane (syā. kaṃ. ka.)&lt;/note&gt; paṭhamaṃ vāsūpagato hoti. Atha kho bhagavā yenāyasmā pukkusāti tenupasaṅkami; upasaṅkamitvā āyasmantaṃ pukkusātiṃ etadavoca – ‘‘sace te, bhikkhu, agaru viharemu āvesane ekaratta’’nti. ‘‘Urundaṃ, āvuso &lt;note&gt;ūrūndaṃ (sī. syā. kaṃ. pī.), urūddhaṃ (ka.) dī. ni. 2 sakkapañhasuttaṭīkā oloketabbā&lt;/note&gt;, kumbhakārāvesanaṃ. Viharatāyasmā yathāsukha’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0238&quot;/&gt; &lt;note&gt;kumbhakāranivesane (syā. kaṃ. ka.)&lt;/note&gt; &lt;note&gt;ūrūndaṃ (sī. syā. kaṃ. pī.), urūddhaṃ (ka.) dī. ni. 2 sakkapañhasuttaṭīkā oloketabbā&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavā kumbhakārāvesanaṃ pavisitvā ekamantaṃ tiṇasanthārakaṃ &lt;note&gt;tiṇasantharikaṃ (sī.), tiṇasantharakaṃ (syā. kaṃ.)&lt;/note&gt; paññāpetvā nisīdi pallaṅkaṃ ābhujitvā ujuṃ kāyaṃ paṇidhāya parimukhaṃ satiṃ upaṭṭhapetvā. Atha kho bhagavā bahudeva rattiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0435&quot;/&gt; nisajjāya vītināmesi. Āyasmāpi kho pukkusāti bahudeva rattiṃ nisajjāya vītināmesi.</p> &lt;note&gt;tiṇasantharikaṃ (sī.), tiṇasantharakaṃ (syā. kaṃ.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0435&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavato etadahosi – ‘‘pāsādikaṃ kho ayaṃ kulaputto iriyati. Yaṃnūnāhaṃ puccheyya’’nti. Atha kho bhagavā āyasmantaṃ pukkusātiṃ etadavoca – ‘‘kaṃsi tvaṃ, bhikkhu, uddissa pabbajito? Ko vā te satthā? Kassa vā tvaṃ dhammaṃ rocesī’’ti? ‘‘Atthāvuso, samaṇo gotamo sakyaputto sakyakulā pabbajito. Taṃ kho pana bhagavantaṃ gotamaṃ evaṃ kalyāṇo kittisaddo abbhuggato – ‘itipi so bhagavā arahaṃ sammāsambuddho vijjācaraṇasampanno sugato lokavidū anuttaro purisadammasārathi satthā devamanussānaṃ buddho bhagavā’ti &lt;pb ed=&quot;M&quot; n=&quot;3.0282&quot;/&gt;. Tāhaṃ bhagavantaṃ uddissa pabbajito. So ca me bhagavā satthā. Tassa cāhaṃ bhagavato &lt;pb ed=&quot;V&quot; n=&quot;3.0288&quot;/&gt; dhammaṃ rocemī’’ti. ‘‘Kahaṃ pana, bhikkhu, etarahi so bhagavā viharati arahaṃ sammāsambuddho’’ti. ‘‘Atthāvuso, uttaresu janapadesu sāvatthi nāma nagaraṃ. Tattha so bhagavā etarahi viharati arahaṃ sammāsambuddho’’ti. ‘‘Diṭṭhapubbo pana te, bhikkhu, so bhagavā; disvā ca pana jāneyyāsī’’ti? ‘‘Na &lt;pb ed=&quot;P&quot; n=&quot;3.0239&quot;/&gt; kho me, āvuso, diṭṭhapubbo so bhagavā; disvā cāhaṃ na jāneyya’’nti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0282&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0288&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0239&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavato etadahosi – ‘‘mamañca khvāyaṃ &lt;note&gt;maṃ tvāyaṃ (sī.), mamaṃ khvāyaṃ (syā. kaṃ.), maṃ khvāyaṃ (pī.)&lt;/note&gt; kulaputto uddissa pabbajito. Yaṃnūnassāhaṃ dhammaṃ deseyya’’nti. Atha kho bhagavā āyasmantaṃ pukkusātiṃ āmantesi – ‘‘dhammaṃ te, bhikkhu, desessāmi. Taṃ suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evamāvuso’’ti kho āyasmā pukkusāti bhagavato paccassosi. Bhagavā &lt;pb ed=&quot;T&quot; n=&quot;3.0436&quot;/&gt; etadavoca –</p> &lt;note&gt;maṃ tvāyaṃ (sī.), mamaṃ khvāyaṃ (syā. kaṃ.), maṃ khvāyaṃ (pī.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0436&quot;/&gt;">&lt;p n=&quot;342&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;342&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0434&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0281&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0287&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā magadhesu cārikaṃ caramāno yena rājagahaṃ tadavasari; yena bhaggavo kumbhakāro tenupasaṅkami; upasaṅkamitvā bhaggavaṃ kumbhakāraṃ etadavoca – ‘‘sace te, bhaggava, agaru viharemu āvesane &lt;note&gt;viharāmāvesane (sī. pī.), viharāma nivesane (syā. kaṃ.), viharemu nivesane (ka.)&lt;/note&gt; ekaratta’’nti. ‘‘Na kho me, bhante, garu. Atthi cettha pabbajito paṭhamaṃ vāsūpagato. Sace so anujānāti, viharatha &lt;note&gt;vihara (sī. pī.)&lt;/note&gt;, bhante, yathāsukha’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tena &lt;pb ed=&quot;P&quot; n=&quot;3.0238&quot;/&gt; kho pana samayena pukkusāti nāma kulaputto bhagavantaṃ uddissa saddhāya agārasmā anagāriyaṃ pabbajito. So tasmiṃ kumbhakārāvesane &lt;note&gt;kumbhakāranivesane (syā. kaṃ. ka.)&lt;/note&gt; paṭhamaṃ vāsūpagato hoti. Atha kho bhagavā yenāyasmā pukkusāti tenupasaṅkami; upasaṅkamitvā āyasmantaṃ pukkusātiṃ etadavoca – ‘‘sace te, bhikkhu, agaru viharemu āvesane ekaratta’’nti. ‘‘Urundaṃ, āvuso &lt;note&gt;ūrūndaṃ (sī. syā. kaṃ. pī.), urūddhaṃ (ka.) dī. ni. 2 sakkapañhasuttaṭīkā oloketabbā&lt;/note&gt;, kumbhakārāvesanaṃ. Viharatāyasmā yathāsukha’’nti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0238&quot;/&gt; &lt;note&gt;kumbhakāranivesane (syā. kaṃ. ka.)&lt;/note&gt; &lt;note&gt;ūrūndaṃ (sī. syā. kaṃ. pī.), urūddhaṃ (ka.) dī. ni. 2 sakkapañhasuttaṭīkā oloketabbā&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavā kumbhakārāvesanaṃ pavisitvā ekamantaṃ tiṇasanthārakaṃ &lt;note&gt;tiṇasantharikaṃ (sī.), tiṇasantharakaṃ (syā. kaṃ.)&lt;/note&gt; paññāpetvā nisīdi pallaṅkaṃ ābhujitvā ujuṃ kāyaṃ paṇidhāya parimukhaṃ satiṃ upaṭṭhapetvā. Atha kho bhagavā bahudeva rattiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0435&quot;/&gt; nisajjāya vītināmesi. Āyasmāpi kho pukkusāti bahudeva rattiṃ nisajjāya vītināmesi.</p> &lt;note&gt;tiṇasantharikaṃ (sī.), tiṇasantharakaṃ (syā. kaṃ.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0435&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavato etadahosi – ‘‘pāsādikaṃ kho ayaṃ kulaputto iriyati. Yaṃnūnāhaṃ puccheyya’’nti. Atha kho bhagavā āyasmantaṃ pukkusātiṃ etadavoca – ‘‘kaṃsi tvaṃ, bhikkhu, uddissa pabbajito? Ko vā te satthā? Kassa vā tvaṃ dhammaṃ rocesī’’ti? ‘‘Atthāvuso, samaṇo gotamo sakyaputto sakyakulā pabbajito. Taṃ kho pana bhagavantaṃ gotamaṃ evaṃ kalyāṇo kittisaddo abbhuggato – ‘itipi so bhagavā arahaṃ sammāsambuddho vijjācaraṇasampanno sugato lokavidū anuttaro purisadammasārathi satthā devamanussānaṃ buddho bhagavā’ti &lt;pb ed=&quot;M&quot; n=&quot;3.0282&quot;/&gt;. Tāhaṃ bhagavantaṃ uddissa pabbajito. So ca me bhagavā satthā. Tassa cāhaṃ bhagavato &lt;pb ed=&quot;V&quot; n=&quot;3.0288&quot;/&gt; dhammaṃ rocemī’’ti. ‘‘Kahaṃ pana, bhikkhu, etarahi so bhagavā viharati arahaṃ sammāsambuddho’’ti. ‘‘Atthāvuso, uttaresu janapadesu sāvatthi nāma nagaraṃ. Tattha so bhagavā etarahi viharati arahaṃ sammāsambuddho’’ti. ‘‘Diṭṭhapubbo pana te, bhikkhu, so bhagavā; disvā ca pana jāneyyāsī’’ti? ‘‘Na &lt;pb ed=&quot;P&quot; n=&quot;3.0239&quot;/&gt; kho me, āvuso, diṭṭhapubbo so bhagavā; disvā cāhaṃ na jāneyya’’nti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0282&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0288&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0239&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavato etadahosi – ‘‘mamañca khvāyaṃ &lt;note&gt;maṃ tvāyaṃ (sī.), mamaṃ khvāyaṃ (syā. kaṃ.), maṃ khvāyaṃ (pī.)&lt;/note&gt; kulaputto uddissa pabbajito. Yaṃnūnassāhaṃ dhammaṃ deseyya’’nti. Atha kho bhagavā āyasmantaṃ pukkusātiṃ āmantesi – ‘‘dhammaṃ te, bhikkhu, desessāmi. Taṃ suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evamāvuso’’ti kho āyasmā pukkusāti bhagavato paccassosi. Bhagavā &lt;pb ed=&quot;T&quot; n=&quot;3.0436&quot;/&gt; etadavoca –</p> &lt;note&gt;maṃ tvāyaṃ (sī.), mamaṃ khvāyaṃ (syā. kaṃ.), maṃ khvāyaṃ (pī.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0436&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">THUS HAVE I HEARD. On one occasion the Blessed One was wandering in the Magadhan country and eventually arrived at Rajagaha. There he went to the potter Bhaggava and said to him: “If it is not inconvenient for you, Bhaggava, I will stay one night in your workshop.”<br><br>“It is not inconvenient for me, venerable sir. There is a homeless one already staying there. If he consents, venerable sir, stay as long as you like.”<br><br>Then, by that occasion, a clansman named Pukkusāti, having faith in the Blessed One, had gone forth from the house life into homelessness. He was the first to stay in that potter&#039;s workshop. Then the Blessed One went to the venerable Pukkusāti and said to him: “If it is not inconvenient for you, <i>bhikkhu</i>, I will stay one night in the workshop.”<br><br>“It is spacious, friend, the potter&#039;s workshop. Let the venerable one stay as long as he likes.”<br>Then the Blessed One entered the potter’s workshop and, after preparing a spread of grass at one end, sat down, folding his legs crosswise, setting his body erect, and establishing mindfulness in front of him. Then the Blessed One spent much of the night seated in meditation. The venerable Pukkusāti also spent much of the night seated in meditation.<br><br>Then the Blessed One thought: “This clansman conducts himself in a way that inspires confidence. Suppose I were to question him.” Then the Blessed One said to the venerable Pukkusāti: “For whom, bhikkhu, have you gone forth? Who is your teacher? Whose Dhamma do you approve of?” “There is, friend, the renunciate Gotama, a son of the Sakyans, who went forth from the Sakyan clan. Now a good report of that Blessed Gotama has spread: ‘Indeed, that Blessed One is an Arhat, a fully enlightened Buddha, accomplished in knowledge and conduct, sublime, knower of the world, incomparable leader of persons to be tamed, teacher of gods and humans, enlightened, blessed.’ I have gone forth on account of that Blessed One, and that Blessed One is my teacher. I approve of the Dhamma of that Blessed One.” “But where, bhikkhu, does that Blessed One, the Arhat, the fully enlightened Buddha, now reside?” “There is, friend, a city in the northern districts named Sāvatthī. There that Blessed One, the Arhat, the fully enlightened Buddha, now resides.” “Have you ever seen that Blessed One, bhikkhu? Would you recognise him if you saw him?” “No, friend, I have never seen that Blessed One before, nor would I recognise him if I saw him.”<br><br>Then the Blessed One thought: “This clansman has gone forth for me. Suppose I were to teach him the Dharma.” Then the Blessed One addressed the venerable Pukkusāti, “Bhikkhu, I will teach you the Dharma. Listen to that and pay close attention, I will speak.” “Yes, friend,” the venerable Pukkusāti replied to the Blessed One. The Blessed One .<br>0436&quot;/&gt; He said this: –</p> &lt;note&gt;This (ayam) is mocking me (mām), and this (ayam) indeed (khva) is... (mamaṃ).<br>This (ayam) indeed (khva) is... (mām).<br>&lt;/note&gt; &lt;pb ed=&quot;t&quot; n=&quot;3.<br>0436&quot;/&gt;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">343</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;343&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;343&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chadhāturo &lt;note&gt;chaddhāturo (sī.)&lt;/note&gt; ayaṃ, bhikkhu, puriso chaphassāyatano aṭṭhārasamanopavicāro caturādhiṭṭhāno; yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccati. Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – ayamuddeso dhātuvibhaṅgassa &lt;note&gt;chadhātuvibhaṅgassa (sī. syā. kaṃ. pī.)&lt;/note&gt;.</p>">&lt;p n=&quot;343&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;343&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chadhāturo &lt;note&gt;chaddhāturo (sī.)&lt;/note&gt; ayaṃ, bhikkhu, puriso chaphassāyatano aṭṭhārasamanopavicāro caturādhiṭṭhāno; yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccati. Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – ayamuddeso dhātuvibhaṅgassa &lt;note&gt;chadhātuvibhaṅgassa (sī. syā. kaṃ. pī.)&lt;/note&gt;.</p></div>
+                
+                <div class="translation-text mula-english-section">343.<br>&quot;This, <i>bhikṣu</i>, is a person consisting of six elements (<i>chadhātu</i>), six sense bases (<i>chaphassāyatana</i>), eighteen mental considerations (<i>aṭṭhārasamanopavicāra</i>), and four foundations (<i>caturādhiṭṭhāna</i>); where, standing, the currents of conceit (<i>maññassava</i>) do not proceed; and when the currents of conceit do not proceed, one is called a sage (<i>muni</i>) at peace (<i>santa</i>).&quot;<br><br>One should not neglect wisdom (<i>paññāṃ</i>), should preserve truth (<i>saccaṃ</i>), should cultivate relinquishment (<i>cāgaṃ</i>), and should train for peace (<i>santi</i>). This is the summary (<i>uddeso</i>) of the exposition (<i>vibhaṅgassa</i>) of the elements (<i>dhātu</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">344</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;344&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;344&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chadhāturo ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? (Chayimā, bhikkhu, dhātuyo) &lt;note&gt;( ) natthi sī. pī. potthakesu&lt;/note&gt; – pathavīdhātu, āpodhātu, tejodhātu, vāyodhātu, ākāsadhātu, viññāṇadhātu. ‘Chadhāturo ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;344&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;344&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chadhāturo ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? (Chayimā, bhikkhu, dhātuyo) &lt;note&gt;( ) natthi sī. pī. potthakesu&lt;/note&gt; – pathavīdhātu, āpodhātu, tejodhātu, vāyodhātu, ākāsadhātu, viññāṇadhātu. ‘Chadhāturo ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">344. “&#039;Bhikkhu, this person consists of six elements ( <i>ṣaṭ-dhātu</i> ).&#039;” So it was said.<br><br>And with reference to what was this said? (There are these six elements, <i>dhātu</i>, monk) – the earth element (<i>pṛthivī-dhātu</i>), the water element (<i>āpo-dhātu</i>), the fire element (<i>tejo-dhātu</i>), the air element (<i>vāyo-dhātu</i>), the space element (<i>ākāśa-dhātu</i>), and the consciousness element (<i>vijñāṇa-dhātu</i>).<br><br>So it was with reference to this that it was said: &#039;Bhikkhu, this person consists of six elements.&#039;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">345</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;345&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;345&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chaphassāyatano ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Cakkhusamphassāyatanaṃ, sotasamphassāyatanaṃ, ghānasamphassāyatanaṃ, jivhāsamphassāyatanaṃ, kāyasamphassāyatanaṃ, manosamphassāyatanaṃ. ‘Chaphassāyatano ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;345&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;345&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Chaphassāyatano ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Cakkhusamphassāyatanaṃ, sotasamphassāyatanaṃ, ghānasamphassāyatanaṃ, jivhāsamphassāyatanaṃ, kāyasamphassāyatanaṃ, manosamphassāyatanaṃ. ‘Chaphassāyatano ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">345.<br>‘“Bhikkhu, this person consists of six bases of contact ( <i>ṣaṭ-sparśa-āyatana</i> ).”’ So it was said.<br><br>What was said with reference to this? The base of eye-contact (<i>cakṣu-samphassa-āyatana</i>), the base of ear-contact (<i>śrotra-samphassa-āyatana</i>), the base of nose-contact (<i>ghrāṇa-samphassa-āyatana</i>), the base of tongue-contact (<i>jihvā-samphassa-āyatana</i>), the base of body-contact (<i>kāya-samphassa-āyatana</i>), and the base of mind-contact (<i>mano-samphassa-āyatana</i>).<br><br>So it was with reference to this that it was said: ‘Bhikkhu, this person consists of six bases of contact.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">346</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;346&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;346&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Aṭṭhārasamanopavicāro &lt;pb ed=&quot;M&quot; n=&quot;3.0283&quot;/&gt; ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Cakkhunā rūpaṃ disvā somanassaṭṭhānīyaṃ rūpaṃ upavicarati, domanassaṭṭhānīyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0289&quot;/&gt; rūpaṃ upavicarati, upekkhāṭṭhānīyaṃ rūpaṃ upavicarati; sotena saddaṃ sutvā…pe… ghānena gandhaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0240&quot;/&gt; ghāyitvā… jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya somanassaṭṭhānīyaṃ dhammaṃ upavicarati, domanassaṭṭhānīyaṃ dhammaṃ upavicarati &lt;pb ed=&quot;T&quot; n=&quot;3.0437&quot;/&gt;, upekkhāṭṭhānīyaṃ dhammaṃ upavicarati – iti cha somanassupavicārā, cha domanassupavicārā, cha upekkhupavicārā. ‘Aṭṭhārasamanopavicāro ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;346&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;346&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Aṭṭhārasamanopavicāro &lt;pb ed=&quot;M&quot; n=&quot;3.0283&quot;/&gt; ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Cakkhunā rūpaṃ disvā somanassaṭṭhānīyaṃ rūpaṃ upavicarati, domanassaṭṭhānīyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0289&quot;/&gt; rūpaṃ upavicarati, upekkhāṭṭhānīyaṃ rūpaṃ upavicarati; sotena saddaṃ sutvā…pe… ghānena gandhaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0240&quot;/&gt; ghāyitvā… jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya somanassaṭṭhānīyaṃ dhammaṃ upavicarati, domanassaṭṭhānīyaṃ dhammaṃ upavicarati &lt;pb ed=&quot;T&quot; n=&quot;3.0437&quot;/&gt;, upekkhāṭṭhānīyaṃ dhammaṃ upavicarati – iti cha somanassupavicārā, cha domanassupavicārā, cha upekkhupavicārā. ‘Aṭṭhārasamanopavicāro ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">346. “&#039;Bhikkhu, this person consists of eighteen kinds of mental exploration.&#039; So it was said.<br><br>With reference to what was this said? On seeing a form (<i>rūpa</i>) with the eye, one explores a form productive of joy (<i>saumanasya</i>), one explores a form productive of grief (<i>daumanasya</i>), one explores a form productive of equanimity (<i>upekkhā</i>); On hearing a sound with the ear…On smelling an odour with the nose…On tasting a flavour with the tongue… On touching a tangible with the body…On cognizing a mind-object (<i>dharma</i>) with the mind, one explores a mind-object productive of joy, one explores a mind-object productive of grief, one explores a mind-object productive of equanimity - thus there are six explorations productive of joy, six explorations productive of grief, six explorations productive of equanimity.<br><br>So it was with reference to this that it was said: ‘Bhikkhu, this person consists of eighteen kinds of mental exploration.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">347</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;347&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;347&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Caturādhiṭṭhāno ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Paññādhiṭṭhāno, saccādhiṭṭhāno, cāgādhiṭṭhāno, upasamādhiṭṭhāno. ‘Caturādhiṭṭhāno ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;347&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;347&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Caturādhiṭṭhāno ayaṃ, bhikkhu, puriso’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Paññādhiṭṭhāno, saccādhiṭṭhāno, cāgādhiṭṭhāno, upasamādhiṭṭhāno. ‘Caturādhiṭṭhāno ayaṃ, bhikkhu, puriso’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">347. “‘Bhikkhu, this person has four foundations’— so it was said.<br><br>But with reference to what was it said? It was with reference to the foundation of wisdom (<i>prajñādhiṣṭhāno</i>), the foundation of truth (<i>satyādhiṣṭhāno</i>), the foundation of generosity (<i>tyāgādhiṣṭhāno</i>), and the foundation of tranquility (<i>upaśamādhiṣṭhāno</i>).<br><br>So it was with reference to this that it was said: ‘Bhikkhu, this person has four foundations.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">348</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;348&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;348&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhu, paññaṃ nappamajjati? Chayimā, bhikkhu, dhātuyo – pathavīdhātu, āpodhātu, tejodhātu, vāyodhātu, ākāsadhātu, viññāṇadhātu.</p>">&lt;p n=&quot;348&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;348&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhu, paññaṃ nappamajjati? Chayimā, bhikkhu, dhātuyo – pathavīdhātu, āpodhātu, tejodhātu, vāyodhātu, ākāsadhātu, viññāṇadhātu.</p></div>
+                
+                <div class="translation-text mula-english-section">&quot;‘One should not neglect wisdom (paññā), should preserve truth (sacca), should cultivate relinquishment (cāga), and should train for peace (santi).’ So it was said.<br><br>With reference to what was this said? And how, O monk (bhikkhu), does one not neglect wisdom (paññā)? There are these six elements (dhātu), O monk (bhikkhu): the earth element (pathavīdhātu), the water element (āpodhātu), the fire element (tejodhātu), the air element (vāyodhātu), the space element (ākāsadhātu), [and] the consciousness element (viññāṇadhātu).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">349</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;349&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;349&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, pathavīdhātu? Pathavīdhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā pathavīdhātu? Yaṃ ajjhattaṃ paccattaṃ kakkhaḷaṃ kharigataṃ upādinnaṃ &lt;note&gt;upādiṇṇaṃ (pī. ka.)&lt;/note&gt;, seyyathidaṃ – kesā lomā nakhā dantā taco maṃsaṃ nhāru aṭṭhi aṭṭhimiñjaṃ &lt;note&gt;aṭṭhimiñjā (sī. pī.)&lt;/note&gt; vakkaṃ hadayaṃ yakanaṃ kilomakaṃ pihakaṃ papphāsaṃ antaṃ antaguṇaṃ udariyaṃ karīsaṃ, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ kakkhaḷaṃ kharigataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā pathavīdhātu. Yā ceva kho pana ajjhattikā pathavīdhātu yā ca bāhirā pathavīdhātu pathavīdhāturevesā &lt;pb ed=&quot;T&quot; n=&quot;3.0438&quot;/&gt;. ‘Taṃ netaṃ mama nesohamasmi na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya &lt;pb ed=&quot;V&quot; n=&quot;3.0290&quot;/&gt; daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā pathavīdhātuyā nibbindati, pathavīdhātuyā cittaṃ virājeti.</p>">&lt;p n=&quot;349&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;349&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, pathavīdhātu? Pathavīdhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā pathavīdhātu? Yaṃ ajjhattaṃ paccattaṃ kakkhaḷaṃ kharigataṃ upādinnaṃ &lt;note&gt;upādiṇṇaṃ (pī. ka.)&lt;/note&gt;, seyyathidaṃ – kesā lomā nakhā dantā taco maṃsaṃ nhāru aṭṭhi aṭṭhimiñjaṃ &lt;note&gt;aṭṭhimiñjā (sī. pī.)&lt;/note&gt; vakkaṃ hadayaṃ yakanaṃ kilomakaṃ pihakaṃ papphāsaṃ antaṃ antaguṇaṃ udariyaṃ karīsaṃ, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ kakkhaḷaṃ kharigataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā pathavīdhātu. Yā ceva kho pana ajjhattikā pathavīdhātu yā ca bāhirā pathavīdhātu pathavīdhāturevesā &lt;pb ed=&quot;T&quot; n=&quot;3.0438&quot;/&gt;. ‘Taṃ netaṃ mama nesohamasmi na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya &lt;pb ed=&quot;V&quot; n=&quot;3.0290&quot;/&gt; daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā pathavīdhātuyā nibbindati, pathavīdhātuyā cittaṃ virājeti.</p></div>
+                
+                <div class="translation-text mula-english-section">349.<br>&quot;And what, O <i>bhikṣu</i>, is the earth element (<i>pathavīdhātu</i>)? The earth element can be internal (<i>ajjhattikā</i>) or external (<i>bāhirā</i>).<br><br>And what, O <i>bhikṣu</i>, is the internal earth element (<i>ajjhattikā pathavīdhātu</i>)? Whatever internally, belonging to oneself, is solid (<i>kakkhaḷaṃ</i>), solidified (<i>kharigataṃ</i>), and clung-to (<i>upādinnaṃ</i>), that is, head-hairs (<i>kesā</i>), body-hairs (<i>lomā</i>), nails (<i>nakhā</i>), teeth (<i>dantā</i>), skin (<i>taco</i>), flesh (<i>maṃsaṃ</i>), sinews (<i>nhāru</i>), bones (<i>aṭṭhi</i>), bone-marrow (<i>aṭṭhimiñjaṃ</i>), kidneys (<i>vakkaṃ</i>), heart (<i>hadayaṃ</i>), liver (<i>yakanaṃ</i>), diaphragm (<i>kilomakaṃ</i>), spleen (<i>pihakaṃ</i>), lungs (<i>papphāsaṃ</i>), intestines (<i>antaṃ</i>), mesentery (<i>antaguṇaṃ</i>), contents of the stomach (<i>udariyaṃ</i>), feces (<i>karīsaṃ</i>), or whatever else internally, belonging to oneself, is solid, solidified, and clung-to: this is called the internal earth element (<i>ajjhattikā pathavīdhātu</i>).<br><br>Now both the internal earth element (<i>ajjhattikā pathavīdhātu</i>) and the external earth element (<i>bāhirā pathavīdhātu</i>) are simply earth element (<i>pathavīdhātu</i>).<br><br>‘This is not mine, this I am not, this is not myself’— thus that should be seen as it actually is with proper wisdom (<i>sammappaññāya</i>).<br><br>When one sees it thus as it actually is with proper wisdom (<i>sammappaññāya</i>), one becomes disenchanted (<i>nibbindati</i>) with the earth element (<i>pathavīdhātu</i>) and makes the mind dispassionate (<i>virājeti</i>) towards the earth element (<i>pathavīdhātu</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">350</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;350&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;350&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā &lt;pb ed=&quot;M&quot; n=&quot;3.0284&quot;/&gt; ca, bhikkhu, āpodhātu? Āpodhātu siyā ajjhattikā &lt;pb ed=&quot;P&quot; n=&quot;3.0241&quot;/&gt; siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā āpodhātu? Yaṃ ajjhattaṃ paccattaṃ āpo āpogataṃ upādinnaṃ seyyathidaṃ – pittaṃ semhaṃ pubbo lohitaṃ sedo medo assu vasā kheḷo siṅghāṇikā lasikā muttaṃ, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ āpo āpogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā āpodhātu. Yā ceva kho pana ajjhattikā āpodhātu yā ca bāhirā āpodhātu āpodhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā āpodhātuyā nibbindati, āpodhātuyā cittaṃ virājeti.</p>">&lt;p n=&quot;350&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;350&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā &lt;pb ed=&quot;M&quot; n=&quot;3.0284&quot;/&gt; ca, bhikkhu, āpodhātu? Āpodhātu siyā ajjhattikā &lt;pb ed=&quot;P&quot; n=&quot;3.0241&quot;/&gt; siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā āpodhātu? Yaṃ ajjhattaṃ paccattaṃ āpo āpogataṃ upādinnaṃ seyyathidaṃ – pittaṃ semhaṃ pubbo lohitaṃ sedo medo assu vasā kheḷo siṅghāṇikā lasikā muttaṃ, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ āpo āpogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā āpodhātu. Yā ceva kho pana ajjhattikā āpodhātu yā ca bāhirā āpodhātu āpodhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā āpodhātuyā nibbindati, āpodhātuyā cittaṃ virājeti.</p></div>
+                
+                <div class="translation-text mula-english-section">350.<br>’’And what, <i>bhikkhu</i>, is the water element (<i>āpodhātu</i>)? The water element may be internal (<i>ajjhattikā</i>) or external (<i>bāhirā</i>).<br><br>And what, <i>bhikkhu</i>, is the internal water element (<i>ajjhattikā āpodhātu</i>)? Whatever internally, belonging to oneself, is water, watery (<i>āpogataṃ</i>), and clung-to (<i>upādinnaṃ</i>), that is, bile (<i>pittaṃ</i>), phlegm (<i>semhaṃ</i>), pus (<i>pubbo</i>), blood (<i>lohitaṃ</i>), sweat (<i>sedo</i>), fat (<i>medo</i>), tears (<i>assu</i>), grease (<i>vasā</i>), spittle (<i>kheḷo</i>), snot (<i>siṅghāṇikā</i>), oil-of-the-joints (<i>lasikā</i>), urine (<i>muttaṃ</i>), or whatever else internally, belonging to oneself, is water, watery, and clung-to: this is called the internal water element.<br><br>Now both the internal water element and the external water element are simply water element.<br><br>‘This is not mine, this I am not, this is not my self’ (<i>taṃ netaṃ mama, nesohamasmi, na meso attā’ti</i>) – and that should be seen as it actually is with proper wisdom (<i>yathābhūtaṃ sammappaññāya daṭṭhabbaṃ</i>).<br><br>When one sees it thus as it actually is with proper wisdom (<i>yathābhūtaṃ sammappaññāya disvā</i>), one becomes disenchanted (<i>nibbindati</i>) with the water element and makes the mind dispassionate (<i>cittaṃ virājeti</i>) towards the water element.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">351</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;351&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;351&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, tejodhātu? Tejodhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā tejodhātu? Yaṃ ajjhattaṃ paccattaṃ tejo tejogataṃ upādinnaṃ, seyyathidaṃ – yena ca santappati, yena ca jīrīyati, yena ca pariḍayhati, yena ca asitapītakhāyitasāyitaṃ sammā pariṇāmaṃ gacchati, yaṃ vā panaññampi kiñci ajjhattaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0439&quot;/&gt; paccattaṃ tejo tejogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā tejodhātu. Yā ceva kho pana ajjhattikā tejodhātu yā ca bāhirā tejodhātu tejodhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā tejodhātuyā nibbindati, tejodhātuyā cittaṃ virājeti.</p>">&lt;p n=&quot;351&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;351&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, tejodhātu? Tejodhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā tejodhātu? Yaṃ ajjhattaṃ paccattaṃ tejo tejogataṃ upādinnaṃ, seyyathidaṃ – yena ca santappati, yena ca jīrīyati, yena ca pariḍayhati, yena ca asitapītakhāyitasāyitaṃ sammā pariṇāmaṃ gacchati, yaṃ vā panaññampi kiñci ajjhattaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0439&quot;/&gt; paccattaṃ tejo tejogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā tejodhātu. Yā ceva kho pana ajjhattikā tejodhātu yā ca bāhirā tejodhātu tejodhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā tejodhātuyā nibbindati, tejodhātuyā cittaṃ virājeti.</p></div>
+                
+                <div class="translation-text mula-english-section">351. And what, O monks, is the <i>tejodhātu</i>, the fire element? The fire element may be internal (<i>ajjhattikā</i>) or it may be external (<i>bāhirā</i>).<br><br>And what, O monks, is the internal fire element (<i>ajjhattikā tejodhātu</i>)? Whatever internally, belonging to oneself, is fire (<i>tejo</i>), fiery (<i>tejogataṃ</i>), and clung-to (<i>upādinnaṃ</i>), that is, that by which one is warmed (<i>santappati</i>), ages (<i>jīrīyati</i>), and is consumed (<i>pariḍayhati</i>), and that by which what is eaten (<i>asita</i>), drunk (<i>pīta</i>), chewed (<i>khāyita</i>), and tasted (<i>sāyitaṃ</i>) gets completely digested (<i>sammā pariṇāmaṃ gacchati</i>), or whatever else internally, belonging to oneself, is fire (<i>tejo</i>), fiery (<i>tejogataṃ</i>), and clung-to (<i>upādinnaṃ</i>): this is called the internal fire element (<i>ajjhattikā tejodhātu</i>).<br><br>Now both the internal fire element (<i>ajjhattikā tejodhātu</i>) and the external fire element (<i>bāhirā tejodhātu</i>) are simply fire element (<i>tejodhāturevesā</i>).<br><br>‘This is not mine (<i>netaṃ mama</i>), this I am not (<i>nesohamasmi</i>), this is not my self (<i>na meso attā</i>)’—and that should be seen as it actually is (<i>yathābhūtaṃ</i>) with proper wisdom (<i>sammappaññāya</i>)<br><br>When one sees it thus as it actually is (<i>yathābhūtaṃ</i>) with proper wisdom (<i>sammappaññāya</i>), one becomes disenchanted (<i>nibbindati</i>) with the fire element (<i>tejodhātuyā</i>) and makes the mind (<i>cittaṃ</i>) dispassionate (<i>virājeti</i>) towards the fire element (<i>tejodhātuyā</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">352</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;352&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;352&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, vāyodhātu? Vāyodhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā vāyodhātu? Yaṃ ajjhattaṃ paccattaṃ vāyo vāyogataṃ upādinnaṃ, seyyathidaṃ – uddhaṅgamā vātā adhogamā vātā kucchisayā vātā koṭṭhāsayā &lt;note&gt;koṭṭhasayā (sī. syā. kaṃ. pī.)&lt;/note&gt; vātā aṅgamaṅgānusārino vātā assāso passāso iti, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ vāyo vāyogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā vāyodhātu. Yā ceva kho pana ajjhattikā vāyodhātu yā ca bāhirā vāyodhātu vāyodhāturevesā. ‘Taṃ netaṃ mama &lt;pb ed=&quot;V&quot; n=&quot;3.0291&quot;/&gt;, nesohamasmi &lt;pb ed=&quot;M&quot; n=&quot;3.0285&quot;/&gt;, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā vāyodhātuyā nibbindati, vāyodhātuyā cittaṃ virājeti.</p>">&lt;p n=&quot;352&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;352&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, vāyodhātu? Vāyodhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā vāyodhātu? Yaṃ ajjhattaṃ paccattaṃ vāyo vāyogataṃ upādinnaṃ, seyyathidaṃ – uddhaṅgamā vātā adhogamā vātā kucchisayā vātā koṭṭhāsayā &lt;note&gt;koṭṭhasayā (sī. syā. kaṃ. pī.)&lt;/note&gt; vātā aṅgamaṅgānusārino vātā assāso passāso iti, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ vāyo vāyogataṃ upādinnaṃ – ayaṃ vuccati, bhikkhu, ajjhattikā vāyodhātu. Yā ceva kho pana ajjhattikā vāyodhātu yā ca bāhirā vāyodhātu vāyodhāturevesā. ‘Taṃ netaṃ mama &lt;pb ed=&quot;V&quot; n=&quot;3.0291&quot;/&gt;, nesohamasmi &lt;pb ed=&quot;M&quot; n=&quot;3.0285&quot;/&gt;, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā vāyodhātuyā nibbindati, vāyodhātuyā cittaṃ virājeti.</p></div>
+                
+                <div class="translation-text mula-english-section">352. And what, <i>bhikkhu</i>, is the air element (<i>vāyodhātu</i>)? The air element may be internal (<i>ajjhattikā</i>) or may be external (<i>bāhirā</i>).<br><br>And what, <i>bhikkhu</i>, is the internal air element (<i>ajjhattikā vāyodhātu</i>)? Whatever internally (ajjhattaṃ), belonging to oneself (<i>paccattaṃ</i>), is air (<i>vāyo</i>), airy (<i>vāyogataṃ</i>), and clung-to (<i>upādinnaṃ</i>); that is, up-going winds (<i>uddhaṅgamā vātā</i>), down-going winds (<i>adhogamā vātā</i>), winds in the belly (<i>kucchisayā vātā</i>), winds in the bowels (<i>koṭṭhāsayā vātā</i>), winds that course through the limbs (<i>aṅgamaṅgānusārino vātā</i>), in-breath (<i>assāso</i>) and out-breath (<i>passāso</i>)—whatever else there is internally (<i>ajjhattaṃ</i>), belonging to oneself (<i>paccattaṃ</i>), that is air (<i>vāyo</i>), airy (<i>vāyogataṃ</i>), and clung to (<i>upādinnaṃ</i>)—this is called, <i>bhikkhu</i>, the internal air element (<i>ajjhattikā vāyodhātu</i>).<br><br>Now, both the internal air element (<i>ajjhattikā vāyodhātu</i>) and the external air element (<i>bāhirā vāyodhātu</i>) are simply air element (<i>vāyodhāturevesā</i>).<br><br>‘This is not mine (<i>netaṃ mama</i>), this I am not (<i>nesohamasmi</i>), this is not my self (<i>na meso attā’ti</i>)’—thus this should be seen as it actually is (<i>yathābhūtaṃ</i>) with proper wisdom (<i>sammappaññāya</i>) (<i>daṭṭhabbaṃ</i>).<br><br>When one sees it thus as it actually is (<i>yathābhūtaṃ</i>) with proper wisdom (<i>sammappaññāya</i>), one becomes disenchanted (<i>nibbindati</i>) with the air element (<i>vāyodhātuyā</i>) and makes the mind (<i>cittaṃ</i>) dispassionate (<i>virājeti</i>) toward the air element (<i>vāyodhātuyā</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">353</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;353&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;353&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, ākāsadhātu? Ākāsadhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā ākāsadhātu &lt;pb ed=&quot;P&quot; n=&quot;3.0242&quot;/&gt;? Yaṃ ajjhattaṃ paccattaṃ ākāsaṃ ākāsagataṃ upādinnaṃ, seyyathidaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0440&quot;/&gt; – kaṇṇacchiddaṃ nāsacchiddaṃ mukhadvāraṃ yena ca asitapītakhāyitasāyitaṃ ajjhoharati, yattha ca asitapītakhāyitasāyitaṃ santiṭṭhati, yena ca asitapītakhāyitasāyitaṃ adhobhāgaṃ &lt;note&gt;adhobhāgā (sī. syā. kaṃ. pī.) devadūtasuttena sameti&lt;/note&gt; nikkhamati, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ ākāsaṃ ākāsagataṃ aghaṃ aghagataṃ vivaraṃ vivaragataṃ asamphuṭṭhaṃ maṃsalohitehi upādinnaṃ – ayaṃ vuccati bhikkhu ajjhattikā ākāsadhātu. Yā ceva kho pana ajjhattikā ākāsadhātu yā ca bāhirā ākāsadhātu ākāsadhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā ākāsadhātuyā nibbindati, ākāsadhātuyā cittaṃ virājeti.</p>">&lt;p n=&quot;353&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;353&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Katamā ca, bhikkhu, ākāsadhātu? Ākāsadhātu siyā ajjhattikā siyā bāhirā. Katamā ca, bhikkhu, ajjhattikā ākāsadhātu &lt;pb ed=&quot;P&quot; n=&quot;3.0242&quot;/&gt;? Yaṃ ajjhattaṃ paccattaṃ ākāsaṃ ākāsagataṃ upādinnaṃ, seyyathidaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0440&quot;/&gt; – kaṇṇacchiddaṃ nāsacchiddaṃ mukhadvāraṃ yena ca asitapītakhāyitasāyitaṃ ajjhoharati, yattha ca asitapītakhāyitasāyitaṃ santiṭṭhati, yena ca asitapītakhāyitasāyitaṃ adhobhāgaṃ &lt;note&gt;adhobhāgā (sī. syā. kaṃ. pī.) devadūtasuttena sameti&lt;/note&gt; nikkhamati, yaṃ vā panaññampi kiñci ajjhattaṃ paccattaṃ ākāsaṃ ākāsagataṃ aghaṃ aghagataṃ vivaraṃ vivaragataṃ asamphuṭṭhaṃ maṃsalohitehi upādinnaṃ – ayaṃ vuccati bhikkhu ajjhattikā ākāsadhātu. Yā ceva kho pana ajjhattikā ākāsadhātu yā ca bāhirā ākāsadhātu ākāsadhāturevesā. ‘Taṃ netaṃ mama, nesohamasmi, na meso attā’ti – evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ. Evametaṃ yathābhūtaṃ sammappaññāya disvā ākāsadhātuyā nibbindati, ākāsadhātuyā cittaṃ virājeti.</p></div>
+                
+                <div class="translation-text mula-english-section">353. And what, O monk, is the space element (<i>ākāśadhātu</i>)? The space element may be internal (<i>ajjhattikā</i>) or external (<i>bāhirā</i>).<br><br>And what, O monk, is the internal space element (<i>ajjhattikā ākāśadhātu</i>)? Whatever internally, belonging to oneself, is space, spatial, and clung-to, that is, the holes of the ears (<i>karṇacchiddaṃ</i>), the nostrils (<i>nāsacchiddaṃ</i>), the door of the mouth (<i>mukhadvāraṃ</i>), and that aperture whereby what is eaten, drunk, consumed, and tasted gets swallowed (<i>asitapītakhāyitasāyitaṃ ajjhoharati</i>), and where what is eaten, drunk, consumed, and tasted collects (<i>yattha ca asitapītakhāyitasāyitaṃ santiṭṭhati</i>), and whereby what is eaten, drunk, consumed, and tasted is excreted from below (<i>yena ca asitapītakhāyitasāyitaṃ adhobhāgaṃ nikkhamati</i>), or whatever else internally, belonging to oneself, is space, spatial, and clung-to, a hole, situated in a hole, not touched by flesh and blood (<i>asaṃphuṭṭhaṃ maṃsalohitehi upādinnaṃ</i>) – this is called the internal space element (<i>ajjhattikā ākāsadhātu</i>).<br><br>Now both the internal space element (<i>ajjhattikā ākāsadhātu</i>) and the external space element (<i>bāhirā ākāsadhātu</i>) are simply space element (<i>ākāsadhātu</i>).<br><br>‘This is not mine, this I am not, this is not my self’ (<i>taṃ netaṃ mama, nesohamasmi, na meso attā’ti</i>) – and that should be seen as it actually is with proper wisdom (<i>evametaṃ yathābhūtaṃ sammappaññāya daṭṭhabbaṃ</i>).<br><br>When one sees it thus as it actually is with proper wisdom (<i>evametaṃ yathābhūtaṃ sammappaññāya disvā</i>), one becomes disenchanted with the space element (<i>ākāsadhātuyā nibbindati</i>) and makes the mind dispassionate towards the space element (<i>ākāsadhātuyā cittaṃ virājeti</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">354</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;354&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;354&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Athāparaṃ viññāṇaṃyeva avasissati parisuddhaṃ pariyodātaṃ. Tena ca viññāṇena kiṃ &lt;note&gt;tena viññāṇena kiñca (sī.)&lt;/note&gt; vijānāti? ‘Sukha’ntipi vijānāti, ‘dukkha’ntipi vijānāti, ‘adukkhamasukha’ntipi vijānāti. Sukhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati sukhā vedanā. So sukhaṃ vedanaṃ vedayamāno ‘sukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva sukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ sukhavedaniyaṃ phassaṃ paṭicca uppannā sukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;354&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;354&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Athāparaṃ viññāṇaṃyeva avasissati parisuddhaṃ pariyodātaṃ. Tena ca viññāṇena kiṃ &lt;note&gt;tena viññāṇena kiñca (sī.)&lt;/note&gt; vijānāti? ‘Sukha’ntipi vijānāti, ‘dukkha’ntipi vijānāti, ‘adukkhamasukha’ntipi vijānāti. Sukhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati sukhā vedanā. So sukhaṃ vedanaṃ vedayamāno ‘sukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva sukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ sukhavedaniyaṃ phassaṃ paṭicca uppannā sukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">354. Furthermore, there remains only consciousness (<i>vijñāṇa</i>), purified and cleansed.<br><br>What does one cognize with that consciousness (<i>vijñāṇa</i>)? One cognizes: ‘This is pleasant’ (<i>sukha</i>); one cognizes: ‘This is painful’ (<i>duḥkha</i>); one cognizes: ‘This is neither-painful-nor-pleasant’ (<i>adukkhamasukha</i>).<br><br>Bhikkhu, in dependence on a contact to be felt as pleasant (<i>sukhavedanīyaṃ phassaṃ</i>) there arises a pleasant feeling (<i>sukhā vedanā</i>).<br><br>When one feels a pleasant feeling (<i>sukhaṃ vedanaṃ vedayamāno</i>), one understands: ‘I feel a pleasant feeling’ (<i>sukhaṃ vedanaṃ vedayāmīti pajānāti</i>).<br><br>One understands: ‘With the cessation (<i>nirodhā</i>) of that same contact to be felt as pleasant (<i>sukhavedanīyassa phassassa</i>), its corresponding feeling (<i>vedayitaṃ</i>) - the pleasant feeling (<i>sukhā vedanā</i>) that arose in dependence on that contact to be felt as pleasant (<i>sukhavedanīyaṃ phassaṃ paṭicca uppannā</i>) - ceases (<i>nirujjhati</i>) and subsides (<i>vūpasammatīti pajānāti</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">355</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;355&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;355&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Dukkhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati dukkhā vedanā. So dukkhaṃ vedanaṃ vedayamāno ‘dukkhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva dukkhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ dukkhavedaniyaṃ phassaṃ paṭicca &lt;pb ed=&quot;T&quot; n=&quot;3.0441&quot;/&gt; uppannā dukkhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;355&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;355&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Dukkhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati dukkhā vedanā. So dukkhaṃ vedanaṃ vedayamāno ‘dukkhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva dukkhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ dukkhavedaniyaṃ phassaṃ paṭicca &lt;pb ed=&quot;T&quot; n=&quot;3.0441&quot;/&gt; uppannā dukkhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">Bhikkhu, in dependence on a contact to be felt as painful (dukkhavedaniyaṃ phassaṃ), there arises a painful feeling ( dukkhā vedanā).<br><br>When one feels a painful feeling (dukkhaṃ vedanaṃ vedayamāno), one understands: ‘I feel a painful feeling (dukkhaṃ vedanaṃ vedayāmī’ti pajānāti).’<br><br>One understands: ‘With the cessation of that same contact to be felt as painful (dukkhavedaniyassa phassassa nirodhā), its corresponding feeling - the painful feeling ( dukkhā vedanā) that arose in dependence on that contact to be felt as painful - ceases and subsides (sā nirujjhati, sā vūpasammatī’ti pajānāti).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">356</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;356&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;356&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Adukkhamasukhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati adukkhamasukhā vedanā. So adukkhamasukhaṃ vedanaṃ vedayamāno ‘adukkhamasukhaṃ vedanaṃ vedayāmī’ti &lt;pb ed=&quot;M&quot; n=&quot;3.0286&quot;/&gt; pajānāti. ‘Tasseva adukkhamasukhavedaniyassa &lt;pb ed=&quot;V&quot; n=&quot;3.0292&quot;/&gt; phassassa nirodhā yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;356&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;356&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Adukkhamasukhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati adukkhamasukhā vedanā. So adukkhamasukhaṃ vedanaṃ vedayamāno ‘adukkhamasukhaṃ vedanaṃ vedayāmī’ti &lt;pb ed=&quot;M&quot; n=&quot;3.0286&quot;/&gt; pajānāti. ‘Tasseva adukkhamasukhavedaniyassa &lt;pb ed=&quot;V&quot; n=&quot;3.0292&quot;/&gt; phassassa nirodhā yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">Here, bhikkhus, a bhikkhu understands form, its origin, its cessation, and the way leading to its cessation; he understands the gratification, the danger, and the escape in the case of form. “He understands feeling… perception… volitional formations… consciousness, its origin, its cessation, and the way leading for its cessation; he understands the gratification, the danger, and the escape in the case of consciousness.<br><br>356. &quot;In dependence on a contact to be felt as neither-painful-nor-pleasant (<i>adukkhamasukhavedaniyaṃ, phassaṃ paṭicca</i>), there arises a neither-painful-nor-pleasant feeling (<i>adukkhamasukhā vedanā</i>).<br><br>When experiencing a feeling that is neither-painful-nor-pleasant, one understands, &quot;I am experiencing a feeling that is neither-painful-nor-pleasant.&quot;<br><br>One understands: ‘With the cessation of that same contact to be felt as neither-painfulnor-pleasant (<i>tasseva adukkhamasukhavedaniyassa phassassa nirodhā</i>), its corresponding feeling - the neither-painfulnor-pleasant feeling that arose in dependence on that contact to be felt as neither-painful-nor-pleasant (<i>yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā</i>) - ceases (<i>sā nirujjhati</i>) and subsides (<i>sā vūpasammatī’ti pajānāti</i>).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">357</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;357&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;357&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhikkhu, dvinnaṃ kaṭṭhānaṃ saṅghaṭṭā &lt;note&gt;samphassa (sī. pī.), saṅghaṭā (syā. kaṃ.)&lt;/note&gt; samodhānā usmā jāyati, tejo abhinibbattati, tesaṃyeva dvinnaṃ kaṭṭhānaṃ nānābhāvā vikkhepā yā tajjā usmā sā nirujjhati, sā vūpasammati; evameva kho, bhikkhu, sukhavedaniyaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0243&quot;/&gt; phassaṃ paṭicca uppajjati sukhā vedanā. So sukhaṃ vedanaṃ vedayamāno ‘sukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva sukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ sukhavedaniyaṃ phassaṃ paṭicca uppannā sukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;357&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;357&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhikkhu, dvinnaṃ kaṭṭhānaṃ saṅghaṭṭā &lt;note&gt;samphassa (sī. pī.), saṅghaṭā (syā. kaṃ.)&lt;/note&gt; samodhānā usmā jāyati, tejo abhinibbattati, tesaṃyeva dvinnaṃ kaṭṭhānaṃ nānābhāvā vikkhepā yā tajjā usmā sā nirujjhati, sā vūpasammati; evameva kho, bhikkhu, sukhavedaniyaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0243&quot;/&gt; phassaṃ paṭicca uppajjati sukhā vedanā. So sukhaṃ vedanaṃ vedayamāno ‘sukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva sukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ sukhavedaniyaṃ phassaṃ paṭicca uppannā sukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">Just as, <i>bhikkhu</i>, from the contact and friction (saṅghaṭṭā) of two fire-sticks (dvinnaṃ kaṭṭhānaṃ) heat (usmā) is generated (jāyati), and fire (tejo) is produced (abhinibbattati), and with the separation (nānābhāvā) and disjunction (vikkhepā) of these same two fire-sticks the corresponding heat (tajjā usmā) ceases (nirujjhati) and subsides (vūpasammati); so too, <i>bhikkhu</i>, in dependence on a contact (phassaṃ paṭicca) to be felt as pleasant (sukhavedaniyaṃ) there arises (uppajjati) a pleasant feeling (sukhā vedanā).<br><br>When one feels a pleasant feeling (sukhaṃ vedanaṃ vedayamāno), one understands (pajānāti): ‘I feel a pleasant feeling (sukhaṃ vedanaṃ vedayāmī).’<br><br>One understands (pajānāti): ‘With the cessation (nirodhā) of that same contact (tasseva sukhavedaniyassa phassassa) to be felt as pleasant, its corresponding feeling - the pleasant feeling (sukhā vedanā) that arose (uppannā) in dependence on that contact (sukhavedaniyaṃ phassaṃ paṭicca) to be felt as pleasant - ceases (nirujjhati) and subsides (vūpasammatī).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">358</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;358&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;358&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Dukkhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati dukkhā vedanā. So dukkhaṃ vedanaṃ vedayamāno ‘dukkhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva dukkhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ dukkhavedaniyaṃ phassaṃ paṭicca uppannā dukkhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;358&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;358&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Dukkhavedaniyaṃ, bhikkhu, phassaṃ paṭicca uppajjati dukkhā vedanā. So dukkhaṃ vedanaṃ vedayamāno ‘dukkhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva dukkhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ dukkhavedaniyaṃ phassaṃ paṭicca uppannā dukkhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">Bhikkhu, in dependence on a contact to be felt as painful there arises a painful feeling.<br><br>When one feels a painful feeling, one understands: ‘I feel a painful feeling.’<br><br>One understands: ‘With the cessation of that same contact to be felt as painful, its corresponding feeling - the painful feeling that arose in dependence on that contact to be felt as painful - ceases and subsides.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">359</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;359&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;359&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Adukkhamasukhavedaniyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0442&quot;/&gt;, bhikkhu, phassaṃ paṭicca uppajjati adukkhamasukhā vedanā. So adukkhamasukhaṃ vedanaṃ vedayamāno ‘adukkhamasukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva adukkhamasukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p>">&lt;p n=&quot;359&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;359&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Adukkhamasukhavedaniyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0442&quot;/&gt;, bhikkhu, phassaṃ paṭicca uppajjati adukkhamasukhā vedanā. So adukkhamasukhaṃ vedanaṃ vedayamāno ‘adukkhamasukhaṃ vedanaṃ vedayāmī’ti pajānāti. ‘Tasseva adukkhamasukhavedaniyassa phassassa nirodhā yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā sā nirujjhati, sā vūpasammatī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">359. Bhikkhu, in dependence on a contact to be felt as neither-painful-nor-pleasant (<i>adukkhamasukhavedanīyaṃ phassaṃ paṭicca</i>), there arises a neither-painful-nor-pleasant feeling (<i>adukkhamasukhā vedanā</i>).<br><br>When one feels a neither-painful-nor-pleasant feeling (<i>adukkhamasukhaṃ vedanaṃ</i>), one understands: ‘I feel a neither-painful-nor-pleasant feeling (<i>adukkhamasukhaṃ vedanaṃ vedayāmī’ti pajānāti</i>).’<br><br>One understands: ‘With the cessation of that same contact to be felt as neither-painful-nor-pleasant (<i>tasseva adukkhamasukhavedaniyassa phassassa nirodhā</i>), its corresponding feeling - the neither-painful-nor-pleasant feeling that arose in dependence on that contact to be felt as neither-painful-nor-pleasant (<i>yaṃ tajjaṃ vedayitaṃ adukkhamasukhavedaniyaṃ phassaṃ paṭicca uppannā adukkhamasukhā vedanā</i>) - ceases and subsides (<i>sā nirujjhati, sā vūpasammatī’ti pajānāti</i>).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">360</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;360&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;360&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Athāparaṃ upekkhāyeva avasissati parisuddhā pariyodātā mudu ca kammaññā ca pabhassarā ca. Seyyathāpi, bhikkhu, dakkho suvaṇṇakāro vā suvaṇṇakārantevāsī vā ukkaṃ bandheyya, ukkaṃ bandhitvā ukkāmukhaṃ ālimpeyya, ukkāmukhaṃ ālimpetvā saṇḍāsena jātarūpaṃ gahetvā ukkāmukhe pakkhipeyya, tamenaṃ kālena kālaṃ abhidhameyya, kālena kālaṃ udakena paripphoseyya, kālena kālaṃ ajjhupekkheyya, taṃ hoti jātarūpaṃ &lt;note&gt;jātarūpaṃ dhantaṃ (sī. pī.)&lt;/note&gt; sudhantaṃ niddhantaṃ nīhaṭaṃ &lt;note&gt;nihataṃ (syā. kaṃ. ka.)&lt;/note&gt; ninnītakasāvaṃ &lt;note&gt;nihatakasāvaṃ (ka.)&lt;/note&gt; mudu ca kammaññañca pabhassarañca, yassā yassā ca piḷandhanavikatiyā ākaṅkhati – yadi paṭṭikāya &lt;note&gt;pavaṭṭikāya (sī. syā.)&lt;/note&gt; yadi &lt;pb ed=&quot;M&quot; n=&quot;3.0287&quot;/&gt; kuṇḍalāya yadi gīveyyakāya yadi suvaṇṇamālāya tañcassa atthaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0293&quot;/&gt; anubhoti; evameva kho, bhikkhu, athāparaṃ upekkhāyeva avasissati parisuddhā pariyodātā mudu ca kammaññā ca pabhassarā ca.</p>">&lt;p n=&quot;360&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;360&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Athāparaṃ upekkhāyeva avasissati parisuddhā pariyodātā mudu ca kammaññā ca pabhassarā ca. Seyyathāpi, bhikkhu, dakkho suvaṇṇakāro vā suvaṇṇakārantevāsī vā ukkaṃ bandheyya, ukkaṃ bandhitvā ukkāmukhaṃ ālimpeyya, ukkāmukhaṃ ālimpetvā saṇḍāsena jātarūpaṃ gahetvā ukkāmukhe pakkhipeyya, tamenaṃ kālena kālaṃ abhidhameyya, kālena kālaṃ udakena paripphoseyya, kālena kālaṃ ajjhupekkheyya, taṃ hoti jātarūpaṃ &lt;note&gt;jātarūpaṃ dhantaṃ (sī. pī.)&lt;/note&gt; sudhantaṃ niddhantaṃ nīhaṭaṃ &lt;note&gt;nihataṃ (syā. kaṃ. ka.)&lt;/note&gt; ninnītakasāvaṃ &lt;note&gt;nihatakasāvaṃ (ka.)&lt;/note&gt; mudu ca kammaññañca pabhassarañca, yassā yassā ca piḷandhanavikatiyā ākaṅkhati – yadi paṭṭikāya &lt;note&gt;pavaṭṭikāya (sī. syā.)&lt;/note&gt; yadi &lt;pb ed=&quot;M&quot; n=&quot;3.0287&quot;/&gt; kuṇḍalāya yadi gīveyyakāya yadi suvaṇṇamālāya tañcassa atthaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0293&quot;/&gt; anubhoti; evameva kho, bhikkhu, athāparaṃ upekkhāyeva avasissati parisuddhā pariyodātā mudu ca kammaññā ca pabhassarā ca.</p></div>
+                
+                <div class="translation-text mula-english-section">Then there remains only equanimity (<i>upekkhā</i>), purified and bright, malleable, wieldy, and radiant.<br><br>Suppose, <i>bhikkhu</i>, a skilled goldsmith or his apprentice were to prepare a furnace, heat up the crucible, take some gold (<i>jātarūpa</i>) with tongs, and put it into the crucible. From time to time he would blow on it, from time to time he would sprinkle water over it, and from time to time he would just look on. That gold (<i>jātarūpa</i>) would become refined, well refined, completely refined, faultless, rid of dross, malleable, wieldy, and radiant. Then whatever kind of ornament he wished to make from it, whether a golden chain, whether an earring, whether a necklace, whether a golden garland, he would accomplish his purpose. Just so, <i>bhikkhu</i>, then there remains only equanimity (<i>upekkhā</i>), purified and bright, malleable, wieldy, and radiant.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">361</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;361&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;361&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So evaṃ pajānāti – ‘imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākāsānañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā &lt;pb ed=&quot;T&quot; n=&quot;3.0443&quot;/&gt; tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ viññāṇañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0244&quot;/&gt; upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākiñcaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ nevasaññānāsaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyyā’’’ti.</p>">&lt;p n=&quot;361&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;361&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So evaṃ pajānāti – ‘imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākāsānañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā &lt;pb ed=&quot;T&quot; n=&quot;3.0443&quot;/&gt; tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ viññāṇañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0244&quot;/&gt; upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākiñcaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyya. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ nevasaññānāsaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ. Evaṃ me ayaṃ upekkhā taṃnissitā tadupādānā ciraṃ dīghamaddhānaṃ tiṭṭheyyā’’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">361. “He understands thus: ‘If I were to direct this equanimity (upekkhā), so purified (parisuddhaṃ) and bright (pariyodātaṃ), to the base of infinite space (ākāsānañcāyatanaṃ) and to develop my mind (cittaṃ) accordingly (tadanudhammañca),<br><br>then this equanimity (upekkhā) of mine, supported by that base (taṃnissitā), clinging to it (tadupādānā), would remain for a very long time (ciraṃ dīghamaddhānaṃ tiṭṭheyya).<br><br>If I were to direct this equanimity (upekkhā), so purified (parisuddhaṃ) and bright (pariyodātaṃ), to the base of infinite consciousness (viññāṇañcāyatanaṃ) and to develop my mind (cittaṃ) accordingly (tadanudhammañca),<br><br>then this equanimity (upekkhā) of mine, supported by that base (taṃnissitā), clinging to it (tadupādānā), would remain for a very long time (ciraṃ dīghamaddhānaṃ tiṭṭheyya).<br><br>If I were to direct this equanimity (upekkhā), so purified (parisuddhaṃ) and bright (pariyodātaṃ), to the base of nothingness (ākiñcaññāyatanaṃ) and to develop my mind (cittaṃ) accordingly (tadanudhammañca),<br><br>then this equanimity (upekkhā) of mine, supported by that base (taṃnissitā), clinging to it (tadupādānā), would remain for a very long time (ciraṃ dīghamaddhānaṃ tiṭṭheyya).<br><br>If I were to direct this equanimity (upekkhā), so purified (parisuddhaṃ) and bright (pariyodātaṃ), to the base of neither-perception-nor-non-perception (nevasaññānāsaññāyatanaṃ) and to develop my mind (cittaṃ) accordingly (tadanudhammañca),<br><br>then this equanimity (upekkhā) of mine, supported by that base (taṃnissitā), clinging to it (tadupādānā), would remain for a very long time (ciraṃ dīghamaddhānaṃ tiṭṭheyya.’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">362</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;362&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;362&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So evaṃ pajānāti – ‘imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākāsānañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ viññāṇañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākiñcaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ nevasaññānāsaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatameta’’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So neva taṃ abhisaṅkharoti, na abhisañcetayati bhavāya vā vibhavāya vā. So anabhisaṅkharonto anabhisañcetayanto bhavāya vā vibhavāya vā na kiñci &lt;pb ed=&quot;T&quot; n=&quot;3.0444&quot;/&gt; loke upādiyati, anupādiyaṃ na paritassati, aparitassaṃ paccattaṃyeva parinibbāyati. ‘Khīṇā jāti, vusitaṃ brahmacariyaṃ, kataṃ karaṇīyaṃ, nāparaṃ itthattāyā’ti pajānāti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0444&quot;/&gt;">&lt;p n=&quot;362&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;362&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So evaṃ pajānāti – ‘imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākāsānañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ viññāṇañcāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ ākiñcaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatametaṃ. Imañce ahaṃ upekkhaṃ evaṃ parisuddhaṃ evaṃ pariyodātaṃ nevasaññānāsaññāyatanaṃ upasaṃhareyyaṃ, tadanudhammañca cittaṃ bhāveyyaṃ; saṅkhatameta’’’nti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So neva taṃ abhisaṅkharoti, na abhisañcetayati bhavāya vā vibhavāya vā. So anabhisaṅkharonto anabhisañcetayanto bhavāya vā vibhavāya vā na kiñci &lt;pb ed=&quot;T&quot; n=&quot;3.0444&quot;/&gt; loke upādiyati, anupādiyaṃ na paritassati, aparitassaṃ paccattaṃyeva parinibbāyati. ‘Khīṇā jāti, vusitaṃ brahmacariyaṃ, kataṃ karaṇīyaṃ, nāparaṃ itthattāyā’ti pajānāti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0444&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">362. “He understands thus: ‘If I were to direct this equanimity, so purified and bright, to the base of infinite space (ākāsānañcāyatana) and to develop my mind accordingly, this would be conditioned (saṅkhataṃ etaṃ).<br><br>If I were to direct this equanimity, so purified and bright, to the base of infinite consciousness (viññāṇañcāyatana)… this would be conditioned.<br><br>If I were to direct this equanimity, so purified and bright, to the base of nothingness (ākiñcaññāyatana)… this would be conditioned.<br><br>If I were to direct this equanimity, so purified and bright, to the base of neither-perception-nor-non-perception (nevasaññānāsaññāyatana) and to develop my mind accordingly, this would be conditioned.’<br><br>Since he does not form any condition (abhisaṅkharoti) or generate any volition (abhisañcetayati) tending towards either being (bhavāya) or non-being (vibhavāya), he does not cling to anything (upādiyati) in this world (loke). Not clinging (anupādiyaṃ), he is not agitated (na paritassati). Being unagitated (aparitassaṃ), he personally attains <i>Nirvana</i> (parinibbāyati).<br><br>He understands: ‘Destroyed is birth (khīṇā jāti), the holy life has been lived (vusitaṃ brahmacariyaṃ), what had to be done has been done (kataṃ karaṇīyaṃ), there is no more coming to any state of being (nāparaṃ itthattāyā).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">363</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;363&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;363&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So sukhañce vedanaṃ vedeti, ‘sā aniccā’ti pajānāti, ‘anajjhositā’ti pajānāti, ‘anabhinanditā’ti pajānāti. Dukkhañce vedanaṃ vedeti &lt;pb ed=&quot;M&quot; n=&quot;3.0288&quot;/&gt;, ‘sā aniccā’ti pajānāti, &lt;hi rend=&quot;bold&quot;&gt;‘anajjhositā’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0294&quot;/&gt; pajānāti, ‘anabhinanditā’ti pajānāti. Adukkhamasukhañce vedanaṃ vedeti, ‘sā aniccā’ti pajānāti, ‘anajjhositā’ti pajānāti, ‘anabhinanditā’ti pajānāti.&lt;/hi&gt;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0294&quot;/&gt;">&lt;p n=&quot;363&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;363&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So sukhañce vedanaṃ vedeti, ‘sā aniccā’ti pajānāti, ‘anajjhositā’ti pajānāti, ‘anabhinanditā’ti pajānāti. Dukkhañce vedanaṃ vedeti &lt;pb ed=&quot;M&quot; n=&quot;3.0288&quot;/&gt;, ‘sā aniccā’ti pajānāti, &lt;hi rend=&quot;bold&quot;&gt;‘anajjhositā’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0294&quot;/&gt; pajānāti, ‘anabhinanditā’ti pajānāti. Adukkhamasukhañce vedanaṃ vedeti, ‘sā aniccā’ti pajānāti, ‘anajjhositā’ti pajānāti, ‘anabhinanditā’ti pajānāti.&lt;/hi&gt;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0294&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">If he feels a pleasant feeling (sukhaṃ vedanaṃ), he understands: ‘It is impermanent (aniccā)’; he understands: ‘It is not held to (anajjhositā)’; he understands: ‘It is not delighted in (anabhinanditā)’.<br><br>If he feels a painful feeling (dukkhaṃ vedanaṃ), he understands: ‘It is impermanent (aniccā)’; he understands: ‘It is not held to (anajjhositā)’; he understands: ‘It is not delighted in (anabhinanditā)’.<br><br>If he feels a neither-painful-nor-pleasant feeling (adukkhamasukhaṃ vedanaṃ), he understands: ‘It is impermanent (aniccā)’; he understands: ‘It is not held to (anajjhositā)’; he understands: ‘It is not delighted in (anabhinanditā)’.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">364</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;364&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;364&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So sukhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti; dukkhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti; adukkhamasukhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti. So kāyapariyantikaṃ vedanaṃ vedayamāno ‘kāyapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, jīvitapariyantikaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0245&quot;/&gt; vedanaṃ vedayamāno ‘jīvitapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, ‘kāyassa bhedā paraṃ maraṇā uddhaṃ jīvitapariyādānā idheva sabbavedayitāni anabhinanditāni sītībhavissantī’ti pajānāti.</p>">&lt;p n=&quot;364&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;364&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘So sukhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti; dukkhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti; adukkhamasukhañce vedanaṃ vedeti, visaṃyutto naṃ vedeti. So kāyapariyantikaṃ vedanaṃ vedayamāno ‘kāyapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, jīvitapariyantikaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0245&quot;/&gt; vedanaṃ vedayamāno ‘jīvitapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, ‘kāyassa bhedā paraṃ maraṇā uddhaṃ jīvitapariyādānā idheva sabbavedayitāni anabhinanditāni sītībhavissantī’ti pajānāti.</p></div>
+                
+                <div class="translation-text mula-english-section">364. “If he feels a pleasant feeling (sukhaṃ vedanaṃ), he feels it detached (visaṃyutto naṃ vedeti); if he feels a painful feeling (dukkhaṃ vedanaṃ), he feels it detached (visaṃyutto naṃ vedeti); if he feels a neither-painful-nor-pleasant feeling (adukkhamasukhaṃ vedanaṃ), he feels it detached (visaṃyutto naṃ vedeti).<br><br>When he feels a feeling terminating with the body (kāyapariyantikaṃ vedanaṃ), he understands: ‘I feel a feeling terminating with the body (kāyapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti.’ When he feels a feeling terminating with life (jīvitapariyantikaṃ vedanaṃ), he understands: ‘I feel a feeling terminating with life (jīvitapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti.’ He understands: ‘On the dissolution of the body (kāyassa bhedā), with the ending of life (jīvitapariyādānā), all that is felt (sabbavedayitāni), not being delighted in (anabhinanditāni), will become cool (sītībhavissantī) right here (idheva).’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">365</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;365&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;365&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhikkhu, telañca paṭicca vaṭṭiñca paṭicca telappadīpo jhāyati; tasseva telassa ca vaṭṭiyā ca pariyādānā aññassa ca anupahārā &lt;note&gt;anupāhārā (sī. pī.), anupādānā (ka.)&lt;/note&gt; anāhāro nibbāyati; evameva kho, bhikkhu, kāyapariyantikaṃ vedanaṃ vedayamāno ‘kāyapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, jīvitapariyantikaṃ vedanaṃ vedayamāno ‘jīvitapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, ‘kāyassa bhedā paraṃ maraṇā uddhaṃ jīvitapariyādānā idheva sabbavedayitāni &lt;pb ed=&quot;T&quot; n=&quot;3.0445&quot;/&gt; anabhinanditāni sītībhavissantī’ti pajānāti. Tasmā evaṃ samannāgato bhikkhu iminā paramena paññādhiṭṭhānena samannāgato hoti. Esā hi, bhikkhu, paramā ariyā paññā yadidaṃ – sabbadukkhakkhaye ñāṇaṃ.</p>">&lt;p n=&quot;365&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;365&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhikkhu, telañca paṭicca vaṭṭiñca paṭicca telappadīpo jhāyati; tasseva telassa ca vaṭṭiyā ca pariyādānā aññassa ca anupahārā &lt;note&gt;anupāhārā (sī. pī.), anupādānā (ka.)&lt;/note&gt; anāhāro nibbāyati; evameva kho, bhikkhu, kāyapariyantikaṃ vedanaṃ vedayamāno ‘kāyapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, jīvitapariyantikaṃ vedanaṃ vedayamāno ‘jīvitapariyantikaṃ vedanaṃ vedayāmī’ti pajānāti, ‘kāyassa bhedā paraṃ maraṇā uddhaṃ jīvitapariyādānā idheva sabbavedayitāni &lt;pb ed=&quot;T&quot; n=&quot;3.0445&quot;/&gt; anabhinanditāni sītībhavissantī’ti pajānāti. Tasmā evaṃ samannāgato bhikkhu iminā paramena paññādhiṭṭhānena samannāgato hoti. Esā hi, bhikkhu, paramā ariyā paññā yadidaṃ – sabbadukkhakkhaye ñāṇaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">365. Bhikkhu, just as an oil lamp burns in dependence on oil and a wick, and when the oil and wick are used up, and no more fuel is added (anupāhārā, anupādānā), it is extinguished from lack of fuel. In the same way, when a bhikkhu feels a feeling terminating with the body (kāyapariyantikaṃ vedanaṃ), he understands: ‘I feel a feeling terminating with the body (kāyapariyantikaṃ vedanaṃ vedayāmī).’ When he feels a feeling terminating with life (jīvitapariyantikaṃ vedanaṃ), he understands: ‘I feel a feeling terminating with life (jīvitapariyantikaṃ vedanaṃ vedayāmī).’ He understands: ‘On the dissolution of the body (kāyassa bhedā), with the ending of life (jīvitapariyādānā), all that is felt, not being delighted in (anabhinanditāni), will become cool right here (sītībhavissantī).’<br><br>Therefore, a bhikkhu possessing this is endowed with the supreme foundation of wisdom (prajñā).<br><br>For this, bhikkhu, is the supreme noble wisdom (paramā ariyā paññā), namely, the knowledge (jñānaṃ) of the destruction of all suffering (sabbadukkhakkhaye).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">366</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;366&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;366&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa sā vimutti sacce ṭhitā akuppā hoti. Tañhi, bhikkhu, musā yaṃ mosadhammaṃ, taṃ saccaṃ yaṃ amosadhammaṃ nibbānaṃ. Tasmā evaṃ samannāgato bhikkhu iminā paramena saccādhiṭṭhānena samannāgato hoti. Etañhi, bhikkhu, paramaṃ ariyasaccaṃ yadidaṃ – amosadhammaṃ nibbānaṃ.</p>">&lt;p n=&quot;366&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;366&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tassa sā vimutti sacce ṭhitā akuppā hoti. Tañhi, bhikkhu, musā yaṃ mosadhammaṃ, taṃ saccaṃ yaṃ amosadhammaṃ nibbānaṃ. Tasmā evaṃ samannāgato bhikkhu iminā paramena saccādhiṭṭhānena samannāgato hoti. Etañhi, bhikkhu, paramaṃ ariyasaccaṃ yadidaṃ – amosadhammaṃ nibbānaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">‘‘His deliverance, being founded upon truth (sacce), is unshakeable (akuppā) hoti.<br><br>For that is false (musā), <i>bhikkhu</i>, which has a deceptive nature (mosadhammaṃ), and that is true (saccaṃ) which has an undeceptive nature (amosadhammaṃ) – <i>Nibbana</i> (nibbānaṃ).<br><br>Therefore, a <i>bhikkhu</i> possessing this truth (saccādhiṭṭhānena) possesses the supreme foundation of truth (saccādhiṭṭhānena).<br><br>For this, <i>bhikkhu</i>, is the supreme noble truth (paramaṃ ariyasaccaṃ), namely, <i>Nibbana</i> (nibbānaṃ), which has an undeceptive nature (amosadhammaṃ).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">367</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;367&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;367&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasseva kho pana pubbe aviddasuno upadhī honti samattā samādinnā. Tyāssa pahīnā honti ucchinnamūlā tālāvatthukatā anabhāvaṃkatā āyatiṃ anuppādadhammā. Tasmā evaṃ samannāgato bhikkhu &lt;pb ed=&quot;M&quot; n=&quot;3.0289&quot;/&gt; iminā paramena cāgādhiṭṭhānena samannāgato hoti. Eso hi, bhikkhu, paramo ariyo cāgo yadidaṃ – sabbūpadhipaṭinissaggo.</p>">&lt;p n=&quot;367&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;367&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasseva kho pana pubbe aviddasuno upadhī honti samattā samādinnā. Tyāssa pahīnā honti ucchinnamūlā tālāvatthukatā anabhāvaṃkatā āyatiṃ anuppādadhammā. Tasmā evaṃ samannāgato bhikkhu &lt;pb ed=&quot;M&quot; n=&quot;3.0289&quot;/&gt; iminā paramena cāgādhiṭṭhānena samannāgato hoti. Eso hi, bhikkhu, paramo ariyo cāgo yadidaṃ – sabbūpadhipaṭinissaggo.</p></div>
+                
+                <div class="translation-text mula-english-section">“Formerly, when he was ignorant (avidvasuno), he acquired and developed attachments (upadhī honti samattā samādinnā); now he has abandoned them (pahīnā), cut them off at the root (ucchinnamūlā), made them like a palm stump (tālāvatthukatā), obliterated them (anabhāvaṃkatā) so that they are no more subject to future arising (āyatiṃ anuppādadhammā). Therefore a <i>bhikṣu</i> possessing this relinquishment (<i>cāga</i>) possesses the supreme foundation of relinquishment (<i>cāgādhiṭṭhānena</i>). For this, <i>bhikṣu</i>, is the supreme noble relinquishment (<i>paramo ariyo cāgo</i>), namely, the relinquishing of all attachments (<i>sabbūpadhipaṭinissaggo</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">368</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;368&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;368&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasseva kho pana pubbe aviddasuno abhijjhā hoti chando sārāgo. Svāssa &lt;pb ed=&quot;V&quot; n=&quot;3.0295&quot;/&gt; pahīno hoti ucchinnamūlo tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasseva kho pana pubbe aviddasuno āghāto hoti byāpādo sampadoso. Svāssa pahīno hoti ucchinnamūlo &lt;pb ed=&quot;P&quot; n=&quot;3.0246&quot;/&gt; tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasseva kho pana pubbe aviddasuno avijjā hoti sammoho. Svāssa pahīno hoti ucchinnamūlo tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasmā evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0446&quot;/&gt; samannāgato bhikkhu iminā paramena upasamādhiṭṭhānena samannāgato hoti. Eso hi, bhikkhu, paramo ariyo upasamo yadidaṃ – rāgadosamohānaṃ upasamo. ‘Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;368&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;368&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasseva kho pana pubbe aviddasuno abhijjhā hoti chando sārāgo. Svāssa &lt;pb ed=&quot;V&quot; n=&quot;3.0295&quot;/&gt; pahīno hoti ucchinnamūlo tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasseva kho pana pubbe aviddasuno āghāto hoti byāpādo sampadoso. Svāssa pahīno hoti ucchinnamūlo &lt;pb ed=&quot;P&quot; n=&quot;3.0246&quot;/&gt; tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasseva kho pana pubbe aviddasuno avijjā hoti sammoho. Svāssa pahīno hoti ucchinnamūlo tālāvatthukato anabhāvaṃkato āyatiṃ anuppādadhammo. Tasmā evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0446&quot;/&gt; samannāgato bhikkhu iminā paramena upasamādhiṭṭhānena samannāgato hoti. Eso hi, bhikkhu, paramo ariyo upasamo yadidaṃ – rāgadosamohānaṃ upasamo. ‘Paññaṃ nappamajjeyya, saccamanurakkheyya, cāgamanubrūheyya, santimeva so sikkheyyā’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">368. “Formerly, when he was ignorant, he experienced covetousness (<i>abhijjhā</i>), desire (<i>chando</i>), and lust (<i>sārāgo</i>).<br><br>&lt;pb ed=&quot;v&quot; n=&quot;3. 0295&quot;/&gt; Now, these are abandoned in him, cut off at the root, made like a palm stump (<i>tālāvatthukato</i>), obliterated (<i>anabhāvaṃkato</i>) so that they are no longer subject to future arising (<i>āyatiṃ anuppādadhammo</i>).<br><br>Formerly, when he was ignorant, he experienced anger (<i>āghāto</i>), ill will (<i>byāpādo</i>), and hate (<i>sampadoso</i>).<br><br>Now, these are abandoned in him, cut off at the root, &lt;pb ed=&quot;p&quot; n=&quot;3. 0246&quot;/&gt; made like a palm stump (<i>tālāvatthukato</i>), obliterated (<i>anabhāvaṃkato</i>) so that they are no longer subject to future arising (<i>āyatiṃ anuppādadhammo</i>).<br><br>Formerly, when he was ignorant, he experienced ignorance (<i>avijjā</i>) and delusion (<i>sammoho</i>).<br><br>Now, these are abandoned in him, cut off at the root, made like a palm stump (<i>tālāvatthukato</i>), obliterated (<i>anabhāvaṃkato</i>) so that they are no longer subject to future arising (<i>āyatiṃ anuppādadhammo</i>).<br><br>Therefore, &lt;pb ed=&quot;t&quot; n=&quot;3. 0446&quot;/&gt; a <i>bhikkhu</i> possessing this is one who possesses the supreme foundation of peace (<i>upasamādhiṭṭhānena</i>).<br><br>For this, <i>bhikkhu</i>, is the supreme noble peace (<i>paramo ariyo upasamo</i>), namely, the pacification (<i>upasamo</i>) of lust (<i>rāga</i>), hate (<i>dosa</i>), and delusion (<i>mohānam</i>).<br><br>‘One should not neglect wisdom (<i>paññaṃ</i>), should preserve truth (<i>saccaṃ</i>), should cultivate relinquishment (<i>cāgaṃ</i>), and should train for peace (<i>santi</i>)’— so it was with reference to this that it was said, this was said in relation to this.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">369</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;369&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;369&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccatī’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? ‘Asmī’ti, bhikkhu, maññitametaṃ, ‘ayamahamasmī’ti maññitametaṃ, ‘bhavissa’nti maññitametaṃ, ‘na bhavissa’nti maññitametaṃ, ‘rūpī bhavissa’nti maññitametaṃ, ‘arūpī bhavissa’nti maññitametaṃ, ‘saññī bhavissa’nti maññitametaṃ, ‘asaññī bhavissa’nti maññitametaṃ, ‘nevasaññīnāsaññī bhavissa’nti maññitametaṃ. Maññitaṃ, bhikkhu, rogo maññitaṃ gaṇḍo maññitaṃ sallaṃ. Sabbamaññitānaṃ tveva, bhikkhu, samatikkamā muni santoti vuccati. Muni kho pana, bhikkhu, santo na jāyati, na jīyati, na mīyati, na kuppati, na piheti. Tañhissa, bhikkhu, natthi yena jāyetha, ajāyamāno kiṃ jīyissati, ajīyamāno kiṃ mīyissati, amīyamāno kiṃ kuppissati, akuppamāno kissa &lt;note&gt;kiṃ (ka.)&lt;/note&gt; pihessati? ‘Yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccatī’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ. Imaṃ kho me tvaṃ, bhikkhu, saṃkhittena chadhātuvibhaṅgaṃ dhārehī’’ti.</p>">&lt;p n=&quot;369&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;369&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccatī’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? ‘Asmī’ti, bhikkhu, maññitametaṃ, ‘ayamahamasmī’ti maññitametaṃ, ‘bhavissa’nti maññitametaṃ, ‘na bhavissa’nti maññitametaṃ, ‘rūpī bhavissa’nti maññitametaṃ, ‘arūpī bhavissa’nti maññitametaṃ, ‘saññī bhavissa’nti maññitametaṃ, ‘asaññī bhavissa’nti maññitametaṃ, ‘nevasaññīnāsaññī bhavissa’nti maññitametaṃ. Maññitaṃ, bhikkhu, rogo maññitaṃ gaṇḍo maññitaṃ sallaṃ. Sabbamaññitānaṃ tveva, bhikkhu, samatikkamā muni santoti vuccati. Muni kho pana, bhikkhu, santo na jāyati, na jīyati, na mīyati, na kuppati, na piheti. Tañhissa, bhikkhu, natthi yena jāyetha, ajāyamāno kiṃ jīyissati, ajīyamāno kiṃ mīyissati, amīyamāno kiṃ kuppissati, akuppamāno kissa &lt;note&gt;kiṃ (ka.)&lt;/note&gt; pihessati? ‘Yattha ṭhitaṃ maññassavā nappavattanti, maññassave kho pana nappavattamāne muni santoti vuccatī’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ. Imaṃ kho me tvaṃ, bhikkhu, saṃkhittena chadhātuvibhaṅgaṃ dhārehī’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">369. ‘Where, when established, the tides of conceiving do not sweep, and when the tides of conceiving no longer sweep over him, he is called a sage at peace’— so it was said.<br><br>But with reference to what was this said? ‘I am’ (asmīti) is conceiving, O Bhikkhu; ‘I am this’ (ayamahamasmīti) is conceiving; ‘I will be’ (bhavissaṃti) is conceiving; ‘I will not be’ (na bhavissaṃti) is conceiving; ‘I will be with form’ (rūpī bhavissaṃti) is conceiving; ‘I will be without form’ (arūpī bhavissaṃti) is conceiving; ‘I will be with perception’ (saññī bhavissaṃti) is conceiving; ‘I will be without perception’ (asaññī bhavissaṃti) is conceiving; ‘I will be neither with nor without perception’ (nevasaññīnāsaññī bhavissaṃti) is conceiving.<br><br>Conceiving (maññitaṃ), O Bhikkhu, is a disease; conceiving is a tumour; conceiving is a dart.<br><br>By overcoming all conceivings (sabbamaññitānaṃ samatikkamā), O Bhikkhu, one is called a sage at peace (muni santo).<br><br>And the sage at peace (muni kho pana, bhikkhu, santo) is not born (na jāyati), does not age (na jīyati), does not die (na mīyati), is not shaken (na kuppati), and is not agitated (na piheti).<br><br>For there is nothing present in him by which he might be born (tañhissa natthi yena jāyetha). Not being born, how could he age (ajāyamāno kiṃ jīyissati)? Not ageing, how could he die (ajīyamāno kiṃ mīyissati)? Not dying, how could he be shaken (amīyamāno kiṃ kuppissati)? Not being shaken, why should he be agitated (akuppamāno kissa pihessati)? ‘Where, when established, the tides of conceiving do not sweep, and when the tides of conceiving no longer sweep over him, he is called a sage at peace’— so it was with reference to this that it was said (iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ).<br><br>Bhikkhu, bear in mind this brief exposition of the six elements (imaṃ kho me tvaṃ, bhikkhu, saṃkhittena chadhātuvibhaṅgaṃ dhārehi).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">370</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;370&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;370&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha &lt;pb ed=&quot;T&quot; n=&quot;3.0447&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0290&quot;/&gt; kho āyasmā pukkusāti – ‘‘satthā kira me anuppatto, sugato kira me anuppatto sammāsambuddho kira me anuppatto’’ti uṭṭhāyāsanā ekaṃsaṃ cīvaraṃ katvā bhagavato pādesu sirasā nipatitvā bhagavantaṃ etadavoca – ‘‘accayo maṃ, bhante, accagamā yathābālaṃ yathāmūḷhaṃ yathāakusalaṃ, yohaṃ bhagavantaṃ āvusovādena samudācaritabbaṃ amaññissaṃ. Tassa me, bhante, bhagavā accayaṃ accayato paṭiggaṇhātu āyatiṃ saṃvarāyā’’ti. ‘‘Taggha tvaṃ, bhikkhu, accayo accagamā yathābālaṃ yathāmūḷhaṃ yathāakusalaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0247&quot;/&gt;, yaṃ maṃ tvaṃ āvusovādena &lt;pb ed=&quot;V&quot; n=&quot;3.0296&quot;/&gt; samudācaritabbaṃ amaññittha. Yato ca kho tvaṃ, bhikkhu, accayaṃ accayato disvā yathādhammaṃ paṭikarosi, taṃ te mayaṃ paṭiggaṇhāma. Vuddhihesā, bhikkhu, ariyassa vinaye yo accayaṃ accayato disvā yathādhammaṃ paṭikaroti, āyatiṃ saṃvaraṃ āpajjatī’’ti. ‘‘Labheyyāhaṃ, bhante, bhagavato santike upasampada’’nti. ‘‘Paripuṇṇaṃ pana te, bhikkhu, pattacīvara’’nti? ‘‘Na kho me, bhante, paripuṇṇaṃ pattacīvara’’nti. ‘‘Na kho, bhikkhu, tathāgatā aparipuṇṇapattacīvaraṃ upasampādentī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā pukkusāti bhagavato bhāsitaṃ abhinanditvā anumoditvā uṭṭhāyāsanā bhagavantaṃ abhivādetvā padakkhiṇaṃ katvā pattacīvarapariyesanaṃ pakkāmi. Atha kho āyasmantaṃ pukkusātiṃ pattacīvarapariyesanaṃ carantaṃ vibbhantā gāvī &lt;note&gt;bhantagāvī (sī. pī.), gāvī (syā. kaṃ.)&lt;/note&gt; jīvitā voropesi. Atha kho sambahulā &lt;pb ed=&quot;T&quot; n=&quot;3.0448&quot;/&gt; bhikkhū yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinnā kho te bhikkhū bhagavantaṃ etadavocuṃ – ‘‘yo so, bhante, pukkusāti nāma kulaputto bhagavatā saṃkhittena ovādena ovadito so kālaṅkato. Tassa kā gati, ko abhisamparāyo’’ti? ‘‘Paṇḍito, bhikkhave, pukkusāti kulaputto paccapādi dhammassānudhammaṃ, na ca maṃ dhammādhikaraṇaṃ vihesesi &lt;note&gt;viheṭhesi (sī. syā. kaṃ.) viheseti (ka.)&lt;/note&gt;. Pukkusāti, bhikkhave, kulaputto pañcannaṃ orambhāgiyānaṃ saṃyojanānaṃ parikkhayā opapātiko tattha parinibbāyī anāvattidhammo tasmā lokā’’ti.</p> &lt;note&gt;bhantagāvī (sī. pī.), gāvī (syā. kaṃ.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0448&quot;/&gt; &lt;note&gt;viheṭhesi (sī. syā. kaṃ.) viheseti (ka.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;centre&quot;&gt;Dhātuvibhaṅgasuttaṃ niṭṭhitaṃ dasamaṃ.</p>">&lt;p n=&quot;370&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;370&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha &lt;pb ed=&quot;T&quot; n=&quot;3.0447&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0290&quot;/&gt; kho āyasmā pukkusāti – ‘‘satthā kira me anuppatto, sugato kira me anuppatto sammāsambuddho kira me anuppatto’’ti uṭṭhāyāsanā ekaṃsaṃ cīvaraṃ katvā bhagavato pādesu sirasā nipatitvā bhagavantaṃ etadavoca – ‘‘accayo maṃ, bhante, accagamā yathābālaṃ yathāmūḷhaṃ yathāakusalaṃ, yohaṃ bhagavantaṃ āvusovādena samudācaritabbaṃ amaññissaṃ. Tassa me, bhante, bhagavā accayaṃ accayato paṭiggaṇhātu āyatiṃ saṃvarāyā’’ti. ‘‘Taggha tvaṃ, bhikkhu, accayo accagamā yathābālaṃ yathāmūḷhaṃ yathāakusalaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0247&quot;/&gt;, yaṃ maṃ tvaṃ āvusovādena &lt;pb ed=&quot;V&quot; n=&quot;3.0296&quot;/&gt; samudācaritabbaṃ amaññittha. Yato ca kho tvaṃ, bhikkhu, accayaṃ accayato disvā yathādhammaṃ paṭikarosi, taṃ te mayaṃ paṭiggaṇhāma. Vuddhihesā, bhikkhu, ariyassa vinaye yo accayaṃ accayato disvā yathādhammaṃ paṭikaroti, āyatiṃ saṃvaraṃ āpajjatī’’ti. ‘‘Labheyyāhaṃ, bhante, bhagavato santike upasampada’’nti. ‘‘Paripuṇṇaṃ pana te, bhikkhu, pattacīvara’’nti? ‘‘Na kho me, bhante, paripuṇṇaṃ pattacīvara’’nti. ‘‘Na kho, bhikkhu, tathāgatā aparipuṇṇapattacīvaraṃ upasampādentī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho āyasmā pukkusāti bhagavato bhāsitaṃ abhinanditvā anumoditvā uṭṭhāyāsanā bhagavantaṃ abhivādetvā padakkhiṇaṃ katvā pattacīvarapariyesanaṃ pakkāmi. Atha kho āyasmantaṃ pukkusātiṃ pattacīvarapariyesanaṃ carantaṃ vibbhantā gāvī &lt;note&gt;bhantagāvī (sī. pī.), gāvī (syā. kaṃ.)&lt;/note&gt; jīvitā voropesi. Atha kho sambahulā &lt;pb ed=&quot;T&quot; n=&quot;3.0448&quot;/&gt; bhikkhū yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdiṃsu. Ekamantaṃ nisinnā kho te bhikkhū bhagavantaṃ etadavocuṃ – ‘‘yo so, bhante, pukkusāti nāma kulaputto bhagavatā saṃkhittena ovādena ovadito so kālaṅkato. Tassa kā gati, ko abhisamparāyo’’ti? ‘‘Paṇḍito, bhikkhave, pukkusāti kulaputto paccapādi dhammassānudhammaṃ, na ca maṃ dhammādhikaraṇaṃ vihesesi &lt;note&gt;viheṭhesi (sī. syā. kaṃ.) viheseti (ka.)&lt;/note&gt;. Pukkusāti, bhikkhave, kulaputto pañcannaṃ orambhāgiyānaṃ saṃyojanānaṃ parikkhayā opapātiko tattha parinibbāyī anāvattidhammo tasmā lokā’’ti.</p> &lt;note&gt;bhantagāvī (sī. pī.), gāvī (syā. kaṃ.)&lt;/note&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0448&quot;/&gt; &lt;note&gt;viheṭhesi (sī. syā. kaṃ.) viheseti (ka.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;centre&quot;&gt;Dhātuvibhaṅgasuttaṃ niṭṭhitaṃ dasamaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">370. Then, venerable Pukkusāti thought: &quot;Indeed, the Teacher has come to me! Indeed, the Sublime One has come to me! Indeed, the Fully Enlightened One has come to me!&quot; Rising from his seat, he arranged his upper robe over one shoulder, prostrated with his head at the Blessed One&#039;s feet, and said: &quot;Venerable sir, a transgression (<i>accayo</i>) overcame me, in that like a fool, confused and unskilled, I presumed to address the Blessed One as &#039;friend&#039;. May the Blessed One accept my transgression (<i>accayaṃ</i>) as a transgression (<i>accayato</i>) so that I may restrain myself in the future (<i>āyatiṃ saṃvarāya</i>).&quot;<br><br>&quot;Truly, monk (<i>bhikkhu</i>), a transgression (<i>accayo</i>) overcame you, in that like a fool, confused and unskilled, you presumed to address me as &#039;friend.&#039; But since you, monk (<i>bhikkhu</i>), seeing your transgression (<i>accayaṃ</i>) as such, make amends in accordance with the Dhamma (<i>yathādhammaṃ paṭikarosi</i>), we forgive (<i>paṭiggaṇhāma</i>) you. This is growth (<i>vuddhihesā</i>), monk (<i>bhikkhu</i>), in the discipline (<i>vinaye</i>) of the Noble One (<i>ariyassa</i>): that seeing a transgression (<i>accayaṃ</i>) as such, one makes amends in accordance with the Dhamma (<i>yathādhammaṃ paṭikaroti</i>) and undertakes restraint (<i>saṃvaraṃ āpajjati</i>) in the future (<i>āyatiṃ</i>).&quot;<br><br>&quot;May I receive ordination (<i>upasampada</i>) in the Blessed One&#039;s presence, venerable sir (<i>bhante</i>)!&quot;<br><br>&quot;Are your bowl (<i>patta</i>) and robes (<i>cīvara</i>) complete, monk (<i>bhikkhu</i>)?&quot; &quot;No, venerable sir (<i>bhante</i>), my bowl (<i>patta</i>) and robes (<i>cīvara</i>) are not complete.&quot; &quot;Monk (<i>bhikkhu</i>), the Tathāgatas do not grant ordination (<i>upasampādentī</i>) to one whose bowl (<i>patta</i>) and robes (<i>cīvara</i>) are incomplete.&quot;<br><br>Then, venerable Pukkusāti, delighting and rejoicing in the Blessed One&#039;s words, rose from his seat, paid homage to the Blessed One, circumambulated him, and departed to seek a bowl (<i>patta</i>) and robes (<i>cīvara</i>).<br><br>Then, while venerable Pukkusāti was wandering in search of a bowl (<i>patta</i>) and robes (<i>cīvara</i>), a stray cow (<i>gāvī</i>) deprived him of life (<i>jīvitā voropesi</i>).<br><br>Then a number of monks (<i>bhikkhū</i>) approached the Blessed One; having approached, they paid homage to the Blessed One and sat down to one side. Seated to one side, those monks (<i>bhikkhū</i>) said to the Blessed One: &quot;Venerable sir (<i>bhante</i>), the clansman Pukkusāti, who was advised by the Blessed One with a brief instruction (<i>saṃkhittena ovādena ovadito</i>), has passed away (<i>kālaṅkato</i>). What was his destination (<i>kā gati</i>)? What is his future state (<i>abhisamparāyo</i>)?&quot;<br><br>&quot;Monks (<i>bhikkhave</i>), the wise Pukkusāti has practiced according to the Dhamma, and he did not trouble me about the Dhamma. Pukkusāti, monks (<i>bhikkhave</i>), has, with the destruction (<i>parikkhayā</i>) of the five lower fetters (<i>pañcannaṃ orambhāgiyānaṃ saṃyojanānaṃ</i>), reappeared spontaneously (<i>opapātiko</i>) and will attain final <i>Nirvāṇa</i> (<i>parinibbāyī</i>) there, not liable to return (<i>anāvattidhammo</i>) from that world (<i>tasmā lokā</i>).&quot;<br><br>This is what the Blessed One said. Elated, those monks (<i>bhikkhū</i>) delighted in the Blessed One&#039;s statement.<br><br>The tenth <i>Dhātuvibhaṅgasutta</i> is concluded.<br>[p.]</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_devadūtasuttaṃ.html" class="nav-btn">← Previous: Devadūtasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_indriyabhāvanāsuttaṃ.html" class="nav-btn">Next: Indriyabhāvanāsuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

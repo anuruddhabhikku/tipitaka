@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Acchariyaabbhutasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Acchariyaabbhutasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 3</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn2_ānandabhaddekarattasuttaṃ.html" class="nav-btn">← Previous: Ānandabhaddekarattasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn3_kintisuttaṃ.html" class="nav-btn">Next: Kintisuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">197</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;197&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;197&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0246&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0161&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Atha kho sambahulānaṃ bhikkhūnaṃ pacchābhattaṃ piṇḍapātapaṭikkantānaṃ upaṭṭhānasālāyaṃ sannisinnānaṃ sannipatitānaṃ ayamantarākathā udapādi – ‘‘acchariyaṃ, āvuso, abbhutaṃ, āvuso, tathāgatassa mahiddhikatā mahānubhāvatā, yatra hi nāma tathāgato &lt;pb ed=&quot;M&quot; n=&quot;3.0160&quot;/&gt; atīte buddhe parinibbute chinnapapañce chinnavaṭume pariyādinnavaṭṭe sabbadukkhavītivatte jānissati &lt;note&gt;anussarissati jānissati (ka.)&lt;/note&gt; – ‘evaṃjaccā te bhagavanto ahesuṃ’ itipi, ‘evaṃnāmā te bhagavanto ahesuṃ’ itipi, ‘evaṃgottā te bhagavanto ahesuṃ’ itipi, ‘evaṃsīlā te bhagavanto ahesuṃ’ itipi, ‘evaṃdhammā te bhagavanto ahesuṃ’ itipi, ‘evaṃpaññā te bhagavanto ahesuṃ’ itipi, ‘evaṃvihārī te bhagavanto ahesuṃ’ itipi, ‘evaṃvimuttā te bhagavanto ahesuṃ’ itipī’’ti! Evaṃ vutte, āyasmā ānando te bhikkhū etadavoca – ‘‘acchariyā ceva, āvuso, tathāgatā acchariyadhammasamannāgatā ca; abbhutā ceva, āvuso, tathāgatā abbhutadhammasamannāgatā cā’’ti. Ayañca &lt;pb ed=&quot;P&quot; n=&quot;3.0119&quot;/&gt; hidaṃ tesaṃ bhikkhūnaṃ antarākathā vippakatā hoti.</p>">&lt;p n=&quot;197&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;197&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0246&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0161&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Atha kho sambahulānaṃ bhikkhūnaṃ pacchābhattaṃ piṇḍapātapaṭikkantānaṃ upaṭṭhānasālāyaṃ sannisinnānaṃ sannipatitānaṃ ayamantarākathā udapādi – ‘‘acchariyaṃ, āvuso, abbhutaṃ, āvuso, tathāgatassa mahiddhikatā mahānubhāvatā, yatra hi nāma tathāgato &lt;pb ed=&quot;M&quot; n=&quot;3.0160&quot;/&gt; atīte buddhe parinibbute chinnapapañce chinnavaṭume pariyādinnavaṭṭe sabbadukkhavītivatte jānissati &lt;note&gt;anussarissati jānissati (ka.)&lt;/note&gt; – ‘evaṃjaccā te bhagavanto ahesuṃ’ itipi, ‘evaṃnāmā te bhagavanto ahesuṃ’ itipi, ‘evaṃgottā te bhagavanto ahesuṃ’ itipi, ‘evaṃsīlā te bhagavanto ahesuṃ’ itipi, ‘evaṃdhammā te bhagavanto ahesuṃ’ itipi, ‘evaṃpaññā te bhagavanto ahesuṃ’ itipi, ‘evaṃvihārī te bhagavanto ahesuṃ’ itipi, ‘evaṃvimuttā te bhagavanto ahesuṃ’ itipī’’ti! Evaṃ vutte, āyasmā ānando te bhikkhū etadavoca – ‘‘acchariyā ceva, āvuso, tathāgatā acchariyadhammasamannāgatā ca; abbhutā ceva, āvuso, tathāgatā abbhutadhammasamannāgatā cā’’ti. Ayañca &lt;pb ed=&quot;P&quot; n=&quot;3.0119&quot;/&gt; hidaṃ tesaṃ bhikkhūnaṃ antarākathā vippakatā hoti.</p></div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One (bhagavā) was staying at Sāvatthi in the Jetavana in Anāthapiṇḍika’s Park (ārāma).<br><br>Then, after their meal, on returning from their alms round, a number of monks (bhikkhūnaṃ) were sitting together, gathered in the service hall, and this discussion arose among them: “It is wonderful (acchariyaṃ), friends (āvuso), it is marvelous (abbhutaṃ), friends, how mighty is the Tathāgata (tathāgatassa), how great his power (mahānubhāvatā), that he can know of past Buddhas (buddhe), who have attained final Nirvāṇa (parinibbute), cut off delusion (chinnapapañce), destroyed the cycle, ended the round, and passed beyond all suffering (sabbadukkhavītivatte)—[he knows] that those Blessed Ones (bhagavanto) were of such a birth (evaṃjaccā), such a name (evaṃnāmā), such a lineage (evaṃgottā), such virtue (evaṃsīlā), such teaching (evaṃdhammā), such wisdom (evaṃpaññā), such a dwelling (evaṃvihārī), and such liberation (evaṃvimuttā)!” When this was said, venerable Ānanda (āyasmā ānando) said to the monks (bhikkhū): “The Tathāgatas (tathāgatā) are truly wonderful (acchariyā), friends, and endowed with wonderful qualities (acchariyadhammasamannāgatā); the Tathāgatas are truly marvelous (abhutā), friends, and endowed with marvelous qualities (abhutadhammasamannāgatā.”<br><br>And this conversation of those monks was interrupted (antarākathā vippakatā hoti).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">198</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;198&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;198&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho bhagavā sāyanhasamayaṃ paṭisallānā vuṭṭhito yenupaṭṭhānasālā tenupasaṅkami; upasaṅkamitvā paññatte āsane nisīdi &lt;pb ed=&quot;T&quot; n=&quot;3.0247&quot;/&gt;. Nisajja kho bhagavā bhikkhū āmantesi – ‘‘kāya nuttha, bhikkhave, etarahi kathāya sannisinnā, kā ca pana vo antarākathā vippakatā’’ti? ‘‘Idha, bhante, amhākaṃ pacchābhattaṃ piṇḍapātapaṭikkantānaṃ upaṭṭhānasālāyaṃ sannisinnānaṃ sannipatitānaṃ ayamantarākathā udapādi – ‘acchariyaṃ, āvuso, abbhutaṃ, āvuso, tathāgatassa mahiddhikatā mahānubhāvatā, yatra hi nāma tathāgato atīte buddhe parinibbute chinnapapañce chinnavaṭume pariyādinnavaṭṭe sabbadukkhavītivatte jānissati – evaṃjaccā te bhagavanto ahesuṃ itipi, evaṃnāmā… evaṃgottā… evaṃsīlā… evaṃdhammā.. evaṃpaññā… evaṃvihārī… evaṃvimuttā te bhagavanto ahesuṃ itipī’ti! Evaṃ vutte, bhante, āyasmā ānando amhe etadavoca – ‘acchariyā ceva, āvuso, tathāgatā acchariyadhammasamannāgatā ca, abbhutā &lt;pb ed=&quot;V&quot; n=&quot;3.0162&quot;/&gt; ceva, āvuso, tathāgatā abbhutadhammasamannāgatā cā’ti. Ayaṃ kho no, bhante, antarākathā vippakatā; atha bhagavā anuppatto’’ti.</p>">&lt;p n=&quot;198&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;198&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho bhagavā sāyanhasamayaṃ paṭisallānā vuṭṭhito yenupaṭṭhānasālā tenupasaṅkami; upasaṅkamitvā paññatte āsane nisīdi &lt;pb ed=&quot;T&quot; n=&quot;3.0247&quot;/&gt;. Nisajja kho bhagavā bhikkhū āmantesi – ‘‘kāya nuttha, bhikkhave, etarahi kathāya sannisinnā, kā ca pana vo antarākathā vippakatā’’ti? ‘‘Idha, bhante, amhākaṃ pacchābhattaṃ piṇḍapātapaṭikkantānaṃ upaṭṭhānasālāyaṃ sannisinnānaṃ sannipatitānaṃ ayamantarākathā udapādi – ‘acchariyaṃ, āvuso, abbhutaṃ, āvuso, tathāgatassa mahiddhikatā mahānubhāvatā, yatra hi nāma tathāgato atīte buddhe parinibbute chinnapapañce chinnavaṭume pariyādinnavaṭṭe sabbadukkhavītivatte jānissati – evaṃjaccā te bhagavanto ahesuṃ itipi, evaṃnāmā… evaṃgottā… evaṃsīlā… evaṃdhammā.. evaṃpaññā… evaṃvihārī… evaṃvimuttā te bhagavanto ahesuṃ itipī’ti! Evaṃ vutte, bhante, āyasmā ānando amhe etadavoca – ‘acchariyā ceva, āvuso, tathāgatā acchariyadhammasamannāgatā ca, abbhutā &lt;pb ed=&quot;V&quot; n=&quot;3.0162&quot;/&gt; ceva, āvuso, tathāgatā abbhutadhammasamannāgatā cā’ti. Ayaṃ kho no, bhante, antarākathā vippakatā; atha bhagavā anuppatto’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">Then the Blessed One, arising from seclusion in the evening, approached the service hall; having approached, he sat down on the appointed seat. Seated, the Blessed One addressed the monks, saying: “With what discussion are you assembled here now, monks? And what was the discussion that was interrupted?”<br><br>“Here, venerable sir, after our meal, returning from alms round, gathering together in the service hall, this was the discussion that arose: ‘Amazing, friends, astonishing, friends, is the great power and great glory of the <i>Tathāgata</i>, in that the <i>Tathāgata</i> knows about the past Buddhas who have attained <i>parinirvāṇa</i>, cut off proliferation, broken the round, finished the cycle, and gone beyond all suffering—that those Blessed Ones were of such a birth, of such a name, of such a clan, of such virtue, of such a <i>dharma</i>, of such wisdom, of such a dwelling, and of such liberation!’ When this was said, venerable sir, the venerable Ānanda said this to us: ‘Amazing, friends, are the <i>Tathāgatas</i>, endowed with amazing qualities; astonishing, friends, are the <i>Tathāgatas</i>, endowed with astonishing qualities.’ This, venerable sir, was the discussion that was interrupted when the Blessed One arrived.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">199</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;199&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;199&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho bhagavā āyasmantaṃ ānandaṃ āmantesi – ‘‘tasmātiha taṃ, ānanda, bhiyyosomattāya paṭibhantu tathāgatassa acchariyā abbhutadhammā’’ti &lt;note&gt;abbhutā dhammāti (?)&lt;/note&gt;.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0161&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusitaṃ kāyaṃ upapajjī’ti. Yampi, bhante, sato sampajāno bodhisatto tusitaṃ kāyaṃ upapajji idaṃpāhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0248&quot;/&gt;, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0161&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0248&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusite kāye aṭṭhāsī’ti. Yampi, bhante, sato sampajāno bodhisatto tusite kāye aṭṭhāsi idaṃpāhaṃ &lt;note&gt;idaṃpahaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;note&gt;idaṃpahaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;">&lt;p n=&quot;199&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;199&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho bhagavā āyasmantaṃ ānandaṃ āmantesi – ‘‘tasmātiha taṃ, ānanda, bhiyyosomattāya paṭibhantu tathāgatassa acchariyā abbhutadhammā’’ti &lt;note&gt;abbhutā dhammāti (?)&lt;/note&gt;.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0161&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusitaṃ kāyaṃ upapajjī’ti. Yampi, bhante, sato sampajāno bodhisatto tusitaṃ kāyaṃ upapajji idaṃpāhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0248&quot;/&gt;, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0161&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0248&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusite kāye aṭṭhāsī’ti. Yampi, bhante, sato sampajāno bodhisatto tusite kāye aṭṭhāsi idaṃpāhaṃ &lt;note&gt;idaṃpahaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;note&gt;idaṃpahaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">199. Then, the Blessed One addressed the venerable Ānanda, saying: &quot;Therefore, Ānanda, may the Tathāgata&#039;s wonderful and marvelous qualities shine forth all the more!&quot;<br><br>&quot;Venerable sir, I have heard and learned this directly from the Blessed One, face to face: &#039;Mindful and fully aware, Ānanda, the Bodhisattva appeared in the Tuṣita heaven.&#039;<br>And also, venerable sir, that mindful and fully aware, the Bodhisattva appeared in the Tuṣita heaven, this I remember as a wonderful and marvelous quality of the Blessed One.&quot;<br><br>&quot;Venerable sir, I have heard and learned this directly from the Blessed One, face to face: &#039;Mindful and fully aware, Ānanda, the Bodhisattva remained in the Tuṣita heaven.&#039;<br>And also, venerable sir, that mindful and fully aware, the Bodhisattva remained in the Tuṣita heaven, this I remember as a wonderful and marvelous quality of the Blessed One.&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">200</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;200&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;200&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yāvatāyukaṃ, ānanda, bodhisatto tusite kāye aṭṭhāsī’ti. Yampi, bhante, yāvatāyukaṃ bodhisatto tusite kāye aṭṭhāsi idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusitā, kāyā cavitvā mātukucchiṃ okkamī’ti. Yampi, bhante &lt;pb ed=&quot;P&quot; n=&quot;3.0120&quot;/&gt;, sato sampajāno bodhisatto tusitā kāyā cavitvā mātukucchiṃ okkami idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0120&quot;/&gt;">&lt;p n=&quot;200&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;200&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yāvatāyukaṃ, ānanda, bodhisatto tusite kāye aṭṭhāsī’ti. Yampi, bhante, yāvatāyukaṃ bodhisatto tusite kāye aṭṭhāsi idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sato sampajāno, ānanda, bodhisatto tusitā, kāyā cavitvā mātukucchiṃ okkamī’ti. Yampi, bhante &lt;pb ed=&quot;P&quot; n=&quot;3.0120&quot;/&gt;, sato sampajāno bodhisatto tusitā kāyā cavitvā mātukucchiṃ okkami idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0120&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Venerable Sir, I heard and learned this from the Blessed One’s own lips: ‘For the whole of his life-span, Ānanda, the <i>bodhisattva</i> remained in the Tusita heaven ( <i>tuṣite kāye aṭṭhāsi</i>).’<br>That for the whole of his life-span the <i>bodhisattva</i> remained in the Tusita heaven – this I remember, Venerable Sir, as a wonderful and marvellous quality of the Blessed One.<br><br>“Venerable Sir, I heard and learned this from the Blessed One’s own lips: ‘Mindful and fully aware, Ānanda, the <i>bodhisattva</i> passed away from the Tusita heaven ( <i>tusitā kāyā cavitvā</i>) and descended into his mother’s womb ( <i>mātukucchiṃ okkamī</i>).’<br>That mindful and fully aware the <i>bodhisattva</i> passed away from the Tusita heaven and descended into his mother’s womb – this I remember, Venerable Sir, as a wonderful and marvellous quality of the Blessed One.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">201</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;201&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;201&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto tusitā kāyā cavitvā mātukucchiṃ okkamati, atha sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yāpi tā lokantarikā aghā asaṃvutā andhakārā andhakāratimisā, yatthapime candimasūriyā evaṃmahiddhikā evaṃmahānubhāvā &lt;pb ed=&quot;T&quot; n=&quot;3.0249&quot;/&gt; ābhāya nānubhonti &lt;pb ed=&quot;V&quot; n=&quot;3.0163&quot;/&gt; tatthapi appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yepi tattha sattā upapannā tepi tenobhāsena aññamaññaṃ sañjānanti – aññepi kira, bho, santi sattā idhūpapannāti. Ayañca dasasahassī lokadhātu saṅkampati sampakampati sampavedhati &lt;pb ed=&quot;M&quot; n=&quot;3.0162&quot;/&gt; appamāṇo ca uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāva’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p>">&lt;p n=&quot;201&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;201&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto tusitā kāyā cavitvā mātukucchiṃ okkamati, atha sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yāpi tā lokantarikā aghā asaṃvutā andhakārā andhakāratimisā, yatthapime candimasūriyā evaṃmahiddhikā evaṃmahānubhāvā &lt;pb ed=&quot;T&quot; n=&quot;3.0249&quot;/&gt; ābhāya nānubhonti &lt;pb ed=&quot;V&quot; n=&quot;3.0163&quot;/&gt; tatthapi appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yepi tattha sattā upapannā tepi tenobhāsena aññamaññaṃ sañjānanti – aññepi kira, bho, santi sattā idhūpapannāti. Ayañca dasasahassī lokadhātu saṅkampati sampakampati sampavedhati &lt;pb ed=&quot;M&quot; n=&quot;3.0162&quot;/&gt; appamāṇo ca uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāva’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p></div>
+                
+                <div class="translation-text mula-english-section">201. &quot;Bhante, I have heard this directly from the Blessed One, and received it directly: ‘When, Ānanda, the <i>bodhisattva</i> passed away from the Tusita heaven and descended into his mother’s womb, then in the world with its gods (<i>sadevake loke</i>), its <i>Māras</i> (<i>samārake</i>), and its <i>Brahmās</i> (<i>sabrahmake</i>), in this generation with its ascetics (<i>sassamaṇabrāhmaṇiyā</i>) and Brahmins, with its princes and its people (<i>sadevamanussāya</i>), a great immeasurable light (<i>appamāṇo uḷāro obhāso</i>) surpassing the splendour of the gods appeared in the world (<i>loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ</i>).<br><br>And even in those abysmal world interspaces (<i>lokantarikā</i>) of vacancy (<i>aghā</i>), gloom (<i>asaṃvutā</i>), and utter darkness (<i>andhakārā andhakāratimisā</i>), where even the moon and the sun (<i>candimasūriyā</i>), so mighty and splendid (<i>evaṃmahiddhikā evaṃmahānubhāvā</i>), do not shine with their light (<i>ābhāya nānubhonti</i>)—there too a great immeasurable light (<i>appamāṇo uḷāro obhāso</i>) surpassing the splendour of the gods appeared in the world (<i>loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ</i>).<br><br>And those beings that have been reborn there (<i>ye tattha sattā upapannā</i>) recognise each other by this light (<i>tepi tenobhāsena aññamaññaṃ sañjānanti</i>) and know: &quot;Other beings, too, have been born here!&quot; (<i>aññepi kira, bho, santi sattā idhūpapannāti</i>).<br><br>And this ten-thousandfold world system (<i>dasa-sahassī lokadhātu</i>) shook and quaked and trembled (<i>saṅkampati sampakampati sampavedhati</i>), and there too a great immeasurable light (<i>appamāṇo ca uḷāro obhāso</i>) surpassing the splendour of the gods appeared in the world (<i>loke pātubhavati atikkammeva devānaṃ devānubhāva’nti</i>).<br><br>And also, <i>bhante</i>, I remember this as a wonderful and marvellous quality (<i>acchariyaṃ abbhutadhammaṃ dhāremi</i>) of the Blessed One (<i>bhagavato</i>).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">202</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;202&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;202&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, cattāro devaputtā catuddisaṃ ārakkhāya upagacchanti – mā naṃ bodhisattaṃ vā bodhisattamātaraṃ vā manusso vā amanusso vā koci vā viheṭhesī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p>">&lt;p n=&quot;202&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;202&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, cattāro devaputtā catuddisaṃ ārakkhāya upagacchanti – mā naṃ bodhisattaṃ vā bodhisattamātaraṃ vā manusso vā amanusso vā koci vā viheṭhesī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p></div>
+                
+                <div class="translation-text mula-english-section">&quot;Venerable sir, I have heard and learned this from the Blessed One&#039;s own lips: &#039;When, Ānanda, a <i>bodhisattva</i> has descended into his mother’s womb (<i>mātukucchiṃ okkanto hoti</i>), four young deities (<i>devaputtā</i>) come to guard him in the four directions (<i>catuddisaṃ ārakkhāya upagacchanti</i>), so that no human (<i>manusso</i>) or non-human (<i>amanusso</i>), no one at all, can harm (<i>viheṭhesī’ti</i>) this <i>bodhisattva</i> (<i>bodhisattaṃ</i>) or the <i>bodhisattva</i>&#039;s mother (<i>bodhisattamātaraṃ</i>)&#039;.<br><br>And this, venerable sir... and so on... this too, venerable sir, I remember as a wonderful and marvelous quality (<i>acchariyaṃ abbhutadhammaṃ dhāremi</i>) of the Blessed One (<i>bhagavato</i>).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">203</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;203&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;203&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, pakatiyā sīlavatī bodhisattamātā hoti viratā pāṇātipātā viratā adinnādānā viratā kāmesumicchācārā viratā musāvādā viratā surāmerayamajjapamādaṭṭhānā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;P&quot; n=&quot;3.0121&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā &lt;pb ed=&quot;T&quot; n=&quot;3.0250&quot;/&gt;, ānanda, bodhisatto mātukucchiṃ okkanto hoti, na bodhisattamātu purisesu mānasaṃ uppajjati kāmaguṇūpasaṃhitaṃ, anatikkamanīyā ca bodhisattamātā hoti kenaci purisena rattacittenā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0121&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0250&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, lābhinī bodhisattamātā hoti pañcannaṃ kāmaguṇānaṃ. Sā pañcahi kāmaguṇehi samappitā samaṅgībhūtā paricāretī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p>">&lt;p n=&quot;203&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;203&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, pakatiyā sīlavatī bodhisattamātā hoti viratā pāṇātipātā viratā adinnādānā viratā kāmesumicchācārā viratā musāvādā viratā surāmerayamajjapamādaṭṭhānā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;P&quot; n=&quot;3.0121&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā &lt;pb ed=&quot;T&quot; n=&quot;3.0250&quot;/&gt;, ānanda, bodhisatto mātukucchiṃ okkanto hoti, na bodhisattamātu purisesu mānasaṃ uppajjati kāmaguṇūpasaṃhitaṃ, anatikkamanīyā ca bodhisattamātā hoti kenaci purisena rattacittenā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0121&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0250&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, lābhinī bodhisattamātā hoti pañcannaṃ kāmaguṇānaṃ. Sā pañcahi kāmaguṇehi samappitā samaṅgībhūtā paricāretī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p></div>
+                
+                <div class="translation-text mula-english-section">203. “I heard and learned this from the Blessed One’s own lips: ‘When the <i>Bodhisattva</i> had descended into his mother’s womb, she became intrinsically virtuous, refraining from killing living beings (<i>prāṇātipātā</i>), from taking what is not given (<i>adinnādānā</i>), from misconduct in sensual pleasures (<i>kāmesumicchācārā</i>), from false speech (<i>musāvādā</i>), and from wines, liquors, and intoxicants, which are the basis of negligence (<i>surāmerayamajjapamādaṭṭhānā</i>).’ This too, reverend sir, I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>“I heard and learned this from the Blessed One’s own lips: ‘When the <i>Bodhisattva</i> had descended into his mother’s womb, no sensual thought (<i>mānasaṃ</i>) arose in her concerning men, and she was inaccessible to any man having a lustful mind (<i>rattacittenā</i>).&#039; This too, reverend sir, I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>“I heard and learned this from the Blessed One’s own lips: ‘When the <i>Bodhisattva</i> had descended into his mother’s womb, she obtained the five cords of sensual pleasure (<i>pañcannaṃ kāmaguṇānaṃ</i>). Furnished and endowed with them, she enjoyed herself with them.’ This too, reverend sir, I remember as a wonderful and marvellous quality of the Blessed One.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">204</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;204&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;204&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;V&quot; n=&quot;3.0164&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, na bodhisattamātu kocideva ābādho uppajjati; sukhinī bodhisattamātā hoti akilantakāyā; bodhisattañca bodhisattamātā tirokucchigataṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0163&quot;/&gt; passati sabbaṅgapaccaṅgaṃ ahīnindriyaṃ. Seyyathāpi, ānanda, maṇi veḷuriyo subho jātimā aṭṭhaṃso suparikammakato. Tatrāssa suttaṃ āvutaṃ nīlaṃ vā pītaṃ vā lohitaṃ vā odātaṃ vā paṇḍusuttaṃ vā. Tamenaṃ cakkhumā puriso hatthe karitvā paccavekkheyya – ayaṃ kho maṇi veḷuriyo subho jātimā aṭṭhaṃso suparikammakato, tatridaṃ suttaṃ āvutaṃ nīlaṃ vā pītaṃ vā lohitaṃ vā odātaṃ vā paṇḍusuttaṃ vāti. Evameva kho, ānanda, yadā bodhisatto mātukucchiṃ okkanto hoti &lt;pb ed=&quot;T&quot; n=&quot;3.0251&quot;/&gt;, na bodhisattamātu kocideva ābādho uppajjati; sukhinī bodhisattamātā hoti akilantakāyā; bodhisattañca bodhisattamātā tirokucchigataṃ passati sabbaṅgapaccaṅgaṃ ahīnindriya’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p>">&lt;p n=&quot;204&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;204&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;V&quot; n=&quot;3.0164&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchiṃ okkanto hoti, na bodhisattamātu kocideva ābādho uppajjati; sukhinī bodhisattamātā hoti akilantakāyā; bodhisattañca bodhisattamātā tirokucchigataṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0163&quot;/&gt; passati sabbaṅgapaccaṅgaṃ ahīnindriyaṃ. Seyyathāpi, ānanda, maṇi veḷuriyo subho jātimā aṭṭhaṃso suparikammakato. Tatrāssa suttaṃ āvutaṃ nīlaṃ vā pītaṃ vā lohitaṃ vā odātaṃ vā paṇḍusuttaṃ vā. Tamenaṃ cakkhumā puriso hatthe karitvā paccavekkheyya – ayaṃ kho maṇi veḷuriyo subho jātimā aṭṭhaṃso suparikammakato, tatridaṃ suttaṃ āvutaṃ nīlaṃ vā pītaṃ vā lohitaṃ vā odātaṃ vā paṇḍusuttaṃ vāti. Evameva kho, ānanda, yadā bodhisatto mātukucchiṃ okkanto hoti &lt;pb ed=&quot;T&quot; n=&quot;3.0251&quot;/&gt;, na bodhisattamātu kocideva ābādho uppajjati; sukhinī bodhisattamātā hoti akilantakāyā; bodhisattañca bodhisattamātā tirokucchigataṃ passati sabbaṅgapaccaṅgaṃ ahīnindriya’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p></div>
+                
+                <div class="translation-text mula-english-section">204. “Venerable, I have heard and learned this from the Blessed One&#039;s own lips: ‘When, Ānanda, a <i>bodhisattva</i> has descended into his mother&#039;s womb (<i></i>mātukucchiṃ okkanto hoti<i></i>), no kind of affliction arises in the <i>bodhisattva&#039;s</i> mother; the <i>bodhisattva&#039;s</i> mother is blissful and free from bodily fatigue. The <i>bodhisattva&#039;s</i> mother sees the <i>bodhisattva</i> within her womb with all his limbs, lacking no faculty (<i>sabbaṅgapaccaṅgaṃ ahīnindriyaṃ</i>).<br><br>Suppose, Ānanda, there were a beautiful beryl gem (<i>maṇi veḷuriyo subho</i>) of purest water, eight-faceted, well cut (<i>aṭṭhaṃso suparikammakato</i>). And through it there would run a blue, yellow, red, white or brown thread (<i>nīlaṃ vā pītaṃ vā lohitaṃ vā odātaṃ vā paṇḍusuttaṃ vā</i>). Then a man with good sight, taking it in his hand, might review it thus: “This is a beautiful beryl gem of purest water, eight-faceted, well cut, and through it is strung a blue, yellow, red, white, or brown thread.&quot;<br><br>Even so, Ānanda, when a <i>bodhisattva</i> has descended into his mother&#039;s womb, no kind of affliction arises in the <i>bodhisattva&#039;s</i> mother; the <i>bodhisattva&#039;s</i> mother is blissful and free from bodily fatigue; the <i>bodhisattva&#039;s</i> mother sees the <i>bodhisattva</i> within her womb with all his limbs, lacking no faculty.’<br><br>That when, venerable... and so on... venerable, I hold this as a wonderful and marvelous quality of the Blessed One (<i>acchariyaṃ abbhutadhammaṃ dhāremi</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">205</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;205&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;205&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;P&quot; n=&quot;3.0122&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sattāhajāte, ānanda, bodhisatte bodhisattamātā kālaṃ karoti, tusitaṃ kāyaṃ upapajjatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yathā kho panānanda, aññā itthikā nava vā dasa vā māse gabbhaṃ kucchinā pariharitvā vijāyanti, na hevaṃ bodhisattaṃ bodhisattamātā vijāyati. Daseva māsāni bodhisattaṃ bodhisattamātā kucchinā pariharitvā vijāyatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yathā kho panānanda, aññā itthikā nisinnā vā nipannā vā vijāyanti, na hevaṃ bodhisattaṃ bodhisattamātā vijāyati. Ṭhitāva bodhisattaṃ bodhisattamātā vijāyatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;V&quot; n=&quot;3.0165&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā &lt;pb ed=&quot;T&quot; n=&quot;3.0252&quot;/&gt;, ānanda, bodhisatto mātukucchimhā nikkhamati, devā naṃ paṭhamaṃ paṭiggaṇhanti pacchā manussā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0165&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0252&quot;/&gt;">&lt;p n=&quot;205&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;205&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;P&quot; n=&quot;3.0122&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sattāhajāte, ānanda, bodhisatte bodhisattamātā kālaṃ karoti, tusitaṃ kāyaṃ upapajjatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yathā kho panānanda, aññā itthikā nava vā dasa vā māse gabbhaṃ kucchinā pariharitvā vijāyanti, na hevaṃ bodhisattaṃ bodhisattamātā vijāyati. Daseva māsāni bodhisattaṃ bodhisattamātā kucchinā pariharitvā vijāyatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yathā kho panānanda, aññā itthikā nisinnā vā nipannā vā vijāyanti, na hevaṃ bodhisattaṃ bodhisattamātā vijāyati. Ṭhitāva bodhisattaṃ bodhisattamātā vijāyatī’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;V&quot; n=&quot;3.0165&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā &lt;pb ed=&quot;T&quot; n=&quot;3.0252&quot;/&gt;, ānanda, bodhisatto mātukucchimhā nikkhamati, devā naṃ paṭhamaṃ paṭiggaṇhanti pacchā manussā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0165&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0252&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">205. “I heard and learned this from the Blessed One’s own lips: ‘Seven days after the birth of the <i>Bodhisattva</i>, his mother died and reappeared in the <i>Tuṣita</i> heaven.’ That when the <i>Bodhisattva</i> came forth from his mother’s womb, then a great immeasurable light surpassing the splendour of the gods appeared…this too I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>“I heard and learned this from the Blessed One’s own lips: ‘Other women give birth after carrying the child in the womb for nine or ten months, but not so the <i>Bodhisattva</i>&#039;s mother. The <i>Bodhisattva</i>&#039;s mother gave birth after carrying him in her womb for exactly ten months.’ That when the <i>Bodhisattva</i> came forth from his mother’s womb, then a great immeasurable light surpassing the splendour of the gods appeared…this too I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>“I heard and learned this from the Blessed One’s own lips: ‘Other women give birth seated or lying down, but not so the <i>Bodhisattva</i>&#039;s mother. The <i>Bodhisattva</i>&#039;s mother gave birth to him standing up.’ That when the <i>Bodhisattva</i> came forth from his mother’s womb, then a great immeasurable light surpassing the splendour of the gods appeared…this too I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>“I heard and learned this from the Blessed One’s own lips: ‘When the <i>Bodhisattva</i> came forth from his mother’s womb, first gods received him, then human beings.’ That when the <i>Bodhisattva</i> came forth from his mother’s womb, then a great immeasurable light surpassing the splendour of the gods appeared…this too I remember as a wonderful and marvellous quality of the Blessed One.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">206</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;206&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;206&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0164&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, appattova bodhisatto pathaviṃ hoti, cattāro naṃ devaputtā paṭiggahetvā mātu purato ṭhapenti – attamanā, devi, hohi; mahesakkho te putto uppanno’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, visadova nikkhamati amakkhito udena &lt;note&gt;uddena (sī. syā. kaṃ. pī.)&lt;/note&gt; amakkhito semhena amakkhito ruhirena amakkhito kenaci &lt;pb ed=&quot;P&quot; n=&quot;3.0123&quot;/&gt; asucinā suddho visado &lt;note&gt;visuddho (syā.)&lt;/note&gt;. Seyyathāpi, ānanda, maṇiratanaṃ kāsike vatthe nikkhittaṃ neva maṇiratanaṃ kāsikaṃ vatthaṃ makkheti nāpi kāsikaṃ vatthaṃ maṇiratanaṃ makkheti. Taṃ kissa hetu? Ubhinnaṃ suddhattā. Evameva kho, ānanda, yadā bodhisatto mātukucchimhā nikkhamati, visadova nikkhamati amakkhito udena amakkhito semhena amakkhito ruhirena amakkhito kenaci asucinā suddho visado’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;note&gt;uddena (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0123&quot;/&gt; &lt;note&gt;visuddho (syā.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;T&quot; n=&quot;3.0253&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, dve udakassa dhārā antalikkhā pātubhavanti – ekā sītassa, ekā uṇhassa; yena bodhisattassa udakakiccaṃ karonti mātu cā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0253&quot;/&gt;">&lt;p n=&quot;206&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;206&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0164&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, appattova bodhisatto pathaviṃ hoti, cattāro naṃ devaputtā paṭiggahetvā mātu purato ṭhapenti – attamanā, devi, hohi; mahesakkho te putto uppanno’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, visadova nikkhamati amakkhito udena &lt;note&gt;uddena (sī. syā. kaṃ. pī.)&lt;/note&gt; amakkhito semhena amakkhito ruhirena amakkhito kenaci &lt;pb ed=&quot;P&quot; n=&quot;3.0123&quot;/&gt; asucinā suddho visado &lt;note&gt;visuddho (syā.)&lt;/note&gt;. Seyyathāpi, ānanda, maṇiratanaṃ kāsike vatthe nikkhittaṃ neva maṇiratanaṃ kāsikaṃ vatthaṃ makkheti nāpi kāsikaṃ vatthaṃ maṇiratanaṃ makkheti. Taṃ kissa hetu? Ubhinnaṃ suddhattā. Evameva kho, ānanda, yadā bodhisatto mātukucchimhā nikkhamati, visadova nikkhamati amakkhito udena amakkhito semhena amakkhito ruhirena amakkhito kenaci asucinā suddho visado’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;note&gt;uddena (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0123&quot;/&gt; &lt;note&gt;visuddho (syā.)&lt;/note&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā &lt;pb ed=&quot;T&quot; n=&quot;3.0253&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, dve udakassa dhārā antalikkhā pātubhavanti – ekā sītassa, ekā uṇhassa; yena bodhisattassa udakakiccaṃ karonti mātu cā’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0253&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">206.<br>“Bhante, I have heard this from the Blessed One&#039;s own lips, I have received it directly: ‘When, Ānanda, a Bodhisattva emerges from his mother&#039;s womb, before he even touches the earth, the four young gods receive him and place him before his mother, saying, &quot;Rejoice, O queen! A son of great power has been born to you!&quot;’<br>Also, Bhante…pe… this I, Bhante, remember as a wonderful and marvelous quality of the Blessed One.”<br><br>“Bhante, I have heard this from the Blessed One&#039;s own lips, I have received it directly: ‘When, Ānanda, a Bodhisattva emerges from his mother&#039;s womb, he emerges pure, unsullied by water, unsullied by mucus, unsullied by blood, unsullied by any impurity, clean and pure.’<br>Suppose, Ānanda, a jewel is placed on Kāśī cloth; neither does the jewel stain the Kāśī cloth, nor does the Kāśī cloth stain the jewel.<br>What is the reason for that? Because both are pure.<br>In the same way, Ānanda, when a Bodhisattva emerges from his mother&#039;s womb, he emerges pure, unsullied by water, unsullied by mucus, unsullied by blood, unsullied by any impurity, clean and pure.”<br>Also, Bhante…pe… this I, Bhante, remember as a wonderful and marvelous quality of the Blessed One.<br><br>“Bhante, I have heard this from the Blessed One&#039;s own lips, I have received it directly: ‘When, Ānanda, a Bodhisattva emerges from his mother&#039;s womb, two streams of water appear from the sky—one cool, one warm—with which they perform the water rituals for the Bodhisattva and his mother.’”<br>Also, Bhante…pe… this I, Bhante, remember as a wonderful and marvelous quality of the Blessed One.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">207</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;207&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;207&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0165&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sampatijāto, ānanda, bodhisatto samehi pādehi pathaviyaṃ patiṭṭhahitvā uttarābhimukho sattapadavītihārena gacchati, setamhi chatte anudhāriyamāne, sabbā ca disā viloketi, āsabhiñca vācaṃ bhāsati – aggohamasmi lokassa, jeṭṭhohamasmi lokassa, seṭṭhohamasmi lokassa. Ayamantimā jāti &lt;pb ed=&quot;V&quot; n=&quot;3.0166&quot;/&gt;, natthi dāni punabbhavo’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, atha sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yāpi tā lokantarikā aghā asaṃvutā andhakārā andhakāratimisā yatthapime candimasūriyā evaṃmahiddhikā evaṃmahānubhāvā ābhāya nānubhonti tatthapi &lt;pb ed=&quot;P&quot; n=&quot;3.0124&quot;/&gt; appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yepi tattha &lt;pb ed=&quot;T&quot; n=&quot;3.0254&quot;/&gt; sattā upapannā tepi tenobhāsena aññamaññaṃ sañjānanti – aññepi kira, bho, santi sattā idhūpapannāti. Ayañca dasasahassī lokadhātu saṅkampati sampakampati sampavedhati, appamāṇo ca uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāva’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremī’’ti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0124&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0254&quot;/&gt;">&lt;p n=&quot;207&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;207&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sammukhā &lt;pb ed=&quot;M&quot; n=&quot;3.0165&quot;/&gt; metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘sampatijāto, ānanda, bodhisatto samehi pādehi pathaviyaṃ patiṭṭhahitvā uttarābhimukho sattapadavītihārena gacchati, setamhi chatte anudhāriyamāne, sabbā ca disā viloketi, āsabhiñca vācaṃ bhāsati – aggohamasmi lokassa, jeṭṭhohamasmi lokassa, seṭṭhohamasmi lokassa. Ayamantimā jāti &lt;pb ed=&quot;V&quot; n=&quot;3.0166&quot;/&gt;, natthi dāni punabbhavo’ti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sammukhā metaṃ, bhante, bhagavato sutaṃ, sammukhā paṭiggahitaṃ – ‘yadā, ānanda, bodhisatto mātukucchimhā nikkhamati, atha sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yāpi tā lokantarikā aghā asaṃvutā andhakārā andhakāratimisā yatthapime candimasūriyā evaṃmahiddhikā evaṃmahānubhāvā ābhāya nānubhonti tatthapi &lt;pb ed=&quot;P&quot; n=&quot;3.0124&quot;/&gt; appamāṇo uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāvaṃ. Yepi tattha &lt;pb ed=&quot;T&quot; n=&quot;3.0254&quot;/&gt; sattā upapannā tepi tenobhāsena aññamaññaṃ sañjānanti – aññepi kira, bho, santi sattā idhūpapannāti. Ayañca dasasahassī lokadhātu saṅkampati sampakampati sampavedhati, appamāṇo ca uḷāro obhāso loke pātubhavati atikkammeva devānaṃ devānubhāva’nti. Yampi, bhante…pe… idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremī’’ti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0124&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0254&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">207. “Bhante, I have heard and learned this directly from the Blessed One&#039;s own lips: &#039;As soon as the <i>bodhisattva</i> was born, Ānanda, he stood firmly with both feet on the ground; then he took seven steps north, and with a white parasol held over him, he surveyed all directions, uttering the voice of a leader: “I am the highest in the world; I am the best in the world; I am the foremost in the world.”<br><br>This is my last birth; now there is no continuation of existence ( नत्थि दानि पुनब्भवोऽति ).’<br><br>Bhante, I remember this as a wonderful and marvelous quality of the Blessed One.<br><br>“Bhante, I have heard and learned this directly from the Blessed One&#039;s own lips: &#039;When the <i>bodhisattva</i> emerged from his mother’s womb ( mātukucchimhā nikkhamati ), then an immeasurable, splendid light appeared in the world with its gods, its Māras, and its Brahmās, in this generation with its ascetics and <i>brāhmaṇas</i>, with its princes and its people, surpassing the divine majesty of the gods ( devānaṃ devānubhāvaṃ ).<br><br>And even in those abysmal world interspaces of vacancy, gloom, and utter darkness, where the moon and the sun, mighty and powerful as they are, cannot make their light prevail - there too an immeasurable, splendid light appeared in the world surpassing the divine majesty of the gods ( devānaṃ devānubhāvaṃ ).<br><br>And those beings who have been reborn there recognise each other by this light and know: “Other beings, too, have been born here!”<br><br>And this ten-thousandfold world system shook and quaked and trembled ( ayañca dasasahassī lokadhātu saṅkampati sampakampati sampavedhati ), and an immeasurable, splendid light appeared in the world surpassing the divine majesty of the gods ( devānaṃ devānubhāvaṃ ).’<br><br>Bhante, I remember this as a wonderful and marvelous quality of the Blessed One.&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">208</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;208&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;208&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasmātiha tvaṃ, ānanda, idampi tathāgatassa acchariyaṃ abbhutadhammaṃ dhārehi. Idhānanda, tathāgatassa viditā vedanā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā saññā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā vitakkā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti. Idampi kho, tvaṃ, ānanda, tathāgatassa acchariyaṃ abbhutadhammaṃ dhārehī’’ti. ‘‘Yampi, bhante, bhagavato viditā vedanā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā saññā… viditā vitakkā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti. Idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca āyasmā ānando. Samanuñño satthā ahosi; attamanā ca te bhikkhū āyasmato ānandassa bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Acchariyaabbhutasuttaṃ niṭṭhitaṃ tatiyaṃ.</p>">&lt;p n=&quot;208&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;208&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tasmātiha tvaṃ, ānanda, idampi tathāgatassa acchariyaṃ abbhutadhammaṃ dhārehi. Idhānanda, tathāgatassa viditā vedanā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā saññā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā vitakkā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti. Idampi kho, tvaṃ, ānanda, tathāgatassa acchariyaṃ abbhutadhammaṃ dhārehī’’ti. ‘‘Yampi, bhante, bhagavato viditā vedanā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti; viditā saññā… viditā vitakkā uppajjanti, viditā upaṭṭhahanti, viditā abbhatthaṃ gacchanti. Idaṃpāhaṃ, bhante, bhagavato acchariyaṃ abbhutadhammaṃ dhāremī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca āyasmā ānando. Samanuñño satthā ahosi; attamanā ca te bhikkhū āyasmato ānandassa bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Acchariyaabbhutasuttaṃ niṭṭhitaṃ tatiyaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">208. “Therefore, Ānanda, remember this too as a wonderful and marvellous quality of the <i>Tathāgata</i>:<br><br>Here, Ānanda, for the <i>Tathāgata</i> feelings (<i>vedanā</i>) are known as they arise, known as they are present, known as they disappear; perceptions (<i>saṃjñā</i>) are known as they arise, known as they are present, known as they disappear; thoughts (<i>vitarka</i>) are known as they arise, known as they are present, known as they disappear.<br><br>Remember this too, Ānanda, as a wonderful and marvellous quality of the <i>Tathāgata</i>.”<br><br>“Venerable sir, since for the Blessed One feelings (<i>vedanā</i>) are known as they arise, as they are present, as they disappear; perceptions (<i>saṃjñā</i>)… thoughts (<i>vitarka</i>) are known as they arise, as they are present, as they disappear.<br><br>this too I remember as a wonderful and marvellous quality of the Blessed One.”<br><br>This is what Āyasmā Ānanda said.<br><br>The Teacher was in agreement; and those monks, being delighted, rejoiced at the words of Āyasmato Ānanda.<br><br>The Wonderful and Marvellous Discourse is concluded, the third.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn2_ānandabhaddekarattasuttaṃ.html" class="nav-btn">← Previous: Ānandabhaddekarattasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn3_kintisuttaṃ.html" class="nav-btn">Next: Kintisuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>
