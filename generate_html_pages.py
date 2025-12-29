@@ -6,7 +6,6 @@ Preserves user modifications to CSS/JS files
 """
 
 import json
-
 import os
 import re
 import shutil
