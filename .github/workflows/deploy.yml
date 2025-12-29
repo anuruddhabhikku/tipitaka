@@ -8,12 +8,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
+      - uses: actions/checkout@v4
+      
+      - name: Create html folder structure
+        run: |
+          # Create a temporary directory with html folder
+          mkdir -p deploy/html
+          # Copy all files to html folder
+          cp -r * deploy/html/ || true
+          cp -r .* deploy/html/ || true
+          
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./
           branch: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: deploy
+          clean: true
