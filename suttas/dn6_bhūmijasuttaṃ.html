@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Bhūmijasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Bhūmijasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 6</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn5_sunakkhattasuttaṃ.html" class="nav-btn">← Previous: Sunakkhattasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_chachakkasuttaṃ.html" class="nav-btn">Next: Chachakkasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">223</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;223&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;223&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0273&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0178&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0138&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Atha kho āyasmā bhūmijo pubbaṇhasamayaṃ nivāsetvā pattacīvaramādāya yena jayasenassa rājakumārassa nivesanaṃ tenupasaṅkami; upasaṅkamitvā paññatte āsane nisīdi. Atha kho jayaseno rājakumāro yenāyasmā bhūmijo tenupasaṅkami; upasaṅkamitvā āyasmatā bhūmijena saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho jayaseno rājakumāro āyasmantaṃ bhūmijaṃ etadavoca – ‘‘santi, bho bhūmija, eke samaṇabrāhmaṇā &lt;pb ed=&quot;M&quot; n=&quot;3.0178&quot;/&gt; evaṃvādino evaṃdiṭṭhino – ‘āsañcepi karitvā brahmacariyaṃ caranti, abhabbā &lt;note&gt;carati, abhabbo (sī. pī.) evamuparipi ekavacaneneva dissati&lt;/note&gt; phalassa adhigamāya; anāsañcepi &lt;note&gt;āsañca anāsañca cepi (aṭṭha.)&lt;/note&gt; karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāyā’ti. Idha bhoto bhūmijassa satthā kiṃvādī &lt;note&gt;kiṃvādī kiṃdiṭṭhī (syā. kaṃ. ka.)&lt;/note&gt; kimakkhāyī’’ti? ‘‘Na kho metaṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyya – ‘āsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya &lt;pb ed=&quot;T&quot; n=&quot;3.0274&quot;/&gt;; anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Āsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya &lt;pb ed=&quot;P&quot; n=&quot;3.0139&quot;/&gt;; anāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāyā’ti. Na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyyā’’ti. ‘‘Sace kho bhoto bhūmijassa satthā evaṃvādī &lt;note&gt;evaṃvādī evaṃdiṭṭhī (syā. kaṃ. ka.)&lt;/note&gt; evamakkhāyī, addhā bhoto bhūmijassa satthā sabbesaṃyeva puthusamaṇabrāhmaṇānaṃ muddhānaṃ &lt;note&gt;buddhānaṃ (ka.) muddhānantimuddhaṃ, matthakanti attho&lt;/note&gt; maññe āhacca tiṭṭhatī’’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0179&quot;/&gt;. Atha kho jayaseno rājakumāro āyasmantaṃ bhūmijaṃ sakeneva thālipākena parivisi.</p>">&lt;p n=&quot;223&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;223&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0273&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0178&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0138&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati veḷuvane kalandakanivāpe. Atha kho āyasmā bhūmijo pubbaṇhasamayaṃ nivāsetvā pattacīvaramādāya yena jayasenassa rājakumārassa nivesanaṃ tenupasaṅkami; upasaṅkamitvā paññatte āsane nisīdi. Atha kho jayaseno rājakumāro yenāyasmā bhūmijo tenupasaṅkami; upasaṅkamitvā āyasmatā bhūmijena saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho jayaseno rājakumāro āyasmantaṃ bhūmijaṃ etadavoca – ‘‘santi, bho bhūmija, eke samaṇabrāhmaṇā &lt;pb ed=&quot;M&quot; n=&quot;3.0178&quot;/&gt; evaṃvādino evaṃdiṭṭhino – ‘āsañcepi karitvā brahmacariyaṃ caranti, abhabbā &lt;note&gt;carati, abhabbo (sī. pī.) evamuparipi ekavacaneneva dissati&lt;/note&gt; phalassa adhigamāya; anāsañcepi &lt;note&gt;āsañca anāsañca cepi (aṭṭha.)&lt;/note&gt; karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāyā’ti. Idha bhoto bhūmijassa satthā kiṃvādī &lt;note&gt;kiṃvādī kiṃdiṭṭhī (syā. kaṃ. ka.)&lt;/note&gt; kimakkhāyī’’ti? ‘‘Na kho metaṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyya – ‘āsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya &lt;pb ed=&quot;T&quot; n=&quot;3.0274&quot;/&gt;; anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Āsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya &lt;pb ed=&quot;P&quot; n=&quot;3.0139&quot;/&gt;; anāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāyā’ti. Na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyyā’’ti. ‘‘Sace kho bhoto bhūmijassa satthā evaṃvādī &lt;note&gt;evaṃvādī evaṃdiṭṭhī (syā. kaṃ. ka.)&lt;/note&gt; evamakkhāyī, addhā bhoto bhūmijassa satthā sabbesaṃyeva puthusamaṇabrāhmaṇānaṃ muddhānaṃ &lt;note&gt;buddhānaṃ (ka.) muddhānantimuddhaṃ, matthakanti attho&lt;/note&gt; maññe āhacca tiṭṭhatī’’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0179&quot;/&gt;. Atha kho jayaseno rājakumāro āyasmantaṃ bhūmijaṃ sakeneva thālipākena parivisi.</p></div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was living at Rajagaha in the Bamboo Grove, the Squirrels’ Sanctuary.<br><br>Then, when it was morning, the venerable Bhumija dressed, and taking his bowl and outer robe, went to the house of Prince Jayasena and sat down on a seat made ready.<br><br>Then Prince Jayasena went to the venerable Bhumija and exchanged greetings with him.<br><br>When this courteous and amiable talk was finished, he sat down at one side.<br><br>Then Prince Jayasena, sitting to one side, said to the venerable Bhumija: “Master Bhumija, there are some recluses and Brahmins who make such assertions and hold such views as this: ‘If one makes an aspiration and one leads the holy life (brahmacariyaṃ), one is unable to procure any fruit; if one makes no aspiration and one leads the holy life, one is still unable to procure any fruit; if one both makes an aspiration and makes no aspiration and one leads the holy life, one is still unable to procure any fruit; if one neither makes an aspiration nor makes no aspiration and one leads the holy life, one is still unable to procure any fruit.’ What does Master Bhumija&#039;s teacher say, what does he proclaim in this matter?”<br><br>“I have not heard and learned that from the Blessed One’s own lips, prince. But it is possible that the Blessed One might say this: ‘If one makes an aspiration and one leads the holy life unwisely (ayoniso brahmacariyaṃ), one is unable to procure any fruit; if one makes no aspiration and one leads the holy life unwisely, one is still unable to procure any fruit; if one both makes an aspiration and makes no aspiration and one leads the holy life unwisely, one is still unable to procure any fruit; if one neither makes an aspiration nor makes no aspiration and one leads the holy life unwisely, one is still unable to procure any fruit. If one makes an aspiration and one leads the holy life wisely (yoniso brahmacariyaṃ), one is able to procure fruit; if one makes no aspiration and one leads the holy life wisely, one is still able to procure fruit; if one both makes an aspiration and makes no aspiration and one leads the holy life wisely, one is still able to procure fruit; if one neither makes an aspiration nor makes no aspiration and one leads the holy life wisely, one is still able to procure fruit.’ I have not heard and learned this from the Blessed One’s own lips, prince, but it is possible that the Blessed One would answer as I have stated.”<br><br>“If that is what Master Bhumija&#039;s teacher says, what he proclaims, then I think Master Bhumija&#039;s teacher stands accused above all other recluses and Brahmins.”<br><br>Then Prince Jayasena served the venerable Bhumija from his own dish of milk rice (thālipāka).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">224</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;224&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;224&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā bhūmijo pacchābhattaṃ piṇḍapātapaṭikkanto yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā bhūmijo bhagavantaṃ etadavoca – ‘‘idhāhaṃ, bhante, pubbaṇhasamayaṃ nivāsetvā pattacīvaramādāya yena jayasenassa rājakumārassa nivesanaṃ tenupasaṅkamiṃ; upasaṅkamitvā &lt;pb ed=&quot;T&quot; n=&quot;3.0275&quot;/&gt; paññatte &lt;pb ed=&quot;M&quot; n=&quot;3.0179&quot;/&gt; āsane nisīdiṃ. Atha kho, bhante, jayaseno rājakumāro yenāhaṃ tenupasaṅkami; upasaṅkamitvā mayā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho, bhante, jayaseno rājakumāro maṃ etadavoca – ‘santi, bho bhūmija, eke samaṇabrāhmaṇā evaṃvādino evaṃdiṭṭhino – āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi &lt;pb ed=&quot;T&quot; n=&quot;3.0276&quot;/&gt; karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāyā’ti. ‘Idha bhoto bhūmijassa satthā kiṃvādī kimakkhāyī’ti? Evaṃ vutte ahaṃ, bhante, jayasenaṃ rājakumāraṃ etadavocaṃ – ‘na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyya – āsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Āsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāyāti. Na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyyā’ti. ‘Sace bhoto bhūmijassa satthā evaṃvādī evamakkhāyī, addhā bhoto bhūmijassa satthā sabbesaṃyeva puthusamaṇabrāhmaṇānaṃ muddhānaṃ maññe āhacca tiṭṭhatī’ti. ‘Kaccāhaṃ, bhante, evaṃ puṭṭho evaṃ byākaramāno vuttavādī ceva bhagavato homi, na ca bhagavantaṃ abhūtena abbhācikkhāmi, dhammassa cānudhammaṃ byākaromi, na ca koci sahadhammiko vādānuvādo gārayhaṃ ṭhānaṃ āgacchatī’’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Taggha &lt;pb ed=&quot;V&quot; n=&quot;3.0180&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0140&quot;/&gt; tvaṃ, bhūmija, evaṃ puṭṭho evaṃ byākaramāno vuttavādī ceva me hosi, na ca maṃ abhūtena abbhācikkhasi, dhammassa cānudhammaṃ byākarosi, na ca koci sahadhammiko vādānuvādo gārayhaṃ ṭhānaṃ āgacchati. Ye hi keci, bhūmija, samaṇā vā brāhmaṇā vā micchādiṭṭhino micchāsaṅkappā micchāvācā &lt;pb ed=&quot;M&quot; n=&quot;3.0180&quot;/&gt; micchākammantā micchāājīvā micchāvāyāmā micchāsatī micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni &lt;pb ed=&quot;T&quot; n=&quot;3.0277&quot;/&gt; hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0180&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0140&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0180&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0277&quot;/&gt;">&lt;p n=&quot;224&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;224&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā bhūmijo pacchābhattaṃ piṇḍapātapaṭikkanto yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā bhūmijo bhagavantaṃ etadavoca – ‘‘idhāhaṃ, bhante, pubbaṇhasamayaṃ nivāsetvā pattacīvaramādāya yena jayasenassa rājakumārassa nivesanaṃ tenupasaṅkamiṃ; upasaṅkamitvā &lt;pb ed=&quot;T&quot; n=&quot;3.0275&quot;/&gt; paññatte &lt;pb ed=&quot;M&quot; n=&quot;3.0179&quot;/&gt; āsane nisīdiṃ. Atha kho, bhante, jayaseno rājakumāro yenāhaṃ tenupasaṅkami; upasaṅkamitvā mayā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho, bhante, jayaseno rājakumāro maṃ etadavoca – ‘santi, bho bhūmija, eke samaṇabrāhmaṇā evaṃvādino evaṃdiṭṭhino – āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi &lt;pb ed=&quot;T&quot; n=&quot;3.0276&quot;/&gt; karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāyā’ti. ‘Idha bhoto bhūmijassa satthā kiṃvādī kimakkhāyī’ti? Evaṃ vutte ahaṃ, bhante, jayasenaṃ rājakumāraṃ etadavocaṃ – ‘na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyya – āsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā ayoniso brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Āsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā yoniso brahmacariyaṃ caranti, bhabbā phalassa adhigamāyāti. Na kho me taṃ, rājakumāra, bhagavato sammukhā sutaṃ, sammukhā paṭiggahitaṃ. Ṭhānañca kho etaṃ vijjati yaṃ bhagavā evaṃ byākareyyā’ti. ‘Sace bhoto bhūmijassa satthā evaṃvādī evamakkhāyī, addhā bhoto bhūmijassa satthā sabbesaṃyeva puthusamaṇabrāhmaṇānaṃ muddhānaṃ maññe āhacca tiṭṭhatī’ti. ‘Kaccāhaṃ, bhante, evaṃ puṭṭho evaṃ byākaramāno vuttavādī ceva bhagavato homi, na ca bhagavantaṃ abhūtena abbhācikkhāmi, dhammassa cānudhammaṃ byākaromi, na ca koci sahadhammiko vādānuvādo gārayhaṃ ṭhānaṃ āgacchatī’’’ti?</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Taggha &lt;pb ed=&quot;V&quot; n=&quot;3.0180&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0140&quot;/&gt; tvaṃ, bhūmija, evaṃ puṭṭho evaṃ byākaramāno vuttavādī ceva me hosi, na ca maṃ abhūtena abbhācikkhasi, dhammassa cānudhammaṃ byākarosi, na ca koci sahadhammiko vādānuvādo gārayhaṃ ṭhānaṃ āgacchati. Ye hi keci, bhūmija, samaṇā vā brāhmaṇā vā micchādiṭṭhino micchāsaṅkappā micchāvācā &lt;pb ed=&quot;M&quot; n=&quot;3.0180&quot;/&gt; micchākammantā micchāājīvā micchāvāyāmā micchāsatī micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni &lt;pb ed=&quot;T&quot; n=&quot;3.0277&quot;/&gt; hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0180&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0140&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0180&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0277&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Then, venerable Bhumija, having returned from his alms round after his meal, approached the Blessed One. Having approached, paid homage to the Blessed One and sat down to one side.<br><br>Seated to one side, venerable Bhumija told the Blessed One: &quot;Here, venerable sir, having dressed in the morning, taking my bowl and robe, I approached Jayasena the prince&#039;s dwelling. Having approached, I sat down on the seat that was arranged.<br><br>Then, venerable sir, Jayasena the prince approached me; having approached, he exchanged greetings with me.<br><br>Having concluded the courteous and amiable talk, he sat down to one side.<br><br>Seated to one side, venerable sir, Jayasena the prince told me: &#039;Master Bhumija, there are some ascetics and <i>brāhmaṇas</i> who assert such views as this: &quot;If one makes an aspiration and leads the holy life (<i>brahmacariya</i>), one is unable to procure any fruit; if one makes no aspiration… if one both makes an aspiration and makes no aspiration and leads the holy life (<i>brahmacariya</i>), one is unable to procure any fruit; if one neither makes an aspiration nor makes no aspiration and leads the holy life (<i>brahmacariya</i>), one is unable to procure any fruit.&quot;<br><br>&quot;What does Master Bhumija&#039;s teacher say and declare in this regard?&quot; When this was said, venerable sir, I told Jayasena the prince: &quot;Prince, I have not heard and learned this from the Blessed One&#039;s own lips.<br><br>But it is possible that the Blessed One might say this: &quot;If one makes an aspiration and one leads the holy life (<i>brahmacariya</i>) unwisely, one is unable to procure any fruit; if one makes no aspiration and one leads the holy life (<i>brahmacariya</i>) unwisely, one is unable to procure any fruit; if one both makes an aspiration and makes no aspiration and one leads the holy life (<i>brahmacariya</i>) unwisely, one is unable to procure any fruit; if one neither makes an aspiration nor makes no aspiration and one leads the holy life (<i>brahmacariya</i>) unwisely, one is unable to procure any fruit.<br><br>However, if one makes an aspiration and one leads the holy life (<i>brahmacariya</i>) wisely, one is able to procure fruit; if one makes no aspiration… if one both makes an aspiration and makes no aspiration… if one neither makes an aspiration nor makes no aspiration and one leads the holy life (<i>brahmacariya</i>) wisely, one is able to procure fruit.&quot;<br><br>Prince, I have not heard and learned this from the Blessed One&#039;s own lips.<br><br>But it is possible that the Blessed One would answer as I have stated.&#039;<br><br>&#039;If Master Bhumija&#039;s teacher speaks thus, if he declares thus, then it certainly seems that venerable Bhumija&#039;s teacher stands ahead of all the ordinary ascetics and <i>brāhmaṇas</i>.&#039;<br><br>&#039;Venerable sir, when asked such a question and answering thus, am I a speaker of what the Blessed One has said, and not misrepresenting the Blessed One with what is contrary to fact, explaining in accordance with the <i>dharma</i> (<i>dhamma</i>) in such a way that nothing which provides a ground for censure can be legitimately deduced from my assertion?&#039;&quot;<br><br>&quot;Surely, Bhumija, when you were asked such a question and answered thus, you said what has been said by me and did not misrepresent me with what is contrary to fact. You explained in accordance with the <i>dharma</i> (<i>dhamma</i>) in such a way that nothing which provides a ground for censure can be legitimately deduced from your assertion.<br><br>Whatever ascetics or <i>brāhmaṇas</i>, Bhumija, have wrong view, wrong intention, wrong speech, wrong action, wrong livelihood, wrong effort, wrong mindfulness, and wrong concentration, if they make an aspiration and they lead the holy life (<i>brahmacariya</i>), they are unable to procure any fruit; if they make no aspiration and they lead the holy life (<i>brahmacariya</i>), they are unable to procure any fruit; if they both make an aspiration and make no aspiration and they lead the holy life (<i>brahmacariya</i>), they are unable to procure any fruit; if they neither make an aspiration nor make no aspiration and they lead the holy life (<i>brahmacariya</i>), they are unable to procure any fruit.<br><br>What is the reason for that? Because that wrong path is not a proper method for procuring fruit.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">225</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;225&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;225&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso telatthiko telagavesī telapariyesanaṃ caramāno vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya. Āsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; anāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; āsañca anāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; nevāsaṃ nānāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, telassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino micchāsaṅkappā micchāvācā micchākammantā micchāājīvā micchāvāyāmā micchāsatī micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0141&quot;/&gt; kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi &lt;pb ed=&quot;T&quot; n=&quot;3.0278&quot;/&gt;, bhūmija, puriso khīratthiko khīragavesī khīrapariyesanaṃ caramāno gāviṃ taruṇavacchaṃ visāṇato āviñcheyya &lt;pb ed=&quot;V&quot; n=&quot;3.0181&quot;/&gt;&lt;note&gt;āviñjeyya (sī. syā. kaṃ. pī.)&lt;/note&gt;. Āsañcepi karitvā gāviṃ taruṇavacchaṃ visāṇato āviñcheyya, abhabbo khīrassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0181&quot;/&gt; nānāsañcepi karitvā gāviṃ taruṇavacchaṃ visāṇato āviñcheyya, abhabbo khīrassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, khīrassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0278&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0181&quot;/&gt; &lt;note&gt;āviñjeyya (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0181&quot;/&gt;">&lt;p n=&quot;225&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;225&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso telatthiko telagavesī telapariyesanaṃ caramāno vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya. Āsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; anāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; āsañca anāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya; nevāsaṃ nānāsañcepi karitvā vālikaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, abhabbo telassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, telassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino micchāsaṅkappā micchāvācā micchākammantā micchāājīvā micchāvāyāmā micchāsatī micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0141&quot;/&gt; kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi &lt;pb ed=&quot;T&quot; n=&quot;3.0278&quot;/&gt;, bhūmija, puriso khīratthiko khīragavesī khīrapariyesanaṃ caramāno gāviṃ taruṇavacchaṃ visāṇato āviñcheyya &lt;pb ed=&quot;V&quot; n=&quot;3.0181&quot;/&gt;&lt;note&gt;āviñjeyya (sī. syā. kaṃ. pī.)&lt;/note&gt;. Āsañcepi karitvā gāviṃ taruṇavacchaṃ visāṇato āviñcheyya, abhabbo khīrassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0181&quot;/&gt; nānāsañcepi karitvā gāviṃ taruṇavacchaṃ visāṇato āviñcheyya, abhabbo khīrassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, khīrassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0278&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0181&quot;/&gt; &lt;note&gt;āviñjeyya (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0181&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">225. “Suppose, Bhūmija, a man needing oil (<i>telatthiko</i>), seeking oil (<i>telagavesī</i>), wandering in search of oil (<i>telapariyesanaṃ caramāno</i>), were to heap up gravel (<i>vālikā</i>) in a tub (<i>doṇiyā ākiritvā</i>), sprinkle it all over with water (<i>udakena paripphosakaṃ paripphosakaṃ pīḷeyya</i>). If he made an aspiration (<i>āsañcepi karitvā</i>) and acted thus, he would be unable to procure any oil; if he made no aspiration (<i>anāsañcepi karitvā</i>) and acted thus, he would still be unable to procure any oil; if he both made an aspiration and made no aspiration (<i>āsañca anāsañcepi karitvā</i>) and acted thus, he would still be unable to procure any oil; if he neither made an aspiration nor made no aspiration (<i>nevāsaṃ nānāsañcepi karitvā</i>) and acted thus, he would still be unable to procure any oil. What is the reason? It is the wrong method (<i>ayoni hesā</i>) for procuring oil, Bhūmija. So too, Bhūmija, whatever recluses (<i>samaṇā</i>) and brahmins (<i>brāhmaṇā</i>) have wrong view (<i>micchādiṭṭhino</i>), wrong intention (<i>micchāsaṅkappā</i>), wrong speech (<i>micchāvācā</i>), wrong action (<i>micchākammantā</i>), wrong livelihood (<i>micchāājīvā</i>), wrong effort (<i>micchāvāyāmā</i>), wrong mindfulness (<i>micchāsatī</i>), and wrong concentration (<i>micchāsamādhino</i>), if they make an aspiration (<i>āsañcepi karitvā</i>) and they lead the holy life (<i>brahmacariyaṃ caranti</i>), they are unable to procure any fruit (<i>phalassa adhigamāya</i>); if they make no aspiration (<i>anāsañcepi karitvā</i>) and they lead the holy life, they are still unable to procure any fruit; if they both make an aspiration and make no aspiration (<i>āsañca anāsañcepi karitvā</i>) and they lead the holy life, they are still unable to procure any fruit; if they neither make an aspiration nor make no aspiration (<i>nevāsaṃ nānāsañcepi karitvā</i>) and they lead the holy life, they are still unable to procure any fruit. What is the reason? It is the wrong method (<i>ayoni hesā</i>), Bhūmija, for procuring fruit.&quot;<br><br>&quot;Suppose, Bhūmija, a man needing milk (<i>khīratthiko</i>), seeking milk (<i>khīragavesī</i>), wandering in search of milk (<i>khīrapariyesanaṃ caramāno</i>), were to pull a recently-calved cow (<i>gāviṃ taruṇavacchaṃ</i>) by her horns (<i>visāṇato āviñcheyya</i>). If he made an aspiration and acted thus, he would be unable to procure any milk; if he made no aspiration… if he both made an aspiration and made no aspiration… if he neither made an aspiration nor made no aspiration and acted thus, he would still be unable to procure any milk. What is the reason? It is the wrong method (<i>ayoni hesā</i>), Bhūmija, for procuring milk. So too, Bhūmija, whatever recluses and brahmins have wrong view… wrong concentration, if they make an aspiration and they lead the holy life, they are unable to procure any fruit; if they make no aspiration… if they both make an aspiration and make no aspiration… if they neither make an aspiration nor make no aspiration and lead the holy life, they are still unable to procure any fruit. What is the reason? It is the wrong method (<i>ayoni hesā</i>), Bhūmija, for procuring fruit.&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">226</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;226&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;226&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso navanītatthiko navanītagavesī navanītapariyesanaṃ caramāno udakaṃ kalase āsiñcitvā matthena &lt;note&gt;manthena (sī.), mattena (ka.)&lt;/note&gt; āviñcheyya. Āsañcepi karitvā udakaṃ kalase āsiñcitvā matthena āviñcheyya, abhabbo navanītassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā udakaṃ kalase āsiñcitvā matthena āviñcheyya, abhabbo navanītassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, navanītassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā &lt;pb ed=&quot;T&quot; n=&quot;3.0279&quot;/&gt; phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso aggitthiko &lt;note&gt;aggatthiko (sī.)&lt;/note&gt; aggigavesī aggipariyesanaṃ caramāno allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0142&quot;/&gt; ādāya abhimantheyya &lt;note&gt;abhimattheyya (syā. kaṃ. pī. ka.)&lt;/note&gt;. Āsañcepi karitvā allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ ādāya abhimantheyya, abhabbo aggissa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ ādāya abhimantheyya, abhabbo aggissa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, aggissa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā &lt;pb ed=&quot;M&quot; n=&quot;3.0182&quot;/&gt; micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā &lt;pb ed=&quot;V&quot; n=&quot;3.0182&quot;/&gt; brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe…āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya. Ye hi keci, bhūmija, samaṇā vā brāhmaṇā vā sammādiṭṭhino sammāsaṅkappā sammāvācā sammākammantā sammāājīvā sammāvāyāmā sammāsatī sammāsamādhino te āsañcepi karitvā brahmacariyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0280&quot;/&gt; caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;note&gt;aggatthiko (sī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0142&quot;/&gt; &lt;note&gt;abhimattheyya (syā. kaṃ. pī. ka.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0182&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0182&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0280&quot;/&gt;">&lt;p n=&quot;226&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;226&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso navanītatthiko navanītagavesī navanītapariyesanaṃ caramāno udakaṃ kalase āsiñcitvā matthena &lt;note&gt;manthena (sī.), mattena (ka.)&lt;/note&gt; āviñcheyya. Āsañcepi karitvā udakaṃ kalase āsiñcitvā matthena āviñcheyya, abhabbo navanītassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā udakaṃ kalase āsiñcitvā matthena āviñcheyya, abhabbo navanītassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, navanītassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, abhabbā &lt;pb ed=&quot;T&quot; n=&quot;3.0279&quot;/&gt; phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso aggitthiko &lt;note&gt;aggatthiko (sī.)&lt;/note&gt; aggigavesī aggipariyesanaṃ caramāno allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0142&quot;/&gt; ādāya abhimantheyya &lt;note&gt;abhimattheyya (syā. kaṃ. pī. ka.)&lt;/note&gt;. Āsañcepi karitvā allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ ādāya abhimantheyya, abhabbo aggissa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā allaṃ kaṭṭhaṃ sasnehaṃ uttarāraṇiṃ ādāya abhimantheyya, abhabbo aggissa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, aggissa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā &lt;pb ed=&quot;M&quot; n=&quot;3.0182&quot;/&gt; micchādiṭṭhino…pe… micchāsamādhino te āsañcepi karitvā &lt;pb ed=&quot;V&quot; n=&quot;3.0182&quot;/&gt; brahmacariyaṃ caranti, abhabbā phalassa adhigamāya; anāsañcepi karitvā…pe…āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, abhabbā phalassa adhigamāya. Taṃ kissa hetu? Ayoni hesā, bhūmija, phalassa adhigamāya. Ye hi keci, bhūmija, samaṇā vā brāhmaṇā vā sammādiṭṭhino sammāsaṅkappā sammāvācā sammākammantā sammāājīvā sammāvāyāmā sammāsatī sammāsamādhino te āsañcepi karitvā brahmacariyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0280&quot;/&gt; caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;note&gt;aggatthiko (sī.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0142&quot;/&gt; &lt;note&gt;abhimattheyya (syā. kaṃ. pī. ka.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0182&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0182&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0280&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">226. “Suppose, Bhūmija, a man needing butter (navanīta), seeking butter, wandering in search of butter, were to pour water into a churn (kalasa) and churn it with a churning-stick (mattha).<br>Then, if he made an aspiration and poured water into a churn and churned it with a churning stick, he would still be unable to procure any butter; if he made no aspiration…and so on…if he both made an aspiration and made no aspiration…and so on…if he neither made an aspiration nor made no aspiration and acted thus, he would still be unable to procure any butter.<br>What is the reason for that? It is because it is unwise, Bhūmija, to try and procure butter in that way.<br>So too, Bhūmija, whatever recluses (<i>śramaṇa</i>) and Brahmins (<i>brāhmaṇa</i>) have wrong view…and so on… wrong concentration (<i>micchāsamādhino</i>), if they make an aspiration and they lead the holy life (brahmacariya), they are unable to procure any fruit (phala); if they make no aspiration…and so on…if they both make an aspiration and make no aspiration…and so on…if they neither make an aspiration nor make no aspiration and lead the holy life, they are still unable to procure any fruit.<br>What is the reason for that? It is because it is unwise, Bhūmija, to try and procure fruit in that way.<br><br>“Suppose, Bhūmija, a man needing fire (agni), seeking fire, wandering in search of fire, were to take an upper fire-stick (<i>uttarāraṇi</i>) and rub a dry sapless piece of wood with it.<br>Then, if he made an aspiration and took a damp piece of wood and an upper fire-stick and rubbed them together, he would still be unable to procure any fire; if he made no aspiration…and so on…if he both made an aspiration and made no aspiration…and so on…if he neither made an aspiration nor made no aspiration and acted thus, he would still be unable to procure any fire.<br>What is the reason for that? It is because it is unwise, Bhūmija, to try and procure fire in that way.<br>So too, Bhūmija, whatever recluses and Brahmins have wrong view…and so on… wrong concentration, if they make an aspiration and they lead the holy life, they are unable to procure any fruit; if they make no aspiration…and so on…if they both make an aspiration and make no aspiration…and so on…if they neither make an aspiration nor make no aspiration and lead the holy life, they are still unable to procure any fruit.<br>What is the reason for that? It is because it is unwise, Bhūmija, to try and procure fruit in that way.<br>Whatever recluses and Brahmins have right view (sammādiṭṭhino), right intention (sammāsaṅkappā), right speech (sammāvācā), right action (sammākammantā), right livelihood (sammāājīvā), right effort (sammāvāyāmā), right mindfulness (sammāsatī), and right concentration (sammāsamādhino), if they make an aspiration and they lead the holy life, they are able to procure fruit; if they make no aspiration and they lead the holy life, they are still able to procure fruit; if they both make an aspiration and make no aspiration and they lead the holy life, they are still able to procure fruit; if they neither make an aspiration nor make no aspiration and they lead the holy life, they are still able to procure fruit.<br>What is the reason for that? It is because it is wise, Bhūmija, to try and procure fruit in that way.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">227</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;227&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;227&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso telatthiko telagavesī telapariyesanaṃ caramāno tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya. Āsañcepi karitvā tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, bhabbo telassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, bhabbo telassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, telassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā &lt;pb ed=&quot;P&quot; n=&quot;3.0143&quot;/&gt; phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso khīratthiko khīragavesī khīrapariyesanaṃ caramāno &lt;pb ed=&quot;T&quot; n=&quot;3.0281&quot;/&gt; gāviṃ taruṇavacchaṃ thanato āviñcheyya. Āsañcepi karitvā gāviṃ taruṇavacchaṃ thanato āviñcheyya, bhabbo khīrassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā gāviṃ taruṇavacchaṃ thanato āviñcheyya, bhabbo khīrassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, khīrassa &lt;pb ed=&quot;V&quot; n=&quot;3.0183&quot;/&gt; adhigamāya. Evameva &lt;pb ed=&quot;M&quot; n=&quot;3.0183&quot;/&gt; kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā…pe… anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0281&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0183&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0183&quot;/&gt;">&lt;p n=&quot;227&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;227&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso telatthiko telagavesī telapariyesanaṃ caramāno tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya. Āsañcepi karitvā tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, bhabbo telassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā tilapiṭṭhaṃ doṇiyā ākiritvā udakena paripphosakaṃ paripphosakaṃ pīḷeyya, bhabbo telassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, telassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā &lt;pb ed=&quot;P&quot; n=&quot;3.0143&quot;/&gt; phalassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso khīratthiko khīragavesī khīrapariyesanaṃ caramāno &lt;pb ed=&quot;T&quot; n=&quot;3.0281&quot;/&gt; gāviṃ taruṇavacchaṃ thanato āviñcheyya. Āsañcepi karitvā gāviṃ taruṇavacchaṃ thanato āviñcheyya, bhabbo khīrassa adhigamāya; anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā gāviṃ taruṇavacchaṃ thanato āviñcheyya, bhabbo khīrassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, khīrassa &lt;pb ed=&quot;V&quot; n=&quot;3.0183&quot;/&gt; adhigamāya. Evameva &lt;pb ed=&quot;M&quot; n=&quot;3.0183&quot;/&gt; kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā…pe… anāsañcepi karitvā…pe… āsañca anāsañcepi karitvā…pe… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0281&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0183&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0183&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Suppose, Bhūmija, a man needing oil, seeking oil, wandering in search of oil, were to heap up sesamum flour in a tub, sprinkle it all over with water, and press it. If he made an aspiration and acted thus, he would be able to procure oil; if he made no aspiration…if he both made an aspiration and made no aspiration…if he neither made an aspiration nor made no aspiration and acted thus, he would still be able to procure oil. Why is that? Because, Bhūmija, that is the means to procuring oil. So too, Bhūmija, whatever recluses and <i>brāhmaṇas</i> have right view…right concentration, if they make an aspiration and live the holy life, they are able to procure fruit; if they make no aspiration…if they both make an aspiration and make no aspiration…if they neither make an aspiration nor make no aspiration and live the holy life, they are still able to procure fruit. Why is that? Because, Bhūmija, that is the means to procuring fruit.<br><br>“Suppose, Bhūmija, a man needing milk, seeking milk, wandering in search of milk, were to pull a recently-calved cow by her udder. If he made an aspiration and acted thus, he would be able to procure milk; if he made no aspiration…if he both made an aspiration and made no aspiration…if he neither made an aspiration nor made no aspiration and acted thus, he would still be able to procure milk. Why is that? Because, Bhūmija, that is the means to procuring milk. So too, Bhūmija, whatever recluses and <i>brāhmaṇas</i> have right view…right concentration, if they make an aspiration…if they make no aspiration…if they both make an aspiration and make no aspiration…if they neither make an aspiration nor make no aspiration and live the <i>brahmacariya</i>, they are able to procure fruit. Why is that? Because, Bhūmija, that is the means to procuring fruit.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">228</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;228&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;228&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso navanītatthiko navanītagavesī navanītapariyesanaṃ caramāno dadhiṃ kalase āsiñcitvā matthena āviñcheyya. Āsañcepi karitvā dadhiṃ kalase āsiñcitvā matthena āviñcheyya, bhabbo navanītassa adhigamāya; anāsañcepi karitvā… āsañca anāsañcepi karitvā… nevāsaṃ nānāsañcepi karitvā dadhiṃ kalase āsiñcitvā matthena āviñcheyya, bhabbo navanītassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, navanītassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā… āsañca anāsañcepi karitvā &lt;pb ed=&quot;T&quot; n=&quot;3.0282&quot;/&gt;… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso aggitthiko aggigavesī aggipariyesanaṃ caramāno sukkhaṃ kaṭṭhaṃ koḷāpaṃ uttarāraṇiṃ ādāya abhimantheyya; ( ) &lt;note&gt;(bhabbo aggissa adhigamāya) (sabbattha)&lt;/note&gt; āsañcepi karitvā… anāsañcepi &lt;pb ed=&quot;P&quot; n=&quot;3.0144&quot;/&gt; karitvā.. āsañca anāsañcepi karitvā… nevāsaṃ nānāsañcepi karitvā sukkha kaṭṭhaṃ koḷāpaṃ uttarāraṇiṃ ādāya abhimantheyya, bhabbo aggissa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, aggissa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;note&gt;(bhabbo aggissa adhigamāya) (sabbattha)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0144&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sace &lt;pb ed=&quot;M&quot; n=&quot;3.0184&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0184&quot;/&gt; kho taṃ, bhūmija, jayasenassa rājakumārassa imā catasso upamā paṭibhāyeyyuṃ anacchariyaṃ te jayaseno rājakumāro pasīdeyya, pasanno ca te pasannākāraṃ kareyyā’’ti. ‘‘Kuto pana maṃ, bhante, jayasenassa &lt;pb ed=&quot;T&quot; n=&quot;3.0283&quot;/&gt; rājakumārassa imā catasso upamā paṭibhāyissanti anacchariyā pubbe assutapubbā, seyyathāpi bhagavanta’’nti?</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0184&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0184&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0283&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā bhūmijo bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Bhūmijasuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p>">&lt;p n=&quot;228&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;228&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Seyyathāpi, bhūmija, puriso navanītatthiko navanītagavesī navanītapariyesanaṃ caramāno dadhiṃ kalase āsiñcitvā matthena āviñcheyya. Āsañcepi karitvā dadhiṃ kalase āsiñcitvā matthena āviñcheyya, bhabbo navanītassa adhigamāya; anāsañcepi karitvā… āsañca anāsañcepi karitvā… nevāsaṃ nānāsañcepi karitvā dadhiṃ kalase āsiñcitvā matthena āviñcheyya, bhabbo navanītassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, navanītassa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā… āsañca anāsañcepi karitvā &lt;pb ed=&quot;T&quot; n=&quot;3.0282&quot;/&gt;… nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Seyyathāpi, bhūmija, puriso aggitthiko aggigavesī aggipariyesanaṃ caramāno sukkhaṃ kaṭṭhaṃ koḷāpaṃ uttarāraṇiṃ ādāya abhimantheyya; ( ) &lt;note&gt;(bhabbo aggissa adhigamāya) (sabbattha)&lt;/note&gt; āsañcepi karitvā… anāsañcepi &lt;pb ed=&quot;P&quot; n=&quot;3.0144&quot;/&gt; karitvā.. āsañca anāsañcepi karitvā… nevāsaṃ nānāsañcepi karitvā sukkha kaṭṭhaṃ koḷāpaṃ uttarāraṇiṃ ādāya abhimantheyya, bhabbo aggissa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, aggissa adhigamāya. Evameva kho, bhūmija, ye hi keci samaṇā vā brāhmaṇā vā sammādiṭṭhino…pe… sammāsamādhino te āsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; āsañca anāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya; nevāsaṃ nānāsañcepi karitvā brahmacariyaṃ caranti, bhabbā phalassa adhigamāya. Taṃ kissa hetu? Yoni hesā, bhūmija, phalassa adhigamāya.</p> &lt;note&gt;(bhabbo aggissa adhigamāya) (sabbattha)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0144&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sace &lt;pb ed=&quot;M&quot; n=&quot;3.0184&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0184&quot;/&gt; kho taṃ, bhūmija, jayasenassa rājakumārassa imā catasso upamā paṭibhāyeyyuṃ anacchariyaṃ te jayaseno rājakumāro pasīdeyya, pasanno ca te pasannākāraṃ kareyyā’’ti. ‘‘Kuto pana maṃ, bhante, jayasenassa &lt;pb ed=&quot;T&quot; n=&quot;3.0283&quot;/&gt; rājakumārassa imā catasso upamā paṭibhāyissanti anacchariyā pubbe assutapubbā, seyyathāpi bhagavanta’’nti?</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0184&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0184&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0283&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā bhūmijo bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Bhūmijasuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">228. “Suppose, Bhūmija, a man needing butter ( <i>navanīta</i>), seeking butter, wandering in search of butter, were to pour curd (<i>dadhi</i>) into a churn and churn it with a churning-stick (<i>mattha</i>).<br><br>Then, if he made an aspiration and poured curd into a churn and churned it with a churning-stick, he would be able to procure butter (<i>navanīta</i>); if he made no aspiration…if he both made an aspiration and made no aspiration… if he neither made an aspiration nor made no aspiration and acted thus, he would still be able to procure butter.<br><br>Why so? Because it is the source, Bhūmija, for the attainment of butter.<br><br>So too, Bhūmija, whatever recluses (<i>śamaṇa</i>) and Brahmins (<i>brāhmaṇa</i>) have right view … right concentration (<i>sammāsamādhi</i>), if they make an aspiration and they lead the holy life ( <i>brahmacariya</i>), they are able to procure fruit (<i>phala</i>); if they make no aspiration…if they both make an aspiration and make no aspiration…<br><br>…if they neither make an aspiration nor make no aspiration and lead the holy life, they are still able to procure fruit.<br><br>Why so? Because it is the source, Bhūmija, for the attainment of fruit.<br><br>“Suppose, Bhūmija, a man needing fire (<i>aggi</i>), seeking fire, wandering in search of fire, were to take dry wood (<i>śuṣkaṃ kāṣṭhaṃ</i>), a tinder, and an upper fire-stick (<i>uttarāraṇi</i>) and rub them together; () Note: (he would be able to procure fire) (everywhere) if he made an aspiration…if he made no aspiration…<br><br>…if he both made an aspiration and made no aspiration… if he neither made an aspiration nor made no aspiration and took dry wood, a tinder, and an upper fire-stick and rubbed them together, he would be able to procure fire.<br><br>Why so? Because it is the source, Bhūmija, for the attainment of fire.<br><br>So too, Bhūmija, whatever recluses and Brahmins have right view … right concentration, if they make an aspiration and they lead the holy life, they are able to procure fruit; if they make no aspiration and they lead the holy life, they are still able to procure fruit; if they both make an aspiration and make no aspiration and they lead the holy life, they are still able to procure fruit; if they neither make an aspiration nor make no aspiration and they lead the holy life, they are still able to procure fruit.<br><br>Why so? Because it is the source, Bhūmija, for the attainment of fruit.<br><br>Note: (he would be able to procure fire) (everywhere)<br><br>“Bhūmija, if these four similes had occurred to you with reference to Prince Jayasena, he would have spontaneously acquired confidence in you, and being confident, would have shown his confidence to you.”<br><br>“But how could these four similes, unheard of before and beyond expectation, have occurred to me with reference to Prince Jayasena, reverend Sir, as they have to the Blessed One?”<br><br>Thus spoke the Lord.<br><br>The venerable Bhūmija was satisfied and delighted in the Blessed One’s words.<br><br>The Bhūmijasutta, the sixth, is ended.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn5_sunakkhattasuttaṃ.html" class="nav-btn">← Previous: Sunakkhattasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_chachakkasuttaṃ.html" class="nav-btn">Next: Chachakkasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Sevitabbāsevitabbasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Sevitabbāsevitabbasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 4</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn4_nandakovādasuttaṃ.html" class="nav-btn">← Previous: Nandakovādasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn4_sāmagāmasuttaṃ.html" class="nav-btn">Next: Sāmagāmasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">109</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;109&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;109&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0145&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0094&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘sevitabbāsevitabbaṃ vo, bhikkhave, dhammapariyāyaṃ desessāmi. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kāyasamācāraṃpāhaṃ &lt;note&gt;pahaṃ (sabbattha)&lt;/note&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāraṃ. Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāraṃ. Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāraṃ. Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0046&quot;/&gt; cittuppādaṃ. Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;M&quot; n=&quot;3.0094&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābhaṃ. Diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābhaṃ. Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’’nti.</p> &lt;note&gt;pahaṃ (sabbattha)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0046&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0094&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0146&quot;/&gt; vutte āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0146&quot;/&gt;">&lt;p n=&quot;109&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;109&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0145&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0094&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘sevitabbāsevitabbaṃ vo, bhikkhave, dhammapariyāyaṃ desessāmi. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kāyasamācāraṃpāhaṃ &lt;note&gt;pahaṃ (sabbattha)&lt;/note&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāraṃ. Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāraṃ. Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāraṃ. Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0046&quot;/&gt; cittuppādaṃ. Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;M&quot; n=&quot;3.0094&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābhaṃ. Diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābhaṃ. Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’’nti.</p> &lt;note&gt;pahaṃ (sabbattha)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0046&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0094&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0146&quot;/&gt; vutte āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0146&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was dwelling at Anāthapindika’s monastery, in the Jeta Grove, near Sāvatthi.<br><br>There the Fortunate One addressed the monks (saying): “Monks!”<br><br>“Venerable sir,” those bhikkhus replied to the Fortunate One.<br><br>The Fortunate One said this: “Bhikkhus, I shall teach you a discourse on what should be cultivated and what should not be cultivated.<br><br>Listen &amp; pay close attention. I will speak.”<br><br>‘Yes, Lord’, said the monks,<br><br>The Blessed One said this:<br><br>“Monks, I say that bodily conduct is of two kinds: to be cultivated and not to be cultivated; and bodily conduct is either the one or the other.<br><br>Monks, I say that verbal conduct is of two kinds: to be cultivated and not to be cultivated; and verbal conduct is either the one or the other.<br><br>Monks, I say that mental conduct is of two kinds: to be cultivated and not to be cultivated; and mental conduct is either the one or the other.<br><br>Monks, I say that inclination of mind is of two kinds: to be cultivated and not to be cultivated; and inclination of mind is either the one or the other.<br><br>Monks, I say that the acquisition of perception (<i>saṃjñāpratilambha</i>) is of two kinds: to be cultivated and not to be cultivated; and the acquisition of perception is either the one or the other.<br><br>Monks, I say that the acquisition of view is of two kinds: to be cultivated and not to be cultivated. And the acquisition of view is either the one or the other.<br><br>Monks, I say that the acquisition of individuality is of two kinds: to be cultivated and not to be cultivated. And the acquisition of individuality is either the one or the other.”<br><br>When this was said, the venerable Sāriputta said to the Blessed One: “Venerable sir, I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus:</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">110</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;110&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;110&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0095&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti, evarūpo kāyasamācāro na sevitabbo; yathārūpañca kho, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti, evarūpo kāyasamācāro sevitabbo.</p>">&lt;p n=&quot;110&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;110&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0095&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti, evarūpo kāyasamācāro na sevitabbo; yathārūpañca kho, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti, evarūpo kāyasamācāro sevitabbo.</p></div>
+                
+                <div class="translation-text mula-english-section">“Bhikkhus, bodily conduct is of two kinds, I say: to be cultivated and not to be cultivated. And bodily conduct is either the one or the other.” So it was said by the Blessed One.<br><br>With reference to what was this said? “Venerable sir, such bodily conduct (<i>kāyasamācāra</i>) as causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish in one who cultivates it should not be cultivated. But such bodily conduct as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">111</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;111&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;111&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco pāṇātipātī hoti luddo lohitapāṇi hatappahate niviṭṭho adayāpanno pāṇabhūtesu; adinnādāyī kho pana hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ adinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācārī kho pana hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu cārittaṃ āpajjitā hoti – evarūpaṃ, bhante, kāyasamācāraṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0047&quot;/&gt; sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0147&quot;/&gt;, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco pāṇātipātaṃ pahāya pāṇātipātā paṭivirato hoti nihitadaṇḍo nihitasattho, lajjī dayāpanno sabbapāṇabhūtahitānukampī viharati; adinnādānaṃ pahāya adinnādānā paṭivirato hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0095&quot;/&gt; gāmagataṃ vā araññagataṃ vā taṃ nādinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācāraṃ pahāya kāmesumicchācārā paṭivirato hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu na cārittaṃ āpajjitā hoti – evarūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0147&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0095&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0096&quot;/&gt;? Yathārūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti, evarūpo vacīsamācāro na sevitabbo; yathārūpañca kho, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti &lt;pb ed=&quot;T&quot; n=&quot;3.0148&quot;/&gt; evarūpo vacīsamācāro sevitabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0096&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0148&quot;/&gt;">&lt;p n=&quot;111&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;111&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco pāṇātipātī hoti luddo lohitapāṇi hatappahate niviṭṭho adayāpanno pāṇabhūtesu; adinnādāyī kho pana hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ adinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācārī kho pana hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu cārittaṃ āpajjitā hoti – evarūpaṃ, bhante, kāyasamācāraṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0047&quot;/&gt; sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0147&quot;/&gt;, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco pāṇātipātaṃ pahāya pāṇātipātā paṭivirato hoti nihitadaṇḍo nihitasattho, lajjī dayāpanno sabbapāṇabhūtahitānukampī viharati; adinnādānaṃ pahāya adinnādānā paṭivirato hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0095&quot;/&gt; gāmagataṃ vā araññagataṃ vā taṃ nādinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācāraṃ pahāya kāmesumicchācārā paṭivirato hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu na cārittaṃ āpajjitā hoti – evarūpaṃ, bhante, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0147&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0095&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0096&quot;/&gt;? Yathārūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti, evarūpo vacīsamācāro na sevitabbo; yathārūpañca kho, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti &lt;pb ed=&quot;T&quot; n=&quot;3.0148&quot;/&gt; evarūpo vacīsamācāro sevitabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0096&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0148&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">111. “And what kind of bodily conduct, venerable sir, causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? Here, venerable sir, someone kills living beings; he is murderous, bloody-handed, given to blows and violence, merciless to living beings. He takes what is not given; he takes by way of theft the wealth and property of others in the village or in the forest. He misconducts himself in sensual pleasures; he has intercourse with such women as are protected by their mother, father, mother and father, brother, sister, or relatives, who have a husband, who are protected by law, and even with those who are garlanded – such bodily conduct, venerable sir, causes unwholesome states to increase and wholesome states to diminish in one who cultivates it.<br><br>“And what kind of bodily conduct, venerable sir, causes unwholesome states to diminish and wholesome states to increase in one who cultivates it? Here, venerable sir, someone, abandoning the taking of life (prāṇātipāta), refrains from taking life. He has laid down the stick and the sword, is conscientious, kind, and dwells full of compassion for all living beings. Abandoning the taking of what is not given (adinnādāna), he refrains from taking what is not given, that is, the wealth and property of others in the village or in the forest. Abandoning sensual misconduct (kāmesumicchācāra), he abstains from sensual misconduct. He does not get sexually involved with those who are protected by their mothers, their fathers, their brothers, their sisters, their relatives, or their Dhamma; those with husbands, those who entail punishments, or even those crowned with flowers by another man - such bodily conduct, venerable sir, causes unwholesome states to diminish and wholesome states to increase in one who cultivates it.<br><br>“Bhikkhus, bodily conduct (kāyasamācāra) is of two kinds, I say: to be cultivated and not to be cultivated. And bodily conduct is either the one or the other.’ So it was with reference to this that it was said by the Blessed One.<br><br>‘“Bhikkhus, verbal conduct (vacīsamācāra) is of two kinds, I say: to be cultivated and not to be cultivated. And verbal conduct is either the one or the other.’ So it was said by the Blessed One.<br><br>“And with reference to what was this said? “Venerable sir, such verbal conduct as causes unwholesome states to increase and wholesome states to diminish in one who cultivates it should not be cultivated. But such verbal conduct as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">112</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;112&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;112&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco musāvādī hoti, sabhāgato &lt;note&gt;sabhaggato (bahūsu)&lt;/note&gt; vā parisāgato &lt;note&gt;parisaggato (bahūsu)&lt;/note&gt; vā ñātimajjhagato &lt;pb ed=&quot;P&quot; n=&quot;3.0048&quot;/&gt; vā pūgamajjhagato vā rājakulamajjhagato vā abhinīto sakkhipuṭṭho – ‘ehambho purisa, yaṃ jānāsi taṃ vadehī’ti so ajānaṃ vā āha – ‘jānāmī’ti, jānaṃ vā āha – ‘na jānāmī’ti; apassaṃ vā āha – ‘passāmī’ti, passaṃ vā āha – ‘na passāmī’ti – iti &lt;note&gt;passa ma. ni. 1.440 sāleyyakasutte&lt;/note&gt; attahetu vā parahetu vā āmisakiñcikkhahetu &lt;note&gt;kiñcakkhahetu (sī.)&lt;/note&gt; vā sampajānamusā bhāsitā hoti; pisuṇavāco kho pana hoti, ito sutvā amutra akkhātā imesaṃ bhedāya, amutra vā sutvā imesaṃ akkhātā amūsaṃ bhedāya – iti samaggānaṃ vā bhettā, bhinnānaṃ vā anuppadātā, vaggārāmo, vaggarato, vagganandī, vaggakaraṇiṃ vācaṃ bhāsitā &lt;pb ed=&quot;M&quot; n=&quot;3.0096&quot;/&gt; hoti; pharusavāco kho pana hoti, yā sā vācā kaṇḍakā kakkasā pharusā parakaṭukā parābhisajjanī kodhasāmantā asamādhisaṃvattanikā, tathārūpiṃ vācaṃ bhāsitā hoti; samphappalāpī kho pana hoti akālavādī abhūtavādī anatthavādī adhammavādī avinayavādī, anidhānavatiṃ vācaṃ bhāsitā hoti akālena anapadesaṃ apariyantavatiṃ anatthasaṃhitaṃ – evarūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti &lt;pb ed=&quot;T&quot; n=&quot;3.0149&quot;/&gt;, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco musāvādaṃ pahāya musāvādā paṭivirato hoti sabhāgato vā parisāgato vā ñātimajjhagato vā pūgamajjhagato vā rājakulamajjhagato vā abhinīto sakkhipuṭṭho – ‘ehambho purisa, yaṃ jānāsi taṃ vadehī’ti so ajānaṃ vā āha – ‘na jānāmī’ti, jānaṃ vā āha – ‘jānāmī’ti, apassaṃ vā āha – ‘na passāmī’ti, passaṃ vā āha – ‘passāmī’ti &lt;pb ed=&quot;P&quot; n=&quot;3.0049&quot;/&gt; – iti attahetu vā parahetu vā āmisakiñcikkhahetu vā na sampajānamusā bhāsitā hoti; pisuṇaṃ vācaṃ pahāya pisuṇāya vācāya paṭivirato hoti, ito sutvā na amutra akkhātā imesaṃ bhedāya, amutra &lt;pb ed=&quot;V&quot; n=&quot;3.0097&quot;/&gt; vā sutvā na imesaṃ akkhātā amūsaṃ bhedāya – iti bhinnānaṃ vā sandhātā sahitānaṃ vā anuppadātā samaggārāmo samaggarato samagganandī samaggakaraṇiṃ vācaṃ bhāsitā hoti; pharusaṃ vācaṃ pahāya pharusāya vācāya paṭivirato hoti, yā sā vācā nelā kaṇṇasukhā pemanīyā hadayaṅgamā porī bahujanakantā bahujanamanāpā tathārūpiṃ vācaṃ bhāsitā hoti; samphappalāpaṃ pahāya samphappalāpā paṭivirato hoti kālavādī bhūtavādī atthavādī dhammavādī vinayavādī, nidhānavatiṃ vācaṃ bhāsitā hoti kālena sāpadesaṃ pariyantavatiṃ atthasaṃhitaṃ – evarūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāra’nti &lt;pb ed=&quot;T&quot; n=&quot;3.0150&quot;/&gt; – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0149&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0049&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0097&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0150&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, manosamācāraṃ sevato akusalā &lt;pb ed=&quot;M&quot; n=&quot;3.0097&quot;/&gt; dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo manosamācāro na sevitabbo; yathārūpañca kho, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo manosamācāro sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0097&quot;/&gt;">&lt;p n=&quot;112&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;112&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco musāvādī hoti, sabhāgato &lt;note&gt;sabhaggato (bahūsu)&lt;/note&gt; vā parisāgato &lt;note&gt;parisaggato (bahūsu)&lt;/note&gt; vā ñātimajjhagato &lt;pb ed=&quot;P&quot; n=&quot;3.0048&quot;/&gt; vā pūgamajjhagato vā rājakulamajjhagato vā abhinīto sakkhipuṭṭho – ‘ehambho purisa, yaṃ jānāsi taṃ vadehī’ti so ajānaṃ vā āha – ‘jānāmī’ti, jānaṃ vā āha – ‘na jānāmī’ti; apassaṃ vā āha – ‘passāmī’ti, passaṃ vā āha – ‘na passāmī’ti – iti &lt;note&gt;passa ma. ni. 1.440 sāleyyakasutte&lt;/note&gt; attahetu vā parahetu vā āmisakiñcikkhahetu &lt;note&gt;kiñcakkhahetu (sī.)&lt;/note&gt; vā sampajānamusā bhāsitā hoti; pisuṇavāco kho pana hoti, ito sutvā amutra akkhātā imesaṃ bhedāya, amutra vā sutvā imesaṃ akkhātā amūsaṃ bhedāya – iti samaggānaṃ vā bhettā, bhinnānaṃ vā anuppadātā, vaggārāmo, vaggarato, vagganandī, vaggakaraṇiṃ vācaṃ bhāsitā &lt;pb ed=&quot;M&quot; n=&quot;3.0096&quot;/&gt; hoti; pharusavāco kho pana hoti, yā sā vācā kaṇḍakā kakkasā pharusā parakaṭukā parābhisajjanī kodhasāmantā asamādhisaṃvattanikā, tathārūpiṃ vācaṃ bhāsitā hoti; samphappalāpī kho pana hoti akālavādī abhūtavādī anatthavādī adhammavādī avinayavādī, anidhānavatiṃ vācaṃ bhāsitā hoti akālena anapadesaṃ apariyantavatiṃ anatthasaṃhitaṃ – evarūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti &lt;pb ed=&quot;T&quot; n=&quot;3.0149&quot;/&gt;, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco musāvādaṃ pahāya musāvādā paṭivirato hoti sabhāgato vā parisāgato vā ñātimajjhagato vā pūgamajjhagato vā rājakulamajjhagato vā abhinīto sakkhipuṭṭho – ‘ehambho purisa, yaṃ jānāsi taṃ vadehī’ti so ajānaṃ vā āha – ‘na jānāmī’ti, jānaṃ vā āha – ‘jānāmī’ti, apassaṃ vā āha – ‘na passāmī’ti, passaṃ vā āha – ‘passāmī’ti &lt;pb ed=&quot;P&quot; n=&quot;3.0049&quot;/&gt; – iti attahetu vā parahetu vā āmisakiñcikkhahetu vā na sampajānamusā bhāsitā hoti; pisuṇaṃ vācaṃ pahāya pisuṇāya vācāya paṭivirato hoti, ito sutvā na amutra akkhātā imesaṃ bhedāya, amutra &lt;pb ed=&quot;V&quot; n=&quot;3.0097&quot;/&gt; vā sutvā na imesaṃ akkhātā amūsaṃ bhedāya – iti bhinnānaṃ vā sandhātā sahitānaṃ vā anuppadātā samaggārāmo samaggarato samagganandī samaggakaraṇiṃ vācaṃ bhāsitā hoti; pharusaṃ vācaṃ pahāya pharusāya vācāya paṭivirato hoti, yā sā vācā nelā kaṇṇasukhā pemanīyā hadayaṅgamā porī bahujanakantā bahujanamanāpā tathārūpiṃ vācaṃ bhāsitā hoti; samphappalāpaṃ pahāya samphappalāpā paṭivirato hoti kālavādī bhūtavādī atthavādī dhammavādī vinayavādī, nidhānavatiṃ vācaṃ bhāsitā hoti kālena sāpadesaṃ pariyantavatiṃ atthasaṃhitaṃ – evarūpaṃ, bhante, vacīsamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ vacīsamācāra’nti &lt;pb ed=&quot;T&quot; n=&quot;3.0150&quot;/&gt; – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0149&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0049&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0097&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0150&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāra’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, manosamācāraṃ sevato akusalā &lt;pb ed=&quot;M&quot; n=&quot;3.0097&quot;/&gt; dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo manosamācāro na sevitabbo; yathārūpañca kho, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo manosamācāro sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0097&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">112. “Venerable sir, what kind of verbal conduct (<i>vacīsamācāra</i>) causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish? Here, venerable sir, a certain person is a liar. When summoned to a court (<i>sabhāgato</i>) or to a meeting (<i>parisāgato</i>) or to his relatives’ presence (<i>ñātimajjhagato</i>) or to his guild (<i>pūgamajjhagato</i>) or to the royal family’s presence (<i>rājakulamajjhagato</i>), and questioned as a witness thus: ‘So, good man (<i>purisa</i>), tell what you know,’ not knowing, he says, ‘I know,’ or knowing, he says, ‘I do not know’; not seeing, he says, ‘I see,’ or seeing, he says, ‘I do not see’; he knowingly speaks falsehood for his own ends (<i>attahetu</i>) or for another’s ends (<i>parahetu</i>) or for some trifling worldly end (<i>āmisakiñcikkhahetu</i>). He speaks maliciously (<i>pisuṇavāco</i>); having heard something here, he repeats it elsewhere in order to divide those people from these; or having heard something there, he repeats it to these people in order to divide these people from those; thus he is one who rejoices in discord, delights in discord, is attached to discord and speaks words that create discord, or one who breaks up those who are united, or does not promote friendship between those who are divided. He speaks harshly (<i>pharusavāco</i>); his speech is prickly (<i>kaṇḍakā</i>), rough (<i>kakkasā</i>), harsh (<i>pharusā</i>), bitter (<i>parakaṭukā</i>), offensive (<i>parābhisajjanī</i>), connected with anger (<i>kodhasāmantā</i>), and unconducive to concentration (<i>asamādhisaṃvattanikā</i>); he speaks such speech. He is a gossip (<i>samphappalāpī</i>), speaking out of season (<i>akālavādī</i>), speaking what is untrue (<i>abhūtavādī</i>), speaking what is unbeneficial (<i>anatthavādī</i>), speaking what is against the Dharma (<i>adhammavādī</i>), speaking what is against the Discipline (<i>avinayavādī</i>), he speaks speech that is without a foundation (<i>anidhānavatiṃ vācaṃ</i>), out of season (<i>akālena</i>), without a valid reason (<i>anapadesaṃ</i>), unbounded (<i>apariyantavatiṃ</i>), and connected with what is unbeneficial (<i>anatthasaṃhitaṃ</i>). This kind of verbal conduct (<i>vacīsamācāraṃ</i>) causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish.”<br><br>“And what kind of verbal conduct (<i>vacīsamācāraṃ</i>) causes unwholesome states (<i>akusalā dhammā</i>) to diminish and wholesome states (<i>kusalā dhammā</i>) to increase? Here, venerable sir, a certain person, abandoning false speech (<i>musāvādaṃ</i>), abstains from false speech (<i>musāvādā paṭivirato hoti</i>); when summoned to a court (<i>sabhāgato</i>) or to a meeting (<i>parisāgato</i>) or to his relatives’ presence (<i>ñātimajjhagato</i>) or to his guild (<i>pūgamajjhagato</i>) or to the royal family’s presence (<i>rājakulamajjhagato</i>), and questioned as a witness thus: ‘So, good man (<i>purisa</i>), tell what you know,’ not knowing, he says, ‘I do not know,’ or knowing, he says, ‘I know’; not seeing, he says, ‘I do not see,’ or seeing, he says, ‘I see’; he does not knowingly speak falsehood for his own ends (<i>attahetu</i>) or for another’s ends (<i>parahetu</i>) or for some trifling worldly end (<i>āmisakiñcikkhahetu</i>). Abandoning malicious speech (<i>pisuṇaṃ vācaṃ pahāya</i>), he abstains from malicious speech (<i>pisuṇāya vācāya paṭivirato hoti</i>); having heard something here, he does not repeat it elsewhere in order to divide those people from these; or having heard something there, he does not repeat it to these people in order to divide these people from those; thus he is one who reunites those who are divided, a promoter of friendships between those who are united, who enjoys concord (<i>samaggārāmo</i>), rejoices in concord (<i>samaggarato</i>), delights in concord (<i>samagganandī</i>), and speaks words that promote concord (<i>samaggakaraṇiṃ vācaṃ bhāsitā hoti</i>). Abandoning harsh speech (<i>pharusaṃ vācaṃ pahāya</i>), he abstains from harsh speech (<i>pharusāya vācāya paṭivirato hoti</i>); he speaks speech that is gentle (<i>nelā</i>), pleasing to the ear (<i>kaṇṇasukhā</i>), lovable (<i>pemanīyā</i>), touching the heart (<i>hadayaṅgamā</i>), refined (<i>porī</i>), pleasing to many people (<i>bahujanakantā</i>), and liked by many people (<i>bahujanamanāpā</i>); he speaks such speech. Abandoning gossip (<i>samphappalāpaṃ pahāya</i>), he abstains from gossip (<i>samphappalāpā paṭivirato hoti</i>), he speaks in season (<i>kālavādī</i>), speaks what is true (<i>bhūtavādī</i>), speaks what is beneficial (<i>atthavādī</i>), speaks what is in accordance with the Dharma (<i>dhammavādī</i>), speaks what is in accordance with the Discipline (<i>vinayavādī</i>), he speaks speech that has a foundation (<i>nidhānavatiṃ vācaṃ</i>), in season (<i>kālena</i>), with a valid reason (<i>sāpadesaṃ</i>), bounded (<i>pariyantavatiṃ</i>), and connected with what is beneficial (<i>atthasaṃhitaṃ</i>). This kind of verbal conduct (<i>vacīsamācāraṃ</i>) causes unwholesome states (<i>akusalā dhammā</i>) to diminish and wholesome states (<i>kusalā dhammā</i>) to increase.”<br><br>“‘I describe verbal conduct (<i>vacīsamācāraṃ</i>), monks (<i>bhikkhave</i>), as twofold (<i>duvidhena</i>): to be cultivated (<i>sevitabbampi</i>) and not to be cultivated (<i>asevitabbampi</i>); and verbal conduct (<i>vacīsamācāraṃ</i>) is either the one or the other’—it is with reference to this that this was said by the Blessed One (<i>bhagavatā</i>).<br><br>And with reference to what was this said? Such mental conduct (<i>manosamācāraṃ</i>) as causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish should not be cultivated (<i>na sevitabbo</i>). But such mental conduct (<i>manosamācāraṃ</i>) as causes unwholesome states (<i>akusalā dhammā</i>) to diminish and wholesome states (<i>kusalā dhammā</i>) to increase should be cultivated (<i>sevitabbo</i>).”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">113</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;113&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;113&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ taṃ abhijjhātā hoti – ‘aho vata yaṃ parassa taṃ mamassā’ti; byāpannacitto kho pana hoti paduṭṭhamanasaṅkappo &lt;pb ed=&quot;P&quot; n=&quot;3.0050&quot;/&gt; – ‘ime sattā haññantu vā vajjhantu vā ucchijjantu vā vinassantu vā mā vā ahesu’nti – evarūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ taṃ nābhijjhātā hoti – ‘aho vata yaṃ parassa taṃ mamassā’ti; abyāpannacitto kho &lt;pb ed=&quot;T&quot; n=&quot;3.0151&quot;/&gt; pana hoti appaduṭṭhamanasaṅkappo &lt;pb ed=&quot;V&quot; n=&quot;3.0098&quot;/&gt; – ‘ime sattā averā abyābajjhā &lt;note&gt;abyāpajjhā (sī. syā. kaṃ. pī. ka.)&lt;/note&gt; anīghā sukhī attānaṃ pariharantū’ti – evarūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāra’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0151&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0098&quot;/&gt; &lt;note&gt;abyāpajjhā (sī. syā. kaṃ. pī. ka.)&lt;/note&gt;">&lt;p n=&quot;113&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;113&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃrūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ taṃ abhijjhātā hoti – ‘aho vata yaṃ parassa taṃ mamassā’ti; byāpannacitto kho pana hoti paduṭṭhamanasaṅkappo &lt;pb ed=&quot;P&quot; n=&quot;3.0050&quot;/&gt; – ‘ime sattā haññantu vā vajjhantu vā ucchijjantu vā vinassantu vā mā vā ahesu’nti – evarūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ taṃ nābhijjhātā hoti – ‘aho vata yaṃ parassa taṃ mamassā’ti; abyāpannacitto kho &lt;pb ed=&quot;T&quot; n=&quot;3.0151&quot;/&gt; pana hoti appaduṭṭhamanasaṅkappo &lt;pb ed=&quot;V&quot; n=&quot;3.0098&quot;/&gt; – ‘ime sattā averā abyābajjhā &lt;note&gt;abyāpajjhā (sī. syā. kaṃ. pī. ka.)&lt;/note&gt; anīghā sukhī attānaṃ pariharantū’ti – evarūpaṃ, bhante, manosamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ manosamācāra’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0151&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0098&quot;/&gt; &lt;note&gt;abyāpajjhā (sī. syā. kaṃ. pī. ka.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">113. “And what kind of mental conduct (<i>manosamācāraṃ</i>), Venerable Sir, causes unwholesome states (<i>akusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>), and wholesome states (<i>kusalā dhammā</i>) to diminish (<i>parihāyanti</i>)? Here someone is covetous (<i>abhijjhālu</i>); he covets the wealth and property (<i>paravittūpakaraṇaṃ</i>) of others thus: ‘Oh, may what belongs to another be mine! (<i>aho vata yaṃ parassa taṃ mamassā’ti</i>)’ Or he has a mind of ill will (<i>byāpannacitto</i>) and intentions of hate (<i>paduṭṭhamanasaṅkappo</i>) – ‘May these beings (<i>ime sattā</i>) be slain (<i>haññantu</i>) and slaughtered (<i>vajjhantu</i>), may they be cut off (<i>ucchijjantu</i>), perish (<i>vinassantu</i>), or be annihilated (<i>mā vā ahesu</i>)!’ Such mental conduct (<i>manosamācāraṃ</i>), Venerable Sir, causes unwholesome states (<i>akusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>), and wholesome states (<i>kusalā dhammā</i>) to diminish (<i>parihāyanti</i>).<br><br>“And what kind of mental conduct (<i>manosamācāraṃ</i>), Venerable Sir, causes unwholesome states (<i>akusalā dhammā</i>) to diminish (<i>parihāyanti</i>), and wholesome states (<i>kusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>)? Here someone is not covetous (<i>anabhijjhālu</i>); he does not covet the wealth and property (<i>paravittūpakaraṇaṃ</i>) of others thus: ‘Oh, may what belongs to another be mine! (<i>aho vata yaṃ parassa taṃ mamassā’ti</i>)’ His mind is without ill will (<i>abyāpannacitto</i>) and he has intentions free from hate (<i>appaduṭṭhamanasaṅkappo</i>) – ‘May these beings (<i>ime sattā</i>) be free from enmity (<i>averā</i>), affliction (<i>abyābajjhā</i>), and anxiety (<i>anīghā</i>)! May they live happily! (<i>sukhī attānaṃ pariharantū’ti</i>)’ Such mental conduct (<i>manosamācāraṃ</i>), Venerable Sir, causes unwholesome states (<i>akusalā dhammā</i>) to diminish (<i>parihāyanti</i>), and wholesome states (<i>kusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>).<br><br>“So it was with reference to this that it was said by the Blessed One (<i>bhagavatā</i>): ‘Bhikkhus, mental conduct (<i>manosamācāraṃ</i>) is of two kinds (<i>duvidhena</i>), I say: to be cultivated (<i>sevitabbampi</i>) and not to be cultivated (<i>asevitabbampi</i>). And mental conduct is either the one or the other (<i>tañca aññamaññaṃ manosamācāra’nti</i>).’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">114</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;114&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;114&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ cittuppāda’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo cittuppādo na sevitabbo; yathārūpañca kho, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo cittuppādo sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, abhijjhāsahagatena &lt;pb ed=&quot;M&quot; n=&quot;3.0098&quot;/&gt; cetasā viharati; byāpādavā hoti, byāpādasahagatena cetasā viharati; vihesavā hoti, vihesāsahagatena cetasā viharati – evarūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0098&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti &lt;pb ed=&quot;T&quot; n=&quot;3.0152&quot;/&gt;, kusalā &lt;pb ed=&quot;P&quot; n=&quot;3.0051&quot;/&gt; dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, anabhijjhāsahagatena cetasā viharati; abyāpādavā hoti, abyāpādasahagatena cetasā viharati; avihesavā hoti, avihesāsahagatena cetasā viharati – evarūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ cittuppāda’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0152&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0051&quot;/&gt;">&lt;p n=&quot;114&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;114&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ cittuppāda’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo cittuppādo na sevitabbo; yathārūpañca kho, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo cittuppādo sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, abhijjhāsahagatena &lt;pb ed=&quot;M&quot; n=&quot;3.0098&quot;/&gt; cetasā viharati; byāpādavā hoti, byāpādasahagatena cetasā viharati; vihesavā hoti, vihesāsahagatena cetasā viharati – evarūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0098&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti &lt;pb ed=&quot;T&quot; n=&quot;3.0152&quot;/&gt;, kusalā &lt;pb ed=&quot;P&quot; n=&quot;3.0051&quot;/&gt; dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, anabhijjhāsahagatena cetasā viharati; abyāpādavā hoti, abyāpādasahagatena cetasā viharati; avihesavā hoti, avihesāsahagatena cetasā viharati – evarūpaṃ, bhante, cittuppādaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ cittuppāda’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0152&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0051&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">114. “Bhikkhus, inclination of mind (cittuppādaṃ) is of two kinds, I say: to be cultivated (sevitabbaṃpi) and not to be cultivated (asevitabbaṃpi); and inclination of mind is either the one or the other (tañca aññamaññaṃ cittuppādaṃ)”—so it was said by the Blessed One.<br><br>With reference to what was this said? Venerable sir, such inclination of mind as causes unwholesome states (akusalā dhammā) to increase (abhivaḍḍhanti) and wholesome states (kusalā dhammā) to diminish (parihāyanti) in one who cultivates it should not be cultivated (na sevitabbo); but such inclination of mind as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated (sevitabbo).<br><br>“And what kind of inclination of mind, venerable sir, causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? Here, venerable sir, someone is covetous (abhijjhālu) and abides with his mind imbued with covetousness (abhijjhāsahagatena cetasā viharati); he has ill will (byāpādavā) and abides with his mind imbued with ill will (byāpādasahagatena cetasā viharati); he is cruel (vihesavā) and abides with his mind imbued with cruelty (vihesāsahagatena cetasā viharati). Such inclination of mind, venerable sir, causes unwholesome states to increase and wholesome states to diminish in one who cultivates it.<br><br>“And what kind of inclination of mind, venerable sir, causes unwholesome states to diminish and wholesome states to increase in one who cultivates it? Here, venerable sir, someone is uncovetous (anabhijjhālu) and abides with his mind detached from covetousness (anabhijjhāsahagatena cetasā viharati); he is without ill will (abyāpādavā) and abides with his mind detached from ill will (abyāpādasahagatena cetasā viharati); he is uncruel (avihesavā) and abides with his mind detached from cruelty (avihesāsahagatena cetasā viharati). Such inclination of mind, venerable sir, causes unwholesome states to diminish and wholesome states to increase in one who cultivates it.<br><br>“So it was with reference to this that it was said by the Blessed One: ‘Bhikkhus, inclination of mind is of two kinds, I say: to be cultivated and not to be cultivated. And inclination of mind is either the one or the other.’”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">115</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;115&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;115&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0099&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo saññāpaṭilābho na sevitabbo; yathārūpañca kho, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo saññāpaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, abhijjhāsahagatāya saññāya viharati; byāpādavā hoti, byāpādasahagatāya saññāya viharati; vihesavā hoti, vihesāsahagatāya saññāya viharati – evarūpaṃ, bhante, saññāpaṭilābhaṃ sevato &lt;pb ed=&quot;T&quot; n=&quot;3.0153&quot;/&gt; akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0153&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, anabhijjhāsahagatāya saññāya viharati; abyāpādavā hoti, abyāpādasahagatāya saññāya viharati; avihesavā hoti, avihesāsahagatāya saññāya viharati – evarūpaṃ, bhante, saññāpaṭilābhaṃ sevato &lt;pb ed=&quot;M&quot; n=&quot;3.0099&quot;/&gt; akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0099&quot;/&gt;">&lt;p n=&quot;115&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;115&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0099&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo saññāpaṭilābho na sevitabbo; yathārūpañca kho, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo saññāpaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco abhijjhālu hoti, abhijjhāsahagatāya saññāya viharati; byāpādavā hoti, byāpādasahagatāya saññāya viharati; vihesavā hoti, vihesāsahagatāya saññāya viharati – evarūpaṃ, bhante, saññāpaṭilābhaṃ sevato &lt;pb ed=&quot;T&quot; n=&quot;3.0153&quot;/&gt; akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0153&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, saññāpaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco anabhijjhālu hoti, anabhijjhāsahagatāya saññāya viharati; abyāpādavā hoti, abyāpādasahagatāya saññāya viharati; avihesavā hoti, avihesāsahagatāya saññāya viharati – evarūpaṃ, bhante, saññāpaṭilābhaṃ sevato &lt;pb ed=&quot;M&quot; n=&quot;3.0099&quot;/&gt; akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ saññāpaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0099&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">115. “Bhikkhus, the acquisition of perception (saññāpaṭilābha) is of two kinds, I say: to be cultivated (sevitabba) and not to be cultivated (asevitabba). And the acquisition of perception is either the one or the other.” So it was said by the Blessed One (bhagavatā).<br><br>What was said with reference to this? “Venerable sir (bhante), such acquisition of perception (saññāpaṭilābha) as causes unwholesome states (akusalā dhammā) to increase (abhivaḍḍhanti) and wholesome states (kusalā dhammā) to diminish (parihāyanti) in one who cultivates (sevato) it should not be cultivated (na sevitabbo); But such acquisition of perception (saññāpaṭilābha) as causes unwholesome states (akusalā dhammā) to diminish (parihāyanti) and wholesome states (kusalā dhammā) to increase (abhivaḍḍhanti) in one who cultivates (sevato) it should be cultivated (sevitabbo).”<br><br>“And what kind of acquisition of perception (saññāpaṭilābha) causes unwholesome states (akusalā dhammā) to increase (abhivaḍḍhanti) and wholesome states (kusalā dhammā) to diminish (parihāyanti) in one who cultivates (sevato) it? Here (idha), venerable sir (bhante), someone is covetous (abhijjhālu) and abides (viharati) with his perception (saññāya) imbued with covetousness (abhijjhāsahagatāya); he has ill will (byāpādavā) and abides (viharati) with his perception (saññāya) imbued with ill will (byāpādasahagatāya); he is cruel (vihesavā) and abides (viharati) with his perception (saññāya) imbued with cruelty (vihesāsahagatāya). Such acquisition of perception (saññāpaṭilābha) causes unwholesome states (akusalā dhammā) to increase (abhivaḍḍhanti) and wholesome states (kusalā dhammā) to diminish (parihāyanti) in one who cultivates (sevato) it.&quot;<br><br>“And what kind of acquisition of perception (saññāpaṭilābha) causes unwholesome states (akusalā dhammā) to diminish (parihāyanti) and wholesome states (kusalā dhammā) to increase (abhivaḍḍhanti) in one who cultivates (sevato) it? Here (idha), venerable sir (bhante), someone is uncovetous (anabhijjhālu) and abides (viharati) with his perception (saññāya) detached from covetousness (anabhijjhāsahagatāya); he is without ill will (abyāpādavā) and abides (viharati) with his perception (saññāya) detached from ill will (abyāpādasahagatāya); he is uncruel (avihesavā) and abides (viharati) with his perception (saññāya) detached from cruelty (avihesāsahagatāya). Such acquisition of perception (saññāpaṭilābha) causes unwholesome states (akusalā dhammā) to diminish (parihāyanti) and wholesome states (kusalā dhammā) to increase (abhivaḍḍhanti) in one who cultivates (sevato) it.”<br><br>“Bhikkhus, the acquisition of perception (saññāpaṭilābha) is of two kinds, I say: to be cultivated (sevitabba) and not to be cultivated (asevitabba). And the acquisition of perception is either the one or the other.” So it was with reference to this that it was said by the Blessed One (bhagavatā).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">116</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;116&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;116&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Diṭṭhipaṭilābhaṃpāhaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0052&quot;/&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo diṭṭhipaṭilābho na sevitabbo; yathārūpañca kho, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo diṭṭhipaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco evaṃdiṭṭhiko hoti – ‘natthi dinnaṃ, natthi yiṭṭhaṃ, natthi hutaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0100&quot;/&gt;, natthi sukatadukkaṭānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0154&quot;/&gt; kammānaṃ phalaṃ vipāko, natthi ayaṃ loko, natthi paro loko, natthi mātā, natthi pitā, natthi sattā opapātikā, natthi loke samaṇabrāhmaṇā sammaggatā sammāpaṭipannā ye imañca lokaṃ parañca lokaṃ sayaṃ abhiññā sacchikatvā pavedentī’ti – evarūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0100&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0154&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco evaṃdiṭṭhiko hoti – ‘atthi dinnaṃ, atthi yiṭṭhaṃ, atthi hutaṃ, atthi sukatadukkaṭānaṃ kammānaṃ phalaṃ vipāko, atthi ayaṃ loko, atthi paro loko, atthi mātā, atthi pitā, atthi sattā opapātikā, atthi loke samaṇabrāhmaṇā sammaggatā sammāpaṭipannā ye imañca lokaṃ parañca lokaṃ sayaṃ abhiññā sacchikatvā pavedentī’ti – evarūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;116&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;116&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Diṭṭhipaṭilābhaṃpāhaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0052&quot;/&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo diṭṭhipaṭilābho na sevitabbo; yathārūpañca kho, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo diṭṭhipaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, bhante, ekacco evaṃdiṭṭhiko hoti – ‘natthi dinnaṃ, natthi yiṭṭhaṃ, natthi hutaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0100&quot;/&gt;, natthi sukatadukkaṭānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0154&quot;/&gt; kammānaṃ phalaṃ vipāko, natthi ayaṃ loko, natthi paro loko, natthi mātā, natthi pitā, natthi sattā opapātikā, natthi loke samaṇabrāhmaṇā sammaggatā sammāpaṭipannā ye imañca lokaṃ parañca lokaṃ sayaṃ abhiññā sacchikatvā pavedentī’ti – evarūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0100&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0154&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, bhante, ekacco evaṃdiṭṭhiko hoti – ‘atthi dinnaṃ, atthi yiṭṭhaṃ, atthi hutaṃ, atthi sukatadukkaṭānaṃ kammānaṃ phalaṃ vipāko, atthi ayaṃ loko, atthi paro loko, atthi mātā, atthi pitā, atthi sattā opapātikā, atthi loke samaṇabrāhmaṇā sammaggatā sammāpaṭipannā ye imañca lokaṃ parañca lokaṃ sayaṃ abhiññā sacchikatvā pavedentī’ti – evarūpaṃ, bhante, diṭṭhipaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ diṭṭhipaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">116. ‘“Bhikkhus, the acquisition of view (<i>dṛṣṭi-pratilambha</i>) is of two kinds, I say: to be cultivated and not to be cultivated. And the acquisition of view is either the one or the other.’ So it was said by the Blessed One.<br><br>What was that said with reference to? “Venerable sir, such acquisition of view as causes unwholesome states (<i>akuśalāḥ dharmāḥ</i>) to increase and wholesome states (<i>kuśalāḥ dharmāḥ</i>) to diminish in one who cultivates it should not be cultivated. But such acquisition of view as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.<br><br>“Venerable sir, what sort of acquisition of view is it that causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? Here someone holds such a view as this: “There is nothing given ( <i>nāsti dānaṃ</i>), nothing offered (<i>nāsti yaṣṭaṃ</i>), nothing sacrificed (<i>nāsti hutaṃ</i>); no fruit or result of good and bad actions (<i>karmaṇāṃ phalaṃ vipākaḥ</i>); no this world (<i>nāsti ayaṃ lokaḥ</i>), no other world (<i>nāsti paraḥ lokaḥ</i>); no mother (<i>nāsti mātā</i>), no father (<i>nāsti pitā</i>); no beings who are reborn spontaneously (<i>nāsti sattvāḥ opapātikāḥ</i>); no good and virtuous recluses and brahmins in the world who have realised for themselves by direct knowledge and declare this world and the other world (<i>asti loke śramaṇabrāhmaṇāḥ samyag-gatāḥ samyak-pratipannāḥ ye imaṃ ca lokaṃ paraṃ ca lokaṃ svayaṃ abhijñā saṃcchikatvā pravedayanti</i>) .’ Such acquisition of view causes unwholesome states to increase and wholesome states to diminish.<br><br>“Venerable sir, what sort of acquisition of view is it that causes unwholesome states to diminish and wholesome states to increase in one who cultivates it? Here someone holds such a view as this: “There is what is given (<i>asti dānaṃ</i>) and what is offered (<i>asti yaṣṭaṃ</i>) and what is sacrificed (<i>asti hutaṃ</i>); there is fruit and result of good and bad actions (<i>karmaṇāṃ phalaṃ vipākaḥ</i>); there is this world (<i>asti ayaṃ lokaḥ</i>) and the other world (<i>asti paraḥ lokaḥ</i>); there is mother (<i>asti mātā</i>) and father (<i>asti pitā</i>); there are beings who are reborn spontaneously (<i>asti sattvāḥ opapātikāḥ</i>); there are good and virtuous recluses and brahmins in the world who have realised for themselves by direct knowledge and declare this world and the other world (<i>asti loke śramaṇabrāhmaṇāḥ samyag-gatāḥ samyak-pratipannāḥ ye imaṃ ca lokaṃ paraṃ ca lokaṃ svayaṃ abhijñā saṃcchikatvā pravedayanti</i>) .’ Such acquisition of view causes unwholesome states to diminish and wholesome states to increase.<br><br>“So it was with reference to this that it was said by the Blessed One: ‘Bhikkhus, the acquisition of view is of two kinds, I say: to be cultivated and not to be cultivated. And the acquisition of view is either the one or the other.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">117</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;117&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;117&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Attabhāvapaṭilābhaṃpāhaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0100&quot;/&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, attabhāvapaṭilābhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0155&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0053&quot;/&gt; sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti – evarūpo attabhāvapaṭilābho na sevitabbo; yathārūpañca kho, bhante, attabhāvapaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo attabhāvapaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Sabyābajjhaṃ &lt;note&gt;sabyāpajjhaṃ (sī. syā. kaṃ. pī. ka.)&lt;/note&gt;, bhante, attabhāvapaṭilābhaṃ abhinibbattayato apariniṭṭhitabhāvāya akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti; abyābajjhaṃ, bhante, attabhāvapaṭilābhaṃ abhinibbattayato pariniṭṭhitabhāvāya akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;V&quot; n=&quot;3.0101&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;note&gt;sabyāpajjhaṃ (sī. syā. kaṃ. pī. ka.)&lt;/note&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0101&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmī’’ti.</p>">&lt;p n=&quot;117&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;117&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Attabhāvapaṭilābhaṃpāhaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0100&quot;/&gt;, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, attabhāvapaṭilābhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0155&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0053&quot;/&gt; sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti – evarūpo attabhāvapaṭilābho na sevitabbo; yathārūpañca kho, bhante, attabhāvapaṭilābhaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo attabhāvapaṭilābho sevitabbo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, bhante, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Sabyābajjhaṃ &lt;note&gt;sabyāpajjhaṃ (sī. syā. kaṃ. pī. ka.)&lt;/note&gt;, bhante, attabhāvapaṭilābhaṃ abhinibbattayato apariniṭṭhitabhāvāya akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti; abyābajjhaṃ, bhante, attabhāvapaṭilābhaṃ abhinibbattayato pariniṭṭhitabhāvāya akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;V&quot; n=&quot;3.0101&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;note&gt;sabyāpajjhaṃ (sī. syā. kaṃ. pī. ka.)&lt;/note&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0101&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmī’’ti.</p></div>
+                
+                <div class="translation-text mula-english-section">117. “Bhikkhus, I say that the acquisition of individuality (<i>attabhāva-paṭilābha</i>) is of two kinds: to be cultivated and not to be cultivated. And the acquisition of individuality is either the one or the other.” So it was said by the Blessed One.<br><br>What was said in reference to this? “Venerable sir, such acquisition of individuality as causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish in one who cultivates it should not be cultivated. But such acquisition of individuality as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.”<br><br>“And what kind of acquisition of individuality causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? When a person generates an acquisition of individuality that is subject to affliction, unwholesome states increase and wholesome states diminish in him, preventing him from putting an end to being. And what kind of acquisition of individuality causes unwholesome states to diminish and wholesome states to increase in one who cultivates it? When a person generates an acquisition of individuality that is free from affliction, unwholesome states diminish and wholesome states increase in him, ending being.<br><br>‘Bhikkhus, I say that the acquisition of individuality is of two kinds: to be cultivated and not to be cultivated. And the acquisition of individuality is either the one or the other.’ So what was said by the Blessed One was said in reference to this.<br><br>“Venerable sir, I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">118</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;118&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;118&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāsi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi &lt;pb ed=&quot;T&quot; n=&quot;3.0156&quot;/&gt; – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo kāyasamācāro na sevitabbo; yathārūpañca kho, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo kāyasamācāro sevitabbo.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0156&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0054&quot;/&gt;, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, sāriputta, ekacco pāṇātipātī hoti &lt;pb ed=&quot;M&quot; n=&quot;3.0101&quot;/&gt; luddo lohitapāṇi hatappahate niviṭṭho adayāpanno pāṇabhūtesu; adinnādāyī kho pana hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ adinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācārī kho pana hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu cārittaṃ āpajjitā hoti – evarūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0054&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0101&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, sāriputta, ekacco pāṇātipātaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0157&quot;/&gt; pahāya pāṇātipātā paṭivirato hoti &lt;pb ed=&quot;V&quot; n=&quot;3.0102&quot;/&gt; nihitadaṇḍo nihitasattho, lajjī dayāpanno sabbapāṇabhūtahitānukampī viharati; adinnādānaṃ pahāya adinnādānā paṭivirato hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ nādinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācāraṃ pahāya kāmesumicchācārā paṭivirato hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu na cārittaṃ āpajjitā hoti – evarūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0157&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0102&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi &lt;pb ed=&quot;P&quot; n=&quot;3.0055&quot;/&gt; …pe… manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe….</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0055&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0102&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo attabhāvapaṭilābho na sevitabbo; yathārūpañca kho, sāriputta, attabhāvapaṭilābhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0158&quot;/&gt; sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo attabhāvapaṭilābho sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0102&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0158&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, sāriputta, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Sabyābajjhaṃ, sāriputta, attabhāvapaṭilābhaṃ abhinibbattayato apariniṭṭhitabhāvāya akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti; abyābajjhaṃ, sāriputta, attabhāvapaṭilābhaṃ abhinibbattayato pariniṭṭhitabhāvāya akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;V&quot; n=&quot;3.0103&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0103&quot;/&gt;">&lt;p n=&quot;118&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;118&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāsi.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi &lt;pb ed=&quot;T&quot; n=&quot;3.0156&quot;/&gt; – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo kāyasamācāro na sevitabbo; yathārūpañca kho, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo kāyasamācāro sevitabbo.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0156&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0054&quot;/&gt;, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Idha, sāriputta, ekacco pāṇātipātī hoti &lt;pb ed=&quot;M&quot; n=&quot;3.0101&quot;/&gt; luddo lohitapāṇi hatappahate niviṭṭho adayāpanno pāṇabhūtesu; adinnādāyī kho pana hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ adinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācārī kho pana hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu cārittaṃ āpajjitā hoti – evarūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0054&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0101&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti? Idha, sāriputta, ekacco pāṇātipātaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0157&quot;/&gt; pahāya pāṇātipātā paṭivirato hoti &lt;pb ed=&quot;V&quot; n=&quot;3.0102&quot;/&gt; nihitadaṇḍo nihitasattho, lajjī dayāpanno sabbapāṇabhūtahitānukampī viharati; adinnādānaṃ pahāya adinnādānā paṭivirato hoti, yaṃ taṃ parassa paravittūpakaraṇaṃ gāmagataṃ vā araññagataṃ vā taṃ nādinnaṃ theyyasaṅkhātaṃ ādātā hoti; kāmesumicchācāraṃ pahāya kāmesumicchācārā paṭivirato hoti, yā tā māturakkhitā piturakkhitā mātāpiturakkhitā bhāturakkhitā bhaginirakkhitā ñātirakkhitā gottarakkhitā dhammarakkhitā sassāmikā saparidaṇḍā antamaso mālāguḷaparikkhittāpi tathārūpāsu na cārittaṃ āpajjitā hoti – evarūpaṃ, sāriputta, kāyasamācāraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Kāyasamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ kāyasamācāra’nti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0157&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0102&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Vacīsamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi &lt;pb ed=&quot;P&quot; n=&quot;3.0055&quot;/&gt; …pe… manosamācāraṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… cittuppādaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… saññāpaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe… diṭṭhipaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi…pe….</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0055&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0102&quot;/&gt; paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo attabhāvapaṭilābho na sevitabbo; yathārūpañca kho, sāriputta, attabhāvapaṭilābhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0158&quot;/&gt; sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti – evarūpo attabhāvapaṭilābho sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0102&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0158&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathaṃrūpaṃ, sāriputta, attabhāvapaṭilābhaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti? Sabyābajjhaṃ, sāriputta, attabhāvapaṭilābhaṃ abhinibbattayato apariniṭṭhitabhāvāya akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti; abyābajjhaṃ, sāriputta, attabhāvapaṭilābhaṃ abhinibbattayato pariniṭṭhitabhāvāya akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti. ‘Attabhāvapaṭilābhaṃpāhaṃ, bhikkhave, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;V&quot; n=&quot;3.0103&quot;/&gt;, asevitabbampi; tañca aññamaññaṃ attabhāvapaṭilābha’nti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0103&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Excellent, excellent, Sāriputta! It is excellent that you, Sāriputta, understand thus in detail the meaning of my utterance, which I spoke in brief without expounding the detailed meaning.<br><br>“‘Monks, I declare that bodily conduct (<i>kāyasamācāra</i>) is of two kinds – that which should be cultivated and that which should not be cultivated; and bodily conduct is either the one or the other’ – so it was said by me. What was said with reference to what? Sāriputta, such bodily conduct as causes unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish in one who cultivates it should not be cultivated; but, Sāriputta, such bodily conduct as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.<br><br>“Sāriputta, what kind of bodily conduct is it that causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? Here, Sāriputta, someone kills living beings; he is murderous, bloody-handed, given to blows and violence, merciless to living beings. He takes what is not given; he takes by way of theft the wealth and property of others in the village or in the forest. He misconducts himself in sensual pleasures; he has intercourse with such women as are protected by their mother, father, mother and father, brother, sister, or relatives, who have a husband, who are protected by law, and even with those who are garlanded – such bodily conduct as this, Sāriputta, causes unwholesome states to increase and wholesome states to diminish.<br><br>“Sāriputta, what kind of bodily conduct is it that causes unwholesome states to diminish and wholesome states to increase? Here, Sāriputta, someone, abandoning the killing of living beings, abstains from killing living beings; with rod and weapon laid aside, gently and kindly, he abides compassionate to all living beings. Abandoning the taking of what is not given, he abstains from taking what is not given; he does not take by way of theft the wealth and property of others in the village or in the forest. Abandoning misconduct in sensual pleasures, he abstains from misconduct in sensual pleasures; he does not have intercourse with such women as are protected by their mother, father, mother and father, brother, sister, or relatives, who have a husband, who are protected by law, and even with those who are garlanded – such bodily conduct as this, Sāriputta, causes unwholesome states to diminish and wholesome states to increase. ‘Monks, I declare that bodily conduct is of two kinds – that which should be cultivated and that which should not be cultivated; and bodily conduct is either the one or the other’ – so it was said by me with reference to this.<br><br>“Monks, I declare that verbal conduct (<i>vacīsamācāra</i>) is of two kinds…pe… Monks, I declare that mental conduct (<i>manosamācāra</i>) is of two kinds…pe… Monks, I declare that the arising of thought (<i>cittuppāda</i>) is of two kinds…pe… Monks, I declare that the acquisition of perception (<i>saṃjñāpaṭilābha</i>) is of two kinds…pe… Monks, I declare that the acquisition of views (<i>dṛṣṭhipaṭilābha</i>) is of two kinds…pe….<br><br>“‘Monks, I declare that the acquisition of individuality (<i>attabhāva-paṭilābha</i>) is of two kinds – that which should be cultivated and that which should not be cultivated; and the acquisition of individuality is either the one or the other’ – so it was said by me. What was said with reference to what? Sāriputta, such acquisition of individuality as causes unwholesome states to increase and wholesome states to diminish in one who cultivates it should not be cultivated; but, Sāriputta, such acquisition of individuality as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.<br><br>“Sāriputta, what kind of acquisition of individuality is it that causes unwholesome states to increase and wholesome states to diminish in one who cultivates it? Sāriputta, when a person generates an acquisition of individuality that is subject to affliction (<i>sabyābajjhaṃ attabhāva-paṭilābhaṃ abhinibbattayato apariniṭṭhitabhāvāya</i>), unwholesome states increase and wholesome states diminish, preventing him from putting an end to being. And what kind of acquisition of individuality causes unwholesome states to diminish and wholesome states to increase? When a person generates an acquisition of individuality that is free from affliction (<i>abyābajjhaṃ attabhāva-paṭilābhaṃ abhinibbattayato pariniṭṭhitabhāvāya</i>), unwholesome states diminish and wholesome states increase, enabling him to put an end to being. ‘Monks, I declare that the acquisition of individuality is of two kinds – that which should be cultivated and that which should not be cultivated; and the acquisition of individuality is either the one or the other’ – so it was said by me with reference to this.<br><br>“Sāriputta, the detailed meaning of my utterance, which I spoke in brief, should be regarded thus.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">119</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;119&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;119&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; sotaviññeyyaṃ saddaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi asevitabbampi; ghānaviññeyyaṃ gandhaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; jivhāviññeyyaṃ rasaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; kāyaviññeyyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0159&quot;/&gt; phoṭṭhabbaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ vutte, āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena &lt;pb ed=&quot;P&quot; n=&quot;3.0056&quot;/&gt; vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ na sevitabbaṃ; yathārūpañca kho, bhante, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ sevitabbaṃ. ‘Cakkhuviññeyyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0103&quot;/&gt; rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0056&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0103&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sotaviññeyyaṃ saddaṃpāhaṃ, sāriputta…pe… evarūpo sotaviññeyyo saddo na sevitabbo… evarūpo sotaviññeyyo saddo sevitabbo… evarūpo ghānaviññeyyo gandho na sevitabbo… evarūpo &lt;pb ed=&quot;P&quot; n=&quot;3.0057&quot;/&gt; ghānaviññeyyo gandho sevitabbo… evarūpo jivhāviññeyyo raso na sevitabbo… evarūpo &lt;pb ed=&quot;T&quot; n=&quot;3.0160&quot;/&gt; jivhāviññeyyo raso sevitabbo… kāyaviññeyyaṃ phoṭṭhabbaṃpāhaṃ, sāriputta &lt;pb ed=&quot;V&quot; n=&quot;3.0104&quot;/&gt;… evarūpo kāyaviññeyyo phoṭṭhabbo na sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo sevitabbo.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0057&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0160&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0104&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, manoviññeyyaṃ dhammaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo &lt;pb ed=&quot;P&quot; n=&quot;3.0058&quot;/&gt; manoviññeyyo dhammo na sevitabbo; yathārūpañca kho, bhante, manoviññeyyaṃ dhammaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo manoviññeyyo dhammo sevitabbo. ‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ. Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmī’’ti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0058&quot;/&gt;">&lt;p n=&quot;119&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;119&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; sotaviññeyyaṃ saddaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi asevitabbampi; ghānaviññeyyaṃ gandhaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; jivhāviññeyyaṃ rasaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; kāyaviññeyyaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0159&quot;/&gt; phoṭṭhabbaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi; manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ vutte, āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena &lt;pb ed=&quot;P&quot; n=&quot;3.0056&quot;/&gt; vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ na sevitabbaṃ; yathārūpañca kho, bhante, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ sevitabbaṃ. ‘Cakkhuviññeyyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0103&quot;/&gt; rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0056&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0103&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sotaviññeyyaṃ saddaṃpāhaṃ, sāriputta…pe… evarūpo sotaviññeyyo saddo na sevitabbo… evarūpo sotaviññeyyo saddo sevitabbo… evarūpo ghānaviññeyyo gandho na sevitabbo… evarūpo &lt;pb ed=&quot;P&quot; n=&quot;3.0057&quot;/&gt; ghānaviññeyyo gandho sevitabbo… evarūpo jivhāviññeyyo raso na sevitabbo… evarūpo &lt;pb ed=&quot;T&quot; n=&quot;3.0160&quot;/&gt; jivhāviññeyyo raso sevitabbo… kāyaviññeyyaṃ phoṭṭhabbaṃpāhaṃ, sāriputta &lt;pb ed=&quot;V&quot; n=&quot;3.0104&quot;/&gt;… evarūpo kāyaviññeyyo phoṭṭhabbo na sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo sevitabbo.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0057&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0160&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0104&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, manoviññeyyaṃ dhammaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo &lt;pb ed=&quot;P&quot; n=&quot;3.0058&quot;/&gt; manoviññeyyo dhammo na sevitabbo; yathārūpañca kho, bhante, manoviññeyyaṃ dhammaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo manoviññeyyo dhammo sevitabbo. ‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ. Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmī’’ti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0058&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">119. “Sāriputta, forms cognizable by the eye (cakkhuviññeyyaṃ rūpaṃ) are of two kinds, I say: to be cultivated (sevitabbaṃ) and not to be cultivated (asevitabbaṃ); Sāriputta, sounds cognizable by the ear (sotaviññeyyaṃ saddaṃ) are of two kinds, I say: to be cultivated and not to be cultivated; Sāriputta, odours cognizable by the nose (ghānaviññeyyaṃ gandhaṃ) are of two kinds, I say: to be cultivated and not to be cultivated; Sāriputta, flavours cognizable by the tongue (jivhāviññeyyaṃ rasaṃ) are of two kinds, I say: to be cultivated and not to be cultivated; Sāriputta, tangibles cognizable by the body (kāyaviññeyyaṃ phoṭṭhabbaṃ) are of two kinds, I say: to be cultivated and not to be cultivated; Sāriputta, mind-objects cognizable by the mind (manoviññeyyaṃ dhammaṃ) are of two kinds, I say: to be cultivated and not to be cultivated.”<br><br>When this was said, the venerable Sāriputta said to the Blessed One: “Venerable sir, I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus:<br><br>&#039;Sāriputta, forms cognizable by the eye are of two kinds, I say: to be cultivated and not to be cultivated&#039; – so it was said by the Blessed One.<br><br>What was said with reference to this? Venerable sir, such forms cognizable by the eye as cause unwholesome states (akusalā dhammā) to increase and wholesome states (kusalā dhammā) to diminish in one who cultivates them should not be cultivated; but such forms cognizable by the eye as cause unwholesome states to diminish and wholesome states to increase in one who cultivates them should be cultivated.<br><br>&#039;Sāriputta, forms cognizable by the eye are of two kinds, I say: to be cultivated and not to be cultivated&#039; – so it was said by the Blessed One, and it was with reference to this that it was said.<br><br>“Sāriputta, sounds cognizable by the ear… smells cognizable by the nose… flavours cognizable by the tongue… tangibles cognizable by the body…<br><br>…Such sounds/smells/flavours/tangibles cognizable are not to be cultivated… Such sounds/smells/flavours/tangibles cognizable are to be cultivated.<br><br>“‘Sāriputta, mind-objects cognizable by the mind are of two kinds, I say: to be cultivated and not to be cultivated’ – so it was said by the Blessed One.<br><br>What was said with reference to this? Venerable sir, such mind-objects cognizable by the mind as cause unwholesome states to increase and wholesome states to diminish in one who cultivates them should not be cultivated; but such mind-objects cognizable by the mind as cause unwholesome states to diminish and wholesome states to increase in one who cultivates them should be cultivated.<br><br>‘Sāriputta, mind-objects cognizable by the mind are of two kinds, I say: to be cultivated and not to be cultivated’ – so it was said by the Blessed One, and it was with reference to this that it was said.<br><br>“Venerable sir, I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">120</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;120&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;120&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāsi. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ na sevitabbaṃ; yathārūpañca kho, sāriputta, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā &lt;pb ed=&quot;T&quot; n=&quot;3.0161&quot;/&gt; abhivaḍḍhanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ sevitabbaṃ. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sotaviññeyyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0104&quot;/&gt; saddaṃpāhaṃ, sāriputta…pe… evarūpo sotaviññeyyo saddo na sevitabbo… evarūpo sotaviññeyyo saddo sevitabbo… evarūpo ghānaviññeyyo gandho na sevitabbo… evarūpo ghānaviññeyyo gandho sevitabbo… evarūpo jivhāviññeyyo raso na sevitabbo… evarūpo jivhāviññeyyo raso sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo na sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0104&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Manoviññeyyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0105&quot;/&gt; dhammaṃpāhaṃ, sāriputta…pe… evarūpo manoviññeyyo dhammo na sevitabbo… evarūpo manoviññeyyo dhammo sevitabbo. ‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0105&quot;/&gt;">&lt;p n=&quot;120&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;120&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāsi. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ na sevitabbaṃ; yathārūpañca kho, sāriputta, cakkhuviññeyyaṃ rūpaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā &lt;pb ed=&quot;T&quot; n=&quot;3.0161&quot;/&gt; abhivaḍḍhanti evarūpaṃ cakkhuviññeyyaṃ rūpaṃ sevitabbaṃ. ‘Cakkhuviññeyyaṃ rūpaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Sotaviññeyyaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0104&quot;/&gt; saddaṃpāhaṃ, sāriputta…pe… evarūpo sotaviññeyyo saddo na sevitabbo… evarūpo sotaviññeyyo saddo sevitabbo… evarūpo ghānaviññeyyo gandho na sevitabbo… evarūpo ghānaviññeyyo gandho sevitabbo… evarūpo jivhāviññeyyo raso na sevitabbo… evarūpo jivhāviññeyyo raso sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo na sevitabbo… evarūpo kāyaviññeyyo phoṭṭhabbo sevitabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0104&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Manoviññeyyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0105&quot;/&gt; dhammaṃpāhaṃ, sāriputta…pe… evarūpo manoviññeyyo dhammo na sevitabbo… evarūpo manoviññeyyo dhammo sevitabbo. ‘Manoviññeyyaṃ dhammaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0105&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">120. It is good, it is good, Sāriputta! It is good that you, Sāriputta, understand thus in detail the meaning of my utterance, which I spoke in brief without expounding the detailed meaning.<br><br>‘Sāriputta, I say that forms cognizable by the eye ( <i>cakkhuviññeyyaṃ rūpaṃ</i>) are of two kinds: to be cultivated (<i>sevitabbaṃ pi</i>) and not to be cultivated (<i>asevitabbaṃ pi</i>)’— So it was said by me.<br><br>With reference to what was that said? Sāriputta, such forms cognizable by the eye (<i>cakkhuviññeyyaṃ rūpaṃ</i>) as cause unwholesome states (<i>akusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>) and wholesome states (<i>kusalā dhammā</i>) to diminish (<i>parihāyanti</i>) in one who cultivates them (<i>sevato</i>) should not be cultivated (<i>na sevitabbaṃ</i>); but such forms cognizable by the eye (<i>cakkhuviññeyyaṃ rūpaṃ</i>) as cause unwholesome states (<i>akusalā dhammā</i>) to diminish (<i>parihāyanti</i>) and wholesome states (<i>kusalā dhammā</i>) to increase (<i>abhivaḍḍhanti</i>) in one who cultivates them (<i>sevato</i>) should be cultivated (<i>sevitabbaṃ</i>).<br><br>‘Sāriputta, I say that forms cognizable by the eye (<i>cakkhuviññeyyaṃ rūpaṃ</i>) are of two kinds: to be cultivated (<i>sevitabbaṃ pi</i>) and not to be cultivated (<i>asevitabbaṃ pi</i>)’— So it was with reference to this that was said by me.<br><br>Sounds cognizable by the ear (<i>sotaviññeyyaṃ saddaṃ</i>), Sāriputta…pe… Such a sound cognizable by the ear (<i>sotaviññeyyo saddo</i>) should not be cultivated (<i>na sevitabbo</i>)… Such a sound cognizable by the ear (<i>sotaviññeyyo saddo</i>) should be cultivated (<i>sevitabbo</i>)… Such an odour cognizable by the nose (<i>ghānaviññeyyo gandho</i>) should not be cultivated (<i>na sevitabbo</i>)… Such an odour cognizable by the nose (<i>ghānaviññeyyo gandho</i>) should be cultivated (<i>sevitabbo</i>)… Such a flavour cognizable by the tongue (<i>jivhāviññeyyo raso</i>) should not be cultivated (<i>na sevitabbo</i>)… Such a flavour cognizable by the tongue (<i>jivhāviññeyyo raso</i>) should be cultivated (<i>sevitabbo</i>)… Such a tangible cognizable by the body (<i>kāyaviññeyyo phoṭṭhabbo</i>) should not be cultivated (<i>na sevitabbo</i>)… Such a tangible cognizable by the body (<i>kāyaviññeyyo phoṭṭhabbo</i>) should be cultivated (<i>sevitabbo</i>).<br><br>Mind-objects cognizable by the mind (<i>manoviññeyyaṃ dhammaṃ</i>), Sāriputta…pe… Such a mind-object cognizable by the mind (<i>manoviññeyyo dhammo</i>) should not be cultivated (<i>na sevitabbo</i>)… Such a mind-object cognizable by the mind (<i>manoviññeyyo dhammo</i>) should be cultivated (<i>sevitabbo</i>).<br><br>‘Sāriputta, I say that mind-objects cognizable by the mind (<i>manoviññeyyaṃ dhammaṃ</i>) are of two kinds: to be cultivated (<i>sevitabbaṃ pi</i>) and not to be cultivated (<i>asevitabbaṃ pi</i>)’— So it was with reference to this that was said by me.<br><br>Sāriputta, the detailed meaning of my utterance, which I spoke in brief, should be regarded thus.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">121</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;121&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;121&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cīvaraṃpāhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0162&quot;/&gt;, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi…pe… piṇḍapātaṃpāhaṃ, sāriputta… senāsanaṃpāhaṃ, sāriputta… gāmaṃpāhaṃ, sāriputta… nigamaṃpāhaṃ, sāriputta… nagaraṃpāhaṃ, sāriputta… janapadaṃpāhaṃ, sāriputta… puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0059&quot;/&gt; vutte, āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cīvaraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cīvaraṃ na sevitabbaṃ; yathārūpañca kho, bhante, cīvaraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cīvaraṃ sevitabbaṃ. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0059&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Piṇḍapātaṃpāhaṃ, sāriputta…pe… evarūpo piṇḍapāto na sevitabbo… evarūpo piṇḍapāto &lt;pb ed=&quot;T&quot; n=&quot;3.0163&quot;/&gt; sevitabbo… senāsanaṃpāhaṃ, sāriputta…pe… evarūpaṃ senāsanaṃ na sevitabbaṃ… evarūpaṃ senāsanaṃ sevitabbaṃ… gāmaṃpāhaṃ, sāriputta &lt;pb ed=&quot;M&quot; n=&quot;3.0105&quot;/&gt; …pe… evarūpo gāmo na sevitabbo… evarūpo gāmo sevitabbo… evarūpo nigamo na sevitabbo… evarūpo nigamo sevitabbo… evarūpaṃ nagaraṃ na sevitabbaṃ… evarūpaṃ nagaraṃ sevitabbaṃ… evarūpo janapado na sevitabbo… evarūpo janapado sevitabbo.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0163&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0105&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, puggalaṃ sevato akusalā &lt;pb ed=&quot;V&quot; n=&quot;3.0106&quot;/&gt; dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo puggalo na sevitabbo; yathārūpañca kho, bhante, puggalaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo puggalo sevitabbo. ‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttanti. Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa evaṃ vitthārena atthaṃ ājānāmī’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0106&quot;/&gt;">&lt;p n=&quot;121&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;121&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Cīvaraṃpāhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0162&quot;/&gt;, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampi…pe… piṇḍapātaṃpāhaṃ, sāriputta… senāsanaṃpāhaṃ, sāriputta… gāmaṃpāhaṃ, sāriputta… nigamaṃpāhaṃ, sāriputta… nagaraṃpāhaṃ, sāriputta… janapadaṃpāhaṃ, sāriputta… puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Evaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0059&quot;/&gt; vutte, āyasmā sāriputto bhagavantaṃ etadavoca – ‘‘imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa, evaṃ vitthārena atthaṃ ājānāmi. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, cīvaraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cīvaraṃ na sevitabbaṃ; yathārūpañca kho, bhante, cīvaraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cīvaraṃ sevitabbaṃ. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0059&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Piṇḍapātaṃpāhaṃ, sāriputta…pe… evarūpo piṇḍapāto na sevitabbo… evarūpo piṇḍapāto &lt;pb ed=&quot;T&quot; n=&quot;3.0163&quot;/&gt; sevitabbo… senāsanaṃpāhaṃ, sāriputta…pe… evarūpaṃ senāsanaṃ na sevitabbaṃ… evarūpaṃ senāsanaṃ sevitabbaṃ… gāmaṃpāhaṃ, sāriputta &lt;pb ed=&quot;M&quot; n=&quot;3.0105&quot;/&gt; …pe… evarūpo gāmo na sevitabbo… evarūpo gāmo sevitabbo… evarūpo nigamo na sevitabbo… evarūpo nigamo sevitabbo… evarūpaṃ nagaraṃ na sevitabbaṃ… evarūpaṃ nagaraṃ sevitabbaṃ… evarūpo janapado na sevitabbo… evarūpo janapado sevitabbo.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0163&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0105&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ bhagavatā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, bhante, puggalaṃ sevato akusalā &lt;pb ed=&quot;V&quot; n=&quot;3.0106&quot;/&gt; dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo puggalo na sevitabbo; yathārūpañca kho, bhante, puggalaṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo puggalo sevitabbo. ‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ bhagavatā idametaṃ paṭicca vuttanti. Imassa kho ahaṃ, bhante, bhagavatā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa evaṃ vitthārena atthaṃ ājānāmī’’ti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0106&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">121. “Sāriputta, robes (<i>cīvara</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>)… Almsfood (<i>piṇḍapāta</i>) is of two kinds, Sāriputta… Resting places (<i>senāsana</i>) are of two kinds, Sāriputta… Villages (<i>gāma</i>) are of two kinds, Sāriputta… Towns (<i>nigama</i>) are of two kinds, Sāriputta… Cities (<i>nagara</i>) are of two kinds, Sāriputta… Districts (<i>janapada</i>) are of two kinds, Sāriputta… Persons (<i>puggala</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>).”<br><br>When this was said, the venerable Sāriputta said to the Blessed One: “Venerable sir (<i>bhante</i>), I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus:<br><br>‘Sāriputta, robes (<i>cīvara</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>).’ So it was said by the Blessed One.<br><br>What was said with reference to this? Venerable sir (<i>bhante</i>), such robes (<i>cīvara</i>) as cause unwholesome states (<i>akusala dhamma</i>) to increase and wholesome states (<i>kusala dhamma</i>) to diminish in one who cultivates them should not be cultivated (<i>sevitabba</i>). But such robes (<i>cīvara</i>) as cause unwholesome states (<i>akusala dhamma</i>) to diminish and wholesome states (<i>kusala dhamma</i>) to increase in one who cultivates them should be cultivated (<i>sevitabba</i>).<br><br>‘Sāriputta, robes (<i>cīvara</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>).’ So it was with reference to this that it was said by the Blessed One.<br><br>“Almsfood (<i>piṇḍapāta</i>) is of two kinds, Sāriputta… Such almsfood (<i>piṇḍapāta</i>) should not be cultivated (<i>sevitabba</i>)… Such almsfood (<i>piṇḍapāta</i>) should be cultivated (<i>sevitabba</i>)… Resting places (<i>senāsana</i>) are of two kinds, Sāriputta… Such a resting place (<i>senāsana</i>) should not be cultivated (<i>sevitabba</i>)… Such a resting place (<i>senāsana</i>) should be cultivated (<i>sevitabba</i>)… Villages (<i>gāma</i>) are of two kinds, Sāriputta… Such a village (<i>gāma</i>) should not be cultivated (<i>sevitabba</i>)… Such a village (<i>gāma</i>) should be cultivated (<i>sevitabba</i>)… Such a town (<i>nigama</i>) should not be cultivated (<i>sevitabba</i>)… Such a town (<i>nigama</i>) should be cultivated (<i>sevitabba</i>)… Such a city (<i>nagara</i>) should not be cultivated (<i>sevitabba</i>)… Such a city (<i>nagara</i>) should be cultivated (<i>sevitabba</i>)… Such a district (<i>janapada</i>) should not be cultivated (<i>sevitabba</i>)… Such a district (<i>janapada</i>) should be cultivated (<i>sevitabba</i>).<br><br>“‘Sāriputta, persons (<i>puggala</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>).’ So it was said by the Blessed One.<br><br>What was said with reference to this? Venerable sir (<i>bhante</i>), association with such persons (<i>puggala</i>) as causes unwholesome states (<i>akusala dhamma</i>) to increase and wholesome states (<i>kusala dhamma</i>) to diminish in one who cultivates it should not be cultivated (<i>sevitabba</i>). But association with such persons (<i>puggala</i>) as causes unwholesome states (<i>akusala dhamma</i>) to diminish and wholesome states (<i>kusala dhamma</i>) to increase in one who cultivates it should be cultivated (<i>sevitabba</i>).<br><br>‘Sāriputta, persons (<i>puggala</i>) are of two kinds, I say: to be cultivated (<i>sevitabba</i>) and not to be cultivated (<i>asevitabba</i>).’ So it was with reference to this that it was said by the Blessed One.<br><br>Venerable sir (<i>bhante</i>), I understand the detailed meaning of the Blessed One’s utterance, which he has spoken in brief without expounding the detailed meaning, to be thus.”</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">122</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;122&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;122&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa evaṃ vitthārena atthaṃ ājānāsi. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;P&quot; n=&quot;3.0060&quot;/&gt;, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca &lt;pb ed=&quot;T&quot; n=&quot;3.0164&quot;/&gt; vuttaṃ? Yathārūpaṃ, sāriputta, cīvaraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cīvaraṃ na sevitabbaṃ; yathārūpañca kho, sāriputta, cīvaraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cīvaraṃ sevitabbaṃ. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. (Yathā paṭhamaṃ tathā vitthāretabbaṃ) evarūpo piṇḍapāto… evarūpaṃ senāsanaṃ… evarūpo gāmo… evarūpo nigamo… evarūpaṃ nagaraṃ… evarūpo janapado.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, puggalaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo puggalo na sevitabbo; yathārūpañca kho, sāriputta, puggalaṃ sevato &lt;pb ed=&quot;M&quot; n=&quot;3.0106&quot;/&gt; akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo puggalo sevitabbo. ‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā &lt;pb ed=&quot;T&quot; n=&quot;3.0165&quot;/&gt; saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0106&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0165&quot;/&gt;">&lt;p n=&quot;122&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;122&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sādhu sādhu, sāriputta! Sādhu kho tvaṃ, sāriputta, imassa mayā saṃkhittena bhāsitassa, vitthārena atthaṃ avibhattassa evaṃ vitthārena atthaṃ ājānāsi. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi &lt;pb ed=&quot;P&quot; n=&quot;3.0060&quot;/&gt;, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca &lt;pb ed=&quot;T&quot; n=&quot;3.0164&quot;/&gt; vuttaṃ? Yathārūpaṃ, sāriputta, cīvaraṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpaṃ cīvaraṃ na sevitabbaṃ; yathārūpañca kho, sāriputta, cīvaraṃ sevato akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpaṃ cīvaraṃ sevitabbaṃ. ‘Cīvaraṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. (Yathā paṭhamaṃ tathā vitthāretabbaṃ) evarūpo piṇḍapāto… evarūpaṃ senāsanaṃ… evarūpo gāmo… evarūpo nigamo… evarūpaṃ nagaraṃ… evarūpo janapado.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti kho panetaṃ vuttaṃ mayā. Kiñcetaṃ paṭicca vuttaṃ? Yathārūpaṃ, sāriputta, puggalaṃ sevato akusalā dhammā abhivaḍḍhanti, kusalā dhammā parihāyanti evarūpo puggalo na sevitabbo; yathārūpañca kho, sāriputta, puggalaṃ sevato &lt;pb ed=&quot;M&quot; n=&quot;3.0106&quot;/&gt; akusalā dhammā parihāyanti, kusalā dhammā abhivaḍḍhanti evarūpo puggalo sevitabbo. ‘Puggalaṃpāhaṃ, sāriputta, duvidhena vadāmi – sevitabbampi, asevitabbampī’ti – iti yaṃ taṃ vuttaṃ mayā idametaṃ paṭicca vuttaṃ. Imassa kho, sāriputta, mayā &lt;pb ed=&quot;T&quot; n=&quot;3.0165&quot;/&gt; saṃkhittena bhāsitassa evaṃ vitthārena attho daṭṭhabbo.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0106&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0165&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">122.<br>&quot;Excellent, excellent, Sāriputta! It is good that you, Sāriputta, understand thus in detail the meaning of what I have spoken in brief, the meaning of what was not distinguished in detail.<br><br>&#039;Sāriputta, I say that robes (<i>cīvara</i>) are of two kinds: to be cultivated and not to be cultivated.&#039; So it was said by me.<br><br>What was said with reference to this? Sāriputta, such robes (<i>cīvara</i>) as cause unwholesome states (<i>akusalā dhammā</i>) to increase and wholesome states (<i>kusalā dhammā</i>) to diminish in one who cultivates them should not be cultivated. But such robes as cause unwholesome states to diminish and wholesome states to increase in one who cultivates them should be cultivated.<br><br>&#039;Sāriputta, I say that robes are of two kinds: to be cultivated and not to be cultivated.&#039; So what was said by me was said with reference to this.<br><br>(As before, it should be explained in detail.) Almsfood (<i>piṇḍapāta</i>) of this kind… A resting place (<i>senāsana</i>) of this kind… A village (<i>gāma</i>) of this kind… A town (<i>nigama</i>) of this kind… A city (<i>nagara</i>) of this kind… A district (<i>janapada</i>) of this kind.<br><br>&#039;Sāriputta, I say that persons (<i>puggala</i>) are of two kinds: to be cultivated and not to be cultivated.&#039; So it was said by me.<br><br>What was said with reference to this? Sāriputta, association with such persons as causes unwholesome states to increase and wholesome states to diminish in one who cultivates it should not be cultivated. But association with such persons as causes unwholesome states to diminish and wholesome states to increase in one who cultivates it should be cultivated.<br><br>&#039;Sāriputta, I say that persons are of two kinds: to be cultivated and not to be cultivated.&#039; So what was said by me was said with reference to this.<br><br>Sāriputta, the meaning of what I have spoken in brief should be regarded thus in detail.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">123</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;123&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;123&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sabbepi ce, sāriputta, khattiyā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyyuṃ, sabbesānampissa khattiyānaṃ dīgharattaṃ hitāya sukhāya. Sabbepi ce &lt;pb ed=&quot;V&quot; n=&quot;3.0107&quot;/&gt;, sāriputta, brāhmaṇā…pe… sabbepi ce, sāriputta, vessā… sabbepi ce, sāriputta, suddā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyyuṃ, sabbesānampissa suddānaṃ dīgharattaṃ hitāya sukhāya. Sadevakopi ce, sāriputta, loko samārako sabrahmako sassamaṇabrāhmaṇī pajā sadevamanussā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyya, sadevakassapissa lokassa samārakassa sabrahmakassa sassamaṇabrāhmaṇiyā pajāya sadevamanussāya dīgharattaṃ hitāya sukhāyā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;P&quot; n=&quot;3.0061&quot;/&gt; bhagavā. Attamano āyasmā sāriputto bhagavato bhāsitaṃ abhinandīti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0061&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Sevitabbāsevitabbasuttaṃ niṭṭhitaṃ catutthaṃ.</p>">&lt;p n=&quot;123&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;123&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Sabbepi ce, sāriputta, khattiyā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyyuṃ, sabbesānampissa khattiyānaṃ dīgharattaṃ hitāya sukhāya. Sabbepi ce &lt;pb ed=&quot;V&quot; n=&quot;3.0107&quot;/&gt;, sāriputta, brāhmaṇā…pe… sabbepi ce, sāriputta, vessā… sabbepi ce, sāriputta, suddā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyyuṃ, sabbesānampissa suddānaṃ dīgharattaṃ hitāya sukhāya. Sadevakopi ce, sāriputta, loko samārako sabrahmako sassamaṇabrāhmaṇī pajā sadevamanussā imassa mayā saṃkhittena bhāsitassa evaṃ vitthārena atthaṃ ājāneyya, sadevakassapissa lokassa samārakassa sabrahmakassa sassamaṇabrāhmaṇiyā pajāya sadevamanussāya dīgharattaṃ hitāya sukhāyā’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;P&quot; n=&quot;3.0061&quot;/&gt; bhagavā. Attamano āyasmā sāriputto bhagavato bhāsitaṃ abhinandīti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0061&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Sevitabbāsevitabbasuttaṃ niṭṭhitaṃ catutthaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">123. “Sāriputta, if all nobles understood thus the detailed meaning of my utterance, which I spoke in brief, it would lead to their welfare and happiness for a long time.<br><br>Sāriputta, if all <i>brāhmaṇas</i>… all merchants…all <i>śūdras</i> understood thus the meaning of my utterance, which I spoke in brief, it would lead to their welfare and happiness for a long time.<br><br>Sāriputta, if the world with its gods (<i>deva</i>), its <i>Māras</i>, and its <i>Brahmās</i>, this generation with its ascetics (<i>śramaṇa</i>) and <i>brāhmaṇas</i>, its princes (<i>deva</i>) and its people (<i>manussa</i>), understood thus the detailed meaning of my utterance, which I spoke in brief, it would lead to the welfare and happiness of the world for a long time.”<br><br>This said the Blessed One (<i>bhagavān</i>).<br><br>The venerable Sāriputta was satisfied and delighted in the Blessed One’s words.<br><br>The Sevitabbāsevitabbasuttaṃ, the fourth, is finished.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn4_nandakovādasuttaṃ.html" class="nav-btn">← Previous: Nandakovādasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn4_sāmagāmasuttaṃ.html" class="nav-btn">Next: Sāmagāmasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

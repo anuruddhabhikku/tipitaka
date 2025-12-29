@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Lomasakaṅgiyabhaddekarattasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Lomasakaṅgiyabhaddekarattasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 4</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn4_bākulasuttaṃ.html" class="nav-btn">← Previous: Bākulasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn4_nandakovādasuttaṃ.html" class="nav-btn">Next: Nandakovādasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">286</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;286&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;286&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0369&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0240&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0245&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tena kho pana samayena āyasmā lomasakaṅgiyo &lt;note&gt;lomasakakaṅgiyo (ṭīkā)&lt;/note&gt; sakkesu viharati kapilavatthusmiṃ nigrodhārāme. Atha kho candano devaputto abhikkantāya rattiyā abhikkantavaṇṇo kevalakappaṃ nigrodhārāmaṃ obhāsetvā yenāyasmā lomasakaṅgiyo tenupasaṅkami; upasaṅkamitvā ekamantaṃ aṭṭhāsi. Ekamantaṃ ṭhito kho candano devaputto āyasmantaṃ lomasakaṅgiyaṃ etadavoca – ‘‘dhāresi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañcā’’ti? ‘‘Na &lt;pb ed=&quot;P&quot; n=&quot;3.0200&quot;/&gt; kho ahaṃ, āvuso, dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Tvaṃ panāvuso, dhāresi bhaddekarattassa uddesañca vibhaṅgañcā’’ti? ‘‘Ahampi kho, bhikkhu, na dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Dhāresi pana tvaṃ, bhikkhu, bhaddekarattiyo gāthā’’ti? ‘‘Na kho ahaṃ, āvuso, dhāremi bhaddekarattiyo gāthā. Tvaṃ panāvuso, dhāresi bhaddekarattiyo gāthā’’ti? ‘‘Dhāremi kho ahaṃ, bhikkhu, bhaddekarattiyo gāthā’’ti. ‘‘Yathā kathaṃ pana tvaṃ, āvuso, dhāresi bhaddekarattiyo gāthā’’ti? ‘‘Ekamidaṃ, bhikkhu, samayaṃ bhagavā devesu tāvatiṃsesu viharati pāricchattakamūle paṇḍukambalasilāyaṃ. Tatra bhagavā devānaṃ tāvatiṃsānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0370&quot;/&gt; bhaddekarattassa uddesañca vibhaṅgañca abhāsi –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca yo dhammaṃ, tattha tattha vipassati;</p> &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;p rend=&quot;gathalast&quot;&gt;Na hi no saṅgaraṃ tena, mahāsenena maccunā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0246&quot;/&gt; vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0246&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ kho ahaṃ, bhikkhu, dhāremi bhaddekarattiyo gāthā. Uggaṇhāhi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; pariyāpuṇāhi tvaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0241&quot;/&gt;, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; dhārehi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca. Atthasaṃhito, bhikkhu, bhaddekarattassa uddeso ca vibhaṅgo ca ādibrahmacariyako’’ti. Idamavoca candano devaputto. Idaṃ vatvā tatthevantaradhāyi.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0241&quot;/&gt;">&lt;p n=&quot;286&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;286&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0369&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0240&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0245&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tena kho pana samayena āyasmā lomasakaṅgiyo &lt;note&gt;lomasakakaṅgiyo (ṭīkā)&lt;/note&gt; sakkesu viharati kapilavatthusmiṃ nigrodhārāme. Atha kho candano devaputto abhikkantāya rattiyā abhikkantavaṇṇo kevalakappaṃ nigrodhārāmaṃ obhāsetvā yenāyasmā lomasakaṅgiyo tenupasaṅkami; upasaṅkamitvā ekamantaṃ aṭṭhāsi. Ekamantaṃ ṭhito kho candano devaputto āyasmantaṃ lomasakaṅgiyaṃ etadavoca – ‘‘dhāresi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañcā’’ti? ‘‘Na &lt;pb ed=&quot;P&quot; n=&quot;3.0200&quot;/&gt; kho ahaṃ, āvuso, dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Tvaṃ panāvuso, dhāresi bhaddekarattassa uddesañca vibhaṅgañcā’’ti? ‘‘Ahampi kho, bhikkhu, na dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Dhāresi pana tvaṃ, bhikkhu, bhaddekarattiyo gāthā’’ti? ‘‘Na kho ahaṃ, āvuso, dhāremi bhaddekarattiyo gāthā. Tvaṃ panāvuso, dhāresi bhaddekarattiyo gāthā’’ti? ‘‘Dhāremi kho ahaṃ, bhikkhu, bhaddekarattiyo gāthā’’ti. ‘‘Yathā kathaṃ pana tvaṃ, āvuso, dhāresi bhaddekarattiyo gāthā’’ti? ‘‘Ekamidaṃ, bhikkhu, samayaṃ bhagavā devesu tāvatiṃsesu viharati pāricchattakamūle paṇḍukambalasilāyaṃ. Tatra bhagavā devānaṃ tāvatiṃsānaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0370&quot;/&gt; bhaddekarattassa uddesañca vibhaṅgañca abhāsi –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca yo dhammaṃ, tattha tattha vipassati;</p> &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;p rend=&quot;gathalast&quot;&gt;Na hi no saṅgaraṃ tena, mahāsenena maccunā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0246&quot;/&gt; vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0246&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ kho ahaṃ, bhikkhu, dhāremi bhaddekarattiyo gāthā. Uggaṇhāhi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; pariyāpuṇāhi tvaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0241&quot;/&gt;, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; dhārehi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca. Atthasaṃhito, bhikkhu, bhaddekarattassa uddeso ca vibhaṅgo ca ādibrahmacariyako’’ti. Idamavoca candano devaputto. Idaṃ vatvā tatthevantaradhāyi.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0241&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard:<br><br>Once the Blessed One (bhagavā) was dwelling at Sāvatthi (Śrāvastī) in Jeta&#039;s Grove, Anāthapindika’s monastery (ārāma).<br><br>Now on that occasion, the venerable Lomasakangiya was living in the Sakyan country at Kapilavatthu in Nigrodha’s Park.<br><br>Then Candana, a young deva (devaputto) of beautiful appearance, when the night was far advanced, illuminating the whole of Nigrodha’s Park, approached the venerable Lomasakangiya; having approached, he stood to one side.<br><br>Standing to one side, Candana the deva’s son said this to the venerable Lomasakangiya: “Do you, bhikkhu (monk), remember the summary (uddesa) and the exposition (vibhaṅga) of ‘One Who Has One Fortunate Attachment’ (bhaddekaratta)?”<br><br>“No, friend (āvuso), I do not remember the summary and the exposition of ‘One Who Has One Fortunate Attachment.’”<br><br>“Then, friend, do you remember the summary and the exposition of ‘One Who Has One Fortunate Attachment’?”<br><br>“I, too, bhikkhu, do not remember the summary and the exposition of ‘One Who Has One Fortunate Attachment.’”<br><br>“Then, bhikkhu, do you remember the verses (gāthā) of ‘One Who Has One Fortunate Attachment’?”<br><br>“No, friend, I do not remember the verses of ‘One Who Has One Fortunate Attachment.’”<br><br>“Then, friend, do you remember the verses of ‘One Who Has One Fortunate Attachment’?”<br><br>“Yes, bhikkhu, I remember the verses of ‘One Who Has One Fortunate Attachment.’”<br><br>“How then, friend, do you remember the verses of ‘One Who Has One Fortunate Attachment’?”<br><br>“Once, bhikkhu, the Blessed One was dwelling among the devas in Tāvatiṃsa, at the foot of the pāricchattaka tree, on the paṇḍukambala stone.<br><br>There the Blessed One spoke to the Tāvatiṃsa devas the summary and the exposition of ‘One Who Has One Fortunate Attachment’:<br><br>“One should not hark back to the past, nor long for the future;<br><br>That which is past is left behind, and the future is not yet reached.<br><br>“But whoever sees insightfully each present state,<br><br>Unshaken, unperturbed— knowing that, let him cultivate it.<br><br>“Today itself should be done what ought to be done; who knows if death will come tomorrow?<br><br>For there is no bargain to be made by us with Death and his great army.<br><br>“The one who dwells thus ardently, tireless, day and night,<br><br>That one, truly, is ‘One Who Has One Fortunate Attachment,’ so the sage (muni), at peace, declares.”<br><br>“Thus, bhikkhu, I remember the verses of ‘One Who Has One Fortunate Attachment.’<br><br>Learn, bhikkhu, the summary and the exposition of ‘One Who Has One Fortunate Attachment’; master, bhikkhu, the summary and the exposition of ‘One Who Has One Fortunate Attachment’; remember, bhikkhu, the summary and the exposition of ‘One Who Has One Fortunate Attachment.’<br><br>The summary and the exposition of ‘One Who Has One Fortunate Attachment’ is beneficial, bhikkhu; it belongs to the fundamentals of the holy life (ādibrahmacariyaka).”<br><br>That is what was said by Candana the young deva.<br><br>Having said this, he thereupon vanished at once.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">287</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;287&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;287&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā lomasakaṅgiyo tassā rattiyā accayena senāsanaṃ saṃsāmetvā pattacīvaramādāya yena sāvatthi tena &lt;pb ed=&quot;P&quot; n=&quot;3.0201&quot;/&gt; cārikaṃ pakkāmi. Anupubbena cārikaṃ caramāno yena sāvatthi jetavanaṃ anāthapiṇḍikassa ārāmo yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0371&quot;/&gt; abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā lomasakaṅgiyo bhagavantaṃ etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Ekamidāhaṃ, bhante, samayaṃ sakkesu viharāmi kapilavatthusmiṃ nigrodhārāme. Atha kho, bhante, aññataro devaputto abhikkantāya rattiyā abhikkantavaṇṇo kevalakappaṃ nigrodhārāmaṃ obhāsetvā yenāhaṃ tenupasaṅkami; upasaṅkamitvā ekamantaṃ aṭṭhāsi. Ekamantaṃ ṭhito kho, bhante, so devaputto maṃ etadavoca – ‘dhāresi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañcā’ti? Evaṃ vutte ahaṃ, bhante, taṃ devaputtaṃ etadavocaṃ – ‘na kho ahaṃ, āvuso, dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Tvaṃ panāvuso, dhāresi bhaddekarattassa uddesañca vibhaṅgañcā’ti? ‘Ahampi kho, bhikkhu, na dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Dhāresi pana tvaṃ, bhikkhu, bhaddekarattiyo gāthā’ti? ‘Na kho ahaṃ, āvuso, dhāremi bhaddekarattiyo gāthā. Tvaṃ panāvuso, dhāresi bhaddekarattiyo gāthā’ti? ‘Dhāremi kho ahaṃ, bhikkhu, bhaddekarattiyo gāthā’ti. ‘Yathā kathaṃ pana tvaṃ, āvuso, dhāresi bhaddekarattiyo gāthā’ti? Ekamidaṃ, bhikkhu, samayaṃ bhagavā devesu tāvatiṃsesu viharati pāricchattakamūle paṇḍukambalasilāyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0247&quot;/&gt;. Tatra kho bhagavā devānaṃ tāvatiṃsānaṃ bhaddekarattassa uddesañca vibhaṅgañca abhāsi –</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0247&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ nānvāgameyya…pe…</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0372&quot;/&gt; kho ahaṃ, bhikkhu, dhāremi bhaddekarattiyo gāthā. Uggaṇhāhi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; pariyāpuṇāhi tvaṃ, bhikkhu, bhaddekarattassa &lt;pb ed=&quot;M&quot; n=&quot;3.0242&quot;/&gt; uddesañca vibhaṅgañca; dhārehi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca. Atthasaṃhito, bhikkhu, bhaddekarattassa uddeso ca vibhaṅgo ca ādibrahmacariyako’ti. Idamavoca, bhante, so devaputto; idaṃ vatvā tatthevantaradhāyi. Sādhu me, bhante, bhagavā bhaddekarattassa uddesañca vibhaṅgañca desetū’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0372&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0242&quot;/&gt;">&lt;p n=&quot;287&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;287&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Atha kho āyasmā lomasakaṅgiyo tassā rattiyā accayena senāsanaṃ saṃsāmetvā pattacīvaramādāya yena sāvatthi tena &lt;pb ed=&quot;P&quot; n=&quot;3.0201&quot;/&gt; cārikaṃ pakkāmi. Anupubbena cārikaṃ caramāno yena sāvatthi jetavanaṃ anāthapiṇḍikassa ārāmo yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0371&quot;/&gt; abhivādetvā ekamantaṃ nisīdi. Ekamantaṃ nisinno kho āyasmā lomasakaṅgiyo bhagavantaṃ etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Ekamidāhaṃ, bhante, samayaṃ sakkesu viharāmi kapilavatthusmiṃ nigrodhārāme. Atha kho, bhante, aññataro devaputto abhikkantāya rattiyā abhikkantavaṇṇo kevalakappaṃ nigrodhārāmaṃ obhāsetvā yenāhaṃ tenupasaṅkami; upasaṅkamitvā ekamantaṃ aṭṭhāsi. Ekamantaṃ ṭhito kho, bhante, so devaputto maṃ etadavoca – ‘dhāresi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañcā’ti? Evaṃ vutte ahaṃ, bhante, taṃ devaputtaṃ etadavocaṃ – ‘na kho ahaṃ, āvuso, dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Tvaṃ panāvuso, dhāresi bhaddekarattassa uddesañca vibhaṅgañcā’ti? ‘Ahampi kho, bhikkhu, na dhāremi bhaddekarattassa uddesañca vibhaṅgañca. Dhāresi pana tvaṃ, bhikkhu, bhaddekarattiyo gāthā’ti? ‘Na kho ahaṃ, āvuso, dhāremi bhaddekarattiyo gāthā. Tvaṃ panāvuso, dhāresi bhaddekarattiyo gāthā’ti? ‘Dhāremi kho ahaṃ, bhikkhu, bhaddekarattiyo gāthā’ti. ‘Yathā kathaṃ pana tvaṃ, āvuso, dhāresi bhaddekarattiyo gāthā’ti? Ekamidaṃ, bhikkhu, samayaṃ bhagavā devesu tāvatiṃsesu viharati pāricchattakamūle paṇḍukambalasilāyaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0247&quot;/&gt;. Tatra kho bhagavā devānaṃ tāvatiṃsānaṃ bhaddekarattassa uddesañca vibhaṅgañca abhāsi –</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0247&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ nānvāgameyya…pe…</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0372&quot;/&gt; kho ahaṃ, bhikkhu, dhāremi bhaddekarattiyo gāthā. Uggaṇhāhi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca; pariyāpuṇāhi tvaṃ, bhikkhu, bhaddekarattassa &lt;pb ed=&quot;M&quot; n=&quot;3.0242&quot;/&gt; uddesañca vibhaṅgañca; dhārehi tvaṃ, bhikkhu, bhaddekarattassa uddesañca vibhaṅgañca. Atthasaṃhito, bhikkhu, bhaddekarattassa uddeso ca vibhaṅgo ca ādibrahmacariyako’ti. Idamavoca, bhante, so devaputto; idaṃ vatvā tatthevantaradhāyi. Sādhu me, bhante, bhagavā bhaddekarattassa uddesañca vibhaṅgañca desetū’’ti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0372&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0242&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thereupon, the venerable Lomasakaṅgiya, after that night had passed, arranged his lodging, took his bowl and robe, and left on a walking tour for Sāvatthī.<br><br>Wandering by stages, he arrived at Sāvatthī, Jeta’s Grove, Anāthapiṇḍika’s monastery. He went to the Blessed One and, on arrival, having bowed down to him, sat to one side.<br><br>As he was sitting there, the venerable Lomasakaṅgiya said this to the Blessed One:<br><br>“Once, lord, I was staying in the Sakyan country at Kapilavatthu in Nigrodha’s Park.<br><br>Then, lord, a certain young deity, in the far extreme of the night, his extreme radiance lighting up the entirety of Nigrodha’s Park, came to me and, on arrival, stood to one side.<br><br>Standing to one side, lord, that young deity said this to me: ‘Do you, bhikkhu, remember the summary and exposition of the <i>bhaddekaratta</i>?’ When this was said, I said this to that young deity: ‘No, friend, I do not remember the summary and exposition of the <i>bhaddekaratta</i>.<br><br>But do you, friend, remember the summary and exposition of the <i>bhaddekaratta</i>?’ ‘I, too, bhikkhu, do not remember the summary and exposition of the <i>bhaddekaratta</i>.<br><br>But do you, bhikkhu, remember the verses of the <i>bhaddekaratta</i>?’ ‘No, friend, I do not remember the verses of the <i>bhaddekaratta</i>.<br><br>But do you, friend, remember the verses of the <i>bhaddekaratta</i>?’ ‘Yes, I do, bhikkhu, I remember the verses of the <i>bhaddekaratta</i>.’<br><br>‘But how, friend, do you remember the verses of the <i>bhaddekaratta</i>?’ Once, bhikkhu, the Blessed One was staying among the gods of the Tāvatiṃsa heaven at the foot of the Pāricchattaka tree, on the Paṇḍukambala stone.<br><br>There the Blessed One recited the summary and exposition of the <i>bhaddekaratta</i> to the gods of the Tāvatiṃsa heaven:<br><br>“One should not chase after the past…pe…<br><br>‘He is truly called fortunate, a monk of the present,’ thus says the peaceful sage.”<br><br>“In this way, bhikkhu, I remember the verses of the <i>bhaddekaratta</i>.<br><br>Learn, bhikkhu, the summary and exposition of the <i>bhaddekaratta</i>; master, bhikkhu, the summary and exposition of the <i>bhaddekaratta</i>; remember, bhikkhu, the summary and exposition of the <i>bhaddekaratta</i>.<br><br>The summary and exposition of the <i>bhaddekaratta</i> is beneficial, bhikkhu; it belongs to the fundamentals of the holy life.”<br><br>That is what the young deity said, lord; and after saying that, he vanished right there.<br><br>It would be good, lord, if the Blessed One would teach me the summary and exposition of the <i>bhaddekaratta</i>.&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">288</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;288&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;288&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Jānāsi pana tvaṃ, bhikkhu, taṃ devaputta’’nti? ‘‘Na kho ahaṃ, bhante, jānāmi taṃ devaputta’’nti. ‘‘Candano nāma so, bhikkhu, devaputto. Candano, bhikkhu, devaputto aṭṭhiṃ katvā &lt;note&gt;aṭṭhikatvā (sī. syā. kaṃ. pī.)&lt;/note&gt; manasikatvā sabbacetasā &lt;note&gt;sabbaṃ cetaso (sī. syā. kaṃ. pī.), sabbaṃ cetasā (ka.)&lt;/note&gt; samannāharitvā ohitasoto dhammaṃ suṇāti. Tena hi, bhikkhu, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā lomasakaṅgiyo bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0248&quot;/&gt; nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0248&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca yo dhammaṃ, tattha tattha vipassati;</p> &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;p rend=&quot;gathalast&quot;&gt;Na &lt;pb ed=&quot;T&quot; n=&quot;3.0373&quot;/&gt; hi no saṅgaraṃ tena, mahāsenena maccunā;</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0373&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate muni’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathañca, bhikkhu, atītaṃ anvāgameti…pe… evaṃ kho, bhikkhu, atītaṃ anvāgameti. Kathañca &lt;pb ed=&quot;P&quot; n=&quot;3.0202&quot;/&gt;, bhikkhu, atītaṃ nānvāgameti…pe… evaṃ kho, bhikkhu, atītaṃ nānvāgameti. Kathañca, bhikkhu, anāgataṃ paṭikaṅkhati…pe… evaṃ kho, bhikkhu, anāgataṃ paṭikaṅkhati. Kathañca, bhikkhu, anāgataṃ nappaṭikaṅkhati…pe… &lt;pb ed=&quot;T&quot; n=&quot;3.0374&quot;/&gt; evaṃ kho, bhikkhu, anāgataṃ nappaṭikaṅkhati. Kathañca, bhikkhu, paccuppannesu dhammesu saṃhīrati…pe… evaṃ kho, bhikkhu, paccuppannesu dhammesu saṃhīrati. Kathañca, bhikkhu, paccuppannesu dhammesu na saṃhīrati…pe… evaṃ kho, bhikkhu, paccuppannesu dhammesu na saṃhīrati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0202&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0374&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0375&quot;/&gt; nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0375&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca &lt;pb ed=&quot;M&quot; n=&quot;3.0243&quot;/&gt; yo dhammaṃ, tattha tattha vipassati;</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0243&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva &lt;pb ed=&quot;V&quot; n=&quot;3.0249&quot;/&gt; kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0249&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Na hi no saṅgaraṃ tena, mahāsenena maccunā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā lomasakaṅgiyo bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Lomasakaṅgiyabhaddekarattasuttaṃ niṭṭhitaṃ catutthaṃ.</p>">&lt;p n=&quot;288&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;288&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Jānāsi pana tvaṃ, bhikkhu, taṃ devaputta’’nti? ‘‘Na kho ahaṃ, bhante, jānāmi taṃ devaputta’’nti. ‘‘Candano nāma so, bhikkhu, devaputto. Candano, bhikkhu, devaputto aṭṭhiṃ katvā &lt;note&gt;aṭṭhikatvā (sī. syā. kaṃ. pī.)&lt;/note&gt; manasikatvā sabbacetasā &lt;note&gt;sabbaṃ cetaso (sī. syā. kaṃ. pī.), sabbaṃ cetasā (ka.)&lt;/note&gt; samannāharitvā ohitasoto dhammaṃ suṇāti. Tena hi, bhikkhu, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā lomasakaṅgiyo bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0248&quot;/&gt; nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0248&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca yo dhammaṃ, tattha tattha vipassati;</p> &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;p rend=&quot;gathalast&quot;&gt;Na &lt;pb ed=&quot;T&quot; n=&quot;3.0373&quot;/&gt; hi no saṅgaraṃ tena, mahāsenena maccunā;</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0373&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate muni’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Kathañca, bhikkhu, atītaṃ anvāgameti…pe… evaṃ kho, bhikkhu, atītaṃ anvāgameti. Kathañca &lt;pb ed=&quot;P&quot; n=&quot;3.0202&quot;/&gt;, bhikkhu, atītaṃ nānvāgameti…pe… evaṃ kho, bhikkhu, atītaṃ nānvāgameti. Kathañca, bhikkhu, anāgataṃ paṭikaṅkhati…pe… evaṃ kho, bhikkhu, anāgataṃ paṭikaṅkhati. Kathañca, bhikkhu, anāgataṃ nappaṭikaṅkhati…pe… &lt;pb ed=&quot;T&quot; n=&quot;3.0374&quot;/&gt; evaṃ kho, bhikkhu, anāgataṃ nappaṭikaṅkhati. Kathañca, bhikkhu, paccuppannesu dhammesu saṃhīrati…pe… evaṃ kho, bhikkhu, paccuppannesu dhammesu saṃhīrati. Kathañca, bhikkhu, paccuppannesu dhammesu na saṃhīrati…pe… evaṃ kho, bhikkhu, paccuppannesu dhammesu na saṃhīrati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0202&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0374&quot;/&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Atītaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0375&quot;/&gt; nānvāgameyya, nappaṭikaṅkhe anāgataṃ;</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0375&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Yadatītaṃ pahīnaṃ taṃ, appattañca anāgataṃ.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Paccuppannañca &lt;pb ed=&quot;M&quot; n=&quot;3.0243&quot;/&gt; yo dhammaṃ, tattha tattha vipassati;</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0243&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Asaṃhīraṃ asaṃkuppaṃ, taṃ vidvā manubrūhaye.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ajjeva &lt;pb ed=&quot;V&quot; n=&quot;3.0249&quot;/&gt; kiccamātappaṃ, ko jaññā maraṇaṃ suve;</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0249&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Na hi no saṅgaraṃ tena, mahāsenena maccunā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Evaṃ vihāriṃ ātāpiṃ, ahorattamatanditaṃ;</p> &lt;p rend=&quot;gathalast&quot;&gt;Taṃ ve bhaddekarattoti, santo ācikkhate munī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā lomasakaṅgiyo bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Lomasakaṅgiyabhaddekarattasuttaṃ niṭṭhitaṃ catutthaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">288.<br><br>The Bhagavān asked, “Monk, do you know that young deity (devaputta)?” “Sir, I do not know that young deity (devaputta),” the monk replied.<br><br>“Bhikkhu, that young deity (devaputta) is named Candana.<br><br>Bhikkhu, that young deity (devaputta) heeds the Dhamma, gives it attention, engages it with all his mind, hears it with eager ears.<br><br>So, bhikkhu, listen and attend closely to what I shall say.”<br><br>“Yes, venerable sir,” the venerable Lomasakangiya replied to the Blessed One.<br><br>The Blessed One then said this:<br><br>“Let not a person revive the past<br>Or on the future build his hopes;<br><br>For the past is left behind,<br>And the future has not been attained.<br><br>But whoever sees insightfully the present phenomenon<br>Again and again, in each case,<br><br>Is unshaken, unperturbed:<br>Knowing thus, let him develop it.<br><br>Ardently doing what should be done today,<br>for — who knows? — tomorrow death.<br><br>There is no bargaining with Mortality<br>&amp; his mighty horde.<br><br>One who dwells thus ardently,<br>tirelessly, day and night<br><br>That one, indeed, is called ‘noble solitary,’<br>so says the sage.”<br><br>“And how, bhikkhu, does one revive the past?... “That is how, bhikkhu, one revives the past.<br><br>“And how, bhikkhu, does one not revive the past?... “That is how, bhikkhu, one does not revive the past.<br><br>“And how, bhikkhu, does one build hopes on the future?... “That is how, bhikkhu, one builds hopes on the future.<br><br>“And how, bhikkhu, does one not build hopes on the future?... “That is how, bhikkhu, one does not build hopes on the future.<br><br>“And how, bhikkhu, does one get drawn together in present phenomena?... “That is how, bhikkhu, one gets drawn together in present phenomena.<br><br>“And how, bhikkhu, does one not get drawn together in present phenomena?... “That is how, bhikkhu, one does not get drawn together in present phenomena.<br><br>“Let not a person revive the past<br>Or on the future build his hopes;<br><br>For the past is left behind,<br>And the future has not been attained.<br><br>But whoever sees insightfully the present phenomenon<br>Again and again, in each case,<br><br>Is unshaken, unperturbed:<br>Knowing thus, let him develop it.<br><br>Ardently doing what should be done today,<br>for — who knows? — tomorrow death.<br>There is no bargaining with Mortality (maccunā) &amp; his mighty horde (mahāsenena).<br><br>&quot;Living thus, ardent (ātāpiṃ), tirelessly (atanditaṃ) day and night;<br>That one indeed, the Fortunate One of a Single Night (bhaddekaratta), the wise ones (munī) declare (ācikkhate).&quot;<br><br>The Blessed One (bhagavā) spoke thus (idamavoca).<br>The venerable (āyasmā) Lomasakangiya, with a joyful mind (attamanā), rejoiced (abhinandi) in the Blessed One&#039;s (bhagavato) words (bhāsitaṃ).<br><br>The Lomasakangiyabhaddekarattasutta, the fourth (catutthaṃ), is concluded (niṭṭhitaṃ).</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn4_bākulasuttaṃ.html" class="nav-btn">← Previous: Bākulasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn4_nandakovādasuttaṃ.html" class="nav-btn">Next: Nandakovādasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

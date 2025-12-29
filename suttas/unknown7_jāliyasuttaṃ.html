@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. Jāliyasuttaṃ - Tipiṭaka Translations</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .paragraph-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .para-number {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "•";
+            color: var(--accent-color);
+            font-size: 1.5em;
+        }
+
+        .text-content {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .pali-text {
+            border-left-color: #e74c3c;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .english-text {
+            border-left-color: #3498db;
+        }
+
+        .commentary-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .commentary-section .section-title {
+            color: white;
+        }
+
+        .commentary-section .section-title::before {
+            color: #f1c40f;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            background: #95a5a6;
+            position: relative;
+        }
+
+        .btn.toggle.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Jāliyasuttaṃ</h1>
+            <div class="sutta-subtitle">Tipiṭaka 7</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/unknown6_mahālisuttaṃ.html" class="nav-btn">← Previous: Mahālisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/unknown8_mahāsīhanādasuttaṃ.html" class="nav-btn">Next: Mahāsīhanādasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Mula Pali</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Mula English</button>
+            <button class="btn toggle active" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle active" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <div class="para-number">Paragraph 378</div>
+                </div>
+
+                <div class="section mula-pali-section">
+                    <div class="section-title">Mūla (Source Text)</div>
+                    <div class="text-content pali-text" data-pali="378. Evaṃ  me sutaṃ – ekaṃ samayaṃ bhagavā kosambiyaṃ viharati ghositārāme. Tena kho pana samayena dve pabbajitā – muṇḍiyo ca paribbājako jāliyo ca dārupattikantevāsī yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavatā saddhiṃ sammodiṃsu. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ aṭṭhaṃsu. Ekamantaṃ ṭhitā kho te dve pabbajitā bhagavantaṃ etadavocuṃ – ‘‘kiṃ nu kho, āvuso gotama, taṃ jīvaṃ taṃ sarīraṃ, udāhu aññaṃ jīvaṃ aññaṃ sarīra’’nti?">378. Evaṃ  me sutaṃ – ekaṃ samayaṃ bhagavā kosambiyaṃ viharati ghositārāme. Tena kho pana samayena dve pabbajitā – muṇḍiyo ca paribbājako jāliyo ca dārupattikantevāsī yena bhagavā tenupasaṅkamiṃsu; upasaṅkamitvā bhagavatā saddhiṃ sammodiṃsu. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ aṭṭhaṃsu. Ekamantaṃ ṭhitā kho te dve pabbajitā bhagavantaṃ etadavocuṃ – ‘‘kiṃ nu kho, āvuso gotama, taṃ jīvaṃ taṃ sarīraṃ, udāhu aññaṃ jīvaṃ aññaṃ sarīra’’nti?</div>
+                </div>
+
+                <div class="section mula-english-section">
+                    <div class="section-title">English Translation</div>
+                    <div class="text-content english-text">Thus have I heard. On one occasion the Blessed One (bhagavā) was dwelling at Kosambi in Ghosita’s Park.<br><br>At that time, two renunciates (pabbajitā), Muṇḍiya and the wanderer (paribbājaka) Jāliya, a student of the wooden-bowl ascetic (dārupattikantevāsī), approached the Blessed One (bhagavā); having approached, they exchanged greetings with the Blessed One (bhagavatā).<br><br>Having exchanged courteous greetings and polite conversation, they stood to one side.<br><br>Standing to one side, those two renunciates (pabbajitā) said this to the Blessed One (bhagavantaṃ): “Friend Gotama (āvusā gotama), is the soul (jīva) the same as the body (sarīra), or is the soul (jīva) something different from the body (sarīra)?”</div>
+                </div>
+
+                <div class="commentary-section">
+                    <div class="section-title">Aṭṭhakathā (Commentary)</div>
+                    
+                    <div class="section commentary-pali-section">
+                        <div class="section-title">Pali Commentary</div>
+                        <div class="text-content pali-text" data-pali="378.Evaṃme sutaṃ…pe… kosambiyanti jāliyasuttaṃ. Tatrāyaṃ apubbapadavaṇṇanā. Ghositārāmeti ghositena seṭṭhinā kate ārāme. Pubbe kira allakapparaṭṭhaṃ nāma ahosi. Tato kotūhaliko nāma daliddo chātakabhayena saputtadāro avantiraṭṭhaṃ gacchanto puttaṃ vahituṃ asakkonto chaḍḍetvā agamāsi, mātā nivattitvā taṃ gahetvā gatā, te ekaṃ gopālakagāmaṃ pavisiṃsu. Gopālakena ca tadā bahupāyāso paṭiyatto hoti, te tato pāyāsaṃ labhitvā bhuñjiṃsu. Atha so puriso balavapāyāsaṃ bhutto jīrāpetuṃ asakkonto rattibhāge kālaṃ katvā tattheva sunakhiyā kucchismiṃ paṭisandhiṃ gahetvā kukkuro jāto, so gopālakassa piyo ahosi. Gopālako ca paccekabuddhaṃ upaṭṭhahati. Paccekabuddhopi bhattakiccapariyosāne kukkurassa ekekaṃ piṇḍaṃ deti, so paccekabuddhe sinehaṃ uppādetvā gopālakena saddhiṃ paṇṇasālampi gacchati. Gopālake asannihite bhattavelāyaṃ sayameva gantvā kālārocanatthaṃ paṇṇasāladvāre bhussati, antarāmaggepi caṇḍamige disvā bhussitvā palāpeti. So paccekabuddhe mudukena cittena kālaṃkatvā devaloke nibbatti . Tatrassa ghosakadevaputto tveva nāmaṃ ahosi. So devalokato cavitvā kosambiyaṃ ekassa kulassa ghare nibbatti. Taṃ aputtako seṭṭhi tassa mātāpitūnaṃ dhanaṃ datvā puttaṃ katvā aggahesi. Atha attano putte jāte sattakkhattuṃ ghātāpetuṃ upakkami. So puññavantatāya sattasupi ṭhānesu maraṇaṃ appatvā avasāne ekāya seṭṭhidhītāya veyyattiyena laddhajīvito aparabhāge pituaccayena seṭṭhiṭṭhānaṃ patvā ghosakaseṭṭhi nāma jāto. Aññepi kosambiyaṃ kukkuṭaseṭṭhi , pāvāriyaseṭṭhīti dve seṭṭhino atthi, iminā saddhiṃ tayo ahesuṃ. Tena ca samayena himavantato pañcasatatāpasā sarīrasantappanatthaṃ antarantarākosambiṃ āgacchanti , tesaṃ ete tayo seṭṭhī attano attano uyyānesu paṇṇakuṭiyo katvā upaṭṭhānaṃ karonti. Athekadivasaṃ te tāpasā himavantato āgacchantā mahākantāre tasitā kilantā ekaṃ mahantaṃ vaṭarukkhaṃ patvā tattha adhivatthāya devatāya santikā saṅgahaṃ paccāsisantā nisīdiṃsu. Devatā sabbālaṅkāravibhūsitaṃ hatthaṃ pasāretvā tesaṃ pānīyapānakādīni datvā kilamathaṃ paṭivinodesi, ete devatāyānubhāvena vimhitā pucchiṃsu – ‘‘kiṃ nu kho, devate, kammaṃ katvā tayā ayaṃ sampatti laddhā’’ti? Devatā āha – ‘‘loke buddho nāma bhagavā uppanno, so etarahi sāvatthiyaṃ viharati, anāthapiṇḍiko gahapati taṃ upaṭṭhahati. So uposathadivasesu attano bhatakānaṃ pakatibhattavetanameva datvā uposathaṃ kārāpesi. Athāhaṃ ekadivasaṃ majjhanhike pātarāsatthāya āgato kañci bhatakakammaṃ akarontaṃ disvā – ‘ajja manussā kasmā kammaṃ na karontī’ti pucchiṃ. Tassa me tamatthaṃ ārocesuṃ. Athāhaṃ etadavocaṃ – ‘idāni upaḍḍhadivaso gato, sakkā nu kho upaḍḍhuposathaṃ kātu’nti. Tato seṭṭhissa paṭivedetvā ‘‘sakkā kātu’’nti āha. Svāhaṃ upaḍḍhadivasaṃ upaḍḍhuposathaṃ samādiyitvā tadaheva kālaṃ katvā imaṃ sampattiṃ paṭilabhi’’nti. Atha te tāpasā ‘‘buddho kira uppanno’’ti sañjātapītipāmojjā tatova sāvatthiṃ gantukāmā hutvāpi – ‘‘bahukārā no upaṭṭhākaseṭṭhino tesampi imamatthamārocessāmā’’ti  kosambiṃ gantvā seṭṭhīhi katasakkārabahumānā ‘‘tadaheva mayaṃ gacchāmā’’ti āhaṃsu. ‘‘Kiṃ, bhante, turitāttha, nanu tumhe pubbe cattāro pañca māse vasitvā gacchathā’’ti ca vutte taṃ pavattiṃ ārocesuṃ. ‘‘Tena hi, bhante, saheva gacchāmā’’ti ca vutte ‘‘gacchāma mayaṃ, tumhe saṇikaṃ āgacchathā’’ti sāvatthiṃ gantvā bhagavato santike pabbajitvā arahattaṃ pāpuṇiṃsu. Tepi seṭṭhino pañcasatapañcasatasakaṭaparivārā  sāvatthiṃ gantvā dānādīni datvā kosambiṃ āgamanatthāya bhagavantaṃ yācitvā paccāgamma tayo vihāre kāresuṃ. Tesu kukkuṭaseṭṭhinā kato kukkuṭārāmo nāma, pāvāriyaseṭṭhinā kato pāvārikambavanaṃ nāma, ghositaseṭṭhinā kato ghositārāmo nāma ahosi. Taṃ sandhāya vuttaṃ – ‘‘kosambiyaṃ viharati ghositārāme’’ti. Muṇḍiyoti idaṃ tassa nāmaṃ. Jāliyoti idampi itarassa nāmameva. Yasmā panassa upajjhāyo dārumayena pattena piṇḍāya carati, tasmā dārupattikantevāsīti vuccati. Etadavocunti upārambhādhippāyena vādaṃ āropetukāmā hutvā etadavocuṃ. Iti kira nesaṃ ahosi, sace samaṇo gotamo ‘‘taṃ jīvaṃ taṃ sarīra’’nti vakkhati, athassa mayaṃ etaṃ vādaṃ āropessāma – ‘‘bho gotama, tumhākaṃ laddhiyā idheva satto bhijjati, tena vo vādo ucchedavādo  hotī’’ti. Sace pana ‘‘aññaṃ jīvaṃ aññaṃ sarīra’’nti vakkhati, athassetaṃ vādaṃ āropessāma ‘‘tumhākaṃ vāde rūpaṃ bhijjati, na satto bhijjati. Tena vo vāde satto sassato āpajjatī’’ti. Atha bhagavā ‘‘ime vādāropanatthāya pañhaṃ pucchanti, mama sāsane ime dve ante anupagamma majjhimā paṭipadā atthīti na jānanti, handa nesaṃ pañhaṃ avissajjetvā tassāyeva paṭipadāya āvibhāvatthaṃ dhammaṃ desemī’’ti cintetvā ‘‘tena hāvuso’’tiādimāha.">378.Evaṃme sutaṃ…pe… kosambiyanti jāliyasuttaṃ. Tatrāyaṃ apubbapadavaṇṇanā. Ghositārāmeti ghositena seṭṭhinā kate ārāme. Pubbe kira allakapparaṭṭhaṃ nāma ahosi. Tato kotūhaliko nāma daliddo chātakabhayena saputtadāro avantiraṭṭhaṃ gacchanto puttaṃ vahituṃ asakkonto chaḍḍetvā agamāsi, mātā nivattitvā taṃ gahetvā gatā, te ekaṃ gopālakagāmaṃ pavisiṃsu. Gopālakena ca tadā bahupāyāso paṭiyatto hoti, te tato pāyāsaṃ labhitvā bhuñjiṃsu. Atha so puriso balavapāyāsaṃ bhutto jīrāpetuṃ asakkonto rattibhāge kālaṃ katvā tattheva sunakhiyā kucchismiṃ paṭisandhiṃ gahetvā kukkuro jāto, so gopālakassa piyo ahosi. Gopālako ca paccekabuddhaṃ upaṭṭhahati. Paccekabuddhopi bhattakiccapariyosāne kukkurassa ekekaṃ piṇḍaṃ deti, so paccekabuddhe sinehaṃ uppādetvā gopālakena saddhiṃ paṇṇasālampi gacchati. Gopālake asannihite bhattavelāyaṃ sayameva gantvā kālārocanatthaṃ paṇṇasāladvāre bhussati, antarāmaggepi caṇḍamige disvā bhussitvā palāpeti. So paccekabuddhe mudukena cittena kālaṃkatvā devaloke nibbatti . Tatrassa ghosakadevaputto tveva nāmaṃ ahosi. So devalokato cavitvā kosambiyaṃ ekassa kulassa ghare nibbatti. Taṃ aputtako seṭṭhi tassa mātāpitūnaṃ dhanaṃ datvā puttaṃ katvā aggahesi. Atha attano putte jāte sattakkhattuṃ ghātāpetuṃ upakkami. So puññavantatāya sattasupi ṭhānesu maraṇaṃ appatvā avasāne ekāya seṭṭhidhītāya veyyattiyena laddhajīvito aparabhāge pituaccayena seṭṭhiṭṭhānaṃ patvā ghosakaseṭṭhi nāma jāto. Aññepi kosambiyaṃ kukkuṭaseṭṭhi , pāvāriyaseṭṭhīti dve seṭṭhino atthi, iminā saddhiṃ tayo ahesuṃ. Tena ca samayena himavantato pañcasatatāpasā sarīrasantappanatthaṃ antarantarākosambiṃ āgacchanti , tesaṃ ete tayo seṭṭhī attano attano uyyānesu paṇṇakuṭiyo katvā upaṭṭhānaṃ karonti. Athekadivasaṃ te tāpasā himavantato āgacchantā mahākantāre tasitā kilantā ekaṃ mahantaṃ vaṭarukkhaṃ patvā tattha adhivatthāya devatāya santikā saṅgahaṃ paccāsisantā nisīdiṃsu. Devatā sabbālaṅkāravibhūsitaṃ hatthaṃ pasāretvā tesaṃ pānīyapānakādīni datvā kilamathaṃ paṭivinodesi, ete devatāyānubhāvena vimhitā pucchiṃsu – ‘‘kiṃ nu kho, devate, kammaṃ katvā tayā ayaṃ sampatti laddhā’’ti? Devatā āha – ‘‘loke buddho nāma bhagavā uppanno, so etarahi sāvatthiyaṃ viharati, anāthapiṇḍiko gahapati taṃ upaṭṭhahati. So uposathadivasesu attano bhatakānaṃ pakatibhattavetanameva datvā uposathaṃ kārāpesi. Athāhaṃ ekadivasaṃ majjhanhike pātarāsatthāya āgato kañci bhatakakammaṃ akarontaṃ disvā – ‘ajja manussā kasmā kammaṃ na karontī’ti pucchiṃ. Tassa me tamatthaṃ ārocesuṃ. Athāhaṃ etadavocaṃ – ‘idāni upaḍḍhadivaso gato, sakkā nu kho upaḍḍhuposathaṃ kātu’nti. Tato seṭṭhissa paṭivedetvā ‘‘sakkā kātu’’nti āha. Svāhaṃ upaḍḍhadivasaṃ upaḍḍhuposathaṃ samādiyitvā tadaheva kālaṃ katvā imaṃ sampattiṃ paṭilabhi’’nti. Atha te tāpasā ‘‘buddho kira uppanno’’ti sañjātapītipāmojjā tatova sāvatthiṃ gantukāmā hutvāpi – ‘‘bahukārā no upaṭṭhākaseṭṭhino tesampi imamatthamārocessāmā’’ti  kosambiṃ gantvā seṭṭhīhi katasakkārabahumānā ‘‘tadaheva mayaṃ gacchāmā’’ti āhaṃsu. ‘‘Kiṃ, bhante, turitāttha, nanu tumhe pubbe cattāro pañca māse vasitvā gacchathā’’ti ca vutte taṃ pavattiṃ ārocesuṃ. ‘‘Tena hi, bhante, saheva gacchāmā’’ti ca vutte ‘‘gacchāma mayaṃ, tumhe saṇikaṃ āgacchathā’’ti sāvatthiṃ gantvā bhagavato santike pabbajitvā arahattaṃ pāpuṇiṃsu. Tepi seṭṭhino pañcasatapañcasatasakaṭaparivārā  sāvatthiṃ gantvā dānādīni datvā kosambiṃ āgamanatthāya bhagavantaṃ yācitvā paccāgamma tayo vihāre kāresuṃ. Tesu kukkuṭaseṭṭhinā kato kukkuṭārāmo nāma, pāvāriyaseṭṭhinā kato pāvārikambavanaṃ nāma, ghositaseṭṭhinā kato ghositārāmo nāma ahosi. Taṃ sandhāya vuttaṃ – ‘‘kosambiyaṃ viharati ghositārāme’’ti. Muṇḍiyoti idaṃ tassa nāmaṃ. Jāliyoti idampi itarassa nāmameva. Yasmā panassa upajjhāyo dārumayena pattena piṇḍāya carati, tasmā dārupattikantevāsīti vuccati. Etadavocunti upārambhādhippāyena vādaṃ āropetukāmā hutvā etadavocuṃ. Iti kira nesaṃ ahosi, sace samaṇo gotamo ‘‘taṃ jīvaṃ taṃ sarīra’’nti vakkhati, athassa mayaṃ etaṃ vādaṃ āropessāma – ‘‘bho gotama, tumhākaṃ laddhiyā idheva satto bhijjati, tena vo vādo ucchedavādo  hotī’’ti. Sace pana ‘‘aññaṃ jīvaṃ aññaṃ sarīra’’nti vakkhati, athassetaṃ vādaṃ āropessāma ‘‘tumhākaṃ vāde rūpaṃ bhijjati, na satto bhijjati. Tena vo vāde satto sassato āpajjatī’’ti. Atha bhagavā ‘‘ime vādāropanatthāya pañhaṃ pucchanti, mama sāsane ime dve ante anupagamma majjhimā paṭipadā atthīti na jānanti, handa nesaṃ pañhaṃ avissajjetvā tassāyeva paṭipadāya āvibhāvatthaṃ dhammaṃ desemī’’ti cintetvā ‘‘tena hāvuso’’tiādimāha.</div>
+                    </div>
+
+                    <div class="section commentary-english-section">
+                        <div class="section-title">English Commentary</div>
+                        <div class="text-content english-text">378. Thus have I heard…pe… the Jāliya Sutta at Kosambī.<br><br>Herein is an explanation of words not previously [encountered].<br><br>&quot;Ghositārāma&quot; means in the ārāma made by the wealthy man Ghosita.<br><br>Formerly, it seems, it was called Allakapparaṭṭha.<br><br>Then, a poor man named Kotūhalika, going to the country of Avanti with his wife and children, because of fear of hunger, being unable to carry his son, abandoned him and went on. The mother, turning back, took him and left. They entered a cowherd village.<br><br>And then much rice-gruel (pāyāsa) was prepared by the cowherd, and they, obtaining the rice-gruel from there, ate it.<br><br>Then that man, having eaten a large amount of rice-gruel and being unable to digest it, died during the night and was reborn in that very place in the womb of a bitch, and became a dog. He was dear to the cowherd.<br><br>And the cowherd attended upon a private Buddha (paccekabuddha).<br><br>And that private Buddha, at the end of the mealtime, gave the dog a lump [of food] each time, and having aroused affection in the private Buddha, he went to the leaf-hut together with the cowherd.<br><br>When the cowherd was not present, at mealtime, he himself would go and bark at the leaf-hut door to announce the time [for alms], and even on the road in between, having seen fierce animals, he would bark and drive them away.<br><br>He, with a softened heart toward the private Buddha, at the end of his life, was reborn in the world of the gods.<br><br>There his name was indeed Ghosakadevaputta.<br><br>He, having passed away from the world of the gods, was reborn in Kosambī in the house of a certain family.<br><br>That childless wealthy man, having given wealth to his mother and father, adopted him as his son.<br><br>Then, when his own sons were born, he attempted to have him killed seven times.<br><br>He, because of his merit, not attaining death in even seven places, at the end, having his life saved through the cleverness of a certain wealthy man&#039;s daughter, in a later part, through the death of his father, having attained the position of a wealthy man, became known as the wealthy man Ghosaka.<br><br>Also, in Kosambī there were two other wealthy men, Kukkuṭaseṭṭhi and Pāvāriyaseṭṭhi; with this one, they were three.<br><br>And at that time, five hundred ascetics from the Himalayas, for the sake of appeasing their bodies, would come to Kosambī from time to time, and these three wealthy men, having made leaf huts in their own gardens, would attend upon them.<br><br>Then one day, those ascetics, coming from the Himalayas, tired and thirsty in the great wilderness, having reached a large banyan tree, sat down there, expecting support from the deity residing there.<br><br>The deity, having extended a hand adorned with all ornaments, gave them drinking water, beverages, etc., and relieved their weariness. These [ascetics], astonished by the power of the deity, asked: &quot;What good deed, O deity, have you done, by which this success has been obtained by you?&quot; The deity said: &quot;In the world a Buddha named the Blessed One has arisen; he now dwells in Sāvatthī, and Anāthapiṇḍika the householder attends upon him.<br><br>He, on the uposatha days, having given only their usual food wages to his servants, has the uposatha observed.<br><br>Then one day, at midday, having come for breakfast, I saw some servant not doing any work, and asked: &#039;Why are people not working today?&#039;<br><br>They announced that matter to me.<br><br>Then I said this: &#039;Now half the day has passed; is it possible to do a half-uposatha?&#039;<br><br>Then, having informed the wealthy man, he said, &#039;It is possible to do it.&#039;<br><br>I, having undertaken a half-day, half-uposatha, and having died that very day, have obtained this success.&quot;<br><br>Then those ascetics, &quot;A Buddha, it seems, has arisen!&quot; with joy and delight having arisen, though desiring to go to Sāvatthī from there, [thought]: &quot;These wealthy men who are our supporters have done much for us. We will announce this matter to them also,&quot; and having gone to Kosambī, after being honored and respected by the wealthy men, they said, &quot;We will go this very day.&quot;<br><br>&quot;Why, venerable sirs, are you in such a hurry? Didn&#039;t you formerly stay four or five months and then leave?&quot; And when this was said, they announced that event.<br><br>&quot;Then, venerable sirs, let us go together!&quot; And when this was said, &quot;We will go, you come slowly,&quot; having gone to Sāvatthī, having gone forth in the presence of the Blessed One, they attained arahantship.<br><br>Those wealthy men also, with a retinue of five hundred carts each, having gone to Sāvatthī, having given donations, etc., and having requested the Blessed One for the sake of coming to Kosambī, having come back, had three monasteries built.<br><br>Among them, the Kukkuṭārāma was made by Kukkuṭaseṭṭhi, the Pāvārikambavana was made by Pāvāriyaseṭṭhi, the Ghositārāma was made by Ghositaseṭṭhi.<br><br>With reference to that, it was said: &quot;He dwells in Kosambī, in the Ghositārāma.&quot;<br><br>&quot;Muṇḍiya&quot; – this is his name.<br><br>&quot;Jāliya&quot; – this also is the name of the other.<br><br>Since his preceptor wanders for alms with a bowl made of wood, therefore he is called Dārupattikantevāsī.<br><br>&quot;They said this&quot; means that, desiring to bring forward a dispute with an intention to scold, they said this.<br><br>Thus, it seems, was their [intention]: &quot;If the Śramaṇa Gotama says, &#039;The life is the same as the body,&#039; then we will bring forward this argument against him: &#039;O Gotama, in your doctrine, the being is destroyed right here, therefore your doctrine is a doctrine of annihilation.&#039;&quot;<br><br>&quot;If, however, he says, &#039;The life is one thing, the body is another,&#039; then we will bring forward this argument against him: &#039;In your doctrine, the form is destroyed, not the being.<br><br>Therefore, in your doctrine, the being becomes eternal.&#039;&quot;<br>Then the Blessed One thought, &quot;These (people) are asking a question for the purpose of introducing a debate. They do not know that in my teaching there is a middle path (*madhyamā pratipadā*) without approaching these two extremes (*dve ante*). Come, having answered their question, I will teach the Dharma (*dharmaṃ deśemi*) for the sake of revealing that very path.&quot; Having thought this, he said, &quot;Then, friend,&quot; and so on.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <div class="para-number">Paragraph 379</div>
+                </div>
+
+                <div class="section mula-pali-section">
+                    <div class="section-title">Mūla (Source Text)</div>
+                    <div class="text-content pali-text" data-pali="379. ‘‘Tena hāvuso, suṇātha sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evamāvuso’’ti kho te dve pabbajitā bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘idhāvuso, tathāgato loke uppajjati arahaṃ, sammāsambuddho…pe… (yathā 190-212 anucchedesu evaṃ vitthāretabbaṃ). Evaṃ kho, āvuso, bhikkhu sīlasampanno hoti…pe… paṭhamaṃ jhānaṃ upasampajja viharati. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati , kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe… dutiyaṃ jhānaṃ…pe…  tatiyaṃ jhānaṃ…pe… catutthaṃ jhānaṃ upasampajja viharati. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti? Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati kallaṃ, tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe… ñāṇadassanāya cittaṃ  abhinīharati abhininnāmeti…pe… yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe….">379. ‘‘Tena hāvuso, suṇātha sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evamāvuso’’ti kho te dve pabbajitā bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘idhāvuso, tathāgato loke uppajjati arahaṃ, sammāsambuddho…pe… (yathā 190-212 anucchedesu evaṃ vitthāretabbaṃ). Evaṃ kho, āvuso, bhikkhu sīlasampanno hoti…pe… paṭhamaṃ jhānaṃ upasampajja viharati. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati , kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe… dutiyaṃ jhānaṃ…pe…  tatiyaṃ jhānaṃ…pe… catutthaṃ jhānaṃ upasampajja viharati. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti? Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati kallaṃ, tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe… ñāṇadassanāya cittaṃ  abhinīharati abhininnāmeti…pe… yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā…pe….</div>
+                </div>
+
+                <div class="section mula-english-section">
+                    <div class="section-title">English Translation</div>
+                    <div class="text-content english-text">379.<br>“Then, friends, listen and carefully attend to what I shall say.”<br>“Yes, friend,” the two renunciates replied to the Blessed One.<br>The Blessed One said this: &quot;Here, friends, a *tathāgata* appears in the world, a worthy one, a perfectly awakened one...pe... (as in sections 190-212, so it should be expanded).<br>Thus, friends, a *bhikkhu* is perfected in morality...pe... attains to and dwells in the first *jhāna*.<br>Now, friends, if a *bhikkhu* knows and sees thus, is it proper for him to say: &#039;The soul (*jīva*) is the same as the body (*śarīra*)&#039;, or &#039;The soul is different from the body&#039;?&quot;<br>Now, friends, if a *bhikkhu* knows and sees thus, is it fitting for him to say: &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;?&quot;<br>But I, friends, know and see thus.<br>And furthermore, I do not say, &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;...pe... attains to and dwells in the second *jhāna*...pe... the third *jhāna*...pe... the fourth *jhāna*.<br>Now, friends, if a *bhikkhu* knows and sees thus, is it proper for him to say: &#039;The soul is the same as the body&#039;, or &#039;The soul is different from the body&#039;?&quot; Now, friends, if a *bhikkhu* knows and sees thus, is it fitting for him to say: &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;?&quot;<br>But I, friends, know and see thus.<br>And furthermore, I do not say, &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;...pe... directs and inclines his mind towards knowledge and vision...pe... Now, friends, if a *bhikkhu* knows and sees thus, is it proper for him to say: &#039;The soul is the same as the body&#039;, or &#039;The soul is different from the body&#039;?&quot;<br>Now, friends, if a *bhikkhu* knows and sees thus, is it fitting for him to say: &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;?&quot;<br>But I, friends, know and see thus.<br>And furthermore, I do not say, &#039;The soul is the same as the body,&#039; or &#039;The soul is different from the body&#039;...pe....</div>
+                </div>
+
+                <div class="commentary-section">
+                    <div class="section-title">Aṭṭhakathā (Commentary)</div>
+                    
+                    <div class="section commentary-pali-section">
+                        <div class="section-title">Pali Commentary</div>
+                        <div class="text-content pali-text" data-pali="379-380. Tattha kallaṃ nu kho tassetaṃ vacanāyāti tassetaṃ saddhāpabbajitassa tividhaṃ sīlaṃ paripūretvā paṭhamajjhānaṃ  pattassa yuttaṃ nu kho etaṃ vattunti attho. Taṃ sutvā paribbājakā puthujjano nāma yasmā nibbicikiccho na hoti, tasmā kadāci evaṃ vadeyyāti maññamānā – ‘‘kallaṃ tassetaṃ vacanāyā’’ti āhaṃsu. Atha ca panāhaṃ na vadāmīti ahaṃ etamevaṃ jānāmi, no ca evaṃ vadāmi, atha kho kasiṇaparikammaṃ katvā bhāventassa paññābalena uppannaṃ mahaggatacittametanti saññaṃ ṭhapesiṃ. Nakallaṃ tassetanti idaṃ te paribbājakā – ‘‘yasmā khīṇāsavo vigatasammoho tiṇṇavicikiccho, tasmā na yuttaṃ tassetaṃ vattu’’nti maññamānā vadanti. Sesamettha uttānatthamevāti.">379-380. Tattha kallaṃ nu kho tassetaṃ vacanāyāti tassetaṃ saddhāpabbajitassa tividhaṃ sīlaṃ paripūretvā paṭhamajjhānaṃ  pattassa yuttaṃ nu kho etaṃ vattunti attho. Taṃ sutvā paribbājakā puthujjano nāma yasmā nibbicikiccho na hoti, tasmā kadāci evaṃ vadeyyāti maññamānā – ‘‘kallaṃ tassetaṃ vacanāyā’’ti āhaṃsu. Atha ca panāhaṃ na vadāmīti ahaṃ etamevaṃ jānāmi, no ca evaṃ vadāmi, atha kho kasiṇaparikammaṃ katvā bhāventassa paññābalena uppannaṃ mahaggatacittametanti saññaṃ ṭhapesiṃ. Nakallaṃ tassetanti idaṃ te paribbājakā – ‘‘yasmā khīṇāsavo vigatasammoho tiṇṇavicikiccho, tasmā na yuttaṃ tassetaṃ vattu’’nti maññamānā vadanti. Sesamettha uttānatthamevāti.</div>
+                    </div>
+
+                    <div class="section commentary-english-section">
+                        <div class="section-title">English Commentary</div>
+                        <div class="text-content english-text">379-380.<br><br>&quot;Is it fitting for him to say this?&quot; That is, is it fitting to say this for that faithful renunciant who, having completely fulfilled the threefold morality ( *tividhaṃ sīlaṃ*), has attained the first jhāna (*paṭhamajjhānaṃ*)?<br><br>Having heard that, the wanderers, thinking that because an ordinary person (*puthujjano*) is not free from doubt (*nibbicikiccho*), he might sometimes speak thus, said, &quot;It is fitting for him to say this.&quot;<br><br>And then, &quot;I do not speak thus,&quot; I know this as such, but I do not speak thus. Then, having done the preliminary work on the *kasiṇa*, through the power of wisdom (*paññābalena*), a great expanded mind (*mahaggatacittaṃ*) arose, thus I established the designation (*saññaṃ ṭhapesiṃ*).<br><br>&quot;It is not fitting for him to say this,&quot; this is what those wanderers say, thinking, &quot;Because he is one whose *āsavas* are destroyed (*khīṇāsavo*), whose delusion (*sammoho*) is gone (*vigata*), who has crossed over doubt (*tiṇṇavicikiccho*), therefore it is not fitting for him to say this.&quot;<br><br>The rest here is of evident meaning.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <div class="para-number">Paragraph 380</div>
+                </div>
+
+                <div class="section mula-pali-section">
+                    <div class="section-title">Mūla (Source Text)</div>
+                    <div class="text-content pali-text" data-pali="380. …Pe…  nāparaṃ itthattāyāti pajānāti. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti? Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati, na kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā’’ti. Idamavoca bhagavā. Attamanā te dve pabbajitā bhagavato bhāsitaṃ abhinandunti.">380. …Pe…  nāparaṃ itthattāyāti pajānāti. Yo kho, āvuso, bhikkhu evaṃ jānāti evaṃ passati, kallaṃ nu kho tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti? Yo so, āvuso, bhikkhu evaṃ jānāti evaṃ passati, na kallaṃ tassetaṃ vacanāya – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vāti. Ahaṃ kho panetaṃ, āvuso, evaṃ jānāmi evaṃ passāmi. Atha ca panāhaṃ na vadāmi – ‘taṃ jīvaṃ taṃ sarīra’nti vā ‘aññaṃ jīvaṃ aññaṃ sarīra’nti vā’’ti. Idamavoca bhagavā. Attamanā te dve pabbajitā bhagavato bhāsitaṃ abhinandunti.</div>
+                </div>
+
+                <div class="section mula-english-section">
+                    <div class="section-title">English Translation</div>
+                    <div class="text-content english-text">380. …He understands: ‘… there is no more for this state of being.’<br><br>Now of one who thus knows and thus sees, is it proper to say: ‘The soul (*jīva*) is the same as the body (*śarīra*)’, or ‘The soul (*jīva*) is different from the body (*śarīra*)’?” Now of one who thus knows and thus sees, it is not proper to say: ‘The soul (*jīva*) is the same as the body (*śarīra*)’, or ‘The soul (*jīva*) is different from the body (*śarīra*)’?”<br><br>“But I thus know and see, friend (*āvusā*).”<br><br>and I do not say that the soul (*jīva*) is either the same as, or different from the body (*śarīra*).’”<br><br>That is what the Blessed One (*bhagavān*) said.<br><br>and the two wanderers rejoiced at his words.</div>
+                </div>
+
+                <div class="commentary-section">
+                    <div class="section-title">Aṭṭhakathā (Commentary)</div>
+                    
+                    <div class="section commentary-pali-section">
+                        <div class="section-title">Pali Commentary</div>
+                        <div class="text-content pali-text" data-pali="379-380. Tattha kallaṃ nu kho tassetaṃ vacanāyāti tassetaṃ saddhāpabbajitassa tividhaṃ sīlaṃ paripūretvā paṭhamajjhānaṃ  pattassa yuttaṃ nu kho etaṃ vattunti attho. Taṃ sutvā paribbājakā puthujjano nāma yasmā nibbicikiccho na hoti, tasmā kadāci evaṃ vadeyyāti maññamānā – ‘‘kallaṃ tassetaṃ vacanāyā’’ti āhaṃsu. Atha ca panāhaṃ na vadāmīti ahaṃ etamevaṃ jānāmi, no ca evaṃ vadāmi, atha kho kasiṇaparikammaṃ katvā bhāventassa paññābalena uppannaṃ mahaggatacittametanti saññaṃ ṭhapesiṃ. Nakallaṃ tassetanti idaṃ te paribbājakā – ‘‘yasmā khīṇāsavo vigatasammoho tiṇṇavicikiccho, tasmā na yuttaṃ tassetaṃ vattu’’nti maññamānā vadanti. Sesamettha uttānatthamevāti.">379-380. Tattha kallaṃ nu kho tassetaṃ vacanāyāti tassetaṃ saddhāpabbajitassa tividhaṃ sīlaṃ paripūretvā paṭhamajjhānaṃ  pattassa yuttaṃ nu kho etaṃ vattunti attho. Taṃ sutvā paribbājakā puthujjano nāma yasmā nibbicikiccho na hoti, tasmā kadāci evaṃ vadeyyāti maññamānā – ‘‘kallaṃ tassetaṃ vacanāyā’’ti āhaṃsu. Atha ca panāhaṃ na vadāmīti ahaṃ etamevaṃ jānāmi, no ca evaṃ vadāmi, atha kho kasiṇaparikammaṃ katvā bhāventassa paññābalena uppannaṃ mahaggatacittametanti saññaṃ ṭhapesiṃ. Nakallaṃ tassetanti idaṃ te paribbājakā – ‘‘yasmā khīṇāsavo vigatasammoho tiṇṇavicikiccho, tasmā na yuttaṃ tassetaṃ vattu’’nti maññamānā vadanti. Sesamettha uttānatthamevāti.</div>
+                    </div>
+
+                    <div class="section commentary-english-section">
+                        <div class="section-title">English Commentary</div>
+                        <div class="text-content english-text">379-380.<br>There, is it now the right time to speak to him? The meaning is: is it fitting now to say this to that faithful renunciate who has completely fulfilled the threefold morality and attained the first *jhāna*?<br><br>Having heard that, the wanderers, thinking, &quot;Since an ordinary person is not without doubt, therefore he might sometimes speak thus,&quot; said, &quot;It is the right time to speak to him.&quot;<br><br>And further, &quot;I do not say,&quot; meaning, &quot;I know just this, but I do not say thus.&quot; Furthermore, he established the designation: &quot;This exalted consciousness arose through the power of wisdom of one developing [insight] after performing the preliminary act regarding the *kasiṇa*.&quot;<br><br>&quot;It is not the right time to speak to him&quot;—this the wanderers [say], thinking, &quot;Since he is one whose *āsavas* are destroyed, whose delusion is gone, who has overcome doubt, therefore it is not fitting to say this to him.&quot;<br><br>The rest here is but clear.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/unknown6_mahālisuttaṃ.html" class="nav-btn">← Previous: Mahālisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/unknown8_mahāsīhanādasuttaṃ.html" class="nav-btn">Next: Mahāsīhanādasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: true,
+            commentary_english: true,
+            devanagari: false
+        };
+
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagari(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Initial display update
+        updateDisplay();
+    </script>
+</body>
+</html>

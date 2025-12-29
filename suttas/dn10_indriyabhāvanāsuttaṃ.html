@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Indriyabhāvanāsuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Indriyabhāvanāsuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 10</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_dhātuvibhaṅgasuttaṃ.html" class="nav-btn">← Previous: Dhātuvibhaṅgasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_saṅkhārupapattisuttaṃ.html" class="nav-btn">Next: Saṅkhārupapattisuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">453</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;453&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;453&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0541&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0361&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0298&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā gajaṅgalāyaṃ &lt;note&gt;kajaṅgalāyaṃ (sī. pī.), kajjaṅgalāyaṃ (syā. kaṃ.)&lt;/note&gt; viharati suveḷuvane &lt;note&gt;veḷuvane (syā. kaṃ.), mukheluvane (sī. pī.)&lt;/note&gt;. Atha kho uttaro māṇavo pārāsiviyantevāsī &lt;note&gt;pārāsariyantevāsī (sī. pī.), pārāsiriyantevāsī (syā. kaṃ.)&lt;/note&gt; yena bhagavā &lt;pb ed=&quot;M&quot; n=&quot;3.0348&quot;/&gt; tenupasaṅkami; upasaṅkamitvā bhagavatā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinnaṃ kho uttaraṃ māṇavaṃ pārāsiviyantevāsiṃ bhagavā etadavoca – ‘‘deseti, uttara, pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti? ‘‘Deseti, bho gotama, pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti. ‘‘Yathā kathaṃ pana, uttara, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti? ‘‘Idha, bho gotama, cakkhunā rūpaṃ na passati, sotena saddaṃ na suṇāti – evaṃ kho, bho gotama, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti. ‘‘Evaṃ sante kho, uttara, andho bhāvitindriyo bhavissati, badhiro bhāvitindriyo bhavissati; yathā pārāsiviyassa brāhmaṇassa vacanaṃ. Andho hi, uttara, cakkhunā rūpaṃ na passati, badhiro sotena saddaṃ na suṇātī’’ti. Evaṃ vutte, uttaro māṇavo pārāsiviyantevāsī tuṇhībhūto maṅkubhūto pattakkhandho adhomukho pajjhāyanto appaṭibhāno nisīdi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavā uttaraṃ māṇavaṃ pārāsiviyantevāsiṃ tuṇhībhūtaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0542&quot;/&gt; maṅkubhūtaṃ pattakkhandhaṃ adhomukhaṃ pajjhāyantaṃ appaṭibhānaṃ viditvā āyasmantaṃ ānandaṃ āmantesi – ‘‘aññathā kho, ānanda, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvanaṃ, aññathā ca panānanda, ariyassa vinaye anuttarā indriyabhāvanā hotī’’ti. ‘‘Etassa, bhagavā, kālo; etassa, sugata, kālo yaṃ bhagavā ariyassa &lt;pb ed=&quot;P&quot; n=&quot;3.0299&quot;/&gt; vinaye anuttaraṃ indriyabhāvanaṃ deseyya. Bhagavato sutvā bhikkhū dhāressantī’’ti. ‘‘Tenahānanda, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā ānando bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0542&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0299&quot;/&gt;">&lt;p n=&quot;453&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;453&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0541&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0361&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0298&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā gajaṅgalāyaṃ &lt;note&gt;kajaṅgalāyaṃ (sī. pī.), kajjaṅgalāyaṃ (syā. kaṃ.)&lt;/note&gt; viharati suveḷuvane &lt;note&gt;veḷuvane (syā. kaṃ.), mukheluvane (sī. pī.)&lt;/note&gt;. Atha kho uttaro māṇavo pārāsiviyantevāsī &lt;note&gt;pārāsariyantevāsī (sī. pī.), pārāsiriyantevāsī (syā. kaṃ.)&lt;/note&gt; yena bhagavā &lt;pb ed=&quot;M&quot; n=&quot;3.0348&quot;/&gt; tenupasaṅkami; upasaṅkamitvā bhagavatā saddhiṃ sammodi. Sammodanīyaṃ kathaṃ sāraṇīyaṃ vītisāretvā ekamantaṃ nisīdi. Ekamantaṃ nisinnaṃ kho uttaraṃ māṇavaṃ pārāsiviyantevāsiṃ bhagavā etadavoca – ‘‘deseti, uttara, pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti? ‘‘Deseti, bho gotama, pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti. ‘‘Yathā kathaṃ pana, uttara, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti? ‘‘Idha, bho gotama, cakkhunā rūpaṃ na passati, sotena saddaṃ na suṇāti – evaṃ kho, bho gotama, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvana’’nti. ‘‘Evaṃ sante kho, uttara, andho bhāvitindriyo bhavissati, badhiro bhāvitindriyo bhavissati; yathā pārāsiviyassa brāhmaṇassa vacanaṃ. Andho hi, uttara, cakkhunā rūpaṃ na passati, badhiro sotena saddaṃ na suṇātī’’ti. Evaṃ vutte, uttaro māṇavo pārāsiviyantevāsī tuṇhībhūto maṅkubhūto pattakkhandho adhomukho pajjhāyanto appaṭibhāno nisīdi.</p> &lt;p rend=&quot;bodytext&quot;&gt;Atha kho bhagavā uttaraṃ māṇavaṃ pārāsiviyantevāsiṃ tuṇhībhūtaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0542&quot;/&gt; maṅkubhūtaṃ pattakkhandhaṃ adhomukhaṃ pajjhāyantaṃ appaṭibhānaṃ viditvā āyasmantaṃ ānandaṃ āmantesi – ‘‘aññathā kho, ānanda, deseti pārāsiviyo brāhmaṇo sāvakānaṃ indriyabhāvanaṃ, aññathā ca panānanda, ariyassa vinaye anuttarā indriyabhāvanā hotī’’ti. ‘‘Etassa, bhagavā, kālo; etassa, sugata, kālo yaṃ bhagavā ariyassa &lt;pb ed=&quot;P&quot; n=&quot;3.0299&quot;/&gt; vinaye anuttaraṃ indriyabhāvanaṃ deseyya. Bhagavato sutvā bhikkhū dhāressantī’’ti. ‘‘Tenahānanda, suṇāhi, sādhukaṃ manasi karohi; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho āyasmā ānando bhagavato paccassosi. Bhagavā etadavoca –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0542&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0299&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">453. Thus have I heard: On one occasion the Blessed One was living in the land of Gajaṅgala, in the Suveḷu Grove.<br><br>Then Uttara, a student of the Pārāsariya school, went to where the Blessed One was. Having arrived, he exchanged greetings with the Blessed One. After an exchange of courteous and amiable greetings, he sat down at one side.<br><br>Seated at one side, Uttara, the student of the Pārāsariya school, the Blessed One asked this: &quot;Uttara, does the Brahmin Pārāsiriya teach his disciples about the development of the faculties (<i>indriyabhāvana</i>)?&quot; &quot;He does, Master Gotama, the Brahmin Pārāsiriya teaches his disciples about the development of the faculties.&quot;<br><br>&quot;But how, Uttara, does the Brahmin Pārāsiriya teach his disciples about the development of the faculties?&quot; &quot;Here, Master Gotama, one does not see a form with the eye, one does not hear a sound with the ear – in this way, Master Gotama, the Brahmin Pārāsiriya teaches his disciples about the development of the faculties.&quot;<br><br>&quot;If that is so, Uttara, then a blind man will have developed faculties, a deaf man will have developed faculties, according to the Brahmin Pārāsiriya&#039;s teaching. For a blind man, Uttara, does not see a form with the eye, and a deaf man does not hear a sound with the ear.&quot;<br><br>When this was said, Uttara, the student of the Pārāsariya school, sat silent, dismayed, with shoulders drooping, head down, glum, and without response.<br><br>Then the Blessed One, knowing that Uttara, the student of the Pārāsariya school, was silent, dismayed, with drooping shoulders, head down, glum, and without response, addressed the venerable Ānanda: &quot;Ānanda, the Brahmin Pārāsiriya teaches the development of the faculties in one way, but in the discipline of the Noble One, the supreme (<i>anuttarā</i>) development of the faculties is another way.&quot;<br><br>&quot;This is the time, Blessed One; this is the time, <i>Sugata</i>, for the Blessed One to teach the supreme development of the faculties in the discipline of the Noble One. Having heard it from the Blessed One, the monks will remember it.&quot;<br><br>&quot;Then listen, Ānanda, and pay close attention; I will speak.&quot;<br><br>&quot;Yes, venerable sir,&quot; replied the venerable Ānanda to the Blessed One. The Blessed One said this:</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">454</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;454&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;454&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda, ariyassa vinaye anuttarā indriyabhāvanā hoti? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0362&quot;/&gt;. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, cakkhumā puriso ummīletvā vā nimīleyya, nimīletvā vā ummīleyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0349&quot;/&gt; evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa &lt;pb ed=&quot;T&quot; n=&quot;3.0543&quot;/&gt; vinaye anuttarā indriyabhāvanā cakkhuviññeyyesu rūpesu.</p>">&lt;p n=&quot;454&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;454&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda, ariyassa vinaye anuttarā indriyabhāvanā hoti? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0362&quot;/&gt;. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, cakkhumā puriso ummīletvā vā nimīleyya, nimīletvā vā ummīleyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0349&quot;/&gt; evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa &lt;pb ed=&quot;T&quot; n=&quot;3.0543&quot;/&gt; vinaye anuttarā indriyabhāvanā cakkhuviññeyyesu rūpesu.</p></div>
+                
+                <div class="translation-text mula-english-section">454. Now, Ānanda, how does the supreme development of the faculties (indriyabhāvanā) occur in the Noble One’s Discipline (ariyassa vinaye)? Here, Ānanda, when a bhikkhu sees a form (rūpaṃ) with the eye (cakkhunā), there arises what is agreeable (manāpaṃ), there arises what is disagreeable (amanāpaṃ), there arises what is both agreeable and disagreeable (manāpāmanāpaṃ).<br><br>He understands thus (so evaṃ pajānāti): ‘There has arisen in me what is agreeable (manāpaṃ), there has arisen what is disagreeable (amanāpaṃ), there has arisen what is both agreeable and disagreeable.’<br><br>But that is conditioned (saṅkhataṃ), gross (oḷārikaṃ), dependently arisen (paṭiccasamuppannaṃ).<br><br>This is peaceful (etaṃ santaṃ), this is sublime (etaṃ paṇītaṃ), that is, equanimity (upekkhā).’<br><br>The agreeable (manāpaṃ) that arose, the disagreeable (amanāpaṃ) that arose, and the both agreeable and disagreeable (manāpāmanāpaṃ) that arose cease in him and equanimity (upekkhā) is established (saṇṭhāti).<br><br>Just as a man with good sight (cakkhumā puriso), having opened his eyes (ummīletvā) might shut them (nimīleyya) or having shut his eyes (nimīletvā) might open them (ummīleyya); so too concerning anything at all, the agreeable (manāpaṃ) that arose, the disagreeable (amanāpaṃ) that arose, and the both agreeable and disagreeable (manāpāmanāpaṃ) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (upekkhā) is established (saṇṭhāti). This is called, Ānanda, in the Noble One’s Discipline (ariyassa vinaye) the supreme development of the faculties (indriyabhāvanā) regarding forms (rūpesu) cognizable by the eye (cakkhuviññeyyesu).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">455</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;455&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;455&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno sotena saddaṃ sutvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso appakasireneva accharaṃ &lt;note&gt;accharikaṃ (syā. kaṃ. pī. ka.)&lt;/note&gt; pahareyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā sotaviññeyyesu saddesu.</p>">&lt;p n=&quot;455&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;455&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno sotena saddaṃ sutvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso appakasireneva accharaṃ &lt;note&gt;accharikaṃ (syā. kaṃ. pī. ka.)&lt;/note&gt; pahareyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā sotaviññeyyesu saddesu.</p></div>
+                
+                <div class="translation-text mula-english-section">455. Again, Ānanda, when a <i>bhikkhu</i> hears a sound with the ear, there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>He understands thus: “There has arisen in me what is agreeable (<i>manāpaṃ</i>), there has arisen what is disagreeable (<i>amanāpaṃ</i>), there has arisen what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>But that is conditioned (<i>saṅkhataṃ</i>), gross (<i>oḷārikaṃ</i>), dependently arisen (<i>paṭiccasamuppannaṃ</i>);<br><br>this is peaceful (<i>santaṃ</i>), this is sublime (<i>paṇītaṃ</i>), that is, equanimity (<i>upekkhā</i>).”<br><br>The agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease in him and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>).<br><br>Just as a strong man might easily snap his fingers, so too concerning anything at all, the agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>). This is called in the Noble One’s Discipline the supreme (<i>anuttarā</i>) development of the faculties (<i>indriyabhāvanā</i>) regarding sounds (<i>saddesu</i>) cognizable by the ear (<i>sotaviññeyyesu</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">456</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;456&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;456&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno ghānena gandhaṃ ghāyitvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda &lt;pb ed=&quot;P&quot; n=&quot;3.0300&quot;/&gt;, īsakaṃpoṇe &lt;note&gt;īsakapoṇe (sī. syā. kaṃ. pī.), īsakaphaṇe (sī. aṭṭha.), ‘‘majjhe uccaṃ hutvā’’ti ṭīkāya saṃsanditabbā&lt;/note&gt; padumapalāse &lt;pb ed=&quot;T&quot; n=&quot;3.0544&quot;/&gt;&lt;note&gt;paduminipatte (sī. syā. kaṃ. pī.)&lt;/note&gt; udakaphusitāni pavattanti, na saṇṭhanti; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā ghānaviññeyyesu gandhesu.</p>">&lt;p n=&quot;456&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;456&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno ghānena gandhaṃ ghāyitvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda &lt;pb ed=&quot;P&quot; n=&quot;3.0300&quot;/&gt;, īsakaṃpoṇe &lt;note&gt;īsakapoṇe (sī. syā. kaṃ. pī.), īsakaphaṇe (sī. aṭṭha.), ‘‘majjhe uccaṃ hutvā’’ti ṭīkāya saṃsanditabbā&lt;/note&gt; padumapalāse &lt;pb ed=&quot;T&quot; n=&quot;3.0544&quot;/&gt;&lt;note&gt;paduminipatte (sī. syā. kaṃ. pī.)&lt;/note&gt; udakaphusitāni pavattanti, na saṇṭhanti; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā ghānaviññeyyesu gandhesu.</p></div>
+                
+                <div class="translation-text mula-english-section">“Again, Ānanda, when a <i>bhikkhu</i> smells an odor with the nose (<i>ghānena gandhaṃ ghāyitvā</i>), there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>He understands thus: “There has arisen in me what is agreeable (<i>manāpaṃ</i>), there has arisen what is disagreeable (<i>amanāpaṃ</i>), there has arisen what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>But that is conditioned (<i>saṅkhataṃ</i>), gross (<i>oḷārikaṃ</i>), dependently arisen (<i>paṭiccasamuppannaṃ</i>);<br><br>this is peaceful (<i>santaṃ</i>), this is sublime (<i>paṇītaṃ</i>), that is, equanimity (<i>upekkhā</i>).’<br><br>The agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease in him and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>).<br><br>Just as, Ānanda, raindrops on a slightly sloping lotus leaf (<i>padumapalāse</i>) roll off and do not remain there, so too concerning anything at all, the agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>). This is called in the Noble One’s Discipline the supreme development of the faculties (<i>indriyabhāvanā</i>) regarding odors (<i>gandhesu</i>) cognizable by the nose (<i>ghānaviññeyyesu</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">457</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;457&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;457&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno jivhāya rasaṃ sāyitvā uppajjati manāpaṃ, uppajjati &lt;pb ed=&quot;V&quot; n=&quot;3.0363&quot;/&gt; amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti &lt;pb ed=&quot;M&quot; n=&quot;3.0350&quot;/&gt;. Seyyathāpi, ānanda, balavā puriso jivhagge kheḷapiṇḍaṃ saṃyūhitvā appakasirena vameyya &lt;note&gt;sandhameyya (ka.)&lt;/note&gt;; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā jivhāviññeyyesu rasesu.</p>">&lt;p n=&quot;457&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;457&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno jivhāya rasaṃ sāyitvā uppajjati manāpaṃ, uppajjati &lt;pb ed=&quot;V&quot; n=&quot;3.0363&quot;/&gt; amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti &lt;pb ed=&quot;M&quot; n=&quot;3.0350&quot;/&gt;. Seyyathāpi, ānanda, balavā puriso jivhagge kheḷapiṇḍaṃ saṃyūhitvā appakasirena vameyya &lt;note&gt;sandhameyya (ka.)&lt;/note&gt;; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā jivhāviññeyyesu rasesu.</p></div>
+                
+                <div class="translation-text mula-english-section">457. Again, Ānanda, when a bhikkhu tastes a flavour with the tongue, there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>He understands thus: “There has arisen in me what is agreeable (<i>manāpaṃ</i>), there has arisen what is disagreeable (<i>amanāpaṃ</i>), there has arisen what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>But that is conditioned (<i>saṅkhataṃ</i>), gross (<i>oḷārikaṃ</i>), dependently arisen (<i>paṭiccasamuppannaṃ</i>);<br><br>this is peaceful (<i>santaṃ</i>), this is sublime (<i>paṇītaṃ</i>), that is, equanimity (<i>upekkhā’ti</i>).’<br><br>The agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease in him and equanimity (<i>upekkhā</i>) is established.<br><br>Just as a strong man might easily spit out a ball of spittle collected on the tip of his tongue, so too concerning anything at all, the agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (<i>upekkhā</i>) is established. This is called in the Noble One’s (<i>ariyassa</i>) Discipline the supreme (<i>anuttarā</i>) development (<i>bhāvanā</i>) of the faculties (<i>indriya</i>) regarding flavours (<i>rasesu</i>) cognizable (<i>viññeyyesu</i>) by the tongue (<i>jivhā</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">458</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;458&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;458&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno kāyena phoṭṭhabbaṃ phusitvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0545&quot;/&gt; manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso samiñjitaṃ vā bāhaṃ pasāreyya, pasāritaṃ vā bāhaṃ samiñjeyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā kāyaviññeyyesu phoṭṭhabbesu.</p>">&lt;p n=&quot;458&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;458&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno kāyena phoṭṭhabbaṃ phusitvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0545&quot;/&gt; manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso samiñjitaṃ vā bāhaṃ pasāreyya, pasāritaṃ vā bāhaṃ samiñjeyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā kāyaviññeyyesu phoṭṭhabbesu.</p></div>
+                
+                <div class="translation-text mula-english-section">Again, Ānanda, when a <i>bhikkhu</i> touches a tangible with the body (<i>kāyena phoṭṭhabbaṃ phusitvā</i>), there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>He understands thus: “There has arisen in me what is agreeable (<i>manāpaṃ</i>), there has arisen what is disagreeable (<i>amanāpaṃ</i>), there has arisen what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>But that is conditioned (<i>saṅkhataṃ</i>), gross (<i>oḷārikaṃ</i>), dependently arisen (<i>paṭiccasamuppannaṃ</i>);<br><br>this is peaceful (<i>santaṃ</i>), this is sublime (<i>paṇītaṃ</i>), that is, equanimity (<i>upekkhā’ti</i>).’<br><br>The agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease in him and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>).<br><br>Just as a strong man might extend his flexed arm or flex his extended arm, so too concerning anything at all, the agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (<i>upekkhā</i>) is established (<i>saṇṭhāti</i>). This is called in the Noble One’s Discipline the supreme development of the faculties (<i>indriyabhāvanā</i>) regarding tangibles (<i>phoṭṭhabbesu</i>) cognizable by the body (<i>kāyaviññeyyesu</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">459</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;459&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;459&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso divasaṃsantatte &lt;note&gt;divasasantette (sī.)&lt;/note&gt; ayokaṭāhe dve vā tīṇi vā udakaphusitāni nipāteyya. Dandho, ānanda, udakaphusitānaṃ nipāto, atha kho naṃ khippameva parikkhayaṃ pariyādānaṃ gaccheyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0546&quot;/&gt; amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā manoviññeyyesu dhammesu. Evaṃ kho, ānanda, ariyassa vinaye anuttarā indriyabhāvanā hoti.</p>">&lt;p n=&quot;459&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;459&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So evaṃ pajānāti – ‘uppannaṃ kho me idaṃ manāpaṃ, uppannaṃ amanāpaṃ, uppannaṃ manāpāmanāpaṃ. Tañca kho saṅkhataṃ oḷārikaṃ paṭiccasamuppannaṃ. Etaṃ santaṃ etaṃ paṇītaṃ yadidaṃ – upekkhā’ti. Tassa taṃ uppannaṃ manāpaṃ uppannaṃ amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati; upekkhā saṇṭhāti. Seyyathāpi, ānanda, balavā puriso divasaṃsantatte &lt;note&gt;divasasantette (sī.)&lt;/note&gt; ayokaṭāhe dve vā tīṇi vā udakaphusitāni nipāteyya. Dandho, ānanda, udakaphusitānaṃ nipāto, atha kho naṃ khippameva parikkhayaṃ pariyādānaṃ gaccheyya; evameva kho, ānanda, yassa kassaci evaṃsīghaṃ evaṃtuvaṭaṃ evaṃappakasirena uppannaṃ manāpaṃ uppannaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0546&quot;/&gt; amanāpaṃ uppannaṃ manāpāmanāpaṃ nirujjhati, upekkhā saṇṭhāti – ayaṃ vuccatānanda, ariyassa vinaye anuttarā indriyabhāvanā manoviññeyyesu dhammesu. Evaṃ kho, ānanda, ariyassa vinaye anuttarā indriyabhāvanā hoti.</p></div>
+                
+                <div class="translation-text mula-english-section">459. Again, Ānanda, when a <i>bhikkhu</i> cognizes a <i>dhamma</i> (mind-object) with the mind, there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).<br><br>He understands thus: “There has arisen in me what is agreeable (<i>manāpaṃ</i>), there has arisen what is disagreeable (<i>amanāpaṃ</i>), there has arisen what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>).&quot;<br><br>But that is conditioned (<i>saṅkhataṃ</i>), gross (<i>oḷārikaṃ</i>), dependently arisen (<i>paṭiccasamuppannaṃ</i>);<br><br>This is peaceful (<i>santaṃ</i>), this is sublime (<i>paṇītaṃ</i>), that is, equanimity (<i>upekkhā</i>).&#039;<br><br>The agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease in him and equanimity (<i>upekkhā</i>) is established.<br><br>Just as if, Ānanda, a strong man were to let two or three drops of water (<i>udakaphusitāni</i>) fall onto an iron plate heated for a whole day,<br><br>the falling of the water drops (<i>udakaphusitānaṃ nipāto</i>) might be slow but they would quickly vaporise and vanish, so too concerning anything at all, the agreeable (<i>manāpaṃ</i>) that arose, the disagreeable (<i>amanāpaṃ</i>) that arose, and the both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>) that arose cease just as quickly, just as rapidly, just as easily, and equanimity (<i>upekkhā</i>) is established. This is called in the Noble One’s Discipline the supreme (<i>anuttarā</i>) development (<i>bhāvanā</i>) of the faculties (<i>indriya</i>) regarding ideas (<i>dhammesu</i>) cognizable by the mind (<i>manoviññeyyesu</i>).<br><br>That is how, Ānanda, there is the supreme (<i>anuttarā</i>) development (<i>bhāvanā</i>) of the faculties (<i>indriya</i>) in the Noble One’s Discipline (<i>ariyassa vinaye</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">460</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;460&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;460&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda &lt;pb ed=&quot;V&quot; n=&quot;3.0364&quot;/&gt;, sekho hoti pāṭipado? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So &lt;pb ed=&quot;M&quot; n=&quot;3.0351&quot;/&gt; tena uppannena manāpena uppannena amanāpena uppannena manāpāmanāpena aṭṭīyati harāyati jigucchati. Sotena saddaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0301&quot;/&gt; sutvā…pe… ghānena gandhaṃ ghāyitvā…, jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So tena uppannena manāpena uppannena amanāpena uppannena manāpāmanāpena aṭṭīyati harāyati jigucchati. Evaṃ kho, ānanda, sekho hoti pāṭipado.</p>">&lt;p n=&quot;460&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;460&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda &lt;pb ed=&quot;V&quot; n=&quot;3.0364&quot;/&gt;, sekho hoti pāṭipado? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So &lt;pb ed=&quot;M&quot; n=&quot;3.0351&quot;/&gt; tena uppannena manāpena uppannena amanāpena uppannena manāpāmanāpena aṭṭīyati harāyati jigucchati. Sotena saddaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0301&quot;/&gt; sutvā…pe… ghānena gandhaṃ ghāyitvā…, jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So tena uppannena manāpena uppannena amanāpena uppannena manāpāmanāpena aṭṭīyati harāyati jigucchati. Evaṃ kho, ānanda, sekho hoti pāṭipado.</p></div>
+                
+                <div class="translation-text mula-english-section">“And how, Ānanda, is one a disciple in higher training, one who has entered upon the way? Here, Ānanda, when a <i>bhikkhu</i> sees a form with the eye, there arises in him what is agreeable (<i>manāpaṃ</i>), there arises what is disagreeable (<i>amanāpaṃ</i>), there arises what is both agreeable and disagreeable (<i>manāpāmanāpaṃ</i>). He is ashamed, humiliated and disgusted by the agreeable that arose, by the disagreeable that arose, and by the both agreeable and disagreeable that arose. He hears a sound with the ear…smells an odour with the nose…tastes a flavour with the tongue…touches a tangible with the body…cognizes a mind-object with the mind, there arises in him what is agreeable, there arises what is disagreeable, there arises what is both agreeable and disagreeable. He is ashamed, humiliated and disgusted by the agreeable that arose, by the disagreeable that arose, and by the both agreeable and disagreeable that arose. That is how, Ānanda, one is a disciple in higher training, one who has entered upon the way.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">461</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;461&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;461&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda, ariyo hoti bhāvitindriyo? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So sace ākaṅkhati – ‘paṭikūle &lt;note&gt;paṭikkūle (sabbattha)&lt;/note&gt; appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūle ca appaṭikūle ca appaṭikūlasaññī &lt;pb ed=&quot;T&quot; n=&quot;3.0547&quot;/&gt; vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūlañca appaṭikūlañca tadubhayaṃ abhinivajjetvā upekkhako vihareyyaṃ sato sampajāno’ti, upekkhako tattha viharati sato sampajāno.</p>">&lt;p n=&quot;461&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;461&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañcānanda, ariyo hoti bhāvitindriyo? Idhānanda, bhikkhuno cakkhunā rūpaṃ disvā uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So sace ākaṅkhati – ‘paṭikūle &lt;note&gt;paṭikkūle (sabbattha)&lt;/note&gt; appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūle ca appaṭikūle ca appaṭikūlasaññī &lt;pb ed=&quot;T&quot; n=&quot;3.0547&quot;/&gt; vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūlañca appaṭikūlañca tadubhayaṃ abhinivajjetvā upekkhako vihareyyaṃ sato sampajāno’ti, upekkhako tattha viharati sato sampajāno.</p></div>
+                
+                <div class="translation-text mula-english-section">Ananda, how is one a noble one with developed faculties? Here, Ānanda, when a bhikkhu sees a form with the eye, agreeable things arise, disagreeable things arise, agreeable-disagreeable things arise.<br><br>And if he wishes: ‘May I abide perceiving the unrepulsive in the repulsive (paṭikūle appaṭikūlasaññī vihareyya)’’, he abides perceiving the unrepulsive in that.<br><br>If he should wish: ‘May I abide perceiving the repulsive in the unrepulsive (appaṭikūle paṭikūlasaññī vihareyya)’’, he abides perceiving the repulsive in that.<br><br>If he should wish: ‘May I abide perceiving the unrepulsive in the repulsive and the unrepulsive (paṭikūle ca appaṭikūle ca appaṭikūlasaññī vihareyya)’’, he abides perceiving the unrepulsive in that.<br><br>If he should wish: ‘May I abide perceiving the repulsive in the unrepulsive and the repulsive (appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya)’’, he abides perceiving the repulsive in that.<br><br>If he should wish: ‘May I, avoiding both the repulsive and unrepulsive (paṭikūlañca appaṭikūlañca tadubhayaṃ abhinivajjetvā), abide in equanimity (upekkhako vihareyyaṃ), mindful (sato) and fully aware (sampajāno)’’, he abides in equanimity towards that, mindful and fully aware.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">462</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;462&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;462&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno sotena saddaṃ sutvā…pe… ghānena gandhaṃ ghāyitvā… jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So sace ākaṅkhati – ‘paṭikūle appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūle ca appaṭikūle ca appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūlañca appaṭikūlañca tadubhayampi &lt;pb ed=&quot;P&quot; n=&quot;3.0302&quot;/&gt; abhinivajjetvā upekkhako vihareyyaṃ sato sampajāno’ti, upekkhako tattha viharati sato sampajāno. Evaṃ kho, ānanda, ariyo hoti bhāvitindriyo.</p>">&lt;p n=&quot;462&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;462&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Puna caparaṃ, ānanda, bhikkhuno sotena saddaṃ sutvā…pe… ghānena gandhaṃ ghāyitvā… jivhāya rasaṃ sāyitvā… kāyena phoṭṭhabbaṃ phusitvā… manasā dhammaṃ viññāya uppajjati manāpaṃ, uppajjati amanāpaṃ, uppajjati manāpāmanāpaṃ. So sace ākaṅkhati – ‘paṭikūle appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūle ca appaṭikūle ca appaṭikūlasaññī vihareyya’nti, appaṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya’nti, paṭikūlasaññī tattha viharati. Sace ākaṅkhati – ‘paṭikūlañca appaṭikūlañca tadubhayampi &lt;pb ed=&quot;P&quot; n=&quot;3.0302&quot;/&gt; abhinivajjetvā upekkhako vihareyyaṃ sato sampajāno’ti, upekkhako tattha viharati sato sampajāno. Evaṃ kho, ānanda, ariyo hoti bhāvitindriyo.</p></div>
+                
+                <div class="translation-text mula-english-section">&quot;Furthermore, Ānanda, when a monk hears a sound with the ear...smells an odor with the nose...tastes a flavor with the tongue...touches a tangible object with the body...cognizes a mental object with the mind, there arises what is agreeable, there arises what is disagreeable, there arises what is both agreeable and disagreeable.<br><br>If he should wish, &#039;May I abide perceiving the unrepulsive in the repulsive (paṭikūle appaṭikūlasaññī vihareyya),&#039; he abides perceiving the unrepulsive in that.<br><br>If he should wish, &#039;May I abide perceiving the repulsive in the unrepulsive (appaṭikūle paṭikūlasaññī vihareyya),&#039; he abides perceiving the repulsive in that.<br><br>If he should wish, &#039;May I abide perceiving the unrepulsive in the repulsive and the unrepulsive (paṭikūle ca appaṭikūle ca appaṭikūlasaññī vihareyya),&#039; he abides perceiving the unrepulsive in that.<br><br>If he should wish, &#039;May I abide perceiving the repulsive in the unrepulsive and the repulsive (appaṭikūle ca paṭikūle ca paṭikūlasaññī vihareyya),&#039; he abides perceiving the repulsive in that.<br><br>If he should wish, &#039;May I, abandoning both the repulsive and the unrepulsive (paṭikūlañca appaṭikūlañca tadubhayampi abhinivajjetvā), abide in equanimity, mindful and fully aware (upekkhako vihareyyaṃ sato sampajāno),&#039; he abides in equanimity towards that, mindful and fully aware (upekkhako tattha viharati sato sampajāno).<br><br>Thus, Ānanda, a noble one is one with developed faculties (evaṃ kho, ānanda, ariyo hoti bhāvitindriyo).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">463</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;463&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;463&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Iti &lt;pb ed=&quot;M&quot; n=&quot;3.0352&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0365&quot;/&gt; kho, ānanda, desitā mayā ariyassa vinaye anuttarā indriyabhāvanā, desito sekho pāṭipado, desito ariyo bhāvitindriyo &lt;pb ed=&quot;T&quot; n=&quot;3.0548&quot;/&gt;. Yaṃ kho, ānanda, satthārā karaṇīyaṃ sāvakānaṃ hitesinā anukampakena anukampaṃ upādāya, kataṃ vo taṃ mayā. Etāni, ānanda, rukkhamūlāni, etāni suññāgārāni, jhāyathānanda, mā pamādattha, mā pacchā vippaṭisārino ahuvattha. Ayaṃ vo amhākaṃ anusāsanī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Indriyabhāvanāsuttaṃ niṭṭhitaṃ dasamaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Saḷāyatanavaggo niṭṭhito pañcamo.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tassuddānaṃ –</p> &lt;p rend=&quot;gatha1&quot;&gt;Anāthapiṇḍiko channo, puṇṇo nandakarāhulā;</p> &lt;p rend=&quot;gatha2&quot;&gt;Chachakkaṃ saḷāyatanikaṃ, nagaravindeyyasuddhikā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Indriyabhāvanā cāpi, vaggo ovādapañcamoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idaṃ vaggānamuddānaṃ –</p> &lt;p rend=&quot;gatha1&quot;&gt;Devadahonupado ca, suññato ca vibhaṅgako;</p> &lt;p rend=&quot;gathalast&quot;&gt;Saḷāyatanoti vaggā, uparipaṇṇāsake ṭhitāti.</p> &lt;p rend=&quot;centre&quot;&gt;Uparipaṇṇāsakaṃ samattaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Tīhi paṇṇāsakehi paṭimaṇḍito sakalo</p> &lt;p rend=&quot;centre&quot;&gt;Majjhimanikāyo samatto.</p>">&lt;p n=&quot;463&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;463&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Iti &lt;pb ed=&quot;M&quot; n=&quot;3.0352&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0365&quot;/&gt; kho, ānanda, desitā mayā ariyassa vinaye anuttarā indriyabhāvanā, desito sekho pāṭipado, desito ariyo bhāvitindriyo &lt;pb ed=&quot;T&quot; n=&quot;3.0548&quot;/&gt;. Yaṃ kho, ānanda, satthārā karaṇīyaṃ sāvakānaṃ hitesinā anukampakena anukampaṃ upādāya, kataṃ vo taṃ mayā. Etāni, ānanda, rukkhamūlāni, etāni suññāgārāni, jhāyathānanda, mā pamādattha, mā pacchā vippaṭisārino ahuvattha. Ayaṃ vo amhākaṃ anusāsanī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṃ abhinandīti.</p> &lt;p rend=&quot;centre&quot;&gt;Indriyabhāvanāsuttaṃ niṭṭhitaṃ dasamaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Saḷāyatanavaggo niṭṭhito pañcamo.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tassuddānaṃ –</p> &lt;p rend=&quot;gatha1&quot;&gt;Anāthapiṇḍiko channo, puṇṇo nandakarāhulā;</p> &lt;p rend=&quot;gatha2&quot;&gt;Chachakkaṃ saḷāyatanikaṃ, nagaravindeyyasuddhikā;</p> &lt;p rend=&quot;gathalast&quot;&gt;Indriyabhāvanā cāpi, vaggo ovādapañcamoti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idaṃ vaggānamuddānaṃ –</p> &lt;p rend=&quot;gatha1&quot;&gt;Devadahonupado ca, suññato ca vibhaṅgako;</p> &lt;p rend=&quot;gathalast&quot;&gt;Saḷāyatanoti vaggā, uparipaṇṇāsake ṭhitāti.</p> &lt;p rend=&quot;centre&quot;&gt;Uparipaṇṇāsakaṃ samattaṃ.</p> &lt;p rend=&quot;centre&quot;&gt;Tīhi paṇṇāsakehi paṭimaṇḍito sakalo</p> &lt;p rend=&quot;centre&quot;&gt;Majjhimanikāyo samatto.</p></div>
+                
+                <div class="translation-text mula-english-section">463. Thus, Ānanda, the unsurpassed cultivation of the faculties (<i>indriya-bhāvanā</i>) has been taught by me in the Dharma (<i>vinaya</i>) of the noble ones (<i>ariya</i>). The training for the adept (<i>sekha</i>) has been taught, and the noble one with cultivated faculties (<i>bhāvitindriya</i>) has been taught.<br><br>Whatever should be done by a teacher (<i>sattharā</i>) out of compassion for his disciples, seeking their welfare, that I have done for you, Ānanda. These are the roots of trees, these are empty huts. Meditate, Ānanda, do not be heedless, or else you will regret it later. This is our instruction to you.&quot;<br><br>The Blessed One (<i>bhagavā</i>) spoke thus. The venerable (<i>āyasmā</i>) Ānanda was satisfied and delighted in the Blessed One’s words.<br><br>The <i>Indriyabhāvanāsutta</i>ṃ, the tenth discourse, is finished.<br><br>The <i>Saḷāyatanavaggo</i>, the fifth chapter, is finished.<br><br>Its summary:<br><br>Anāthapiṇḍika, Channa, Puṇṇa, Nandaka, Rāhula;<br><br>The six sixes, the <i>Saḷāyatanika</i>, Nagaravindeyyasuddhikā;<br><br>The <i>Indriyabhāvanā</i> and also, the chapter with the five admonitions.<br><br>This is the summary of the chapters:<br><br>Devadaha, Anupada, Suññata, and Vibhaṅgako;<br><br>The <i>Saḷāyatana</i> group, is situated in the <i>Uparipaṇṇāsaka</i>.<br><br>The <i>Uparipaṇṇāsakaṃ</i> is complete.<br><br>The <i>Majjhimanikāyo</i> is complete, adorned with three <i>paṇṇāsaka</i>.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn10_dhātuvibhaṅgasuttaṃ.html" class="nav-btn">← Previous: Dhātuvibhaṅgasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn10_saṅkhārupapattisuttaṃ.html" class="nav-btn">Next: Saṅkhārupapattisuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

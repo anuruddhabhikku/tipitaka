@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. Araṇavibhaṅgasuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Araṇavibhaṅgasuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 9</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn8_ānāpānassatisuttaṃ.html" class="nav-btn">← Previous: Ānāpānassatisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn9_bālapaṇḍitasuttaṃ.html" class="nav-btn">Next: Bālapaṇḍitasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">323</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;323&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;323&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0423&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0279&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0230&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘araṇavibhaṅgaṃ vo, bhikkhave, desessāmi. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Na kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogamanuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhitaṃ. Ete kho, bhikkhave &lt;note&gt;ete kho (sī.), ete te (syā. kaṃ. pī.)&lt;/note&gt;, ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati. Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya &lt;note&gt;nāpasādeyya (sī.)&lt;/note&gt;, dhammameva deseyya. Sukhavinicchayaṃ jaññā; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyya. Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ &lt;note&gt;nātikhīṇaṃ (syā. kaṃ. ka.)&lt;/note&gt; bhaṇe. Ataramānova bhāseyya, no taramāno. Janapadaniruttiṃ nābhiniveseyya, samaññaṃ nātidhāveyyāti – ayamuddeso araṇavibhaṅgassa.</p> &lt;note&gt;ete kho (sī.), ete te (syā. kaṃ. pī.)&lt;/note&gt; &lt;note&gt;nāpasādeyya (sī.)&lt;/note&gt; &lt;note&gt;nātikhīṇaṃ (syā. kaṃ. ka.)&lt;/note&gt;">&lt;p n=&quot;323&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;323&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0423&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0279&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0230&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhū āmantesi ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca – ‘‘araṇavibhaṅgaṃ vo, bhikkhave, desessāmi. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Na kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogamanuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhitaṃ. Ete kho, bhikkhave &lt;note&gt;ete kho (sī.), ete te (syā. kaṃ. pī.)&lt;/note&gt;, ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati. Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya &lt;note&gt;nāpasādeyya (sī.)&lt;/note&gt;, dhammameva deseyya. Sukhavinicchayaṃ jaññā; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyya. Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ &lt;note&gt;nātikhīṇaṃ (syā. kaṃ. ka.)&lt;/note&gt; bhaṇe. Ataramānova bhāseyya, no taramāno. Janapadaniruttiṃ nābhiniveseyya, samaññaṃ nātidhāveyyāti – ayamuddeso araṇavibhaṅgassa.</p> &lt;note&gt;ete kho (sī.), ete te (syā. kaṃ. pī.)&lt;/note&gt; &lt;note&gt;nāpasādeyya (sī.)&lt;/note&gt; &lt;note&gt;nātikhīṇaṃ (syā. kaṃ. ka.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard:<br><br>Once the Blessed One (bhagavā) was dwelling at Sāvatthi in the Jeta Grove, Anāthapiṇḍika’s Park.<br><br>There the Blessed One addressed the monks (bhikkhus), saying: “Bhikkhus!”<br><br>“Venerable sir (bhadante),” those monks replied to the Blessed One.<br><br>The Blessed One said this: “I will teach you an exposition of non-conflict (araṇavibhaṅgaṃ), O monks (bhikkhave).<br><br>Listen to that, pay close attention and I will speak.”<br><br>“As you say, lord (evaṃ, bhante),” those monks responded to the Blessed One.<br><br>The Blessed One said this:<br><br>&quot;One should not pursue sensual pleasures (kāmasukha), which are low, coarse, worldly, ignoble, and connected to harm. Nor should one pursue self-mortification (attakilamathānuyoga), which is painful, ignoble, and connected to harm.<br><br>Avoiding both of these extremes, monks (bhikkhave), the middle path (majjhimā paṭipadā) has been fully awakened to by the <i>Tathāgata</i>, which produces vision (cakkhukaraṇī), which produces knowledge (ñāṇakaraṇī), which leads to peace (upasamāya), to direct knowledge (abhiññāya), to self-awakening (sambodhāya), to <i>Nirvāṇa</i> (nibbānāya).<br><br>One should know what it is to extol (ussādanañca jaññā) and what it is to disparage (apasādanañca jaññā); knowing both what it is to extol (ussādanañca ñatvā) and what it is to disparage (apasādanañca ñatvā), one should neither extol (nevussādeyya) nor disparage (na apasādeyya), but should teach only the <i>Dharma</i> (dhammameva deseyya).<br><br>One should know how to define pleasure (sukhavinicchayaṃ jaññā); knowing how to define pleasure (sukhavinicchayaṃ ñatvā), one should pursue pleasure within oneself (ajjhattaṃ sukhamanuyuñjeyya).<br><br>One should not utter covert speech (rahovādaṃ na bhāseyya), and one should not utter overt sharp speech (sammukhā na khīṇaṃ bhaṇe).<br><br>One should speak unhurriedly (ataramānova bhāseyya), not hurriedly (no taramāno).<br><br>One should not insist on local language (janapadaniruttiṃ nābhiniveseyya), and one should not override normal usage (samaññaṃ nātidhāveyyāti)—this is the summary (<i>uddeso</i>) of the exposition of non-conflict (araṇavibhaṅgassa).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">324</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;324&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;324&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Na &lt;pb ed=&quot;T&quot; n=&quot;3.0424&quot;/&gt; kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogamanuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhita’nti &lt;pb ed=&quot;M&quot; n=&quot;3.0274&quot;/&gt; – iti kho panetaṃ vuttaṃ; kiñcetaṃ paṭicca vuttaṃ? Yo kāmapaṭisandhisukhino somanassānuyogo hīno gammo pothujjaniko anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Yo kāmapaṭisandhisukhino somanassānuyogaṃ ananuyogo &lt;pb ed=&quot;P&quot; n=&quot;3.0231&quot;/&gt; hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Yo attakilamathānuyogo dukkho anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Yo attakilamathānuyogaṃ ananuyogo dukkhaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto &lt;pb ed=&quot;V&quot; n=&quot;3.0280&quot;/&gt; anupāyāso apariḷāho; sammāpaṭipadā. ‘Na kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogaṃ anuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhita’nti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;324&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;324&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Na &lt;pb ed=&quot;T&quot; n=&quot;3.0424&quot;/&gt; kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogamanuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhita’nti &lt;pb ed=&quot;M&quot; n=&quot;3.0274&quot;/&gt; – iti kho panetaṃ vuttaṃ; kiñcetaṃ paṭicca vuttaṃ? Yo kāmapaṭisandhisukhino somanassānuyogo hīno gammo pothujjaniko anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Yo kāmapaṭisandhisukhino somanassānuyogaṃ ananuyogo &lt;pb ed=&quot;P&quot; n=&quot;3.0231&quot;/&gt; hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Yo attakilamathānuyogo dukkho anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Yo attakilamathānuyogaṃ ananuyogo dukkhaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto &lt;pb ed=&quot;V&quot; n=&quot;3.0280&quot;/&gt; anupāyāso apariḷāho; sammāpaṭipadā. ‘Na kāmasukhamanuyuñjeyya hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, na ca attakilamathānuyogaṃ anuyuñjeyya dukkhaṃ anariyaṃ anatthasaṃhita’nti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">324.<br>&quot;One should not pursue sensual pleasure (<i>kāmasukha</i>), which is low (<i>hīnaṃ</i>), vulgar (<i>gammaṃ</i>), coarse (<i>pothujjanikaṃ</i>), ignoble (<i>anariyaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>); and one should not pursue self-mortification (<i>attakilamathānuyogaṃ</i>), which is painful (<i>dukkhaṃ</i>), ignoble (<i>anariyaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>).&quot;<br><br>So it was said. And with reference to what was this said? The pursuit of the enjoyment (<i>somanassānuyogaḥ</i>) of one whose pleasure (<i>sukhin</i>o) is linked to sensual desires (<i>kāmapaṭisandhi</i>) - low (<i>hīnaḥ</i>), vulgar (<i>gammaḥ</i>), coarse (<i>pothujjanikaḥ</i>), ignoble (<i>anariyaḥ</i>), and unbeneficial (<i>anatthasaṃhitaḥ</i>) - is a state beset by suffering (<i>sadukkho</i>), vexation (<i>saupaghāto</i>), despair (<i>saupāyāso</i>), and fever (<i>sapariḷāho</i>); it is the wrong way (<i>micchāpaṭipadā</i>).<br><br>Disengagement (<i>ananuyogaḥ</i>) from the pursuit of the enjoyment (<i>somanassānuyogam</i>) of one whose pleasure is linked to sensual desires (<i>kāmapaṭisandhi</i>) - low, vulgar, coarse, ignoble, and unbeneficial - is a state without suffering (<i>adukkho</i>), vexation (<i>anupaghāto</i>), despair (<i>anupāyāso</i>), and fever (<i>apariḷāho</i>); it is the right way (<i>sammāpaṭipadā</i>).<br><br>The pursuit of self-mortification (<i>attakilamathānuyogaḥ</i>) - painful (<i>dukkho</i>), ignoble (<i>anariyaḥ</i>), and unbeneficial (<i>anatthasaṃhitoḥ</i>) - is a state beset by suffering (<i>sadukkho</i>), vexation (<i>saupaghāto</i>), despair (<i>saupāyāso</i>), and fever (<i>sapariḷāho</i>); it is the wrong way (<i>micchāpaṭipadā</i>).<br><br>Disengagement (<i>ananuyogaḥ</i>) from the pursuit of self-mortification (<i>attakilamathānuyogam</i>) - painful (<i>dukkhaṃ</i>), ignoble (<i>anariyaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>) - is a state without suffering (<i>adukkho</i>), vexation (<i>anupaghāto</i>), despair (<i>anupāyāso</i>), and fever (<i>apariḷāho</i>); it is the right way (<i>sammāpaṭipadā</i>).<br><br>“One should not pursue sensual pleasure, which is low, vulgar, coarse, ignoble, and unbeneficial; and one should not pursue self-mortification, which is painful, ignoble, and unbeneficial.” So it was with reference to this that it was said.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">325</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;325&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;325&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ete kho ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattatī’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Ayameva ariyo aṭṭhaṅgiko maggo, seyyathidaṃ – sammādiṭṭhi &lt;pb ed=&quot;T&quot; n=&quot;3.0425&quot;/&gt;, sammāsaṅkappo, sammāvācā, sammākammanto, sammāājīvo, sammāvāyāmo, sammāsati, sammāsamādhi. ‘Ete kho ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattatī’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;325&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;325&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ete kho ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattatī’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Ayameva ariyo aṭṭhaṅgiko maggo, seyyathidaṃ – sammādiṭṭhi &lt;pb ed=&quot;T&quot; n=&quot;3.0425&quot;/&gt;, sammāsaṅkappo, sammāvācā, sammākammanto, sammāājīvo, sammāvāyāmo, sammāsati, sammāsamādhi. ‘Ete kho ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattatī’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">“Avoiding both of these extremes, the middle way realized by the Tathāgata—producing vision, producing knowledge—leads to calm, to direct knowledge, to self-awakening, to Unbinding.” So it was said.<br><br>And with reference to what was this said? This noble eightfold path (ariyo aṭṭhaṅgiko maggo), namely: right view (sammādiṭṭhi), right thought (sammāsaṅkappo), right speech (sammāvācā), right action (sammākammanto), right livelihood (sammāājīvo), right effort (sammāvāyāmo), right mindfulness (sammāsati), right concentration (sammāsamādhi).<br><br>So it was with reference to this that it was said: ‘The Middle Way discovered by the Tathagata avoids both these extremes…to Nibbana.’</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">326</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;326&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;326&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya, dhammameva deseyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhave, ussādanā ca hoti apasādanā ca, no ca dhammadesanā? ‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ anuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ &lt;note&gt;iti paraṃ (ka.)&lt;/note&gt; ittheke apasādeti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye &lt;pb ed=&quot;M&quot; n=&quot;3.0275&quot;/&gt; kāmapaṭisandhisukhino somanassānuyogaṃ ananuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – iti vadaṃ ittheke ussādeti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0275&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ anuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā &lt;pb ed=&quot;P&quot; n=&quot;3.0232&quot;/&gt; saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ ittheke apasādeti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0232&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ ananuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā &lt;pb ed=&quot;V&quot; n=&quot;3.0281&quot;/&gt; anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti &lt;pb ed=&quot;T&quot; n=&quot;3.0426&quot;/&gt; – iti vadaṃ ittheke ussādeti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0281&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0426&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ appahīnaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ ittheke apasādeti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ pahīnaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – iti vadaṃ ittheke ussādeti. Evaṃ kho, bhikkhave, ussādanā ca hoti apasādanā ca, no ca dhammadesanā.</p>">&lt;p n=&quot;326&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;326&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya, dhammameva deseyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhave, ussādanā ca hoti apasādanā ca, no ca dhammadesanā? ‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ anuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ &lt;note&gt;iti paraṃ (ka.)&lt;/note&gt; ittheke apasādeti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye &lt;pb ed=&quot;M&quot; n=&quot;3.0275&quot;/&gt; kāmapaṭisandhisukhino somanassānuyogaṃ ananuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – iti vadaṃ ittheke ussādeti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0275&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ anuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā &lt;pb ed=&quot;P&quot; n=&quot;3.0232&quot;/&gt; saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ ittheke apasādeti.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0232&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ ananuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā &lt;pb ed=&quot;V&quot; n=&quot;3.0281&quot;/&gt; anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti &lt;pb ed=&quot;T&quot; n=&quot;3.0426&quot;/&gt; – iti vadaṃ ittheke ussādeti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0281&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0426&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ appahīnaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – iti vadaṃ ittheke apasādeti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ pahīnaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – iti vadaṃ ittheke ussādeti. Evaṃ kho, bhikkhave, ussādanā ca hoti apasādanā ca, no ca dhammadesanā.</p></div>
+                
+                <div class="translation-text mula-english-section">326. “One should know what it is to extol (<i>ussādana</i>) and what it is to disparage (<i>apasādana</i>); and knowing both, one should neither extol nor disparage but should teach only the <i>dharma</i>.” So it was said.<br><br>What was said with reference to what? And how, <i>bhikkhus</i>, does there come to be extolling and disparaging, and failure to teach only the <i>dharma</i>? “All those engaged in the pursuit of the enjoyment of one whose pleasure is linked to sensual desires—low, worldly, ignoble, and unbeneficial—are beset by suffering, vexation, despair, and fever, and they have entered upon the wrong way.” Thus, some disparage.<br><br>“All those disengaged from the pursuit of the enjoyment of one whose pleasure is linked to sensual desires—low, worldly, ignoble, and unbeneficial—are without suffering, vexation, despair, and fever, and they have entered upon the right way.” Thus, some extol.<br><br>“All those engaged in the pursuit of self-mortification—painful, ignoble, and unbeneficial—are beset by suffering, vexation, despair, and fever, and they have entered upon the wrong way.” Thus, some disparage.<br><br>“All those disengaged from the pursuit of self-mortification—painful, ignoble, and unbeneficial—are without suffering, vexation, despair, and fever, and they have entered upon the right way.” Thus, some extol.<br><br>“All those who have not abandoned the fetter of being (<i>bhava-saṃyojana</i>) are beset by suffering, vexation, despair, and fever, and they have entered upon the wrong way.” Thus, some disparage.<br><br>“All those who have abandoned the fetter of being are without suffering, vexation, despair, and fever, and they have entered upon the right way.” Thus, some extol. In this way, <i>bhikkhus</i>, there comes to be extolling and disparaging, and failure to teach only the <i>dharma</i>.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">327</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;327&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;327&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañca, bhikkhave, nevussādanā hoti na apasādanā, dhammadesanā ca &lt;note&gt;dhammadesanāva (syā. kaṃ.)&lt;/note&gt;? ‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ anuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha. ‘Anuyogo ca kho, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ ananuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Ananuyogo ca kho, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye &lt;pb ed=&quot;M&quot; n=&quot;3.0276&quot;/&gt; attakilamathānuyogaṃ anuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha. ‘Anuyogo ca kho &lt;pb ed=&quot;T&quot; n=&quot;3.0427&quot;/&gt;, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0276&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0427&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ ananuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Ananuyogo ca kho, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0282&quot;/&gt; kesañci bhavasaṃyojanaṃ appahīnaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha &lt;pb ed=&quot;P&quot; n=&quot;3.0233&quot;/&gt;. ‘Bhavasaṃyojane ca kho appahīne bhavopi appahīno hotī’ti – iti vadaṃ dhammameva deseti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0282&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0233&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ pahīnaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Bhavasaṃyojane ca kho pahīne bhavopi pahīno hotī’ti – iti vadaṃ dhammameva deseti. Evaṃ kho, bhikkhave, nevussādanā hoti na apasādanā, dhammadesanā ca. ‘Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya, dhammameva deseyyā’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;327&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;327&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañca, bhikkhave, nevussādanā hoti na apasādanā, dhammadesanā ca &lt;note&gt;dhammadesanāva (syā. kaṃ.)&lt;/note&gt;? ‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ anuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha. ‘Anuyogo ca kho, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye kāmapaṭisandhisukhino somanassānuyogaṃ ananuyuttā hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Ananuyogo ca kho, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye &lt;pb ed=&quot;M&quot; n=&quot;3.0276&quot;/&gt; attakilamathānuyogaṃ anuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha. ‘Anuyogo ca kho &lt;pb ed=&quot;T&quot; n=&quot;3.0427&quot;/&gt;, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0276&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0427&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Ye attakilamathānuyogaṃ ananuyuttā dukkhaṃ anariyaṃ anatthasaṃhitaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Ananuyogo ca kho, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā’ti – iti vadaṃ dhammameva deseti.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0282&quot;/&gt; kesañci bhavasaṃyojanaṃ appahīnaṃ, sabbe te sadukkhā saupaghātā saupāyāsā sapariḷāhā micchāpaṭipannā’ti – na evamāha &lt;pb ed=&quot;P&quot; n=&quot;3.0233&quot;/&gt;. ‘Bhavasaṃyojane ca kho appahīne bhavopi appahīno hotī’ti – iti vadaṃ dhammameva deseti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0282&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0233&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Yesaṃ kesañci bhavasaṃyojanaṃ pahīnaṃ, sabbe te adukkhā anupaghātā anupāyāsā apariḷāhā sammāpaṭipannā’ti – na evamāha. ‘Bhavasaṃyojane ca kho pahīne bhavopi pahīno hotī’ti – iti vadaṃ dhammameva deseti. Evaṃ kho, bhikkhave, nevussādanā hoti na apasādanā, dhammadesanā ca. ‘Ussādanañca jaññā, apasādanañca jaññā; ussādanañca ñatvā apasādanañca ñatvā nevussādeyya, na apasādeyya, dhammameva deseyyā’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">327. “And how, monks, does there come to be neither extolling nor disparaging, but just the teaching of the Dharma?<br><br>‘All those who pursue pleasure tied to sensual desires, who are attached to indulgence, which is inferior, vulgar, common, ignoble and unbeneficial, all these are full of suffering, afflicted, distressed and tormented, and have embarked on the wrong path’—one does not say this.<br><br>But instead says: ‘Indulgence is suffering, afflicted, distressed and tormented, and the wrong path’—in this way, one teaches the Dharma alone.<br><br>“‘All those who pursue pleasure tied to sensual desires, who are <i>not</i> attached to indulgence, which is inferior, vulgar, common, ignoble and unbeneficial, all these are free from suffering, unafflicted, undistressed and untormented, and have embarked on the right path’—one does not say this.<br><br>But instead says: ‘Non-indulgence is free from suffering, unafflicted, undistressed and untormented, and the right path’—in this way, one teaches the Dharma alone.<br><br>“‘All those who pursue self-mortification, which is painful, ignoble and unbeneficial, all these are full of suffering, afflicted, distressed and tormented, and have embarked on the wrong path’—one does not say this.<br><br>But instead says: ‘Self-mortification is suffering, afflicted, distressed and tormented, and the wrong path’—in this way, one teaches the Dharma alone.<br><br>“‘All those who pursue self-mortification, who are <i>not</i> attached to self-mortification, which is painful, ignoble and unbeneficial, all these are free from suffering, unafflicted, undistressed and untormented, and have embarked on the right path’—one does not say this.<br><br>But instead says: ‘Non-self-mortification is free from suffering, unafflicted, undistressed and untormented, and the right path’—in this way, one teaches the Dharma alone.<br><br>“‘All those who have not abandoned the fetter of being ( <i>bhava-saṃyojana</i>), all these are full of suffering, afflicted, distressed and tormented, and have embarked on the wrong path’—one does not say this.<br><br>But instead says: ‘As long as the fetter of being (<i>bhava-saṃyojana</i>) is unabandoned, being (<i>bhava</i>) too is unabandoned’—in this way, one teaches the Dharma alone.<br><br>“‘All those who have abandoned the fetter of being (<i>bhava-saṃyojana</i>), all these are free from suffering, unafflicted, undistressed and untormented, and have embarked on the right path’—one does not say this.<br><br>But instead says: ‘When the fetter of being (<i>bhava-saṃyojana</i>) is abandoned, being (<i>bhava</i>) also is abandoned’—in this way, one teaches the Dharma alone. Thus, monks, there comes to be neither extolling nor disparaging, but just the teaching of the Dharma.<br><br>‘One should know what it is to extol and what it is to disparage, and knowing both, one should neither extol nor disparage, but should teach the Dharma alone’—so it was said with reference to this.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">328</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;328&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;328&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Sukhavinicchayaṃ jaññā; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Pañcime, bhikkhave, kāmaguṇā. Katame pañca? Cakkhuviññeyyā rūpā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā, sotaviññeyyā &lt;pb ed=&quot;T&quot; n=&quot;3.0428&quot;/&gt; saddā… ghānaviññeyyā gandhā… jivhāviññeyyā rasā… kāyaviññeyyā phoṭṭhabbā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā – ime kho, bhikkhave, pañca kāmaguṇā. Yaṃ kho, bhikkhave, ime pañca kāmaguṇe paṭicca uppajjati sukhaṃ somanassaṃ idaṃ vuccati kāmasukhaṃ mīḷhasukhaṃ puthujjanasukhaṃ anariyasukhaṃ. ‘Na āsevitabbaṃ, na bhāvetabbaṃ, na bahulīkātabbaṃ, bhāyitabbaṃ etassa sukhassā’ti – vadāmi. Idha &lt;pb ed=&quot;M&quot; n=&quot;3.0277&quot;/&gt;, bhikkhave, bhikkhu vivicceva kāmehi vivicca akusalehi dhammehi savitakkaṃ savicāraṃ vivekajaṃ pītisukhaṃ paṭhamaṃ jhānaṃ upasampajja viharati. Vitakkavicārānaṃ vūpasamā ajjhattaṃ sampasādanaṃ cetaso ekodibhāvaṃ avitakkaṃ avicāraṃ samādhijaṃ pītisukhaṃ dutiyaṃ jhānaṃ upasampajja viharati. Pītiyā ca virāgā upekkhako ca viharati…pe… tatiyaṃ jhānaṃ… catutthaṃ jhānaṃ upasampajja viharati. Idaṃ vuccati nekkhammasukhaṃ pavivekasukhaṃ upasamasukhaṃ sambodhisukhaṃ. ‘Āsevitabbaṃ, bhāvetabbaṃ, bahulīkātabbaṃ, na bhāyitabbaṃ etassa sukhassā’ti – vadāmi &lt;pb ed=&quot;P&quot; n=&quot;3.0234&quot;/&gt;. ‘Sukhavinicchayaṃ jaññā &lt;pb ed=&quot;V&quot; n=&quot;3.0283&quot;/&gt;; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;328&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;328&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Sukhavinicchayaṃ jaññā; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Pañcime, bhikkhave, kāmaguṇā. Katame pañca? Cakkhuviññeyyā rūpā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā, sotaviññeyyā &lt;pb ed=&quot;T&quot; n=&quot;3.0428&quot;/&gt; saddā… ghānaviññeyyā gandhā… jivhāviññeyyā rasā… kāyaviññeyyā phoṭṭhabbā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā – ime kho, bhikkhave, pañca kāmaguṇā. Yaṃ kho, bhikkhave, ime pañca kāmaguṇe paṭicca uppajjati sukhaṃ somanassaṃ idaṃ vuccati kāmasukhaṃ mīḷhasukhaṃ puthujjanasukhaṃ anariyasukhaṃ. ‘Na āsevitabbaṃ, na bhāvetabbaṃ, na bahulīkātabbaṃ, bhāyitabbaṃ etassa sukhassā’ti – vadāmi. Idha &lt;pb ed=&quot;M&quot; n=&quot;3.0277&quot;/&gt;, bhikkhave, bhikkhu vivicceva kāmehi vivicca akusalehi dhammehi savitakkaṃ savicāraṃ vivekajaṃ pītisukhaṃ paṭhamaṃ jhānaṃ upasampajja viharati. Vitakkavicārānaṃ vūpasamā ajjhattaṃ sampasādanaṃ cetaso ekodibhāvaṃ avitakkaṃ avicāraṃ samādhijaṃ pītisukhaṃ dutiyaṃ jhānaṃ upasampajja viharati. Pītiyā ca virāgā upekkhako ca viharati…pe… tatiyaṃ jhānaṃ… catutthaṃ jhānaṃ upasampajja viharati. Idaṃ vuccati nekkhammasukhaṃ pavivekasukhaṃ upasamasukhaṃ sambodhisukhaṃ. ‘Āsevitabbaṃ, bhāvetabbaṃ, bahulīkātabbaṃ, na bhāyitabbaṃ etassa sukhassā’ti – vadāmi &lt;pb ed=&quot;P&quot; n=&quot;3.0234&quot;/&gt;. ‘Sukhavinicchayaṃ jaññā &lt;pb ed=&quot;V&quot; n=&quot;3.0283&quot;/&gt;; sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti – iti yaṃ taṃ vuttaṃ idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">328. “&#039;One should know how to define pleasure (<i>sukhavinicchayaṃ jaññā</i>); knowing how to define pleasure, one should pursue pleasure within oneself (<i>sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti</i>)’—so it was said.<br><br>For what reason was this said? These are the five cords of sensual pleasure (<i>pañca kāmaguṇā</i>), monks.<br><br>What are the five? Forms cognizable by the eye that are wished for, desired, agreeable, and likeable, connected with sensual desire and provocative of lust (<i>cakkhuviññeyyā rūpā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā</i>); sounds cognizable by the ear...odours cognizable by the nose...flavours cognizable by the tongue...tangibles cognizable by the body that are wished for, desired, agreeable, and likeable, connected with sensual desire and provocative of lust (<i>kāyaviññeyyā phoṭṭhabbā iṭṭhā kantā manāpā piyarūpā kāmūpasaṃhitā rajanīyā</i>)—these are the five cords of sensual pleasure (<i>pañca kāmaguṇā</i>), monks.<br><br>Now, monks, whatever pleasure or happiness arises in dependence on these five strands of sensuality, that is called sensual pleasure (<i>kāmasukhaṃ</i>), filthy pleasure (<i>mīḷhasukhaṃ</i>), coarse pleasure (<i>puthujjanasukhaṃ</i>), ignoble pleasure (<i>anariyasukhaṃ</i>).<br><br>‘It should not be pursued (<i>na āsevitabbaṃ</i>), it should not be developed (<i>na bhāvetabbaṃ</i>), it should not be cultivated (<i>na bahulīkātabbaṃ</i>), it should be feared (<i>bhāyitabbaṃ etassa sukhassā’ti</i>)’—I say.<br><br>Here, monks, quite secluded from sensual pleasures (<i>kāmehi</i>), secluded from unwholesome states (<i>akusalehi dhammehi</i>), a monk enters and dwells in the first <i>jhāna</i>, which is accompanied by thought and examination, with rapture and happiness born of seclusion (<i>vivekajaṃ pītisukhaṃ paṭhamaṃ jhānaṃ upasampajja viharati</i>).<br><br>With the subsiding of thinking and pondering, by gaining inner tranquility and oneness of mind, he enters and remains in the second <i>jhāna</i>, which is without thinking and pondering, born of concentration, filled with delight and joy (<i>avitakkaṃ avicāraṃ samādhijaṃ pītisukhaṃ dutiyaṃ jhānaṃ upasampajja viharati</i>).<br><br>With the fading away as well of rapture, he remains equanimous and mindful...he enters upon and abides in the third <i>jhāna</i>...the fourth <i>jhāna</i> (<i>tatiyaṃ jhānaṃ… catutthaṃ jhānaṃ upasampajja viharati</i>).<br><br>This is called the bliss of renunciation (<i>nekkhamma sukhaṃ</i>), the bliss of seclusion (<i>paviveka sukhaṃ</i>), the bliss of peace (<i>upasama sukhaṃ</i>), the bliss of enlightenment (<i>sambodhi sukhaṃ</i>).<br><br>‘It should be pursued (<i>āsevitabbaṃ</i>), it should be developed (<i>bhāvetabbaṃ</i>), it should be cultivated (<i>bahulīkātabbaṃ</i>), it should not be feared (<i>na bhāyitabbaṃ etassa sukhassā’ti</i>)’—I say.<br><br>‘One should know how to define pleasure (<i>sukhavinicchayaṃ jaññā</i>); knowing how to define pleasure, one should pursue pleasure within oneself (<i>sukhavinicchayaṃ ñatvā ajjhattaṃ sukhamanuyuñjeyyā’ti</i>)’—so it was with reference to this that was said.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">329</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;329&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;329&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ bhaṇe’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Tatra, bhikkhave, yaṃ jaññā rahovādaṃ abhūtaṃ atacchaṃ anatthasaṃhitaṃ sasakkaṃ &lt;note&gt;sampattaṃ (ka.)&lt;/note&gt; taṃ rahovādaṃ na bhāseyya. Yampi jaññā rahovādaṃ bhūtaṃ tacchaṃ anatthasaṃhitaṃ tassapi sikkheyya avacanāya. Yañca kho jaññā rahovādaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0429&quot;/&gt; bhūtaṃ tacchaṃ atthasaṃhitaṃ tatra kālaññū assa tassa rahovādassa vacanāya. Tatra, bhikkhave, yaṃ jaññā sammukhā khīṇavādaṃ abhūtaṃ atacchaṃ anatthasaṃhitaṃ sasakkaṃ taṃ sammukhā khīṇavādaṃ na bhāseyya. Yampi jaññā sammukhā khīṇavādaṃ bhūtaṃ tacchaṃ anatthasaṃhitaṃ tassapi sikkheyya avacanāya. Yañca kho jaññā sammukhā khīṇavādaṃ bhūtaṃ tacchaṃ atthasaṃhitaṃ tatra kālaññū assa tassa sammukhā khīṇavādassa vacanāya. ‘Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ bhaṇe’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;329&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;329&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ bhaṇe’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Tatra, bhikkhave, yaṃ jaññā rahovādaṃ abhūtaṃ atacchaṃ anatthasaṃhitaṃ sasakkaṃ &lt;note&gt;sampattaṃ (ka.)&lt;/note&gt; taṃ rahovādaṃ na bhāseyya. Yampi jaññā rahovādaṃ bhūtaṃ tacchaṃ anatthasaṃhitaṃ tassapi sikkheyya avacanāya. Yañca kho jaññā rahovādaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0429&quot;/&gt; bhūtaṃ tacchaṃ atthasaṃhitaṃ tatra kālaññū assa tassa rahovādassa vacanāya. Tatra, bhikkhave, yaṃ jaññā sammukhā khīṇavādaṃ abhūtaṃ atacchaṃ anatthasaṃhitaṃ sasakkaṃ taṃ sammukhā khīṇavādaṃ na bhāseyya. Yampi jaññā sammukhā khīṇavādaṃ bhūtaṃ tacchaṃ anatthasaṃhitaṃ tassapi sikkheyya avacanāya. Yañca kho jaññā sammukhā khīṇavādaṃ bhūtaṃ tacchaṃ atthasaṃhitaṃ tatra kālaññū assa tassa sammukhā khīṇavādassa vacanāya. ‘Rahovādaṃ na bhāseyya, sammukhā na khīṇaṃ bhaṇe’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">329. ‘One should not utter covert speech (<i>rahovādaṃ</i>), and one should not utter overt sharp speech (<i>sammukhā na khīṇaṃ bhaṇe</i>.’ So it was said.<br><br>But what was said with reference to this? Here, <i>bhikkhus</i>, when one knows covert speech to be untrue (<i>abhūtaṃ</i>), incorrect (<i>atacchaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>), one should on no account utter that covert speech (<i>rahovādaṃ na bhāseyya</i>).<br><br>When one knows covert speech to be true (<i>bhūtaṃ</i>), correct (<i>tacchaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>), one should try not to utter it.<br><br>But when one knows covert speech to be true (<i>bhūtaṃ</i>), correct (<i>tacchaṃ</i>), and beneficial (<i>atthasaṃhitaṃ</i>), one may utter it, knowing the time (<i>kālaññū</i>) to do so.<br><br>Here, <i>bhikkhus</i>, when one knows overt sharp speech to be untrue (<i>abhūtaṃ</i>), incorrect (<i>atacchaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>), one should on no account utter that overt sharp speech (<i>sammukhā khīṇavādaṃ na bhāseyya</i>).<br><br>When one knows overt sharp speech to be true (<i>bhūtaṃ</i>), correct (<i>tacchaṃ</i>), and unbeneficial (<i>anatthasaṃhitaṃ</i>), one should try not to utter it.<br><br>But when one knows overt sharp speech to be true (<i>bhūtaṃ</i>), correct (<i>tacchaṃ</i>), and beneficial (<i>atthasaṃhitaṃ</i>), one may utter that overt sharp speech (<i>sammukhā khīṇavādassa vacanāya</i>), knowing the time (<i>kālaññū</i>) to do so.<br><br>“One should not utter covert speech (<i>rahovādaṃ na bhāseyya</i>), and one should not utter overt sharp speech (<i>sammukhā na khīṇaṃ bhaṇe</i>.” So it was with reference to this that it was said.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">330</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;330&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;330&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ataramānova bhāseyya no taramāno’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Tatra, bhikkhave, taramānassa bhāsato kāyopi kilamati, cittampi upahaññati &lt;note&gt;ūhaññati (sī.)&lt;/note&gt;, saropi upahaññati &lt;note&gt;ūhaññati (sī.)&lt;/note&gt;, kaṇṭhopi āturīyati, avisaṭṭhampi hoti aviññeyyaṃ taramānassa bhāsitaṃ. Tatra, bhikkhave, ataramānassa bhāsato kāyopi na kilamati, cittampi na upahaññati, saropi na upahaññati, kaṇṭhopi na āturīyati, visaṭṭhampi hoti viññeyyaṃ ataramānassa bhāsitaṃ. ‘Ataramānova bhāseyya, no taramāno’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;330&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;330&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Ataramānova bhāseyya no taramāno’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Tatra, bhikkhave, taramānassa bhāsato kāyopi kilamati, cittampi upahaññati &lt;note&gt;ūhaññati (sī.)&lt;/note&gt;, saropi upahaññati &lt;note&gt;ūhaññati (sī.)&lt;/note&gt;, kaṇṭhopi āturīyati, avisaṭṭhampi hoti aviññeyyaṃ taramānassa bhāsitaṃ. Tatra, bhikkhave, ataramānassa bhāsato kāyopi na kilamati, cittampi na upahaññati, saropi na upahaññati, kaṇṭhopi na āturīyati, visaṭṭhampi hoti viññeyyaṃ ataramānassa bhāsitaṃ. ‘Ataramānova bhāseyya, no taramāno’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">330. “One should speak unhurriedly (ataramānova bhāseyya), not hurriedly (no taramāno)’ti – so it was said (iti kho panetaṃ vuttaṃ).<br><br>Why was this said (kiñcetaṃ paṭicca vuttaṃ)? Here, monks (bhikkhave), when one speaks hurriedly (taramānassa bhāsato), the body (kāyopi) becomes tired (kilamati), and the mind (cittampi) becomes agitated (upahaññati), the voice (saropi) becomes strained (upahaññati), the throat (kaṇṭhopi) becomes hoarse (āturīyati), and the speech (bhāsitaṃ) of one who speaks hurriedly (taramānassa) is indistinct (avisaṭṭhampi) and unintelligible (aviññeyyaṃ).<br><br>Here, monks (bhikkhave), when one speaks unhurriedly (ataramānassa bhāsato), the body (kāyopi) does not become tired (na kilamati), and the mind (cittampi) does not become agitated (na upahaññati), the voice (saropi) is not strained (na upahaññati), the throat (kaṇṭhopi) does not become hoarse (na āturīyati), and the speech (bhāsitaṃ) of one who speaks unhurriedly (ataramānassa) is distinct (visaṭṭhampi) and intelligible (viññeyyaṃ).<br><br>“One should speak unhurriedly (ataramānova bhāseyya), not hurriedly (no taramāno)’ti – so it was with reference to this that it was said (iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">331</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;331&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;331&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Janapadaniruttiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0278&quot;/&gt; nābhiniveseyya, samaññaṃ nātidhāveyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhave, janapadaniruttiyā ca abhiniveso hoti samaññāya ca atisāro? Idha, bhikkhave, tadevekaccesu janapadesu ‘pātī’ti sañjānanti, ‘patta’nti &lt;pb ed=&quot;P&quot; n=&quot;3.0235&quot;/&gt; sañjānanti &lt;pb ed=&quot;T&quot; n=&quot;3.0430&quot;/&gt;, ‘vitta’nti &lt;note&gt;viṭṭhanti (syā. kaṃ.)&lt;/note&gt; sañjānanti, ‘sarāva’nti sañjānanti ‘dhāropa’nti &lt;note&gt;harosanti (syā. kaṃ.)&lt;/note&gt; sañjānanti, ‘poṇa’nti sañjānanti, ‘pisīlava’nti &lt;note&gt;pisīlanti (sī. pī.), pipilanti (syā. kaṃ.)&lt;/note&gt; sañjānanti. Iti yathā yathā naṃ tesu tesu janapadesu sañjānanti tathā tathā thāmasā parāmāsā &lt;note&gt;parāmassa (sī.)&lt;/note&gt; abhinivissa voharati – ‘idameva saccaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0284&quot;/&gt;, moghamañña’nti. Evaṃ kho, bhikkhave, janapadaniruttiyā ca abhiniveso hoti samaññāya ca atisāro.</p>">&lt;p n=&quot;331&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;331&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘‘Janapadaniruttiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0278&quot;/&gt; nābhiniveseyya, samaññaṃ nātidhāveyyā’ti – iti kho panetaṃ vuttaṃ. Kiñcetaṃ paṭicca vuttaṃ? Kathañca, bhikkhave, janapadaniruttiyā ca abhiniveso hoti samaññāya ca atisāro? Idha, bhikkhave, tadevekaccesu janapadesu ‘pātī’ti sañjānanti, ‘patta’nti &lt;pb ed=&quot;P&quot; n=&quot;3.0235&quot;/&gt; sañjānanti &lt;pb ed=&quot;T&quot; n=&quot;3.0430&quot;/&gt;, ‘vitta’nti &lt;note&gt;viṭṭhanti (syā. kaṃ.)&lt;/note&gt; sañjānanti, ‘sarāva’nti sañjānanti ‘dhāropa’nti &lt;note&gt;harosanti (syā. kaṃ.)&lt;/note&gt; sañjānanti, ‘poṇa’nti sañjānanti, ‘pisīlava’nti &lt;note&gt;pisīlanti (sī. pī.), pipilanti (syā. kaṃ.)&lt;/note&gt; sañjānanti. Iti yathā yathā naṃ tesu tesu janapadesu sañjānanti tathā tathā thāmasā parāmāsā &lt;note&gt;parāmassa (sī.)&lt;/note&gt; abhinivissa voharati – ‘idameva saccaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0284&quot;/&gt;, moghamañña’nti. Evaṃ kho, bhikkhave, janapadaniruttiyā ca abhiniveso hoti samaññāya ca atisāro.</p></div>
+                
+                <div class="translation-text mula-english-section">331. “‘One should not insist on local language (janapadaniruttiṃ), and one should not override normal usage (samaññaṃ nātidhāveyyā)’ti – So it was said.&quot;<br><br>What is said based on what? And how, monks, does insistence on local language and overriding normal usage occur? Here, monks, in some local areas they recognize [a bowl] as ‘pātī,’ in other areas they recognize it as ‘patta,’ in other areas as ‘vitta,’ in other areas they recognize it as ‘sarāva,’ in other areas as ‘dhāropa,’ in other areas as ‘poṇa,’ and in other areas as ‘pisīlava.’ Thus, however they recognize it in those different local areas, they insist on it, adhering to it firmly, saying, ‘This alone is true, other [terms] are worthless.’<br><br>This is how, monks, insistence on local language and overriding normal usage occur.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">332</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;332&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;332&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañca, bhikkhave, janapadaniruttiyā ca anabhiniveso hoti samaññāya ca anatisāro? Idha, bhikkhave, tadevekaccesu janapadesu ‘pātī’ti sañjānanti, ‘patta’nti sañjānanti, ‘vitta’nti sañjānanti, ‘sarāva’nti sañjānanti, ‘dhāropa’nti sañjānanti, ‘poṇa’nti sañjānanti, ‘pisīlava’nti sañjānanti. Iti yathā yathā naṃ tesu tesu janapadesu sañjānanti ‘idaṃ kira me &lt;note&gt;idaṃ kira te ca (ka.)&lt;/note&gt; āyasmanto sandhāya voharantī’ti tathā tathā voharati aparāmasaṃ. Evaṃ kho, bhikkhave, janapadaniruttiyā ca anabhiniveso hoti, samaññāya ca anatisāro. ‘Janapadaniruttiṃ nābhiniveseyya samaññaṃ nātidhāveyyā’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p>">&lt;p n=&quot;332&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;332&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathañca, bhikkhave, janapadaniruttiyā ca anabhiniveso hoti samaññāya ca anatisāro? Idha, bhikkhave, tadevekaccesu janapadesu ‘pātī’ti sañjānanti, ‘patta’nti sañjānanti, ‘vitta’nti sañjānanti, ‘sarāva’nti sañjānanti, ‘dhāropa’nti sañjānanti, ‘poṇa’nti sañjānanti, ‘pisīlava’nti sañjānanti. Iti yathā yathā naṃ tesu tesu janapadesu sañjānanti ‘idaṃ kira me &lt;note&gt;idaṃ kira te ca (ka.)&lt;/note&gt; āyasmanto sandhāya voharantī’ti tathā tathā voharati aparāmasaṃ. Evaṃ kho, bhikkhave, janapadaniruttiyā ca anabhiniveso hoti, samaññāya ca anatisāro. ‘Janapadaniruttiṃ nābhiniveseyya samaññaṃ nātidhāveyyā’ti – iti yaṃ taṃ vuttaṃ, idametaṃ paṭicca vuttaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">“And how, <i>bhikkhus</i>, does there come to be non-insistence on local language (<i>janapadanirutti</i>) and non-overriding of normal usage (<i>samaññā</i>)? Here, <i>bhikkhus</i>, in some localities they recognize a bowl as ‘<i>pātī</i>,’ in others as ‘<i>patta</i>,’ in others as ‘<i>vitta</i>,’ in others as ‘<i>sarāva</i>,’ in others as ‘<i>dhāropa</i>,’ in others as ‘<i>poṇa</i>,’ in others as ‘<i>pisīlava</i>.’<br><br>So whatever they call it in such and such a locality, without adhering to that expression one speaks accordingly, thinking: ‘These venerable ones, it seems, are speaking with reference to this.’<br><br>This is how there comes to be non-insistence on local language (<i>janapadanirutti</i>) and non-overriding of normal usage (<i>samaññā</i>).<br><br>“So it was with reference to this that it was said: ‘One should not insist on local language (<i>janapadanirutti</i>), and one should not override normal usage (<i>samaññā</i>).’&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">333</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;333&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;333&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yo kāmapaṭisandhisukhino somanassānuyogo hīno gammo pothujjaniko anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso &lt;pb ed=&quot;T&quot; n=&quot;3.0431&quot;/&gt; dhammo saraṇo. Tatra, bhikkhave, yo kāmapaṭisandhisukhino somanassānuyogaṃ ananuyogo hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;333&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;333&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yo kāmapaṭisandhisukhino somanassānuyogo hīno gammo pothujjaniko anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso &lt;pb ed=&quot;T&quot; n=&quot;3.0431&quot;/&gt; dhammo saraṇo. Tatra, bhikkhave, yo kāmapaṭisandhisukhino somanassānuyogaṃ ananuyogo hīnaṃ gammaṃ pothujjanikaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">333. Here, monks, the pursuit of pleasure associated with sensual desires—base, vulgar, common, ignoble, connected with harm—is a Dharma attended by suffering, distress, trouble, and fever; it is wrong practice. Therefore, this <i>dharma</i> is a refuge. Here, monks, disengagement from the pursuit of pleasure associated with sensual desires—base, vulgar, common, ignoble, connected with harm—is a Dharma not attended by suffering, distress, trouble, and fever; it is right practice. Therefore, this <i>dharma</i> is without conflict.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">334</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;334&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;334&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yo attakilamathānuyogo dukkho anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso &lt;pb ed=&quot;M&quot; n=&quot;3.0279&quot;/&gt; sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yo attakilamathānuyogaṃ ananuyogo dukkhaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;334&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;334&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yo attakilamathānuyogo dukkho anariyo anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso &lt;pb ed=&quot;M&quot; n=&quot;3.0279&quot;/&gt; sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yo attakilamathānuyogaṃ ananuyogo dukkhaṃ anariyaṃ anatthasaṃhitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">334.<br>“Here, <i>bhikkhus</i>, that pursuit of self-mortification which is painful, ignoble and unbeneficial, is a state <i>with</i> suffering, <i>with</i> vexation, <i>with</i> despair, and <i>with</i> fever; it is wrong practice (<i>micchāpaṭipadā</i>).<br>Therefore this is a state <i>with</i> conflict (<i>saraṇo</i>).<br>Here, <i>bhikkhus</i>, disengagement from the pursuit of self-mortification which is painful, ignoble, and unbeneficial, is a state without suffering (<i>adukkho</i>), without vexation (<i>anupaghāto</i>), without despair (<i>anupāyāso</i>), and without fever (<i>apariḷāho</i>); and it is right practice (<i>sammāpaṭipadā</i>).<br>Therefore this is a state without conflict (<i>araṇo</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">335</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;335&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;335&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yāyaṃ majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā &lt;pb ed=&quot;P&quot; n=&quot;3.0236&quot;/&gt;. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;335&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;335&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yāyaṃ majjhimā paṭipadā tathāgatena abhisambuddhā, cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā &lt;pb ed=&quot;P&quot; n=&quot;3.0236&quot;/&gt;. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">&quot;Here, <i>bhikkhus</i>, the Middle Way discovered by the <i>Tathāgata</i> avoids both these extremes; giving vision (<i>cakkhukaraṇī</i>), giving knowledge (<i>ñāṇakaraṇī</i>), it leads to peace (<i>upasamāya</i>), to direct knowledge (<i>abhiññāya</i>), to enlightenment (<i>sambodhāya</i>), to <i>Nibbāna</i>. It is a state without suffering (<i>adukkho eso dhammo</i>), without conflict (<i>anupaghāto</i>), without effort (<i>anupāyāso</i>), without distress (<i>apariḷāho</i>); it is the right way (<i>sammāpaṭipadā</i>). Therefore this is a state without conflict (<i>tasmā eso dhammo araṇo</i>).&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">336</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;336&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;336&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra &lt;pb ed=&quot;V&quot; n=&quot;3.0285&quot;/&gt;, bhikkhave, yāyaṃ ussādanā ca apasādanā ca no ca dhammadesanā, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yāyaṃ nevussādanā ca na apasādanā ca dhammadesanā ca, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;336&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;336&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra &lt;pb ed=&quot;V&quot; n=&quot;3.0285&quot;/&gt;, bhikkhave, yāyaṃ ussādanā ca apasādanā ca no ca dhammadesanā, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yāyaṃ nevussādanā ca na apasādanā ca dhammadesanā ca, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">“Here, <i>bhikkhus</i>, extolling and disparaging and failure to teach only the <i>Dhamma</i> is a state beset by suffering, with vexation, despair, and fever; it is the wrong way (<i>mithyāpratipadā</i>).<br><br>Therefore this is a state with conflict (<i>saraṇo</i>).<br><br>“Here, <i>bhikkhus</i>, not extolling and not disparaging and teaching only the <i>Dhamma</i> is a state without suffering, vexation, despair, and fever; it is the right way (<i>samyakpratipadā</i>).<br><br>Therefore this is a state without conflict (<i>araṇo</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">337</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;337&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;337&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yamidaṃ kāmasukhaṃ mīḷhasukhaṃ pothujjanasukhaṃ anariyasukhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0432&quot;/&gt;, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yamidaṃ nekkhammasukhaṃ pavivekasukhaṃ upasamasukhaṃ sambodhisukhaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;337&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;337&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yamidaṃ kāmasukhaṃ mīḷhasukhaṃ pothujjanasukhaṃ anariyasukhaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0432&quot;/&gt;, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yamidaṃ nekkhammasukhaṃ pavivekasukhaṃ upasamasukhaṃ sambodhisukhaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">337. Here, <i>bhikkhus</i>, that pleasure of the senses (<i>kāmasukha</i>), that coarse pleasure (<i>mīḷhasukha</i>), that pleasure of ordinary people (<i>pothujjanasukha</i>), that ignoble pleasure (<i>anariyasukha</i>), is a state beset by suffering (<i>sadukkho eso dhammo</i>), vexation (<i>saupaghāto</i>), despair (<i>saupāyāso</i>), and fever (<i>sapariḷāho</i>); it is the wrong way (<i>micchāpaṭipadā</i>). Therefore this is a state with conflict (<i>tasmā eso dhammo saraṇo</i>).<br><br>Here, <i>bhikkhus</i>, the bliss of renunciation (<i>nekkhamma-sukha</i>), the bliss of seclusion (<i>paviveka-sukha</i>), the bliss of peace (<i>upasama-sukha</i>), the bliss of enlightenment (<i>sambodhi-sukha</i>), is a state without suffering (<i>adukkho eso dhammo</i>), without vexation (<i>anupaghāto</i>), without despair (<i>anupāyāso</i>), without fever (<i>apariḷāho</i>); and it is the right way (<i>sammāpaṭipadā</i>). Therefore this is a state without conflict (<i>tasmā eso dhammo araṇo</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">338</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;338&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;338&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yvāyaṃ rahovādo abhūto ataccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ rahovādo bhūto taccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ rahovādo bhūto taccho atthasaṃhito, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;338&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;338&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yvāyaṃ rahovādo abhūto ataccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ rahovādo bhūto taccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ rahovādo bhūto taccho atthasaṃhito, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">338. “Here, <i>bhikkhus</i>, covert speech that is untrue (<i>abhūto</i>), incorrect (<i>ataccho</i>), and unbeneficial (<i>anatthasaṃhito</i>) is a state beset by suffering (<i>sadukkho</i>), vexation (<i>saupaghāto</i>), despair (<i>saupāyāso</i>), and fever (<i>sapariḷāho</i>); it is wrong practice (<i>micchāpaṭipadā</i>).<br><br>Therefore, this is a state with conflict (<i>saraṇo</i>).<br><br>Here, <i>bhikkhus</i>, covert speech that is true (<i>bhūto</i>), correct (<i>taccho</i>), and unbeneficial (<i>anatthasaṃhito</i>) is a state beset by suffering (<i>sadukkho</i>), vexation (<i>saupaghāto</i>), despair (<i>saupāyāso</i>), and fever (<i>sapariḷāho</i>); it is wrong practice (<i>micchāpaṭipadā</i>).<br><br>Therefore, this is a state with conflict (<i>saraṇo</i>).<br><br>Here, <i>bhikkhus</i>, covert speech that is true (<i>bhūto</i>), correct (<i>taccho</i>), and beneficial (<i>atthasaṃhito</i>) is a state without suffering (<i>adukkho</i>), vexation (<i>anupaghāto</i>), despair (<i>anupāyāso</i>), and fever (<i>apariḷāho</i>); it is right practice (<i>sammāpaṭipadā</i>).<br><br>Therefore, this is a state without conflict (<i>araṇo</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">339</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;339&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;339&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra &lt;pb ed=&quot;M&quot; n=&quot;3.0280&quot;/&gt;, bhikkhave, yvāyaṃ sammukhā khīṇavādo abhūto ataccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ sammukhā khīṇavādo bhūto taccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ sammukhā khīṇavādo &lt;pb ed=&quot;P&quot; n=&quot;3.0237&quot;/&gt; bhūto taccho atthasaṃhito, adukkho eso &lt;pb ed=&quot;T&quot; n=&quot;3.0433&quot;/&gt; dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;339&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;339&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra &lt;pb ed=&quot;M&quot; n=&quot;3.0280&quot;/&gt;, bhikkhave, yvāyaṃ sammukhā khīṇavādo abhūto ataccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ sammukhā khīṇavādo bhūto taccho anatthasaṃhito, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave, yvāyaṃ sammukhā khīṇavādo &lt;pb ed=&quot;P&quot; n=&quot;3.0237&quot;/&gt; bhūto taccho atthasaṃhito, adukkho eso &lt;pb ed=&quot;T&quot; n=&quot;3.0433&quot;/&gt; dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">339.<br>‘‘Here, mendicants, overt sharp speech that is untrue, incorrect, and unbeneficial is a state beset by suffering, with vexation, despair, and fever; it is wrong practice ( <i>micchāpaṭipadā</i>).<br>Therefore this is a state with conflict.<br>Here, mendicants, overt sharp speech that is true, correct, and unbeneficial is a state beset by suffering, with vexation, despair, and fever; it is wrong practice (<i>micchāpaṭipadā</i>).<br>Therefore this is a state with conflict.<br>Here, mendicants, overt sharp speech that is true, correct, and beneficial is a state without suffering (<i>adukkho</i>), without vexation, without despair, and without fever; it is right practice (<i>sammāpaṭipadā</i>).<br>Therefore this is a state without conflict.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">340</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;340&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;340&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yamidaṃ taramānassa bhāsitaṃ, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave &lt;pb ed=&quot;V&quot; n=&quot;3.0286&quot;/&gt;, yamidaṃ ataramānassa bhāsitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p>">&lt;p n=&quot;340&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;340&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yamidaṃ taramānassa bhāsitaṃ, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra, bhikkhave &lt;pb ed=&quot;V&quot; n=&quot;3.0286&quot;/&gt;, yamidaṃ ataramānassa bhāsitaṃ, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p></div>
+                
+                <div class="translation-text mula-english-section">Here, O monks, the speech of one who speaks hurriedly is a state beset by suffering, vexation, despair, and fever, and it is the wrong way ( <i>micchāpaṭipadā</i> ).<br><br>Therefore this is a state with conflict ( <i>saraṇo</i> ).<br><br>Here, O monks, the speech of one who does not speak hurriedly is a state without suffering, vexation, despair, and fever, and it is the right way ( <i>sammāpaṭipadā</i> ).<br><br>Therefore this is a state without conflict ( <i>araṇo</i> ).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">341</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;341&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;341&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yvāyaṃ janapadaniruttiyā ca abhiniveso samaññāya ca atisāro, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra bhikkhave, yvāyaṃ janapadaniruttiyā ca anabhiniveso samaññāya ca anatisāro, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tasmātiha, bhikkhave, ‘saraṇañca dhammaṃ jānissāma, araṇañca dhammaṃ jānissāma; saraṇañca dhammaṃ ñatvā araṇañca dhammaṃ ñatvā araṇapaṭipadaṃ paṭipajjissāmā’ti evañhi vo, bhikkhave, sikkhitabbaṃ. Subhūti ca pana, bhikkhave, kulaputto araṇapaṭipadaṃ paṭipanno’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;centre&quot;&gt;Araṇavibhaṅgasuttaṃ niṭṭhitaṃ navamaṃ.</p>">&lt;p n=&quot;341&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;341&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Tatra, bhikkhave, yvāyaṃ janapadaniruttiyā ca abhiniveso samaññāya ca atisāro, sadukkho eso dhammo saupaghāto saupāyāso sapariḷāho; micchāpaṭipadā. Tasmā eso dhammo saraṇo. Tatra bhikkhave, yvāyaṃ janapadaniruttiyā ca anabhiniveso samaññāya ca anatisāro, adukkho eso dhammo anupaghāto anupāyāso apariḷāho; sammāpaṭipadā. Tasmā eso dhammo araṇo.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tasmātiha, bhikkhave, ‘saraṇañca dhammaṃ jānissāma, araṇañca dhammaṃ jānissāma; saraṇañca dhammaṃ ñatvā araṇañca dhammaṃ ñatvā araṇapaṭipadaṃ paṭipajjissāmā’ti evañhi vo, bhikkhave, sikkhitabbaṃ. Subhūti ca pana, bhikkhave, kulaputto araṇapaṭipadaṃ paṭipanno’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;p rend=&quot;centre&quot;&gt;Araṇavibhaṅgasuttaṃ niṭṭhitaṃ navamaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">341.<br>“Here, bhikkhus, insistence on local language and overriding of normal usage is a state beset by suffering (sadukkho), with conflict (saupaghāto), with vexation (saupāyāso), and with fever (sapariḷāho); it is wrong practice (micchāpaṭipadā).<br>Therefore this is a state with conflict (saraṇo).<br>“Here, bhikkhus, non-insistence on local language and non-overriding of normal usage is a state without suffering (adukkho), without conflict (anupaghāto), without vexation (anupāyāso), and without fever (apariḷāho); it is right practice (sammāpaṭipadā).<br>Therefore this is a state without conflict (araṇo).<br><br>“Therefore, bhikkhus, you should train yourselves thus: ‘We shall know the state with conflict (saraṇañca dhammaṃ jānissāma), and we shall know the state without conflict (araṇañca dhammaṃ jānissāma); and knowing the state with conflict (saraṇañca dhammaṃ ñatvā) and knowing the state without conflict (araṇañca dhammaṃ ñatvā), we shall enter upon the way without conflict (araṇapaṭipadaṃ paṭipajjissāmā).’<br>Now, bhikkhus, Subhuti is a clansman (kulaputto) who has entered upon the way without conflict (araṇapaṭipadaṃ paṭipanno).”<br><br>This the Blessed One (bhagavā) said.<br>Gratified, the monks (bhikkhū) delighted in the Blessed One’s (bhagavato) words (bhāsitaṃ abhinandunti).<br><br>The Arahant-Vibhanga Sutta, the ninth, is finished (araṇavibhaṅgasuttaṃ niṭṭhitaṃ navamaṃ).</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn8_ānāpānassatisuttaṃ.html" class="nav-btn">← Previous: Ānāpānassatisuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn9_bālapaṇḍitasuttaṃ.html" class="nav-btn">Next: Bālapaṇḍitasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

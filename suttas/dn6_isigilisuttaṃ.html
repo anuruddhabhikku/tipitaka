@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Isigilisuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Isigilisuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 6</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn6_chachakkasuttaṃ.html" class="nav-btn">← Previous: Chachakkasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_mahākammavibhaṅgasuttaṃ.html" class="nav-btn">Next: Mahākammavibhaṅgasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">133</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;133&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;133&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0175&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0114&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0068&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati isigilismiṃ pabbate. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ vebhāraṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, vebhārassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha &lt;pb ed=&quot;M&quot; n=&quot;3.0113&quot;/&gt; no tumhe, bhikkhave, etaṃ paṇḍavaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, paṇḍavassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0113&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ vepullaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, vepullassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ gijjhakūṭaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, gijjhakūṭassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, imaṃ isigiliṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Imassa kho pana, bhikkhave, isigilissa pabbatassa esāva samaññā ahosi esā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Bhūtapubbaṃ, bhikkhave, pañca paccekabuddhasatāni imasmiṃ isigilismiṃ pabbate ciranivāsino ahesuṃ. Te imaṃ pabbataṃ pavisantā dissanti &lt;pb ed=&quot;T&quot; n=&quot;3.0176&quot;/&gt;, paviṭṭhā na dissanti. Tamenaṃ manussā disvā evamāhaṃsu – ‘ayaṃ pabbato ime isī &lt;note&gt;isayo (ka.)&lt;/note&gt; gilatī’ti; ‘isigili isigili’ tveva samaññā udapādi. Ācikkhissāmi &lt;note&gt;acikkhissāmi vo (ka.)&lt;/note&gt;, bhikkhave, paccekabuddhānaṃ nāmāni; kittayissāmi, bhikkhave, paccekabuddhānaṃ nāmāni; desessāmi, bhikkhave &lt;pb ed=&quot;P&quot; n=&quot;3.0069&quot;/&gt;, paccekabuddhānaṃ nāmāni &lt;pb ed=&quot;V&quot; n=&quot;3.0115&quot;/&gt;. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0176&quot;/&gt; &lt;note&gt;isayo (ka.)&lt;/note&gt; &lt;note&gt;acikkhissāmi vo (ka.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0069&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0115&quot;/&gt;">&lt;p n=&quot;133&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;133&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0175&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0114&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0068&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā rājagahe viharati isigilismiṃ pabbate. Tatra kho bhagavā bhikkhū āmantesi – ‘‘bhikkhavo’’ti. ‘‘Bhadante’’ti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ vebhāraṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, vebhārassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha &lt;pb ed=&quot;M&quot; n=&quot;3.0113&quot;/&gt; no tumhe, bhikkhave, etaṃ paṇḍavaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, paṇḍavassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0113&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ vepullaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, vepullassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, etaṃ gijjhakūṭaṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Etassapi kho, bhikkhave, gijjhakūṭassa pabbatassa aññāva samaññā ahosi aññā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passatha no tumhe, bhikkhave, imaṃ isigiliṃ pabbata’’nti? ‘‘Evaṃ, bhante’’. ‘‘Imassa kho pana, bhikkhave, isigilissa pabbatassa esāva samaññā ahosi esā paññatti’’.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Bhūtapubbaṃ, bhikkhave, pañca paccekabuddhasatāni imasmiṃ isigilismiṃ pabbate ciranivāsino ahesuṃ. Te imaṃ pabbataṃ pavisantā dissanti &lt;pb ed=&quot;T&quot; n=&quot;3.0176&quot;/&gt;, paviṭṭhā na dissanti. Tamenaṃ manussā disvā evamāhaṃsu – ‘ayaṃ pabbato ime isī &lt;note&gt;isayo (ka.)&lt;/note&gt; gilatī’ti; ‘isigili isigili’ tveva samaññā udapādi. Ācikkhissāmi &lt;note&gt;acikkhissāmi vo (ka.)&lt;/note&gt;, bhikkhave, paccekabuddhānaṃ nāmāni; kittayissāmi, bhikkhave, paccekabuddhānaṃ nāmāni; desessāmi, bhikkhave &lt;pb ed=&quot;P&quot; n=&quot;3.0069&quot;/&gt;, paccekabuddhānaṃ nāmāni &lt;pb ed=&quot;V&quot; n=&quot;3.0115&quot;/&gt;. Taṃ suṇātha, sādhukaṃ manasi karotha; bhāsissāmī’’ti. ‘‘Evaṃ, bhante’’ti kho te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca –</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0176&quot;/&gt; &lt;note&gt;isayo (ka.)&lt;/note&gt; &lt;note&gt;acikkhissāmi vo (ka.)&lt;/note&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0069&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0115&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was living at Rājagaha, at Isigili Mountain.<br><br>There the Blessed One addressed the monks, saying: “Monks.”<br><br>“Venerable sir,” those monks replied to the Blessed One.<br><br>The Blessed One said this:<br><br>“Do you see, monks, that Vebhāra Mountain?”<br><br>“Yes, venerable sir.”<br><br>“There used to be another name, another designation, for that mountain Vebhāra.”<br><br>“Do you see, monks, that Paṇḍava Mountain?”<br><br>“Yes, venerable sir.”<br><br>“There used to be another name, another designation, for that mountain Paṇḍava.”<br><br>“Do you see, monks, that Vepulla Mountain?”<br><br>“Yes, venerable sir.”<br><br>“There used to be another name, another designation, for that mountain Vepulla.”<br><br>“Do you see, monks, that Gijjhakūṭa Mountain?”<br><br>“Yes, venerable sir.”<br><br>“There used to be another name, another designation, for that mountain Gijjhakūṭa.”<br><br>“Do you see, monks, that Isigili Mountain?”<br><br>“Yes, venerable sir.”<br><br>“But this same name, this same designation, has always been for this mountain Isigili.”<br><br>“In the past, monks, five hundred <i>paccekabuddhas</i> lived for a long time on this mountain Isigili. They were seen entering this mountain, but after entering, they were not seen. Seeing this, people said: ‘This mountain swallows these seers’; and so the designation ‘Isigili, Isigili’ arose. I will declare to you, monks, the names of the <i>paccekabuddhas</i>; I will proclaim, monks, the names of the <i>paccekabuddhas</i>; I will teach, monks, the names of the <i>paccekabuddhas</i>. Listen to that, pay close attention, I will speak.”<br><br>“Yes, venerable sir,” those monks replied to the Blessed One.<br><br>The Blessed One said this:</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">134</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;134&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;134&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Ariṭṭho nāma, bhikkhave, paccekasambuddho &lt;note&gt;paccekabuddho (ka. sī. pī.)&lt;/note&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; upariṭṭho nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; tagarasikhī &lt;note&gt;taggarasikhī (ka.)&lt;/note&gt; nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; yasassī nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; sudassano nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; piyadassī nāma, bhikkhave, paccekasambuddho &lt;pb ed=&quot;M&quot; n=&quot;3.0114&quot;/&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; gandhāro nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; piṇḍolo nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; upāsabho nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; nīto nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; tatho nāma, bhikkhave, paccekasambuddho &lt;pb ed=&quot;T&quot; n=&quot;3.0177&quot;/&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi, sutavā nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; bhāvitatto nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi.</p> &lt;hi rend=&quot;paranum&quot;&gt;135&lt;/hi&gt; &lt;p rend=&quot;gatha1&quot;&gt; ‘‘Ye sattasārā anīghā nirāsā,</p> &lt;p rend=&quot;gatha2&quot;&gt;Paccekamevajjhagamaṃsu bodhiṃ &lt;note&gt;paccekamevajjhagamuṃ subodhiṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;;</p> &lt;note&gt;paccekamevajjhagamuṃ subodhiṃ (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Tesaṃ visallāna naruttamānaṃ,</p> &lt;p rend=&quot;gathalast&quot;&gt;Nāmāni me kittayato suṇātha.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ariṭṭho upariṭṭho tagarasikhī yasassī,</p> &lt;p rend=&quot;gatha2&quot;&gt;Sudassano piyadassī ca susambuddho &lt;note&gt;buddho (sī. syā. kaṃ. pī.)&lt;/note&gt;;</p> &lt;note&gt;buddho (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Gandhāro piṇḍolo upāsabho ca,</p> &lt;p rend=&quot;gathalast&quot;&gt;Nīto tatho sutavā bhāvitatto.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Sumbho &lt;pb ed=&quot;V&quot; n=&quot;3.0116&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0070&quot;/&gt; subho matulo &lt;note&gt;methulo (sī. syā. kaṃ. pī.)&lt;/note&gt; aṭṭhamo ca,</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0116&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0070&quot;/&gt; &lt;note&gt;methulo (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha2&quot;&gt;Athassumegho &lt;note&gt;aṭṭhasumedho (ka.)&lt;/note&gt; anīgho sudāṭho;</p> &lt;note&gt;aṭṭhasumedho (ka.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Paccekabuddhā bhavanettikhīṇā,</p> &lt;p rend=&quot;gathalast&quot;&gt;Hiṅgū ca hiṅgo ca mahānubhāvā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Dve jālino munino aṭṭhako ca,</p> &lt;p rend=&quot;gatha2&quot;&gt;Atha kosallo buddho atho subāhu;</p> &lt;p rend=&quot;gatha3&quot;&gt;Upanemiso nemiso santacitto,</p> &lt;p rend=&quot;gathalast&quot;&gt;Sacco tatho virajo paṇḍito ca.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Kāḷūpakāḷā &lt;pb ed=&quot;T&quot; n=&quot;3.0178&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0115&quot;/&gt; vijito jito ca,</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0178&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0115&quot;/&gt; &lt;p rend=&quot;gatha2&quot;&gt;Aṅgo ca paṅgo ca guttijito ca;</p> &lt;p rend=&quot;gatha3&quot;&gt;Passi jahi upadhidukkhamūlaṃ &lt;note&gt;passī jahī upadhiṃ dukkhamūlaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;,</p> &lt;note&gt;passī jahī upadhiṃ dukkhamūlaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gathalast&quot;&gt;Aparājito mārabalaṃ ajesi.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Satthā pavattā sarabhaṅgo lomahaṃso,</p> &lt;p rend=&quot;gatha2&quot;&gt;Uccaṅgamāyo asito anāsavo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Manomayo mānacchido ca bandhumā,</p> &lt;p rend=&quot;gathalast&quot;&gt;Tadādhimutto vimalo ca ketumā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ketumbharāgo ca mātaṅgo ariyo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Athaccuto accutagāmabyāmako;</p> &lt;p rend=&quot;gatha3&quot;&gt;Sumaṅgalo dabbilo supatiṭṭhito,</p> &lt;p rend=&quot;gathalast&quot;&gt;Asayho khemābhirato ca sorato.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Durannayo saṅgho athopi ujjayo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Aparo muni sayho anomanikkamo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Ānando &lt;pb ed=&quot;V&quot; n=&quot;3.0117&quot;/&gt; nando upanando dvādasa,</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0117&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Bhāradvājo antimadehadhārī &lt;note&gt;antimadehadhāri (sī.)&lt;/note&gt;.</p> &lt;note&gt;antimadehadhāri (sī.)&lt;/note&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Bodhi mahānāmo athopi uttaro,</p> &lt;p rend=&quot;gatha2&quot;&gt;Kesī sikhī sundaro dvārabhājo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Tissūpatissā &lt;pb ed=&quot;T&quot; n=&quot;3.0179&quot;/&gt; bhavabandhanacchidā,</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0179&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Upasikhi taṇhacchido ca sikhari &lt;note&gt;upasīdarī taṇhacchido ca sīdarī (sī. syā. kaṃ. pī.)&lt;/note&gt;.</p> &lt;note&gt;upasīdarī taṇhacchido ca sīdarī (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Buddho ahu maṅgalo vītarāgo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Usabhacchidā jāliniṃ dukkhamūlaṃ;</p> &lt;p rend=&quot;gatha3&quot;&gt;Santaṃ padaṃ ajjhagamopanīto,</p> &lt;p rend=&quot;gathalast&quot;&gt;Uposatho sundaro saccanāmo.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Jeto jayanto padumo uppalo ca,</p> &lt;p rend=&quot;gatha2&quot;&gt;Padumuttaro rakkhito pabbato ca;</p> &lt;p rend=&quot;gatha3&quot;&gt;Mānatthaddho &lt;pb ed=&quot;P&quot; n=&quot;3.0071&quot;/&gt; sobhito vītarāgo,</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0071&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Kaṇho ca buddho suvimuttacitto.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ete &lt;pb ed=&quot;M&quot; n=&quot;3.0116&quot;/&gt; ca aññe ca mahānubhāvā,</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0116&quot;/&gt; &lt;p rend=&quot;gatha2&quot;&gt;Paccekabuddhā bhavanettikhīṇā;</p> &lt;p rend=&quot;gatha3&quot;&gt;Te sabbasaṅgātigate mahesī,</p> &lt;p rend=&quot;gathalast&quot;&gt;Parinibbute vandatha appameyye’’ti.</p> &lt;p rend=&quot;centre&quot;&gt;Isigilisuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p>">&lt;p n=&quot;134&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;134&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Ariṭṭho nāma, bhikkhave, paccekasambuddho &lt;note&gt;paccekabuddho (ka. sī. pī.)&lt;/note&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; upariṭṭho nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; tagarasikhī &lt;note&gt;taggarasikhī (ka.)&lt;/note&gt; nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; yasassī nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; sudassano nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; piyadassī nāma, bhikkhave, paccekasambuddho &lt;pb ed=&quot;M&quot; n=&quot;3.0114&quot;/&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; gandhāro nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; piṇḍolo nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; upāsabho nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; nīto nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; tatho nāma, bhikkhave, paccekasambuddho &lt;pb ed=&quot;T&quot; n=&quot;3.0177&quot;/&gt; imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi, sutavā nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi; bhāvitatto nāma, bhikkhave, paccekasambuddho imasmiṃ isigilismiṃ pabbate ciranivāsī ahosi.</p> &lt;hi rend=&quot;paranum&quot;&gt;135&lt;/hi&gt; &lt;p rend=&quot;gatha1&quot;&gt; ‘‘Ye sattasārā anīghā nirāsā,</p> &lt;p rend=&quot;gatha2&quot;&gt;Paccekamevajjhagamaṃsu bodhiṃ &lt;note&gt;paccekamevajjhagamuṃ subodhiṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;;</p> &lt;note&gt;paccekamevajjhagamuṃ subodhiṃ (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Tesaṃ visallāna naruttamānaṃ,</p> &lt;p rend=&quot;gathalast&quot;&gt;Nāmāni me kittayato suṇātha.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ariṭṭho upariṭṭho tagarasikhī yasassī,</p> &lt;p rend=&quot;gatha2&quot;&gt;Sudassano piyadassī ca susambuddho &lt;note&gt;buddho (sī. syā. kaṃ. pī.)&lt;/note&gt;;</p> &lt;note&gt;buddho (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Gandhāro piṇḍolo upāsabho ca,</p> &lt;p rend=&quot;gathalast&quot;&gt;Nīto tatho sutavā bhāvitatto.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Sumbho &lt;pb ed=&quot;V&quot; n=&quot;3.0116&quot;/&gt;&lt;pb ed=&quot;P&quot; n=&quot;3.0070&quot;/&gt; subho matulo &lt;note&gt;methulo (sī. syā. kaṃ. pī.)&lt;/note&gt; aṭṭhamo ca,</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0116&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0070&quot;/&gt; &lt;note&gt;methulo (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha2&quot;&gt;Athassumegho &lt;note&gt;aṭṭhasumedho (ka.)&lt;/note&gt; anīgho sudāṭho;</p> &lt;note&gt;aṭṭhasumedho (ka.)&lt;/note&gt; &lt;p rend=&quot;gatha3&quot;&gt;Paccekabuddhā bhavanettikhīṇā,</p> &lt;p rend=&quot;gathalast&quot;&gt;Hiṅgū ca hiṅgo ca mahānubhāvā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Dve jālino munino aṭṭhako ca,</p> &lt;p rend=&quot;gatha2&quot;&gt;Atha kosallo buddho atho subāhu;</p> &lt;p rend=&quot;gatha3&quot;&gt;Upanemiso nemiso santacitto,</p> &lt;p rend=&quot;gathalast&quot;&gt;Sacco tatho virajo paṇḍito ca.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Kāḷūpakāḷā &lt;pb ed=&quot;T&quot; n=&quot;3.0178&quot;/&gt;&lt;pb ed=&quot;M&quot; n=&quot;3.0115&quot;/&gt; vijito jito ca,</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0178&quot;/&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0115&quot;/&gt; &lt;p rend=&quot;gatha2&quot;&gt;Aṅgo ca paṅgo ca guttijito ca;</p> &lt;p rend=&quot;gatha3&quot;&gt;Passi jahi upadhidukkhamūlaṃ &lt;note&gt;passī jahī upadhiṃ dukkhamūlaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt;,</p> &lt;note&gt;passī jahī upadhiṃ dukkhamūlaṃ (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gathalast&quot;&gt;Aparājito mārabalaṃ ajesi.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Satthā pavattā sarabhaṅgo lomahaṃso,</p> &lt;p rend=&quot;gatha2&quot;&gt;Uccaṅgamāyo asito anāsavo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Manomayo mānacchido ca bandhumā,</p> &lt;p rend=&quot;gathalast&quot;&gt;Tadādhimutto vimalo ca ketumā.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ketumbharāgo ca mātaṅgo ariyo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Athaccuto accutagāmabyāmako;</p> &lt;p rend=&quot;gatha3&quot;&gt;Sumaṅgalo dabbilo supatiṭṭhito,</p> &lt;p rend=&quot;gathalast&quot;&gt;Asayho khemābhirato ca sorato.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Durannayo saṅgho athopi ujjayo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Aparo muni sayho anomanikkamo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Ānando &lt;pb ed=&quot;V&quot; n=&quot;3.0117&quot;/&gt; nando upanando dvādasa,</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0117&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Bhāradvājo antimadehadhārī &lt;note&gt;antimadehadhāri (sī.)&lt;/note&gt;.</p> &lt;note&gt;antimadehadhāri (sī.)&lt;/note&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Bodhi mahānāmo athopi uttaro,</p> &lt;p rend=&quot;gatha2&quot;&gt;Kesī sikhī sundaro dvārabhājo;</p> &lt;p rend=&quot;gatha3&quot;&gt;Tissūpatissā &lt;pb ed=&quot;T&quot; n=&quot;3.0179&quot;/&gt; bhavabandhanacchidā,</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0179&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Upasikhi taṇhacchido ca sikhari &lt;note&gt;upasīdarī taṇhacchido ca sīdarī (sī. syā. kaṃ. pī.)&lt;/note&gt;.</p> &lt;note&gt;upasīdarī taṇhacchido ca sīdarī (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;p rend=&quot;gatha1&quot;&gt;‘‘Buddho ahu maṅgalo vītarāgo,</p> &lt;p rend=&quot;gatha2&quot;&gt;Usabhacchidā jāliniṃ dukkhamūlaṃ;</p> &lt;p rend=&quot;gatha3&quot;&gt;Santaṃ padaṃ ajjhagamopanīto,</p> &lt;p rend=&quot;gathalast&quot;&gt;Uposatho sundaro saccanāmo.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Jeto jayanto padumo uppalo ca,</p> &lt;p rend=&quot;gatha2&quot;&gt;Padumuttaro rakkhito pabbato ca;</p> &lt;p rend=&quot;gatha3&quot;&gt;Mānatthaddho &lt;pb ed=&quot;P&quot; n=&quot;3.0071&quot;/&gt; sobhito vītarāgo,</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0071&quot;/&gt; &lt;p rend=&quot;gathalast&quot;&gt;Kaṇho ca buddho suvimuttacitto.</p> &lt;p rend=&quot;gatha1&quot;&gt;‘‘Ete &lt;pb ed=&quot;M&quot; n=&quot;3.0116&quot;/&gt; ca aññe ca mahānubhāvā,</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0116&quot;/&gt; &lt;p rend=&quot;gatha2&quot;&gt;Paccekabuddhā bhavanettikhīṇā;</p> &lt;p rend=&quot;gatha3&quot;&gt;Te sabbasaṅgātigate mahesī,</p> &lt;p rend=&quot;gathalast&quot;&gt;Parinibbute vandatha appameyye’’ti.</p> &lt;p rend=&quot;centre&quot;&gt;Isigilisuttaṃ niṭṭhitaṃ chaṭṭhaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">134. “Bhikkhus, the <i>pratyekabuddha</i> Ariṭṭha, dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Uparittha dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Tagarasikhī dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Yasassī dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Sudassana dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Piyadassī dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Gandhāra dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Piṇḍola dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Upāsabha dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Nīta dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Tatha dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Sutavā dwelt long on this mountain Isigili. The <i>pratyekabuddha</i> Bhāvitatta dwelt long on this mountain Isigili.<br><br>135. Those who are firm, without suffering, without desires,<br>Attained enlightenment individually;<br>Hear the names of those best of men, free from malice,<br>As I declare them.<br><br>Ariṭṭha, Uparittha, Tagarasikhī, Yasassī,<br>Sudassana, Piyadassī, and Susambuddha;<br>Gandhāra, Piṇḍola, Upāsabha,<br>Nīta, Tatha, Sutavā, and Bhāvitatta.<br><br>Sumbha, Subha, Matula, and Aṭṭhama,<br>Athassamegha, Anīgha, and Sudāṭha;<br>)&lt;/note&gt; Paccekabuddhas, their craving for existence destroyed,<br><br>Hiṅgū and Hiṅgo, possess great power.<br><br>‘‘Two: Jālino, Muni, Aṭṭhako,<br><br>Then Kosallo, Buddha, then Subāhu;<br><br>Upanemiso, Nemiso, with peaceful minds,<br><br>Sacco, Tatho, Virajo, Paṇḍito, and<br><br>Kāḷūpakāḷā<br><br>Vijito, Jito, and,<br><br>Aṅgo, Paṅgo, and Guttijito;<br><br>Passi, abandon the root of suffering which is clinging to the attributes.<br><br>Aparājito conquered Māra&#039;s army.<br><br>‘‘Satthā, Pavattā, Sarabhaṅgo, Lomahaṃso,<br><br>Uccaṅgamāyo, Asito, Anāsavo;<br><br>Manomayo, Mānacchido, Bandhumā,<br><br>Tadādhimutto, Vimalo, and Ketumā.<br><br>‘‘Ketumbharāgo, Mātaṅgo, Ariyo,<br><br>Athaccuto, Accutagāmabyāmako;<br><br>Sumaṅgalo, Dabbilo, Supatiṭṭhito,<br><br>Asayho, Khemābhirato, and Sorato.<br><br>‘‘Durannayo, Saṅgho, Athopi Ujjayo,<br><br>Aparo Muni Sayho, Anomanikkamo;<br><br>Ānando,<br><br>Nando, Upanando, twelve,<br><br>Bhāradvājo, the last body holder .<br><br>‘‘Bodhi, Mahānāmo, Athopi Uttaro,<br><br>Kesī, Sikhī, Sundaro, Dvārabhājo;<br><br>Tissūpatissā,<br><br>their craving for existence cut off,<br><br>Upasikhi, their thirst cut off, and Sikhari.<br><br>‘‘Buddho Ahu, Maṅgalo, Vītarāgo,<br><br>Usabhacchidā, Jāliniṃ, the root of suffering;<br><br>Santaṃ Padaṃ, Ajjhagamopanīto,<br><br>Uposatho, Sundaro, Saccanāmo.<br><br>‘‘Jeto, Jayanto, Padumo, Uppalo, and,<br><br>Padumuttaro, Rakkhito, Pabbato, and,<br><br>Mānatthaddho,<br><br>Sobhito, Vītarāgo,<br><br>Kaṇho, Buddho, Suvimuttacitto.<br><br>‘‘These and other possess great power,<br><br>Paccekabuddhas, their craving for existence destroyed;<br><br>They have gone beyond all attachments, great seers,<br><br>Having attained complete <i>nirvāṇa</i>, worship the immeasurable ones’’.<br>The Isigili Sutta, the sixth, is finished.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn6_chachakkasuttaṃ.html" class="nav-btn">← Previous: Chachakkasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn6_mahākammavibhaṅgasuttaṃ.html" class="nav-btn">Next: Mahākammavibhaṅgasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

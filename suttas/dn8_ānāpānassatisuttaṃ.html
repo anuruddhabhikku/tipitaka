@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8. Ānāpānassatisuttaṃ - Tipiṭaka Translations</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .sutta-header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sutta-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .dark-mode .sutta-title {
+            color: #f0f0f0;
+        }
+
+        .sutta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .dark-mode .sutta-subtitle {
+            color: #95a5a6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .nav-btn.disabled {
+            background: #555;
+        }
+
+        .home-btn {
+            background: var(--accent-color);
+        }
+
+        .paragraph {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 20px 20px 50px;  /* Reduced padding */
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .paragraph-number {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            color: #666;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .dark-mode .paragraph-number {
+            color: #aaa;
+        }
+        
+        @font-face {
+            font-family: 'Tiro Devanagari Hindi';
+            src: url('../../assets/fonts/TiroDevanagariHindi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pali-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+
+        }
+        
+        .devanagari-script .pali-text {
+            font-family: 'Tiro Devanagari Hindi', sans-serif; /* Devanagari font */
+        }
+
+
+        .dark-mode .pali-text {
+            color: #f0f0f0;
+        }
+
+        .translation-text {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+            color: #222;
+            line-height: 1.2;
+            font-family: 'Gentium Plus','Heuristica',  'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        
+
+        .dark-mode .translation-text {
+            color: #e8e8e8;
+        }
+
+        .commentary-section {
+            background: #f5f5f5;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #7f8c8d;
+        }
+
+        .dark-mode .commentary-section {
+            background: #3a3a3a;
+            border-left-color: #95a5a6;
+        }
+
+        .commentary-pali {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.8;
+            font-family: 'Times New Roman', 'Gentium Plus', serif; /* Roman font */
+        }
+        
+        .devanagari-script .commentary-pali {
+            font-family: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', sans-serif; /* Devanagari font */
+        }
+
+        .dark-mode .commentary-pali {
+            color: #f0f0f0;
+        }
+
+        .commentary-english {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Gentium Plus', 'Heuristica', 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        .dark-mode .commentary-english {
+            color: #e0e0e0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #95a5a6;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn.active {
+            background: var(--success-color);
+        }
+
+        .btn.toggle {
+            position: relative;
+        }
+
+        .btn.toggle::after {
+            content: "❌";
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        .btn.toggle.active::after {
+            content: "✅";
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .sutta-header {
+                padding: 20px;
+            }
+            
+            .sutta-title {
+                font-size: 1.5em;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .paragraph {
+                padding: 20px 20px 20px 45px;
+            }
+            
+            .paragraph-number {
+                left: 12px;
+                top: 20px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sutta-header">
+            <h1 class="sutta-title">Ānāpānassatisuttaṃ</h1>
+            <div class="sutta-subtitle">Dīgha Nikāya 8</div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn8_upakkilesasuttaṃ.html" class="nav-btn">← Previous: Upakkilesasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn9_araṇavibhaṅgasuttaṃ.html" class="nav-btn">Next: Araṇavibhaṅgasuttaṃ →</a>
+        </div>
+
+        <div class="controls">
+            <button class="btn toggle active" onclick="toggleView('mula_pali')">Pali Text</button>
+            <button class="btn toggle active" onclick="toggleView('mula_english')">Translation</button>
+            <button class="btn toggle" onclick="toggleView('commentary_pali')">Commentary Pali</button>
+            <button class="btn toggle" onclick="toggleView('commentary_english')">Commentary English</button>
+            <button class="btn toggle active" onclick="toggleScript()">Devanagari Script</button>
+            <button class="btn" onclick="toggleTheme()">Dark/Light</button>
+        </div>
+
+        <div id="content">
+
+            <div class="paragraph">
+                <div class="paragraph-number">144</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;144&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;144&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0190&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0124&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati pubbārāme migāramātupāsāde sambahulehi abhiññātehi abhiññātehi therehi sāvakehi saddhiṃ – āyasmatā ca sāriputtena āyasmatā ca mahāmoggallānena &lt;note&gt;mahāmoggalānena (ka.)&lt;/note&gt; āyasmatā ca mahākassapena āyasmatā ca mahākaccāyanena āyasmatā ca mahākoṭṭhikena āyasmatā ca mahākappinena āyasmatā ca mahācundena āyasmatā ca anuruddhena &lt;pb ed=&quot;P&quot; n=&quot;3.0079&quot;/&gt; āyasmatā ca revatena āyasmatā ca ānandena, aññehi ca abhiññātehi abhiññātehi therehi sāvakehi saddhiṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tena kho pana samayena therā bhikkhū nave bhikkhū ovadanti anusāsanti. Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū tiṃsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti. Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṃ pubbenāparaṃ visesaṃ jānanti &lt;note&gt;pajānanti (syā. kaṃ.), sañjānanti (ka.)&lt;/note&gt;.</p> &lt;note&gt;pajānanti (syā. kaṃ.), sañjānanti (ka.)&lt;/note&gt;">&lt;p n=&quot;144&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;144&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Evaṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0190&quot;/&gt;&lt;pb ed=&quot;V&quot; n=&quot;3.0124&quot;/&gt; me sutaṃ – ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati pubbārāme migāramātupāsāde sambahulehi abhiññātehi abhiññātehi therehi sāvakehi saddhiṃ – āyasmatā ca sāriputtena āyasmatā ca mahāmoggallānena &lt;note&gt;mahāmoggalānena (ka.)&lt;/note&gt; āyasmatā ca mahākassapena āyasmatā ca mahākaccāyanena āyasmatā ca mahākoṭṭhikena āyasmatā ca mahākappinena āyasmatā ca mahācundena āyasmatā ca anuruddhena &lt;pb ed=&quot;P&quot; n=&quot;3.0079&quot;/&gt; āyasmatā ca revatena āyasmatā ca ānandena, aññehi ca abhiññātehi abhiññātehi therehi sāvakehi saddhiṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;Tena kho pana samayena therā bhikkhū nave bhikkhū ovadanti anusāsanti. Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū tiṃsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti. Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṃ pubbenāparaṃ visesaṃ jānanti &lt;note&gt;pajānanti (syā. kaṃ.), sañjānanti (ka.)&lt;/note&gt;.</p> &lt;note&gt;pajānanti (syā. kaṃ.), sañjānanti (ka.)&lt;/note&gt;</div>
+                
+                <div class="translation-text mula-english-section">Thus have I heard. On one occasion the Blessed One was living at Sāvatthī in the Eastern Park, in the Palace of Migāra&#039;s Mother, together with many very well-known elder disciples - the venerable Sāriputta, the venerable Mahā Moggallāna, the venerable Mahā Kassapa, the venerable Mahā Kaccāyana, the venerable Mahā Kotthita, the venerable Mahā Kappina, the venerable Mahā Cunda, the venerable Anuruddha, the venerable Revata, the venerable Ānanda, and other very well-known elder disciples.<br><br>Now on that occasion elder <i>bhikkhus</i> were teaching and instructing new <i>bhikkhus</i>; some elder <i>bhikkhus</i> were teaching and instructing ten new <i>bhikkhus</i>, some elder <i>bhikkhus</i> were teaching and instructing twenty new <i>bhikkhus</i>, some elder <i>bhikkhus</i> were teaching and instructing thirty new <i>bhikkhus</i>, some elder <i>bhikkhus</i> were teaching and instructing forty new <i>bhikkhus</i>. And the new <i>bhikkhus</i>, being taught and instructed by the elder <i>bhikkhus</i>, achieved successive stages of high distinction.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">145</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;145&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;145&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Tena kho pana samayena bhagavā tadahuposathe pannarase pavāraṇāya puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti. Atha kho bhagavā tuṇhībhūtaṃ tuṇhībhūtaṃ bhikkhusaṅghaṃ anuviloketvā &lt;pb ed=&quot;T&quot; n=&quot;3.0191&quot;/&gt; bhikkhū āmantesi – ‘‘āraddhosmi, bhikkhave, imāya paṭipadāya; āraddhacittosmi, bhikkhave, imāya paṭipadāya. Tasmātiha, bhikkhave, bhiyyosomattāya vīriyaṃ ārabhatha appattassa pattiyā, anadhigatassa adhigamāya &lt;pb ed=&quot;M&quot; n=&quot;3.0123&quot;/&gt;, asacchikatassa sacchikiriyāya. Idhevāhaṃ sāvatthiyaṃ komudiṃ cātumāsiniṃ āgamessāmī’’ti. Assosuṃ kho jānapadā bhikkhū – ‘‘bhagavā kira tattheva sāvatthiyaṃ komudiṃ cātumāsiniṃ āgamessatī’’ti. Te jānapadā bhikkhū sāvatthiṃ &lt;note&gt;sāvatthiyaṃ (syā. kaṃ. pī. ka.)&lt;/note&gt; osaranti bhagavantaṃ dassanāya. Te ca kho therā bhikkhū bhiyyosomattāya nave bhikkhū ovadanti anusāsanti. Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti &lt;pb ed=&quot;V&quot; n=&quot;3.0125&quot;/&gt;, appekacce therā bhikkhū tiṃsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti. Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0080&quot;/&gt; pubbenāparaṃ visesaṃ jānanti.</p>">&lt;p n=&quot;145&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;145&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Tena kho pana samayena bhagavā tadahuposathe pannarase pavāraṇāya puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti. Atha kho bhagavā tuṇhībhūtaṃ tuṇhībhūtaṃ bhikkhusaṅghaṃ anuviloketvā &lt;pb ed=&quot;T&quot; n=&quot;3.0191&quot;/&gt; bhikkhū āmantesi – ‘‘āraddhosmi, bhikkhave, imāya paṭipadāya; āraddhacittosmi, bhikkhave, imāya paṭipadāya. Tasmātiha, bhikkhave, bhiyyosomattāya vīriyaṃ ārabhatha appattassa pattiyā, anadhigatassa adhigamāya &lt;pb ed=&quot;M&quot; n=&quot;3.0123&quot;/&gt;, asacchikatassa sacchikiriyāya. Idhevāhaṃ sāvatthiyaṃ komudiṃ cātumāsiniṃ āgamessāmī’’ti. Assosuṃ kho jānapadā bhikkhū – ‘‘bhagavā kira tattheva sāvatthiyaṃ komudiṃ cātumāsiniṃ āgamessatī’’ti. Te jānapadā bhikkhū sāvatthiṃ &lt;note&gt;sāvatthiyaṃ (syā. kaṃ. pī. ka.)&lt;/note&gt; osaranti bhagavantaṃ dassanāya. Te ca kho therā bhikkhū bhiyyosomattāya nave bhikkhū ovadanti anusāsanti. Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti &lt;pb ed=&quot;V&quot; n=&quot;3.0125&quot;/&gt;, appekacce therā bhikkhū tiṃsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti. Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0080&quot;/&gt; pubbenāparaṃ visesaṃ jānanti.</p></div>
+                
+                <div class="translation-text mula-english-section">On that occasion—on the Uposatha day of the fifteenth, the full-moon night of the <i>Pavarana</i> ceremony—the Blessed One was seated in the open, surrounded by the <i>saṅgha</i> of <i>bhikkhus</i>.<br><br>Then, surveying the silent <i>saṅgha</i> of <i>bhikkhus</i>, the Blessed One addressed the <i>bhikkhus</i>: &quot;Oh <i>bhikkhus</i>, I am content with this practice; oh <i>bhikkhus</i>, my mind is content with this practice. Therefore, strive all the more for the attainment of the unattained (<i>appattassa pattiyā</i>), for the accomplishment of the unaccomplished (<i>anadhigatassa adhigamāya</i>), for the realization of the unrealized (<i>asacchikatassa sacchikiriyāya</i>). I will remain right here in Śrāvastī until the <i>Kaumudī</i> full moon of the fourth month.&quot;<br><br>The <i>bhikkhus</i> in the countryside heard, &quot;The Blessed One will remain there in Śrāvastī until the <i>Kaumudī</i> full moon of the fourth month.&quot;<br><br>Those <i>bhikkhus</i> from the countryside then went to Śrāvastī to see the Blessed One.<br><br>And those elder <i>bhikkhus</i> taught and instructed the new <i>bhikkhus</i> all the more intensively. Some elder <i>bhikkhus</i> were advising and instructing ten <i>bhikkhus</i>, some elder <i>bhikkhus</i> were advising and instructing twenty <i>bhikkhus</i>, some elder <i>bhikkhus</i> were advising and instructing thirty <i>bhikkhus</i>, some elder <i>bhikkhus</i> were advising and instructing forty <i>bhikkhus</i>. And those new <i>bhikkhus</i>, being advised and instructed by the elder <i>bhikkhus</i>, came to know a superior and distinct progress from before.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">146</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;146&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;146&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Tena kho pana samayena bhagavā tadahuposathe pannarase komudiyā cātumāsiniyā puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti. Atha kho bhagavā tuṇhībhūtaṃ tuṇhībhūtaṃ bhikkhusaṅghaṃ anuviloketvā bhikkhū āmantesi – ‘‘apalāpāyaṃ, bhikkhave, parisā; nippalāpāyaṃ, bhikkhave, parisā; suddhā sāre &lt;note&gt;suddhasāre patiṭṭhitā (syā. kaṃ. pī.)&lt;/note&gt; patiṭṭhitā. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpā &lt;pb ed=&quot;T&quot; n=&quot;3.0192&quot;/&gt; parisā āhuneyyā pāhuneyyā dakkhiṇeyyā añjalikaraṇīyā anuttaraṃ puññakkhettaṃ lokassa. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpāya parisāya appaṃ dinnaṃ bahu hoti, bahu dinnaṃ bahutaraṃ. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpā parisā dullabhā dassanāya lokassa. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpaṃ parisaṃ alaṃ yojanagaṇanāni dassanāya gantuṃ puṭosenāpi’’ &lt;note&gt;puṭosenāpi, tathārūpo ayaṃ bhikkhave bhikkhusaṃgho, tathārūpā ayaṃ parisā (sī. pī. ka.)&lt;/note&gt;.</p>">&lt;p n=&quot;146&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;146&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; Tena kho pana samayena bhagavā tadahuposathe pannarase komudiyā cātumāsiniyā puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti. Atha kho bhagavā tuṇhībhūtaṃ tuṇhībhūtaṃ bhikkhusaṅghaṃ anuviloketvā bhikkhū āmantesi – ‘‘apalāpāyaṃ, bhikkhave, parisā; nippalāpāyaṃ, bhikkhave, parisā; suddhā sāre &lt;note&gt;suddhasāre patiṭṭhitā (syā. kaṃ. pī.)&lt;/note&gt; patiṭṭhitā. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpā &lt;pb ed=&quot;T&quot; n=&quot;3.0192&quot;/&gt; parisā āhuneyyā pāhuneyyā dakkhiṇeyyā añjalikaraṇīyā anuttaraṃ puññakkhettaṃ lokassa. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpāya parisāya appaṃ dinnaṃ bahu hoti, bahu dinnaṃ bahutaraṃ. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpā parisā dullabhā dassanāya lokassa. Tathārūpo ayaṃ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṃ, bhikkhave, parisā yathārūpaṃ parisaṃ alaṃ yojanagaṇanāni dassanāya gantuṃ puṭosenāpi’’ &lt;note&gt;puṭosenāpi, tathārūpo ayaṃ bhikkhave bhikkhusaṃgho, tathārūpā ayaṃ parisā (sī. pī. ka.)&lt;/note&gt;.</p></div>
+                
+                <div class="translation-text mula-english-section">146.<br>On that occasion, the Blessed One, surrounded by the <i>bhikṣu-saṅgha</i>, was seated in the open on the fifteenth, the full-moon night of the <i>Komudi</i> full moon of the fourth month (<i>cātumāsiniyā puṇṇāya puṇṇamāya rattiyā</i>).<br><br>Then, surveying the silent <i>bhikṣu-saṅgha</i>, the Blessed One addressed the <i>bhikkhus</i> thus: &quot;This assembly, <i>bhikkhus</i>, is free from prattle; this assembly, <i>bhikkhus</i>, is free from prattle; it is pure, established in the essence (<i>śuddha sāre patiṭṭhitā</i>).&quot;<br><br>Such, <i>bhikkhus</i>, is this <i>bhikkhu-saṅgha</i>; such, <i>bhikkhus</i>, is this assembly (<i>parisā</i>). Such an assembly as is worthy of gifts (<i>āhuneyyā</i>), worthy of hospitality (<i>pāhuneyyā</i>), worthy of offerings (<i>dakkhiṇeyyā</i>), worthy of reverential salutation (<i>añjalikaraṇīyā</i>), an unsurpassed field of merit (<i>anuttaraṃ puññakkhettaṃ</i>) for the world (<i>lokassa</i>).<br><br>Such, <i>bhikkhus</i>, is this <i>bhikkhu-saṅgha</i>; such, <i>bhikkhus</i>, is this assembly. Such an assembly that a small gift given to it becomes great (<i>bahu</i>), and a great gift greater (<i>bahutaraṃ</i>).<br><br>Such, <i>bhikkhus</i>, is this <i>bhikkhu-saṅgha</i>; such, <i>bhikkhus</i>, is this assembly. Such an assembly as is rare for the world to see (<i>dullabhā dassanāya lokassa</i>).<br><br>Such, <i>bhikkhus</i>, is this <i>bhikkhu-saṅgha</i>; such, <i>bhikkhus</i>, is this assembly. Such an assembly as would be worth journeying many leagues with a travel-bag (<i>puṭosenāpi</i>) to see.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">147</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;147&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;147&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe arahanto khīṇāsavā vusitavanto katakaraṇīyā ohitabhārā anuppattasadatthā parikkhīṇabhavasaṃyojanā sammadaññāvimuttā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe &lt;pb ed=&quot;M&quot; n=&quot;3.0124&quot;/&gt;. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe pañcannaṃ orambhāgiyānaṃ saṃyojanānaṃ parikkhayā opapātikā tattha parinibbāyino anāvattidhammā tasmā lokā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe tiṇṇaṃ saṃyojanānaṃ parikkhayā rāgadosamohānaṃ tanuttā sakadāgāmino sakideva &lt;note&gt;sakiṃ deva (ka.)&lt;/note&gt; imaṃ lokaṃ āgantvā dukkhassantaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0081&quot;/&gt; karissanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe &lt;pb ed=&quot;T&quot; n=&quot;3.0193&quot;/&gt;. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe tiṇṇaṃ saṃyojanānaṃ parikkhayā sotāpannā avinipātadhammā niyatā sambodhiparāyanā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe catunnaṃ satipaṭṭhānānaṃ bhāvanānuyogamanuyuttā viharanti &lt;pb ed=&quot;V&quot; n=&quot;3.0126&quot;/&gt; – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe catunnaṃ sammappadhānānaṃ bhāvanānuyogamanuyuttā viharanti…pe… catunnaṃ iddhipādānaṃ… pañcannaṃ indriyānaṃ… pañcannaṃ balānaṃ… sattannaṃ bojjhaṅgānaṃ… ariyassa aṭṭhaṅgikassa maggassa bhāvanānuyogamanuyuttā viharanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe mettābhāvanānuyogamanuyuttā viharanti… karuṇābhāvanānuyogamanuyuttā &lt;pb ed=&quot;P&quot; n=&quot;3.0082&quot;/&gt; viharanti… muditābhāvanānuyogamanuyuttā viharanti… upekkhābhāvanānuyogamanuyuttā viharanti… asubhabhāvanānuyogamanuyuttā viharanti… aniccasaññābhāvanānuyogamanuyuttā viharanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe ānāpānassatibhāvanānuyogamanuyuttā viharanti. Ānāpānassati, bhikkhave, bhāvitā bahulīkatā mahapphalā hoti mahānisaṃsā. Ānāpānassati, bhikkhave, bhāvitā bahulīkatā cattāro satipaṭṭhāne paripūreti. Cattāro satipaṭṭhānā &lt;pb ed=&quot;T&quot; n=&quot;3.0194&quot;/&gt; bhāvitā bahulīkatā satta bojjhaṅge paripūrenti. Satta bojjhaṅgā bhāvitā bahulīkatā vijjāvimuttiṃ paripūrenti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0126&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0082&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0194&quot;/&gt;">&lt;p n=&quot;147&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;147&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe arahanto khīṇāsavā vusitavanto katakaraṇīyā ohitabhārā anuppattasadatthā parikkhīṇabhavasaṃyojanā sammadaññāvimuttā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe &lt;pb ed=&quot;M&quot; n=&quot;3.0124&quot;/&gt;. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe pañcannaṃ orambhāgiyānaṃ saṃyojanānaṃ parikkhayā opapātikā tattha parinibbāyino anāvattidhammā tasmā lokā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe tiṇṇaṃ saṃyojanānaṃ parikkhayā rāgadosamohānaṃ tanuttā sakadāgāmino sakideva &lt;note&gt;sakiṃ deva (ka.)&lt;/note&gt; imaṃ lokaṃ āgantvā dukkhassantaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0081&quot;/&gt; karissanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe &lt;pb ed=&quot;T&quot; n=&quot;3.0193&quot;/&gt;. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe tiṇṇaṃ saṃyojanānaṃ parikkhayā sotāpannā avinipātadhammā niyatā sambodhiparāyanā – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe catunnaṃ satipaṭṭhānānaṃ bhāvanānuyogamanuyuttā viharanti &lt;pb ed=&quot;V&quot; n=&quot;3.0126&quot;/&gt; – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe catunnaṃ sammappadhānānaṃ bhāvanānuyogamanuyuttā viharanti…pe… catunnaṃ iddhipādānaṃ… pañcannaṃ indriyānaṃ… pañcannaṃ balānaṃ… sattannaṃ bojjhaṅgānaṃ… ariyassa aṭṭhaṅgikassa maggassa bhāvanānuyogamanuyuttā viharanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe mettābhāvanānuyogamanuyuttā viharanti… karuṇābhāvanānuyogamanuyuttā &lt;pb ed=&quot;P&quot; n=&quot;3.0082&quot;/&gt; viharanti… muditābhāvanānuyogamanuyuttā viharanti… upekkhābhāvanānuyogamanuyuttā viharanti… asubhabhāvanānuyogamanuyuttā viharanti… aniccasaññābhāvanānuyogamanuyuttā viharanti – evarūpāpi, bhikkhave, santi bhikkhū imasmiṃ bhikkhusaṅghe. Santi, bhikkhave, bhikkhū imasmiṃ bhikkhusaṅghe ānāpānassatibhāvanānuyogamanuyuttā viharanti. Ānāpānassati, bhikkhave, bhāvitā bahulīkatā mahapphalā hoti mahānisaṃsā. Ānāpānassati, bhikkhave, bhāvitā bahulīkatā cattāro satipaṭṭhāne paripūreti. Cattāro satipaṭṭhānā &lt;pb ed=&quot;T&quot; n=&quot;3.0194&quot;/&gt; bhāvitā bahulīkatā satta bojjhaṅge paripūrenti. Satta bojjhaṅgā bhāvitā bahulīkatā vijjāvimuttiṃ paripūrenti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0126&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0082&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0194&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">“Monks, in this Saṅgha of monks, there are <i>arahants</i> whose corruptions are destroyed, who have lived the spiritual life, done what had to be done, laid down the burden, attained their own goal, destroyed the fetters of becoming, and are liberated through perfect knowledge. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are those who, through the destruction of the five lower fetters, will be reborn spontaneously [in the Pure Abodes], and there attain final <i>Nibbāna</i>, never again to return from that world. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are those who, through the destruction of the three fetters, and weakening of passion, hatred, and delusion, are once-returners, who will return only once to this world and then put an end to suffering. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are those who, through the destruction of the three fetters, are stream-enterers, no longer subject to downfall, assured, destined for enlightenment. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are monks who live devoted to the practice of the four foundations of mindfulness. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are monks who live devoted to the practice of the four right exertions… the four bases of power… the five faculties… the five powers… the seven factors of enlightenment… the Noble Eightfold Path. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are monks who live devoted to the practice of loving-kindness… compassion… sympathetic joy… equanimity… contemplation of repulsiveness… contemplation of impermanence. Such monks are in this Saṅgha of monks.<br><br>Monks, in this Saṅgha of monks, there are monks who live devoted to the practice of mindfulness of breathing <i>ānāpānasmṛti</i>.<br><br>Monks, mindfulness of breathing, when developed and cultivated, is of great fruit and great benefit.<br><br>Monks, mindfulness of breathing, when developed and cultivated, perfects the four foundations of mindfulness.<br><br>The four foundations of mindfulness, when developed and cultivated, perfect the seven factors of enlightenment (<i>satta bojjhaṅga</i>).<br><br>The seven factors of enlightenment (<i>satta bojjhaṅga</i>), when developed and cultivated, perfect true knowledge and liberation (<i>vijjāvimutti</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">148</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;148&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;148&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ bhāvitā ca, bhikkhave, ānāpānassati kathaṃ bahulīkatā mahapphalā hoti mahānisaṃsā? Idha, bhikkhave, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṃ ābhujitvā ujuṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0125&quot;/&gt; kāyaṃ paṇidhāya parimukhaṃ satiṃ upaṭṭhapetvā. So satova assasati satova &lt;note&gt;sato (sī. syā. kaṃ. pī.)&lt;/note&gt; passasati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Dīghaṃ vā assasanto ‘dīghaṃ assasāmī’ti pajānāti, dīghaṃ vā passasanto ‘dīghaṃ passasāmī’ti pajānāti; rassaṃ vā assasanto ‘rassaṃ assasāmī’ti pajānāti, rassaṃ vā passasanto ‘rassaṃ passasāmī’ti pajānāti; ‘sabbakāyapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ kāyasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ kāyasaṅkhāraṃ passasissāmī’ti sikkhati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Pītipaṭisaṃvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṃvedī passasissāmī’ti sikkhati; ‘sukhapaṭisaṃvedī assasissāmī’ti &lt;pb ed=&quot;P&quot; n=&quot;3.0083&quot;/&gt; sikkhati, ‘sukhapaṭisaṃvedī passasissāmī’ti sikkhati; ‘cittasaṅkhārapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṃvedī passasissāmī’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0127&quot;/&gt; sikkhati; ‘passambhayaṃ cittasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ cittasaṅkhāraṃ passasissāmī’ti sikkhati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0083&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0127&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Cittapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṃvedī passasissāmī’ti sikkhati; ‘abhippamodayaṃ cittaṃ assasissāmī’ti sikkhati, ‘abhippamodayaṃ cittaṃ passasissāmī’ti sikkhati &lt;pb ed=&quot;T&quot; n=&quot;3.0195&quot;/&gt;; ‘samādahaṃ cittaṃ assasissāmī’ti sikkhati, ‘samādahaṃ cittaṃ passasissāmī’ti sikkhati; ‘vimocayaṃ cittaṃ assasissāmī’ti sikkhati, ‘vimocayaṃ cittaṃ passasissāmī’ti sikkhati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0195&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati; ‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati. Evaṃ bhāvitā kho, bhikkhave, ānāpānassati evaṃ bahulīkatā mahapphalā hoti mahānisaṃsā.</p>">&lt;p n=&quot;148&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;148&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ bhāvitā ca, bhikkhave, ānāpānassati kathaṃ bahulīkatā mahapphalā hoti mahānisaṃsā? Idha, bhikkhave, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṃ ābhujitvā ujuṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0125&quot;/&gt; kāyaṃ paṇidhāya parimukhaṃ satiṃ upaṭṭhapetvā. So satova assasati satova &lt;note&gt;sato (sī. syā. kaṃ. pī.)&lt;/note&gt; passasati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Dīghaṃ vā assasanto ‘dīghaṃ assasāmī’ti pajānāti, dīghaṃ vā passasanto ‘dīghaṃ passasāmī’ti pajānāti; rassaṃ vā assasanto ‘rassaṃ assasāmī’ti pajānāti, rassaṃ vā passasanto ‘rassaṃ passasāmī’ti pajānāti; ‘sabbakāyapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ kāyasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ kāyasaṅkhāraṃ passasissāmī’ti sikkhati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Pītipaṭisaṃvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṃvedī passasissāmī’ti sikkhati; ‘sukhapaṭisaṃvedī assasissāmī’ti &lt;pb ed=&quot;P&quot; n=&quot;3.0083&quot;/&gt; sikkhati, ‘sukhapaṭisaṃvedī passasissāmī’ti sikkhati; ‘cittasaṅkhārapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṃvedī passasissāmī’ti &lt;pb ed=&quot;V&quot; n=&quot;3.0127&quot;/&gt; sikkhati; ‘passambhayaṃ cittasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ cittasaṅkhāraṃ passasissāmī’ti sikkhati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0083&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0127&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Cittapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṃvedī passasissāmī’ti sikkhati; ‘abhippamodayaṃ cittaṃ assasissāmī’ti sikkhati, ‘abhippamodayaṃ cittaṃ passasissāmī’ti sikkhati &lt;pb ed=&quot;T&quot; n=&quot;3.0195&quot;/&gt;; ‘samādahaṃ cittaṃ assasissāmī’ti sikkhati, ‘samādahaṃ cittaṃ passasissāmī’ti sikkhati; ‘vimocayaṃ cittaṃ assasissāmī’ti sikkhati, ‘vimocayaṃ cittaṃ passasissāmī’ti sikkhati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0195&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘‘Aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati; ‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati. Evaṃ bhāvitā kho, bhikkhave, ānāpānassati evaṃ bahulīkatā mahapphalā hoti mahānisaṃsā.</p></div>
+                
+                <div class="translation-text mula-english-section">148. “And how, bhikkhus, is mindfulness of breathing developed and cultivated, so that it is of great fruit and great benefit? Here, bhikkhus, a bhikkhu, gone to the forest, or to the foot of a tree, or to an empty house, sits down, folding his legs crosswise, setting his body straight, and established mindfulness at the front. Simply mindful, he breathes in; mindful, he breathes out.<br><br>“Breathing in long, he understands: ‘I breathe in long’; or breathing out long, he understands: ‘I breathe out long.’ Breathing in short, he understands: ‘I breathe in short’; or breathing out short, he understands: ‘I breathe out short.’ He trains thus: ‘I shall breathe in experiencing the whole body of breath’; he trains thus: ‘I shall breathe out experiencing the whole body of breath.’ He trains thus: ‘I shall breathe in tranquillising the bodily formation ( <i>kāyasaṅkhāra</i> )’; he trains thus: ‘I shall breathe out tranquillising the bodily formation.’<br><br>“He trains thus: ‘I shall breathe in experiencing rapture ( <i>pīti</i> )’; he trains thus: ‘I shall breathe out experiencing rapture.’ He trains thus: ‘I shall breathe in experiencing pleasure ( <i>sukha</i> )’; he trains thus: ‘I shall breathe out experiencing pleasure.’ He trains thus: ‘I shall breathe in experiencing the mental formation ( <i>cittasaṅkhāra</i> )’; he trains thus: ‘I shall breathe out experiencing the mental formation.’ He trains thus: ‘I shall breathe in tranquillising the mental formation’; he trains thus: ‘I shall breathe out tranquillising the mental formation.’<br><br>“He trains thus: ‘I shall breathe in experiencing the mind ( <i>citta</i> )’; he trains thus: ‘I shall breathe out experiencing the mind.’ He trains thus: ‘I shall breathe in gladdening the mind’; life trains thus: ‘I shall breathe out gladdening the mind.’ He trains thus: ‘I shall breathe in concentrating the mind’; he trains thus: ‘I shall breathe out concentrating the mind.’ He trains thus: ‘I shall breathe in liberating the mind’; he trains thus: ‘I shall breathe out liberating the mind.’<br><br>“He trains thus: ‘I shall breathe in contemplating impermanence ( <i>aniccānupassī</i> )’; he trains thus: ‘I shall breathe out contemplating impermanence.’ He trains thus: ‘I shall breathe in contemplating dispassion ( <i>virāgānupassī</i> )’; he trains thus: ‘I shall breathe out contemplating dispassion.’ He trains thus: ‘I shall breathe in contemplating cessation ( <i>nirodhānupassī</i> )’; he trains thus: ‘I shall breathe out contemplating cessation.’ He trains thus: ‘I shall breathe in contemplating relinquishment ( <i>paṭinissaggānupassī</i> )’; he trains thus: ‘I shall breathe out contemplating relinquishment.’<br><br>“Bhikkhus, that is how mindfulness of breathing (<i>ānāpānassati</i>) is developed and cultivated, so that it is of great fruit and great benefit.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">149</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;149&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;149&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0126&quot;/&gt; bhāvitā ca, bhikkhave, ānāpānassati kathaṃ bahulīkatā cattāro satipaṭṭhāne paripūreti? Yasmiṃ samaye, bhikkhave, bhikkhu dīghaṃ vā assasanto ‘dīghaṃ assasāmī’ti pajānāti, dīghaṃ vā passasanto ‘dīghaṃ passasāmī’ti pajānāti; rassaṃ vā assasanto ‘rassaṃ assasāmī’ti pajānāti, rassaṃ vā passasanto ‘rassaṃ passasāmī’ti pajānāti; ‘sabbakāyapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ kāyasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ kāyasaṅkhāraṃ passasissāmī’ti sikkhati; kāye kāyānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Kāyesu kāyaññatarāhaṃ, bhikkhave, evaṃ vadāmi yadidaṃ – assāsapassāsā. Tasmātiha, bhikkhave, kāye &lt;pb ed=&quot;T&quot; n=&quot;3.0196&quot;/&gt; kāyānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu &lt;pb ed=&quot;P&quot; n=&quot;3.0084&quot;/&gt; ‘pītipaṭisaṃvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṃvedī &lt;pb ed=&quot;V&quot; n=&quot;3.0128&quot;/&gt; passasissāmī’ti sikkhati; ‘sukhapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sukhapaṭisaṃvedī passasissāmī’ti sikkhati; ‘cittasaṅkhārapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ cittasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ cittasaṅkhāraṃ passasissāmī’ti sikkhati; vedanāsu vedanānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Vedanāsu vedanāññatarāhaṃ, bhikkhave, evaṃ vadāmi yadidaṃ – assāsapassāsānaṃ sādhukaṃ manasikāraṃ. Tasmātiha, bhikkhave, vedanāsu vedanānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0084&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0128&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu ‘cittapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṃvedī passasissāmī’ti sikkhati; ‘abhippamodayaṃ cittaṃ assasissāmī’ti sikkhati, ‘abhippamodayaṃ cittaṃ passasissāmī’ti sikkhati; ‘samādahaṃ cittaṃ assasissāmī’ti sikkhati, ‘samādahaṃ cittaṃ passasissāmī’ti sikkhati; ‘vimocayaṃ cittaṃ assasissāmī’ti sikkhati, ‘vimocayaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0127&quot;/&gt; cittaṃ passasissāmī’ti sikkhati; citte cittānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Nāhaṃ, bhikkhave, muṭṭhassatissa asampajānassa &lt;pb ed=&quot;T&quot; n=&quot;3.0197&quot;/&gt; ānāpānassatiṃ vadāmi. Tasmātiha, bhikkhave, citte cittānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0127&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0197&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu ‘aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati; ‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati; dhammesu dhammānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. So yaṃ taṃ abhijjhādomanassānaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0085&quot;/&gt; pahānaṃ taṃ paññāya disvā sādhukaṃ ajjhupekkhitā hoti. Tasmātiha, bhikkhave, dhammesu dhammānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0085&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0129&quot;/&gt; bhāvitā kho, bhikkhave, ānāpānassati evaṃ bahulīkatā cattāro satipaṭṭhāne paripūreti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0129&quot;/&gt;">&lt;p n=&quot;149&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;149&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0126&quot;/&gt; bhāvitā ca, bhikkhave, ānāpānassati kathaṃ bahulīkatā cattāro satipaṭṭhāne paripūreti? Yasmiṃ samaye, bhikkhave, bhikkhu dīghaṃ vā assasanto ‘dīghaṃ assasāmī’ti pajānāti, dīghaṃ vā passasanto ‘dīghaṃ passasāmī’ti pajānāti; rassaṃ vā assasanto ‘rassaṃ assasāmī’ti pajānāti, rassaṃ vā passasanto ‘rassaṃ passasāmī’ti pajānāti; ‘sabbakāyapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ kāyasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ kāyasaṅkhāraṃ passasissāmī’ti sikkhati; kāye kāyānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Kāyesu kāyaññatarāhaṃ, bhikkhave, evaṃ vadāmi yadidaṃ – assāsapassāsā. Tasmātiha, bhikkhave, kāye &lt;pb ed=&quot;T&quot; n=&quot;3.0196&quot;/&gt; kāyānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu &lt;pb ed=&quot;P&quot; n=&quot;3.0084&quot;/&gt; ‘pītipaṭisaṃvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṃvedī &lt;pb ed=&quot;V&quot; n=&quot;3.0128&quot;/&gt; passasissāmī’ti sikkhati; ‘sukhapaṭisaṃvedī assasissāmī’ti sikkhati, ‘sukhapaṭisaṃvedī passasissāmī’ti sikkhati; ‘cittasaṅkhārapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṃvedī passasissāmī’ti sikkhati; ‘passambhayaṃ cittasaṅkhāraṃ assasissāmī’ti sikkhati, ‘passambhayaṃ cittasaṅkhāraṃ passasissāmī’ti sikkhati; vedanāsu vedanānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Vedanāsu vedanāññatarāhaṃ, bhikkhave, evaṃ vadāmi yadidaṃ – assāsapassāsānaṃ sādhukaṃ manasikāraṃ. Tasmātiha, bhikkhave, vedanāsu vedanānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0084&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0128&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu ‘cittapaṭisaṃvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṃvedī passasissāmī’ti sikkhati; ‘abhippamodayaṃ cittaṃ assasissāmī’ti sikkhati, ‘abhippamodayaṃ cittaṃ passasissāmī’ti sikkhati; ‘samādahaṃ cittaṃ assasissāmī’ti sikkhati, ‘samādahaṃ cittaṃ passasissāmī’ti sikkhati; ‘vimocayaṃ cittaṃ assasissāmī’ti sikkhati, ‘vimocayaṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0127&quot;/&gt; cittaṃ passasissāmī’ti sikkhati; citte cittānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. Nāhaṃ, bhikkhave, muṭṭhassatissa asampajānassa &lt;pb ed=&quot;T&quot; n=&quot;3.0197&quot;/&gt; ānāpānassatiṃ vadāmi. Tasmātiha, bhikkhave, citte cittānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0127&quot;/&gt; &lt;pb ed=&quot;T&quot; n=&quot;3.0197&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Yasmiṃ samaye, bhikkhave, bhikkhu ‘aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati; ‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati; dhammesu dhammānupassī, bhikkhave, tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ. So yaṃ taṃ abhijjhādomanassānaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0085&quot;/&gt; pahānaṃ taṃ paññāya disvā sādhukaṃ ajjhupekkhitā hoti. Tasmātiha, bhikkhave, dhammesu dhammānupassī tasmiṃ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0085&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Evaṃ &lt;pb ed=&quot;V&quot; n=&quot;3.0129&quot;/&gt; bhāvitā kho, bhikkhave, ānāpānassati evaṃ bahulīkatā cattāro satipaṭṭhāne paripūreti.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0129&quot;/&gt;</div>
+                
+                <div class="translation-text mula-english-section">149. Bhikkhus, how is mindfulness of breathing developed and how is it cultivated so as to fulfill the four foundations of mindfulness ( <i>cattāro satipaṭṭhāne</i> )? Bhikkhus, on whatever occasion a <i>bhikkhu</i>, breathing in long, understands: ‘I breathe in long,’ or breathing out long, understands: ‘I breathe out long’; breathing in short, understands: ‘I breathe in short,’ or breathing out short, understands: ‘I breathe out short’; trains thus: ‘I shall breathe in experiencing the whole body of breath’; trains thus: ‘I shall breathe out experiencing the whole body of breath’; trains thus: ‘I shall breathe in tranquillising the bodily formation (<i>kāyasaṅkhāraṃ</i>)’; trains thus: ‘I shall breathe out tranquillising the bodily formation (<i>kāyasaṅkhāraṃ</i>)’; on that occasion, bhikkhus, the <i>bhikkhu</i> dwells contemplating the body in the body (<i>kāye kāyānupassī</i>), ardent (<i>ātāpī</i>), clearly comprehending (<i>sampajāno</i>), mindful (<i>satimā</i>), having removed covetousness (<i>abhijjhā</i>) and displeasure (<i>domanassaṃ</i>) in regard to the world (<i>loke</i>).<br><br>I say, monks, that this is a certain kind of body amongst the bodies, namely: breathing in (<i>assāsa</i>), breathing out (<i>passāsā</i>).<br><br>That is why on that occasion a <i>bhikkhu</i> abides contemplating the body as a body (<i>kāye kāyānupassī</i>), ardent (<i>ātāpī</i>), fully aware (<i>sampajāno</i>), and mindful (<i>satimā</i>), having put away covetousness (<i>abhijjhā</i>) and grief (<i>domanassaṃ</i>) for the world (<i>loke</i>).<br><br>“Bhikkhus, on whatever occasion a <i>bhikkhu</i> trains thus: ‘I shall breathe in experiencing rapture (<i>pīti</i>)’; trains thus: ‘I shall breathe out experiencing rapture (<i>pīti</i>)’; trains thus: ‘I shall breathe in experiencing pleasure (<i>sukha</i>)’; trains thus: ‘I shall breathe out experiencing pleasure (<i>sukha</i>)’; trains thus: ‘I shall breathe in experiencing the mental formation (<i>cittasaṅkhāra</i>)’; trains thus: ‘I shall breathe out experiencing the mental formation (<i>cittasaṅkhāra</i>)’; trains thus: ‘I shall breathe in tranquillising the mental formation (<i>cittasaṅkhāraṃ</i>)’; trains thus: ‘I shall breathe out tranquillising the mental formation (<i>cittasaṅkhāraṃ</i>)’; on that occasion, bhikkhus, the <i>bhikkhu</i> dwells contemplating feelings (<i>vedanāsu</i>) as feelings, ardent (<i>ātāpī</i>), clearly comprehending (<i>sampajāno</i>), mindful (<i>satimā</i>), having put away covetousness (<i>abhijjhā</i>) and grief (<i>domanassaṃ</i>) for the world (<i>loke</i>).<br><br>I say that this is a certain feeling among the feelings, namely, giving close attention to in-breathing and out-breathing (<i>assāsapassāsānaṃ sādhukaṃ manasikāraṃ</i>).<br><br>That is why on that occasion a <i>bhikkhu</i> abides contemplating feelings (<i>vedanāsu</i>) as feelings, ardent (<i>ātāpī</i>), fully aware (<i>sampajāno</i>), and mindful (<i>satimā</i>), having put away covetousness (<i>abhijjhā</i>) and grief (<i>domanassaṃ</i>) for the world (<i>loke</i>).<br><br>“Bhikkhus, on whatever occasion a <i>bhikkhu</i> trains thus: ‘I shall breathe in experiencing the mind (<i>citta</i>)’; trains thus: ‘I shall breathe out experiencing the mind (<i>citta</i>)’; trains thus: ‘I shall breathe in gladdening (<i>abhippamodayaṃ</i>) the mind (<i>cittaṃ</i>)’; trains thus: ‘I shall breathe out gladdening (<i>abhippamodayaṃ</i>) the mind (<i>cittaṃ</i>)’; trains thus: ‘I shall breathe in concentrating (<i>samādahaṃ</i>) the mind (<i>cittaṃ</i>)’; trains thus: ‘I shall breathe out concentrating (<i>samādahaṃ</i>) the mind (<i>cittaṃ</i>)’; trains thus: ‘I shall breathe in liberating (<i>vimocayaṃ</i>) the mind (<i>cittaṃ</i>)’; trains thus: ‘I shall breathe out liberating (<i>vimocayaṃ</i>) the mind (<i>cittaṃ</i>)’ - on that occasion, bhikkhus, the <i>bhikkhu</i> dwells contemplating mind in mind (<i>citte cittānupassī</i>), ardent (<i>ātāpī</i>), clearly comprehending (<i>sampajāno</i>), mindful (<i>satimā</i>), having removed covetousness (<i>abhijjhā</i>) and displeasure (<i>domanassaṃ</i>) in regard to the world (<i>loke</i>).<br><br>I do not say that there is the development of mindfulness of breathing (<i>ānāpānassatiṃ</i>) for one who is forgetful (<i>muṭṭhassatissa</i>), who is not fully aware (<i>asampajānassa</i>).<br><br>That is why on that occasion a <i>bhikkhu</i> abides contemplating mind as mind (<i>citte cittānupassī</i>), ardent (<i>ātāpī</i>), fully aware (<i>sampajāno</i>), and mindful (<i>satimā</i>), having put away covetousness (<i>abhijjhā</i>) and grief (<i>domanassaṃ</i>) for the world (<i>loke</i>).<br><br>“Bhikkhus, on whatever occasion a <i>bhikkhu</i> trams thus: ‘I shall breathe in contemplating impermanence (<i>aniccānupassī</i>)’; trains thus: ‘I shall breathe out contemplating impermanence (<i>aniccānupassī</i>)’; trams thus: ‘I shall breathe in contemplating fading away (<i>virāgānupassī</i>)’; trains thus: ‘I shall breathe out contemplating fading away (<i>virāgānupassī</i>)’; trains thus: ‘I shall breathe in contemplating cessation (<i>nirodhānupassī</i>)’; trains thus: ‘I shall breathe out contemplating cessation (<i>nirodhānupassī</i>)’; trams thus: ‘I shall breathe in contemplating relinquishment (<i>paṭinissaggānupassī</i>)’; trains thus: ‘I shall breathe out contemplating relinquishment (<i>paṭinissaggānupassī</i>)’; on that occasion, bhikkhus, the <i>bhikkhu</i> dwells contemplating mind-objects as mind-objects (<i>dhammesu dhammānupassī</i>), ardent (<i>ātāpī</i>), clearly comprehending (<i>sampajāno</i>), mindful (<i>satimā</i>), having removed covetousness (<i>abhijjhā</i>) and displeasure (<i>domanassaṃ</i>) in regard to the world (<i>loke</i>).<br><br>Having seen with wisdom (<i>paññāya disvā</i>) the abandoning (<i>pahānaṃ</i>) of covetousness (<i>abhijjhā</i>) and grief (<i>domanassānaṃ</i>), he closely looks on with equanimity (<i>sādhukaṃ ajjhupekkhitā hoti</i>).<br><br>That is why on that occasion a <i>bhikkhu</i> abides contemplating mind-objects as mind-objects (<i>dhammesu dhammānupassī</i>), ardent (<i>ātāpī</i>), fully aware (<i>sampajāno</i>), and mindful (<i>satimā</i>), having put away covetousness (<i>abhijjhā</i>) and grief (<i>domanassaṃ</i>) for the world (<i>loke</i>).<br><br>“Bhikkhus, that is how mindfulness of breathing (<i>ānāpānassati</i>), developed (<i>bhāvitā</i>) and cultivated (<i>bahulīkatā</i>), fulfils the four foundations of mindfulness (<i>cattāro satipaṭṭhāne paripūreti</i>).</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">150</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;150&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;150&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ bhāvitā ca, bhikkhave, cattāro satipaṭṭhānā kathaṃ bahulīkatā satta bojjhaṅge paripūrenti? Yasmiṃ samaye, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ, upaṭṭhitāssa tasmiṃ samaye sati hoti asammuṭṭhā &lt;note&gt;appammuṭṭhā (syā. kaṃ.)&lt;/note&gt;. Yasmiṃ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti &lt;pb ed=&quot;T&quot; n=&quot;3.0198&quot;/&gt; asammuṭṭhā, satisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti. Satisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, satisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati &lt;note&gt;pavicarati (sī. syā. kaṃ. pī.)&lt;/note&gt; parivīmaṃsaṃ āpajjati. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsato viharanto &lt;pb ed=&quot;M&quot; n=&quot;3.0128&quot;/&gt; taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, dhammavicayasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;note&gt;pavicarati (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0128&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ. Yasmiṃ samaye, bhikkhave, bhikkhuno taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, vīriyasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Āraddhavīriyassa uppajjati pīti nirāmisā. Yasmiṃ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti &lt;pb ed=&quot;P&quot; n=&quot;3.0086&quot;/&gt; nirāmisā, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0086&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Pītimanassa kāyopi passambhati, cittampi passambhati. Yasmiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0199&quot;/&gt; samaye, bhikkhave, bhikkhuno &lt;pb ed=&quot;V&quot; n=&quot;3.0130&quot;/&gt; pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0199&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0130&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passaddhakāyassa sukhino cittaṃ samādhiyati. Yasmiṃ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṃ samādhiyati, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p>">&lt;p n=&quot;150&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;150&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ bhāvitā ca, bhikkhave, cattāro satipaṭṭhānā kathaṃ bahulīkatā satta bojjhaṅge paripūrenti? Yasmiṃ samaye, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ, upaṭṭhitāssa tasmiṃ samaye sati hoti asammuṭṭhā &lt;note&gt;appammuṭṭhā (syā. kaṃ.)&lt;/note&gt;. Yasmiṃ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti &lt;pb ed=&quot;T&quot; n=&quot;3.0198&quot;/&gt; asammuṭṭhā, satisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti. Satisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, satisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati &lt;note&gt;pavicarati (sī. syā. kaṃ. pī.)&lt;/note&gt; parivīmaṃsaṃ āpajjati. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsato viharanto &lt;pb ed=&quot;M&quot; n=&quot;3.0128&quot;/&gt; taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, dhammavicayasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;note&gt;pavicarati (sī. syā. kaṃ. pī.)&lt;/note&gt; &lt;pb ed=&quot;M&quot; n=&quot;3.0128&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ. Yasmiṃ samaye, bhikkhave, bhikkhuno taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, vīriyasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Āraddhavīriyassa uppajjati pīti nirāmisā. Yasmiṃ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti &lt;pb ed=&quot;P&quot; n=&quot;3.0086&quot;/&gt; nirāmisā, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;P&quot; n=&quot;3.0086&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Pītimanassa kāyopi passambhati, cittampi passambhati. Yasmiṃ &lt;pb ed=&quot;T&quot; n=&quot;3.0199&quot;/&gt; samaye, bhikkhave, bhikkhuno &lt;pb ed=&quot;V&quot; n=&quot;3.0130&quot;/&gt; pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0199&quot;/&gt; &lt;pb ed=&quot;V&quot; n=&quot;3.0130&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passaddhakāyassa sukhino cittaṃ samādhiyati. Yasmiṃ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṃ samādhiyati, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p></div>
+                
+                <div class="translation-text mula-english-section">150. &quot;And how, monks, are the four establishments of mindfulness developed and how are they cultivated so as to bring the seven factors of enlightenment to fulfillment?<br><br>Monks, on whatever occasion a monk abides contemplating the body in the body, ardent, fully knowing, mindful, having put away covetousness and grief for the world, on that occasion unremitting mindfulness is established in him. On whatever occasion, monks, unremitting mindfulness has been established in a monk, on that occasion the mindfulness enlightenment factor (<i>satisambojjhaṅga</i>) is aroused by the monk. On that occasion the monk develops the mindfulness enlightenment factor, on that occasion the mindfulness enlightenment factor goes to fulfilment by development in the monk.<br><br>&quot;Abiding thus mindful, he investigates and examines that state with wisdom and embarks upon a full inquiry into it. On whatever occasion, monks, abiding thus mindful, a monk investigates and examines that state with wisdom and embarks upon a full inquiry into it, on that occasion the investigation-of-states enlightenment factor (<i>dhammavicayasambojjhaṅga</i>) is aroused by the monk, and he develops the investigation-of-states enlightenment factor, and the investigation-of-states enlightenment factor comes to fulfilment by development in the monk.<br><br>&quot;In one who investigates and examines that state with wisdom and embarks upon a full inquiry into it, tireless energy is aroused. On whatever occasion, monks, tireless energy is aroused in a monk who investigates and examines that state with wisdom and embarks upon a full inquiry into it, on that occasion the energy enlightenment factor (<i>vīriyasambojjhaṅga</i>) is aroused by the monk, and he develops the energy enlightenment factor, and the energy enlightenment factor comes to fulfilment by development in the monk.<br><br>&quot;In one whose energy is aroused, unworldly rapture (<i>pīti nirāmisā</i>) arises. On whatever occasion, monks, unworldly rapture arises in a monk whose energy is aroused, on that occasion the rapture enlightenment factor (<i>pītisambojjhaṅga</i>) is aroused by the monk, and he develops the rapture enlightenment factor, and the rapture enlightenment factor comes to fulfilment by development in the monk.<br><br>&quot;In one who is uplifted by rapture, both body and mind become tranquil. On whatever occasion, monks, both body and mind become tranquil in a monk who is uplifted by rapture, on that occasion the tranquility enlightenment factor (<i>passaddhisambojjhaṅga</i>) is aroused by the monk, and he develops the tranquility enlightenment factor, and the tranquility enlightenment factor goes to fulfilment by development in the monk.<br><br>&quot;For one whose body is tranquil and who is happy the mind becomes concentrated. On whatever occasion, monks, the mind becomes concentrated in a monk whose body is tranquil and who feels pleasure, on that occasion the concentration enlightenment factor (<i>samādhisambojjhaṅga</i>) is aroused by the monk, and he develops the concentration enlightenment factor, and the concentration enlightenment factor comes to fulfilment by development in the monk.<br><br>&quot;He becomes one who closely looks on with equanimity at the mind thus concentrated. On whatever occasion, monks, a monk closely looks on with equanimity at the mind thus concentrated, on that occasion the equanimity enlightenment factor (<i>upekkhāsambojjhaṅga</i>) is aroused by the monk, and he develops the equanimity enlightenment factor, and the equanimity enlightenment factor comes to fulfilment by development in the monk.</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">151</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;151&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;151&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Yasmiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0129&quot;/&gt; samaye, bhikkhave, bhikkhu vedanāsu…pe… citte… dhammesu dhammānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ, upaṭṭhitāssa tasmiṃ samaye sati hoti asammuṭṭhā. Yasmiṃ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti asammuṭṭhā, satisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, satisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, satisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So &lt;pb ed=&quot;T&quot; n=&quot;3.0200&quot;/&gt; tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, dhammavicayasambojjhaṅgaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0087&quot;/&gt; tasmiṃ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0200&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0087&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa &lt;pb ed=&quot;V&quot; n=&quot;3.0131&quot;/&gt; taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ. Yasmiṃ samaye, bhikkhave, bhikkhuno taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, vīriyasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0131&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Āraddhavīriyassa uppajjati pīti nirāmisā. Yasmiṃ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti nirāmisā, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Pītimanassa kāyopi passambhati, cittampi passambhati. Yasmiṃ samaye, bhikkhave, bhikkhuno pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṃ tasmiṃ samaye &lt;pb ed=&quot;T&quot; n=&quot;3.0201&quot;/&gt; bhikkhu bhāveti, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0201&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passaddhakāyassa &lt;pb ed=&quot;M&quot; n=&quot;3.0130&quot;/&gt; sukhino cittaṃ samādhiyati. Yasmiṃ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṃ samādhiyati, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0130&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati. Evaṃ bhāvitā kho, bhikkhave, cattāro satipaṭṭhānā evaṃ bahulīkatā satta sambojjhaṅge paripūrenti.</p>">&lt;p n=&quot;151&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;151&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Yasmiṃ &lt;pb ed=&quot;M&quot; n=&quot;3.0129&quot;/&gt; samaye, bhikkhave, bhikkhu vedanāsu…pe… citte… dhammesu dhammānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṃ, upaṭṭhitāssa tasmiṃ samaye sati hoti asammuṭṭhā. Yasmiṃ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti asammuṭṭhā, satisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, satisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, satisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘So &lt;pb ed=&quot;T&quot; n=&quot;3.0200&quot;/&gt; tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsato viharanto taṃ dhammaṃ paññāya pavicinati pavicayati parivīmaṃsaṃ āpajjati, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, dhammavicayasambojjhaṅgaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0087&quot;/&gt; tasmiṃ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0200&quot;/&gt; &lt;pb ed=&quot;P&quot; n=&quot;3.0087&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Tassa &lt;pb ed=&quot;V&quot; n=&quot;3.0131&quot;/&gt; taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ. Yasmiṃ samaye, bhikkhave, bhikkhuno taṃ dhammaṃ paññāya pavicinato pavicayato parivīmaṃsaṃ āpajjato āraddhaṃ hoti vīriyaṃ asallīnaṃ, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, vīriyasambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;V&quot; n=&quot;3.0131&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Āraddhavīriyassa uppajjati pīti nirāmisā. Yasmiṃ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti nirāmisā, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, pītisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;p rend=&quot;bodytext&quot;&gt;‘‘Pītimanassa kāyopi passambhati, cittampi passambhati. Yasmiṃ samaye, bhikkhave, bhikkhuno pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṃ tasmiṃ samaye &lt;pb ed=&quot;T&quot; n=&quot;3.0201&quot;/&gt; bhikkhu bhāveti, passaddhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0201&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘Passaddhakāyassa &lt;pb ed=&quot;M&quot; n=&quot;3.0130&quot;/&gt; sukhino cittaṃ samādhiyati. Yasmiṃ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṃ samādhiyati, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, samādhisambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati.</p> &lt;pb ed=&quot;M&quot; n=&quot;3.0130&quot;/&gt; &lt;p rend=&quot;bodytext&quot;&gt;‘‘So tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti. Yasmiṃ samaye, bhikkhave, bhikkhu tathāsamāhitaṃ cittaṃ sādhukaṃ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṃ tasmiṃ samaye bhikkhu bhāveti, upekkhāsambojjhaṅgo tasmiṃ samaye bhikkhuno bhāvanāpāripūriṃ gacchati. Evaṃ bhāvitā kho, bhikkhave, cattāro satipaṭṭhānā evaṃ bahulīkatā satta sambojjhaṅge paripūrenti.</p></div>
+                
+                <div class="translation-text mula-english-section">“151. Bhikkhus, on whatever occasion a <i>bhikkhu</i> abides contemplating feelings as feelings,… mind as mind… mind-object as mind-objects ardent, fully aware, and mindful, having put away covetousness and grief for the world - on that occasion unremitting mindfulness is established in him. On whatever occasion unremitting mindfulness is established in a <i>bhikkhu</i> - on that occasion the mindfulness enlightenment factor (<i>satisambojjhaṅga</i>) is aroused in him; on that occasion the <i>bhikkhu</i> develops the mindfulness enlightenment factor; on that occasion the mindfulness enlightenment factor goes to fulfilment by development in the <i>bhikkhu</i>.<br><br>“Abiding thus mindful, he investigates and examines that state with wisdom and embarks upon a full inquiry into it. On whatever occasion, <i>bhikkhus</i>, a <i>bhikkhu</i> abiding thus mindfully investigates and examines that state with wisdom and embarks upon a full inquiry into it - on that occasion the investigation-of-states enlightenment factor (<i>dhammavicayasambojjhaṅga</i>) is aroused in him, and he develops it, and by development it comes to fulfilment in him.<br><br>“In one who investigates and examines that state with wisdom and embarks upon a full inquiry into it, tireless energy is aroused. On whatever occasion tireless energy is aroused in a <i>bhikkhu</i> who investigates and examines that state with wisdom and embarks upon a full inquiry into it - on that occasion the energy enlightenment factor (<i>vīriyasambojjhaṅga</i>) is aroused in him, and he develops it, and by development it comes to fulfilment in him.<br><br>“Spiritual rapture arises in a <i>bhikkhu</i> whose energy is aroused. On whatever occasion spiritual rapture arises in a <i>bhikkhu</i> whose energy is aroused, on that occasion the enlightenment factor of rapture (<i>pītisambojjhaṅga</i>) is aroused by the <i>bhikkhu</i>; on that occasion the <i>bhikkhu</i> develops the enlightenment factor of rapture; on that occasion the enlightenment factor of rapture comes to fulfilment by development in the <i>bhikkhu</i>.<br><br>“For one whose mind is uplifted by rapture the body becomes tranquil and the mind becomes tranquil. On whatever occasion the body becomes tranquil and the mind becomes tranquil in a <i>bhikkhu</i> whose mind is uplifted by rapture, on that occasion the enlightenment factor of tranquillity (<i>passaddhisambojjhaṅga</i>) is aroused by the <i>bhikkhu</i>; on that occasion the <i>bhikkhu</i> develops the enlightenment factor of tranquillity; on that occasion the enlightenment factor of tranquillity comes to fulfilment by development in the <i>bhikkhu</i>.<br><br>“For one with a calm body and happiness his mind becomes concentrated. On whatever occasion the mind becomes concentrated in a <i>bhikkhu</i> whose body is tranquil and who feels pleasure - on that occasion the concentration enlightenment factor (<i>samādhisambojjhaṅga</i>) is aroused in him, and he develops it, and by development it comes to fulfilment in him.<br><br>“He becomes one who closely looks on with equanimity at the mind thus concentrated. On whatever occasion a <i>bhikkhu</i> closely looks on with equanimity at the mind thus concentrated - on that occasion the equanimity enlightenment factor (<i>upekkhāsambojjhaṅga</i>) is aroused in him, and he develops it, and by development it comes to fulfilment in him. Bhikkhus, that is how the four foundations of mindfulness, developed and cultivated, fulfil the seven enlightenment factors.&quot;</div>
+        </div>
+            <div class="paragraph">
+                <div class="paragraph-number">152</div>
+                
+                <div class="pali-text mula-pali-section" data-pali="&lt;p n=&quot;152&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;152&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0088&quot;/&gt; bhāvitā ca, bhikkhave, satta bojjhaṅgā kathaṃ bahulīkatā vijjāvimuttiṃ paripūrenti &lt;pb ed=&quot;V&quot; n=&quot;3.0132&quot;/&gt;? Idha, bhikkhave, bhikkhu satisambojjhaṅgaṃ bhāveti vivekanissitaṃ virāganissitaṃ nirodhanissitaṃ vossaggapariṇāmiṃ. Dhammavicayasambojjhaṅgaṃ bhāveti…pe… vīriyasambojjhaṅgaṃ bhāveti… pītisambojjhaṅgaṃ bhāveti… passaddhisambojjhaṅgaṃ bhāveti… samādhisambojjhaṅgaṃ bhāveti… upekkhāsambojjhaṅgaṃ bhāveti vivekanissitaṃ virāganissitaṃ nirodhanissitaṃ vossaggapariṇāmiṃ. Evaṃ bhāvitā kho, bhikkhave, satta bojjhaṅgā evaṃ bahulīkatā vijjāvimuttiṃ paripūrentī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;T&quot; n=&quot;3.0202&quot;/&gt; bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0202&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Ānāpānassatisuttaṃ niṭṭhitaṃ aṭṭhamaṃ.</p>">&lt;p n=&quot;152&quot; rend=&quot;bodytext&quot;&gt;&lt;hi rend=&quot;paranum&quot;&gt;152&lt;/hi&gt;&lt;hi rend=&quot;dot&quot;&gt;.&lt;/hi&gt; ‘‘Kathaṃ &lt;pb ed=&quot;P&quot; n=&quot;3.0088&quot;/&gt; bhāvitā ca, bhikkhave, satta bojjhaṅgā kathaṃ bahulīkatā vijjāvimuttiṃ paripūrenti &lt;pb ed=&quot;V&quot; n=&quot;3.0132&quot;/&gt;? Idha, bhikkhave, bhikkhu satisambojjhaṅgaṃ bhāveti vivekanissitaṃ virāganissitaṃ nirodhanissitaṃ vossaggapariṇāmiṃ. Dhammavicayasambojjhaṅgaṃ bhāveti…pe… vīriyasambojjhaṅgaṃ bhāveti… pītisambojjhaṅgaṃ bhāveti… passaddhisambojjhaṅgaṃ bhāveti… samādhisambojjhaṅgaṃ bhāveti… upekkhāsambojjhaṅgaṃ bhāveti vivekanissitaṃ virāganissitaṃ nirodhanissitaṃ vossaggapariṇāmiṃ. Evaṃ bhāvitā kho, bhikkhave, satta bojjhaṅgā evaṃ bahulīkatā vijjāvimuttiṃ paripūrentī’’ti.</p> &lt;p rend=&quot;bodytext&quot;&gt;Idamavoca &lt;pb ed=&quot;T&quot; n=&quot;3.0202&quot;/&gt; bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṃ abhinandunti.</p> &lt;pb ed=&quot;T&quot; n=&quot;3.0202&quot;/&gt; &lt;p rend=&quot;centre&quot;&gt;Ānāpānassatisuttaṃ niṭṭhitaṃ aṭṭhamaṃ.</p></div>
+                
+                <div class="translation-text mula-english-section">152. How, bhikkhus, are the seven factors of enlightenment developed and how are they cultivated so as to fulfill true knowledge and deliverance? Here, a <i>bhikkhu</i> develops the enlightenment factor of mindfulness ( <i>satisambojjhaṅgaṃ</i>), which is based upon seclusion (<i>vivekanissitaṃ</i>), dispassion (<i>virāganissitaṃ</i>), and cessation (<i>nirodhanissitaṃ</i>), maturing in release (<i>vossaggapariṇāmiṃ</i>). He develops the enlightenment factor of discrimination of phenomena (<i>dhammavicayasambojjhaṅgaṃ</i>)... the enlightenment factor of energy (<i>vīriyasambojjhaṅgaṃ</i>)... the enlightenment factor of rapture (<i>pītisambojjhaṅgaṃ</i>)... the enlightenment factor of tranquility (<i>passaddhisambojjhaṅgaṃ</i>)... the enlightenment factor of concentration (<i>samādhisambojjhaṅgaṃ</i>)... the enlightenment factor of equanimity (<i>upekkhāsambojjhaṅgaṃ</i>), which is based upon seclusion, dispassion, and cessation, maturing in release.<br><br>Thus, bhikkhus, the seven factors of enlightenment, developed and cultivated, fulfill true knowledge and deliverance.<br><br>This the Blessed One said. Elated, those <i>bhikkhus</i> delighted in the Blessed One’s statement.<br><br>The <i>Ānāpānassatisuttaṃ</i>, the eighth, is finished.</div>
+        </div>
+        </div>
+
+        <div class="navigation">
+            <a href="suttas/dn8_upakkilesasuttaṃ.html" class="nav-btn">← Previous: Upakkilesasuttaṃ</a>
+            <a href="index.html" class="nav-btn home-btn">Home</a>
+            <a href="suttas/dn9_araṇavibhaṅgasuttaṃ.html" class="nav-btn">Next: Araṇavibhaṅgasuttaṃ →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentView = {
+            mula_pali: true,
+            mula_english: true,
+            commentary_pali: false,
+            commentary_english: false,
+            devanagari: true
+        };
+        function toggleView(type) {
+            currentView[type] = !currentView[type];
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                let btnText = btn.textContent.toLowerCase();
+                if ((type === 'mula_english' && btnText.includes('translation')) ||
+                    btnText.includes(type.replace('_', ' '))) {
+                    btn.classList.toggle('active', currentView[type]);
+                }
+            });
+            updateDisplay();
+        }
+
+        function toggleCommentary() {
+            currentView.show_commentary = !currentView.show_commentary;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.show_commentary);
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            localStorage.setItem('showCommentary', currentView.show_commentary);
+        }
+
+        function toggleScript() {
+            currentView.devanagari = !currentView.devanagari;
+            const btn = event.target;
+            btn.classList.toggle('active', currentView.devanagari);
+            document.body.classList.toggle('devanagari-script', currentView.devanagari);
+            updateDisplay();
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+                function convertToDevanagari(text) {
+            if (!text) return text;
+            
+            text = text.toLowerCase();
+            
+            const consonants = {
+                'k': 'क', 'kh': 'ख', 'g': 'ग', 'gh': 'घ', 'ṅ': 'ङ',
+                'c': 'च', 'ch': 'छ', 'j': 'ज', 'jh': 'झ', 'ñ': 'ञ',
+                'ṭ': 'ट', 'ṭh': 'ठ', 'ḍ': 'ड', 'ḍh': 'ढ', 'ṇ': 'ण',
+                't': 'त', 'th': 'थ', 'd': 'द', 'dh': 'ध', 'n': 'न',
+                'p': 'प', 'ph': 'फ', 'b': 'ब', 'bh': 'भ', 'm': 'म',
+                'y': 'य', 'r': 'र', 'l': 'ल', 'v': 'व', 
+                'ś': 'श', 'ṣ': 'ष', 's': 'स', 'h': 'ह'
+            };
+            
+            const vowelSigns = {
+                'a': '', 'ā': 'ा', 'i': 'ि', 'ī': 'ी', 'u': 'ु', 'ū': 'ू',
+                'e': 'े', 'o': 'ो'
+            };
+            
+            const independentVowels = {
+                'a': 'अ', 'ā': 'आ', 'i': 'इ', 'ī': 'ई', 'u': 'उ', 'ū': 'ऊ',
+                'e': 'ए', 'o': 'ओ'
+            };
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                const char = text[i];
+                
+                // Handle special characters
+                if (char === 'ṃ' || char === 'ṁ') {
+                    result += 'ं';
+                    i++;
+                    continue;
+                }
+                if (char === 'ḥ') {
+                    result += 'ः';
+                    i++;
+                    continue;
+                }
+                if (' ,.?!–-""\'\'‘’"".'.includes(char)) {
+                    result += char;
+                    i++;
+                    continue;
+                }
+                
+                // Check for consonants
+                let consonantFound = null;
+                let consonantLength = 0;
+                
+                // Try 2-character consonants first
+                if (i + 1 < text.length) {
+                    const twoChar = char + text[i + 1];
+                    if (consonants[twoChar]) {
+                        consonantFound = consonants[twoChar];
+                        consonantLength = 2;
+                    }
+                }
+                
+                // Try single character consonants
+                if (!consonantFound && consonants[char]) {
+                    consonantFound = consonants[char];
+                    consonantLength = 1;
+                }
+                
+                if (consonantFound) {
+                    const nextIndex = i + consonantLength;
+                    
+                    // Check what comes after the consonant
+                    if (nextIndex < text.length) {
+                        const nextChar = text[nextIndex];
+                        
+                        // If followed by a vowel sign, use it
+                        if (vowelSigns[nextChar] !== undefined) {
+                            result += consonantFound + vowelSigns[nextChar];
+                            i += consonantLength + 1;
+                        } 
+                        // If followed by another consonant or punctuation, no inherent 'a'
+                        else if (consonants[nextChar] || ' ,.?!–-'.includes(nextChar)) {
+                            result += consonantFound + '्'; // Add virama for doubled consonants
+                            i += consonantLength;
+                        }
+                        // Otherwise, assume inherent 'a'
+                        else {
+                            result += consonantFound;
+                            i += consonantLength;
+                        }
+                    } else {
+                        // End of text - no inherent 'a'
+                        result += consonantFound;
+                        i += consonantLength;
+                    }
+                    continue;
+                }
+                
+                // Check for independent vowels
+                if (independentVowels[char]) {
+                    result += independentVowels[char];
+                    i++;
+                    continue;
+                }
+                
+                // Keep anything else as-is
+                result += char;
+                i++;
+            }
+            
+            return result;
+        }
+
+
+        function convertToDevanagariPreservingHTML(text) {
+            // Split text into HTML tags and content
+            const parts = text.split(/(<[^>]*>)/);
+            
+            let result = '';
+            for (let part of parts) {
+                if (part.startsWith('<') && part.endsWith('>')) {
+                    // This is an HTML tag, keep it as-is
+                    result += part;
+                } else {
+                    // This is text content, convert to Devanagari
+                    result += convertToDevanagari(part);
+                }
+            }
+            
+            return result;
+        }
+        function updateDisplay() {
+            // Handle view toggles
+            document.querySelectorAll('.mula-pali-section').forEach(section => {
+                section.style.display = currentView.mula_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.mula-english-section').forEach(section => {
+                section.style.display = currentView.mula_english ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-pali-section').forEach(section => {
+                section.style.display = currentView.commentary_pali ? 'block' : 'none';
+            });
+            document.querySelectorAll('.commentary-english-section').forEach(section => {
+                section.style.display = currentView.commentary_english ? 'block' : 'none';
+            });
+
+            // Handle Devanagari conversion
+                        // Handle Devanagari conversion
+            document.querySelectorAll('.pali-text').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+            document.querySelectorAll('.commentary-pali').forEach(element => {
+                const originalText = element.getAttribute('data-pali');
+                if (currentView.devanagari) {
+                    element.innerHTML = convertToDevanagariPreservingHTML(originalText);
+                } else {
+                    element.innerHTML = originalText;
+                }
+            });
+        }
+        
+        
+
+        // Load saved settings
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+        
+         // Set initial script state
+        document.body.classList.toggle('devanagari-script', currentView.devanagari);
+
+        // Initial display update
+        updateDisplay();
+        
+        const savedCommentary = localStorage.getItem('showCommentary');
+        if (savedCommentary !== null) {
+            currentView.show_commentary = savedCommentary === 'true';
+            document.body.classList.toggle('show-commentary', currentView.show_commentary);
+            // Find and update the commentary button state
+            const buttons = document.querySelectorAll('.btn.toggle');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Commentary')) {
+                    btn.classList.toggle('active', currentView.show_commentary);
+                }
+            });
+        }
+
+        // Initial display update
+        updateDisplay();
+        
+                // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key === 'ArrowRight') {
+                    // Next paragraph
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex < paragraphs.length - 1) {
+                        paragraphs[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                } else if (event.key === 'ArrowLeft') {
+                    // Previous paragraph  
+                    const paragraphs = document.querySelectorAll('.paragraph');
+                    const current = document.elementFromPoint(window.innerWidth/2, window.innerHeight/2);
+                    let currentIndex = Array.from(paragraphs).findIndex(p => p.contains(current));
+                    if (currentIndex > 0) {
+                        paragraphs[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    event.preventDefault();
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>
