@@ -1,16 +1,17 @@
-name: Deploy to GitHub Pages
+name: Deploy HTML to GitHub Pages
+
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ main ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Deploy HTML folder
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/checkout@v4
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./html  # This is the key - point to your html folder
+          publish_dir: ./
